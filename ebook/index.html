@@ -1,0 +1,1718 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Los Cinco Elementos</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Ebook ilustrado sobre los cinco elementos de China y Japón: test de personalidad, astrología japonesa de las nueve estrellas y el kanreki.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+:root {
+  /* Layout: un rollo que se lee hacia abajo. Cada página es una hoja (imagen + texto);
+     en pantallas anchas se abre como un libro, imagen a la izquierda y texto a la derecha. */
+  --paper: #EEECE5;
+  --paper-2: #E3E0D6;
+  --ink: #1E1D1A;
+  --ink-2: #57534B;
+  --rule: #CCC7BA;
+  --seal: #A8322A;
+  --on-seal: #FBF7EF;
+  --madera: #3E6B48;
+  --fuego: #B23A22;
+  --tierra: #85600F;
+  --metal: #5E646A;
+  --agua: #1E3A5C;
+  --on-el: #F5F2EA;
+  --stone: #D3CDBE;
+  --bar-bg: rgba(238, 236, 229, .93);
+  --shadow: rgba(30, 29, 26, .22);
+  --scrim: rgba(14, 12, 10, .66);
+  --on-scrim: #F3EFE6;
+
+  --font-display: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP", Georgia, serif;
+  --font-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", "Segoe UI", system-ui, sans-serif;
+
+  --bar: 52px;
+  --top: calc(var(--bar) + env(safe-area-inset-top, 0px));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #161513; --paper-2: #221F1B; --ink: #ECE8DE; --ink-2: #ABA597; --rule: #3B3832;
+    --seal: #C9473A; --on-seal: #FBF7EF;
+    --madera: #86B892; --fuego: #F07A55; --tierra: #DDB04A; --metal: #B9C0C6; --agua: #86A9D2; --on-el: #161513;
+    --stone: #4A463E; --bar-bg: rgba(22, 21, 19, .92); --shadow: rgba(0, 0, 0, .5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #161513; --paper-2: #221F1B; --ink: #ECE8DE; --ink-2: #ABA597; --rule: #3B3832;
+  --seal: #C9473A; --on-seal: #FBF7EF;
+  --madera: #86B892; --fuego: #F07A55; --tierra: #DDB04A; --metal: #B9C0C6; --agua: #86A9D2; --on-el: #161513;
+  --stone: #4A463E; --bar-bg: rgba(22, 21, 19, .92); --shadow: rgba(0, 0, 0, .5);
+  color-scheme: dark;
+}
+
+.el-madera { --el: var(--madera); }
+.el-fuego { --el: var(--fuego); }
+.el-tierra { --el: var(--tierra); }
+.el-metal { --el: var(--metal); }
+.el-agua { --el: var(--agua); }
+
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  scroll-snap-type: y proximity;
+  scroll-padding-top: var(--top);
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: clamp(1.125rem, 1.04rem + .35vw, 1.3rem);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--seal); outline-offset: 3px; }
+[hidden] { display: none !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Barra superior */
+.bar {
+  position: fixed; inset: 0 0 auto; z-index: 20;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: var(--bar-bg);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.bar-in { height: var(--bar); display: flex; align-items: center; gap: 14px; }
+.bar-cap {
+  flex: 1; min-width: 0; margin: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.bar-num { font-size: .85rem; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bar-btn {
+  min-height: 38px; padding: 0 14px; border-radius: 999px;
+  border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
+  font: 700 .85rem var(--font-body); cursor: pointer;
+}
+.bar-prog {
+  position: absolute; left: 0; right: 0; bottom: -1px; height: 3px;
+  background: var(--seal); transform-origin: left center; transform: scaleX(0);
+  transition: transform .35s ease;
+}
+
+/* Páginas */
+main { padding-top: var(--top); }
+.pg {
+  position: relative;
+  min-height: calc(100svh - var(--top));
+  scroll-snap-align: start;
+  display: flex; flex-direction: column;
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+  overflow: clip;
+}
+.pg-fig {
+  margin: 0; position: relative; flex: none;
+  height: clamp(230px, 40svh, 460px);
+  overflow: hidden; background: var(--paper-2);
+}
+.pg-fig img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: var(--pos, 50% 50%);
+}
+.pg-fig figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 36px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px));
+  background: linear-gradient(to top, var(--scrim), transparent);
+  color: var(--on-scrim); font-size: .8rem; line-height: 1.35;
+}
+.pg-body {
+  position: relative; z-index: 1;
+  flex: 1; width: 100%; max-width: 41rem; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 116px;
+  display: flex; flex-direction: column; justify-content: center; gap: 18px;
+}
+.pg-body > * { margin: 0; }
+@media (min-width: 960px) {
+  .pg--fig { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .pg--fig .pg-fig { height: auto; min-height: 100%; }
+  .pg--fig .pg-fig img { position: absolute; inset: 0; }
+  .pg--fig .pg-body {
+    max-width: 44rem; margin: 0;
+    padding-left: clamp(32px, 5vw, 84px); padding-right: max(clamp(32px, 5vw, 84px), env(safe-area-inset-right, 0px));
+    padding-block: 48px 120px;
+  }
+}
+
+/* Tipografía */
+.kicker {
+  font-size: .8rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--el, var(--seal));
+}
+.pg-title {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(2rem, 1.45rem + 2.5vw, 3.3rem);
+  line-height: 1.12; letter-spacing: -.01em; text-wrap: balance;
+}
+.pg--part .pg-title { font-size: clamp(2.8rem, 1.8rem + 5vw, 5.2rem); }
+.glyph { color: var(--el, var(--seal)); margin-right: .12em; }
+.lead {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.14em; line-height: 1.5; text-wrap: pretty;
+}
+.prose { display: flex; flex-direction: column; gap: .85em; }
+.prose p { margin: 0; text-wrap: pretty; }
+h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line-height: 1.3; margin: 0 0 8px; }
+.note { font-size: .9rem; color: var(--ink-2); line-height: 1.5; }
+.ticks { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.ticks li { position: relative; padding-left: 22px; }
+.ticks li::before {
+  content: ""; position: absolute; left: 2px; top: .62em;
+  width: 8px; height: 8px; background: var(--el, var(--seal)); transform: rotate(45deg);
+}
+.split { display: grid; gap: 18px; }
+@media (min-width: 560px) { .split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.quote {
+  margin: 0; padding-top: 16px; border-top: 1px solid var(--rule);
+  font-family: var(--font-display); font-weight: 600; font-size: 1.12em; line-height: 1.5;
+}
+.quote cite { display: block; margin-top: 6px; font-family: var(--font-body); font-style: normal; font-size: .85rem; color: var(--ink-2); }
+.facts {
+  display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr);
+  gap: 10px 16px; margin: 0; padding-top: 14px; border-top: 1px solid var(--rule);
+}
+.facts dt { color: var(--ink-2); font-size: .9rem; padding-top: .15em; }
+.facts dd { margin: 0; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 1px 11px; border-radius: 999px; white-space: nowrap;
+  background: var(--el); color: var(--on-el); font-weight: 700; font-size: .9rem;
+}
+.rels { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.rels li { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.seal {
+  display: inline-grid; place-items: center; flex: none;
+  width: 2.2em; height: 2.2em; border-radius: 3px;
+  background: var(--el, var(--seal)); color: var(--on-el);
+  font-family: var(--font-display); font-weight: 800; line-height: 1;
+}
+.wm {
+  position: absolute; z-index: 0; right: max(8px, env(safe-area-inset-right, 0px)); top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-family: var(--font-display); font-weight: 800; line-height: 1;
+  font-size: min(58vw, 30rem); color: var(--el, var(--ink));
+  opacity: .07; pointer-events: none; user-select: none;
+}
+
+/* Botones */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 24px; border-radius: 999px;
+  border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper);
+  font: 700 1.02rem var(--font-body); cursor: pointer; text-decoration: none;
+}
+.btn--ghost { background: transparent; color: var(--ink); }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.next {
+  position: fixed; z-index: 20;
+  right: max(16px, env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 54px; padding: 0 24px; border-radius: 999px; border: 0;
+  background: var(--ink); color: var(--paper);
+  font: 700 1.02rem var(--font-body); cursor: pointer;
+  box-shadow: 0 8px 24px var(--shadow);
+}
+.next svg { width: 18px; height: 18px; transition: transform .25s ease; }
+.next.is-up svg { transform: rotate(180deg); }
+
+/* Portada */
+.pg--cover .pg-body { max-width: 52rem; gap: 22px; }
+.cover-text { display: contents; }
+.cover-text > * { margin: 0; }
+.cover-text .kicker { order: 1; }
+.cover-title { order: 2; }
+.cover-sub { order: 3; }
+.scrolls { order: 4; }
+.cover-note { order: 5; }
+.cover-text .btns { order: 6; }
+@media (min-width: 960px) {
+  .pg--cover .pg-body { max-width: 78rem; flex-direction: row; align-items: center; gap: clamp(40px, 5vw, 88px); }
+  .cover-text { display: flex; flex-direction: column; gap: 22px; flex: 1.15; min-width: 0; }
+  .pg--cover .scrolls { flex: 1; min-width: 0; padding-top: 6px; }
+  .pg--cover .scroll { height: min(64svh, 560px); }
+}
+.cover-title {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(3rem, 1.8rem + 7vw, 6.6rem); line-height: .98; letter-spacing: -.02em;
+  display: flex; flex-wrap: wrap; align-items: center; gap: .14em .2em;
+}
+.seal-5 {
+  display: inline-grid; place-items: center; width: 1.08em; height: 1.08em;
+  background: var(--seal); color: var(--on-seal); border-radius: .06em;
+  font-size: .9em; transform: rotate(-3deg);
+}
+.cover-sub { text-wrap: balance; font-family: var(--font-display); font-weight: 600; font-size: clamp(1.3rem, 1.1rem + 1.2vw, 2rem); line-height: 1.3; }
+.scrolls { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(8px, 2vw, 18px); padding-top: 8px; }
+.scroll { margin: 0; position: relative; height: clamp(160px, 30svh, 340px); }
+.scroll::before {
+  content: ""; position: absolute; z-index: 1; top: -6px; left: -4px; right: -4px; height: 6px;
+  background: var(--ink); border-radius: 3px;
+}
+.scroll img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0 0 2px 2px; }
+.scroll .seal {
+  position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%);
+  font-size: clamp(.95rem, 2.8vw, 1.35rem); box-shadow: 0 2px 8px var(--shadow);
+}
+.cover-note { color: var(--ink-2); max-width: 34rem; }
+
+/* Índice */
+.toc { display: grid; gap: 26px; }
+@media (min-width: 760px) { .toc { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; } }
+.toc h3 { font-size: 1rem; letter-spacing: .14em; text-transform: uppercase; font-family: var(--font-body); color: var(--seal); }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc a {
+  display: flex; align-items: baseline; gap: 12px;
+  padding: 9px 0; border-bottom: 1px solid var(--rule);
+  text-decoration: none; line-height: 1.35;
+}
+.toc a:hover .t { text-decoration: underline; text-underline-offset: 3px; }
+.toc .n { flex: none; width: 2.2ch; text-align: right; color: var(--ink-2); font-size: .88rem; font-variant-numeric: tabular-nums; }
+
+/* Diagramas */
+.diagram { width: 100%; max-width: 400px; height: auto; display: block; margin-inline: auto; }
+.diagram text { font-family: var(--font-body); }
+.diagram .k { font-family: var(--font-display); font-weight: 800; font-size: 30px; fill: var(--on-el); }
+.diagram .lb { font-size: 19px; font-weight: 700; fill: var(--ink); }
+.diagram .flow { fill: none; stroke: var(--ink-2); stroke-width: 2.5; }
+.diagram .ctrl { stroke: var(--seal); stroke-width: 2.5; }
+.diagram .ghost { fill: none; stroke: var(--rule); stroke-width: 1.5; stroke-dasharray: 3 5; }
+.legend { display: flex; flex-direction: column; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.legend li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: baseline; }
+.legend .chip { min-width: 6.6rem; justify-content: center; }
+.media-row { display: grid; gap: 20px; align-items: center; }
+@media (min-width: 900px) { .media-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+
+/* Mapa de correspondencias */
+.map { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.map li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.map .seal { font-size: 1.15rem; }
+.map b { font-family: var(--font-display); font-size: 1.1rem; }
+.map p { margin: 2px 0 0; font-size: .95rem; line-height: 1.5; color: var(--ink-2); }
+
+/* Test */
+.quiz { display: flex; flex-direction: column; gap: 14px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.quiz-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: .9rem; color: var(--ink-2); }
+.meter { height: 5px; background: var(--paper-2); border-radius: 3px; overflow: hidden; }
+.meter i { display: block; height: 100%; width: 0; background: var(--seal); transition: width .25s ease; }
+.quiz-q { font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; line-height: 1.3; margin: 0; }
+.opts { display: grid; gap: 8px; }
+.opt {
+  width: 100%; min-height: 56px; padding: 12px 16px; text-align: left;
+  border: 1.5px solid var(--rule); border-radius: 12px; background: var(--paper); color: var(--ink);
+  font: 500 1rem/1.4 var(--font-body); cursor: pointer;
+}
+.opt:hover { border-color: var(--ink); }
+.opt[aria-pressed="true"] { border-color: var(--seal); background: var(--paper-2); }
+.linkbtn { align-self: flex-start; background: none; border: 0; padding: 8px 0; color: var(--ink-2); font: 700 .95rem var(--font-body); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.linkbtn:disabled { opacity: .35; cursor: default; text-decoration: none; }
+.result { display: flex; flex-direction: column; gap: 14px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.res-head { display: flex; align-items: center; gap: 16px; }
+.res-head .seal { font-size: 2rem; }
+.res-head h3 { font-size: 1.7rem; margin: 0; }
+.res-head p { margin: 2px 0 0; color: var(--ink-2); }
+.bars { display: grid; gap: 7px; }
+.bars div { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr) 1.2rem; align-items: center; gap: 10px; font-size: .9rem; }
+.bars span:last-child { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.track { height: 10px; background: var(--paper-2); border-radius: 5px; overflow: hidden; }
+.track i { display: block; height: 100%; background: var(--el); border-radius: 5px; }
+
+/* Vínculos */
+.pick { border: 0; margin: 0; padding: 0; min-width: 0; }
+.pick legend { padding: 0; margin-bottom: 8px; font-weight: 700; }
+.pick-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.pick input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.pick label {
+  display: inline-flex; align-items: center; gap: 7px;
+  min-height: 46px; padding: 0 15px; border-radius: 999px;
+  border: 1.5px solid var(--rule); cursor: pointer; font-weight: 500;
+}
+.pick label b { font-family: var(--font-display); color: var(--el); }
+.pick input:checked + label { background: var(--el); border-color: var(--el); color: var(--on-el); }
+.pick input:checked + label b { color: var(--on-el); }
+.pick input:focus-visible + label { outline: 3px solid var(--seal); outline-offset: 2px; }
+.rel-out { padding-top: 16px; border-top: 1px solid var(--rule); display: flex; flex-direction: column; gap: 8px; }
+.rel-out h3 { font-size: 1.35rem; margin: 0; }
+.rel-out p { margin: 0; }
+
+/* Japón */
+.week { display: grid; grid-template-columns: repeat(auto-fit, minmax(4.4rem, 1fr)); gap: 6px; }
+.day { padding: 10px 4px 8px; background: var(--paper-2); border-radius: 4px; text-align: center; line-height: 1.25; }
+.day b { display: block; font-family: var(--font-display); font-size: 1.9rem; line-height: 1.15; color: var(--el, var(--ink)); }
+.day span { display: block; font-size: .8rem; font-weight: 700; }
+.day small { display: block; font-size: .8rem; color: var(--ink-2); }
+.tablewrap { overflow-x: auto; border-top: 1px solid var(--rule); }
+.cmp { width: 100%; min-width: 20rem; border-collapse: collapse; font-size: .92rem; line-height: 1.45; }
+.cmp th, .cmp td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--rule); }
+.cmp thead th { font-family: var(--font-display); font-size: 1.05rem; }
+.cmp tbody th { color: var(--ink-2); font-weight: 500; width: 5.8rem; }
+.gorinto .stone { fill: var(--stone); stroke: var(--ink); stroke-width: 2; }
+.gorinto .k { font-family: var(--font-display); font-weight: 800; font-size: 28px; fill: var(--ink); }
+.gorinto .lb { font-size: 18px; font-weight: 700; fill: var(--ink); }
+.gorinto .sm { font-size: 15px; fill: var(--ink-2); }
+.gorinto .tick { stroke: var(--ink-2); stroke-width: 1.2; stroke-dasharray: 2 4; }
+.lesson { padding-top: 14px; border-top: 1px solid var(--rule); }
+.lesson b { display: block; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--el, var(--seal)); margin-bottom: 4px; }
+
+/* Nueve estrellas */
+.loshu { display: grid; grid-template-columns: repeat(3, 3.4rem); gap: 5px; }
+.loshu span {
+  display: grid; place-items: center; height: 3.4rem; border-radius: 3px;
+  background: var(--el); color: var(--on-el);
+  font-family: var(--font-display); font-weight: 800; font-size: 1.5rem;
+}
+.loshu-row { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+.loshu-row p { flex: 1; min-width: 12rem; margin: 0; font-size: .95rem; color: var(--ink-2); }
+.calc { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 18px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-weight: 700; font-size: .95rem; }
+#anio {
+  width: 7.2ch; padding: 8px 12px; border-radius: 10px;
+  border: 1.5px solid var(--ink-2); background: var(--paper); color: var(--ink);
+  font: 700 1.7rem var(--font-body); font-variant-numeric: tabular-nums;
+}
+.check { display: flex; align-items: center; gap: 10px; min-height: 48px; cursor: pointer; font-size: .98rem; line-height: 1.35; max-width: 20rem; }
+.check input { width: 24px; height: 24px; flex: none; accent-color: var(--seal); }
+.calc-msg { width: 100%; margin: 0; font-size: .9rem; color: var(--seal); font-weight: 700; }
+.calc-out { display: flex; flex-direction: column; gap: 12px; }
+.calc-out .tag { font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+.star-head { display: flex; align-items: center; gap: 16px; }
+.star-num {
+  display: grid; place-items: center; flex: none; width: 4.4rem; height: 4.4rem; border-radius: 4px;
+  background: var(--el); color: var(--on-el);
+  font-family: var(--font-display); font-weight: 800; font-size: 2.6rem; line-height: 1;
+}
+.star-head h3 { font-size: 1.45rem; margin: 0; }
+.star-head p { margin: 2px 0 0; color: var(--ink-2); font-size: .95rem; }
+.stars { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.stars li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.stars .star-num { width: 3rem; height: 3rem; font-size: 1.6rem; }
+.stars b { font-family: var(--font-display); font-size: 1.1rem; }
+.stars small { color: var(--ink-2); font-size: .85rem; }
+.stars p { margin: 2px 0 0; font-size: .97rem; line-height: 1.5; }
+.ages { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.ages li { display: grid; grid-template-columns: 2.8rem 3.3rem minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.ages .age { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+.ages .kj { font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; white-space: nowrap; }
+.ages p { margin: 0; font-size: .97rem; line-height: 1.5; }
+.ages em { font-style: normal; font-weight: 700; }
+.fact {
+  padding: 16px 18px; background: var(--paper-2); border-radius: 6px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.fact b { font-family: var(--font-display); font-size: 1.1rem; }
+.fact p { margin: 0; font-size: .97rem; line-height: 1.55; }
+
+/* Ficha y créditos */
+.card { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.card > div { display: grid; grid-template-columns: minmax(0, 8rem) minmax(0, 1fr); gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--rule); align-items: center; }
+.card dt { color: var(--ink-2); font-size: .9rem; }
+.card dd { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.card .big { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; }
+.card .linkbtn { padding: 0; }
+.credits { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; font-size: .9rem; line-height: 1.45; color: var(--ink-2); }
+.credits i { color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  .bar-prog, .meter i, .next svg { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <p class="bar-cap" id="barCap" aria-live="polite">Portada</p>
+    <span class="bar-num" id="barNum">1 / 38</span>
+    <button class="bar-btn" type="button" data-go="indice">Índice</button>
+  </div>
+  <div class="bar-prog" id="barProg"></div>
+</header>
+
+<main id="libro">
+
+<!-- PORTADA -->
+<section class="pg pg--cover" id="portada" data-cap="Portada">
+  <div class="pg-body">
+    <div class="cover-text">
+    <p class="kicker">Un ebook sobre China y Japón</p>
+    <h1 class="cover-title"><span>Los</span><span class="seal-5" aria-hidden="true">五</span><span class="sr">5</span><span>Elementos</span></h1>
+    <p class="cover-sub">Lo que China y Japón saben de vos</p>
+    <p class="cover-note">Madera, fuego, tierra, metal y agua: una idea de más de dos mil años para entender tu carácter, tus estaciones y tu manera de llevarte con los demás.</p>
+    <div class="btns"><button class="btn" type="button" data-go="indice">Empezar a leer ↓</button></div>
+    </div>
+    <div class="scrolls" aria-label="Los cinco elementos">
+      <figure class="scroll el-madera"><img src="img/madera-bambu.jpg" alt="Bambú" width="1014" height="1520" style="object-position:50% 30%"><span class="seal">木</span></figure>
+      <figure class="scroll el-fuego"><img src="img/fuego-llamas.jpg" alt="Llamas" width="1116" height="1780" style="object-position:70% 50%"><span class="seal">火</span></figure>
+      <figure class="scroll el-tierra"><img src="img/tierra-arroz.jpg" alt="Campesinos en un arrozal" width="1400" height="999" style="object-position:42% 50%"><span class="seal">土</span></figure>
+      <figure class="scroll el-metal"><img src="img/metal-ding.jpg" alt="Caldero de bronce" width="1300" height="1559" style="object-position:50% 50%"><span class="seal">金</span></figure>
+      <figure class="scroll el-agua"><img src="img/godai-agua.jpg" alt="Ola" width="1400" height="922" style="object-position:30% 50%"><span class="seal">水</span></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ÍNDICE -->
+<section class="pg pg--text" id="indice" data-cap="Índice">
+  <div class="pg-body">
+    <p class="kicker">Índice</p>
+    <h2 class="pg-title">Qué vas a encontrar</h2>
+    <nav class="toc" aria-label="Índice">
+      <div>
+        <h3>Parte 1 · China</h3>
+        <ol>
+          <li><a href="#intro"><span class="n" data-page-of="intro"></span><span class="t">Antes de empezar</span></a></li>
+          <li><a href="#que-son"><span class="n" data-page-of="que-son"></span><span class="t">No son cosas, son movimientos</span></a></li>
+          <li><a href="#ciclo-crea"><span class="n" data-page-of="ciclo-crea"></span><span class="t">El ciclo que crea</span></a></li>
+          <li><a href="#ciclo-controla"><span class="n" data-page-of="ciclo-controla"></span><span class="t">El ciclo que controla</span></a></li>
+          <li><a href="#mapa"><span class="n" data-page-of="mapa"></span><span class="t">El mapa de los cinco</span></a></li>
+          <li><a href="#test"><span class="n" data-page-of="test"></span><span class="t">Test: ¿qué elemento sos?</span></a></li>
+          <li><a href="#madera"><span class="n" data-page-of="madera"></span><span class="t">Madera</span></a></li>
+          <li><a href="#fuego"><span class="n" data-page-of="fuego"></span><span class="t">Fuego</span></a></li>
+          <li><a href="#tierra"><span class="n" data-page-of="tierra"></span><span class="t">Tierra</span></a></li>
+          <li><a href="#metal"><span class="n" data-page-of="metal"></span><span class="t">Metal</span></a></li>
+          <li><a href="#agua"><span class="n" data-page-of="agua"></span><span class="t">Agua</span></a></li>
+          <li><a href="#vinculos"><span class="n" data-page-of="vinculos"></span><span class="t">Cómo te llevás con los demás</span></a></li>
+        </ol>
+      </div>
+      <div>
+        <h3>Parte 2 · Japón</h3>
+        <ol>
+          <li><a href="#llegada"><span class="n" data-page-of="llegada"></span><span class="t">Cómo llegaron a Japón</span></a></li>
+          <li><a href="#godai"><span class="n" data-page-of="godai"></span><span class="t">Los cinco elementos de Japón</span></a></li>
+          <li><a href="#gorinto"><span class="n" data-page-of="gorinto"></span><span class="t">La torre de los cinco anillos</span></a></li>
+          <li><a href="#musashi"><span class="n" data-page-of="musashi"></span><span class="t">El samurái de los cinco libros</span></a></li>
+          <li><a href="#estrellas"><span class="n" data-page-of="estrellas"></span><span class="t">Las Nueve Estrellas</span></a></li>
+          <li><a href="#calculadora"><span class="n" data-page-of="calculadora"></span><span class="t">Calculá tu estrella</span></a></li>
+          <li><a href="#nueve"><span class="n" data-page-of="nueve"></span><span class="t">Las nueve, una por una</span></a></li>
+          <li><a href="#kanreki"><span class="n" data-page-of="kanreki"></span><span class="t">Kanreki: a los 60 se vuelve a nacer</span></a></li>
+          <li><a href="#cumples"><span class="n" data-page-of="cumples"></span><span class="t">Los cumpleaños de la longevidad</span></a></li>
+          <li><a href="#ficha"><span class="n" data-page-of="ficha"></span><span class="t">Tu ficha</span></a></li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="pg pg--text" id="intro" data-cap="Antes de empezar">
+  <span class="wm" aria-hidden="true">五行</span>
+  <div class="pg-body">
+    <p class="kicker">Antes de empezar</p>
+    <h2 class="pg-title">A los cuarenta, las dudas cambian</h2>
+    <blockquote class="quote">“A los cuarenta ya no tenía dudas.”<cite>Confucio, Analectas 2.4</cite></blockquote>
+    <div class="prose">
+      <p>Confucio escribió esa frase hace dos mil quinientos años. Las dudas no desaparecen a los cuarenta, pero cambian: ya sabemos bastante de la vida y empezamos a preguntarnos por qué somos como somos.</p>
+      <p>Este libro reúne dos maneras orientales de responder esa pregunta. La primera son los cinco elementos de China. La segunda es la versión que nació en Japón, con samuráis, estrellas y una forma muy especial de festejar los sesenta años.</p>
+      <p>No hace falta creer en nada para disfrutarlo. Es historia, filosofía y un poco de juego.</p>
+    </div>
+    <ul class="ticks">
+      <li>Deslizá hacia arriba para pasar de página, o tocá <b>Seguir</b>.</li>
+      <li>El botón <b>Índice</b>, arriba, te lleva a cualquier capítulo.</li>
+      <li>Hay un test para descubrir tu elemento y una calculadora japonesa con tu año de nacimiento. Al final, todo queda en tu ficha.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PARTE 1 -->
+<section class="pg pg--fig pg--part" id="china" data-cap="Parte 1 · China">
+  <figure class="pg-fig" style="--pos:52% 70%">
+    <img src="img/china-cascada.jpg" alt="Pintura china: un sabio con su sirviente mira una cascada bajo un pino" width="1400" height="1321" loading="lazy" decoding="async">
+    <figcaption>Ma Yuan, <i>Sabio contemplando una cascada</i>. China, siglo XIII.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Parte 1</p>
+    <h2 class="pg-title">China</h2>
+    <p class="lead">Hace más de dos mil años, los sabios chinos miraban la naturaleza para entender a las personas.</p>
+    <div class="prose">
+      <p>Vieron que todo lo que existe pasa por las mismas etapas que el año: nace, crece, madura, se recoge y descansa. A esas etapas les pusieron nombre de cosas que cualquiera puede ver y tocar: madera, fuego, tierra, metal y agua.</p>
+      <p>Con esa idea simple explicaron el cuerpo, las emociones, la comida, la música y hasta el carácter de cada persona.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--fig" id="que-son" data-cap="China · Qué son">
+  <figure class="pg-fig">
+    <img src="img/paisaje-guo-xi.jpg" alt="Paisaje chino en tinta con montañas, árboles y agua" width="889" height="717" loading="lazy" decoding="async">
+    <figcaption>Tan Song, <i>Paisaje al estilo de Guo Xi</i>. China, 1748.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Capítulo 1</p>
+    <h2 class="pg-title">No son cosas, son movimientos</h2>
+    <div class="prose">
+      <p>En chino se dicen <b>wu xing</b> (五行). <i>Wu</i> es cinco. <i>Xing</i> quiere decir “andar” o “moverse”. Por eso los especialistas lo traducen como “las cinco fases”: no hablan de materiales, sino de momentos de un ciclo.</p>
+      <p>La <b>madera</b> es lo que nace y crece. El <b>fuego</b>, lo que llega a su punto más alto. La <b>tierra</b>, lo que madura y sostiene. El <b>metal</b>, lo que se recoge y se ordena. El <b>agua</b>, lo que descansa y se guarda para volver a empezar.</p>
+      <p>La teoría tomó forma alrededor del siglo IV antes de Cristo y se usó para casi todo: medicina, calendario, música, arquitectura y política. Cada dinastía china decía gobernar bajo un elemento, y el siguiente emperador elegía el que “vencía” al anterior.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--text" id="ciclo-crea" data-cap="China · El ciclo que crea">
+  <div class="pg-body">
+    <p class="kicker">Capítulo 2 · 相生</p>
+    <h2 class="pg-title">El ciclo que crea</h2>
+    <div class="media-row">
+      <svg class="diagram" viewBox="0 0 400 400" role="img" aria-labelledby="cicloCreaT">
+        <title id="cicloCreaT">Ciclo de creación: la madera alimenta al fuego, el fuego a la tierra, la tierra al metal, el metal al agua y el agua a la madera.</title>
+        <defs><marker id="arrowFlow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--ink-2)"/></marker></defs>
+        <g class="flow">
+          <path d="M242.1 90.5 A122 122 0 0 1 295.9 129.6" marker-end="url(#arrowFlow)"/>
+          <path d="M321.9 209.7 A122 122 0 0 1 301.4 272.9" marker-end="url(#arrowFlow)"/>
+          <path d="M233.2 322.4 A122 122 0 0 1 166.8 322.4" marker-end="url(#arrowFlow)"/>
+          <path d="M98.6 272.9 A122 122 0 0 1 78.1 209.7" marker-end="url(#arrowFlow)"/>
+          <path d="M104.1 129.6 A122 122 0 0 1 157.9 90.5" marker-end="url(#arrowFlow)"/>
+        </g>
+        <g>
+          <circle cx="200" cy="83" r="34" fill="var(--fuego)"/><text class="k" x="200" y="94" text-anchor="middle">火</text>
+          <circle cx="316" cy="167.3" r="34" fill="var(--tierra)"/><text class="k" x="316" y="178.3" text-anchor="middle">土</text>
+          <circle cx="271.7" cy="303.7" r="34" fill="var(--metal)"/><text class="k" x="271.7" y="314.7" text-anchor="middle">金</text>
+          <circle cx="128.3" cy="303.7" r="34" fill="var(--agua)"/><text class="k" x="128.3" y="314.7" text-anchor="middle">水</text>
+          <circle cx="84" cy="167.3" r="34" fill="var(--madera)"/><text class="k" x="84" y="178.3" text-anchor="middle">木</text>
+        </g>
+        <g class="lb" text-anchor="middle">
+          <text x="200" y="32">Fuego</text>
+          <text x="369.3" y="155">Tierra</text>
+          <text x="304.6" y="374">Metal</text>
+          <text x="95.4" y="374">Agua</text>
+          <text x="34" y="155">Madera</text>
+        </g>
+      </svg>
+      <ul class="legend">
+        <li><span class="chip el-madera">木 Madera</span><span>alimenta al fuego.</span></li>
+        <li><span class="chip el-fuego">火 Fuego</span><span>deja cenizas, que se vuelven tierra.</span></li>
+        <li><span class="chip el-tierra">土 Tierra</span><span>guarda en su interior los metales.</span></li>
+        <li><span class="chip el-metal">金 Metal</span><span>frío junta gotas de agua, como una copa helada.</span></li>
+        <li><span class="chip el-agua">水 Agua</span><span>hace crecer la madera.</span></li>
+      </ul>
+    </div>
+    <p>Los chinos lo llaman la relación de <b>madre e hijo</b>: cada elemento nutre al que le sigue, y el círculo nunca se corta.</p>
+  </div>
+</section>
+
+<section class="pg pg--text" id="ciclo-controla" data-cap="China · El ciclo que controla">
+  <div class="pg-body">
+    <p class="kicker">Capítulo 3 · 相克</p>
+    <h2 class="pg-title">El ciclo que controla</h2>
+    <div class="media-row">
+      <svg class="diagram" viewBox="0 0 400 400" role="img" aria-labelledby="cicloCtrlT">
+        <title id="cicloCtrlT">Ciclo de control: la madera frena a la tierra, la tierra al agua, el agua al fuego, el fuego al metal y el metal a la madera.</title>
+        <defs><marker id="arrowCtrl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--seal)"/></marker></defs>
+        <circle class="ghost" cx="200" cy="205" r="122"/>
+        <g class="ctrl">
+          <line x1="212.4" y1="121" x2="258.1" y2="261.9" marker-end="url(#arrowCtrl)"/>
+          <line x1="283.7" y1="190.8" x2="163.9" y2="277.8" marker-end="url(#arrowCtrl)"/>
+          <line x1="239.3" y1="280.2" x2="119.6" y2="193.2" marker-end="url(#arrowCtrl)"/>
+          <line x1="140.7" y1="265.7" x2="186.4" y2="124.8" marker-end="url(#arrowCtrl)"/>
+          <line x1="124" y1="167.3" x2="272" y2="167.3" marker-end="url(#arrowCtrl)"/>
+        </g>
+        <g>
+          <circle cx="200" cy="83" r="34" fill="var(--fuego)"/><text class="k" x="200" y="94" text-anchor="middle">火</text>
+          <circle cx="316" cy="167.3" r="34" fill="var(--tierra)"/><text class="k" x="316" y="178.3" text-anchor="middle">土</text>
+          <circle cx="271.7" cy="303.7" r="34" fill="var(--metal)"/><text class="k" x="271.7" y="314.7" text-anchor="middle">金</text>
+          <circle cx="128.3" cy="303.7" r="34" fill="var(--agua)"/><text class="k" x="128.3" y="314.7" text-anchor="middle">水</text>
+          <circle cx="84" cy="167.3" r="34" fill="var(--madera)"/><text class="k" x="84" y="178.3" text-anchor="middle">木</text>
+        </g>
+        <g class="lb" text-anchor="middle">
+          <text x="200" y="32">Fuego</text>
+          <text x="369.3" y="155">Tierra</text>
+          <text x="304.6" y="374">Metal</text>
+          <text x="95.4" y="374">Agua</text>
+          <text x="34" y="155">Madera</text>
+        </g>
+      </svg>
+      <ul class="legend">
+        <li><span class="chip el-madera">木 Madera</span><span>atraviesa la tierra con sus raíces.</span></li>
+        <li><span class="chip el-tierra">土 Tierra</span><span>contiene al agua, como un dique.</span></li>
+        <li><span class="chip el-agua">水 Agua</span><span>apaga el fuego.</span></li>
+        <li><span class="chip el-fuego">火 Fuego</span><span>derrite el metal.</span></li>
+        <li><span class="chip el-metal">金 Metal</span><span>corta la madera, como un hacha.</span></li>
+      </ul>
+    </div>
+    <p>Controlar no es algo malo. Sin freno, todo crecería sin límite. Un buen equilibrio necesita los dos ciclos, como una familia necesita cariño y también reglas.</p>
+  </div>
+</section>
+
+<section class="pg pg--text" id="mapa" data-cap="China · El mapa de los cinco">
+  <div class="pg-body">
+    <p class="kicker">Capítulo 4</p>
+    <h2 class="pg-title">El mapa de los cinco</h2>
+    <p>Cada elemento tiene su estación, su color, su sabor, su emoción y su momento del día. Las estaciones están puestas como caen en Argentina.</p>
+    <ul class="map">
+      <li class="el-madera"><span class="seal">木</span><div><b>Madera</b><p>Primavera (septiembre a noviembre) · verde · ácido · enojo · la mañana</p></div></li>
+      <li class="el-fuego"><span class="seal">火</span><div><b>Fuego</b><p>Verano (diciembre a febrero) · rojo · amargo · alegría · el mediodía</p></div></li>
+      <li class="el-tierra"><span class="seal">土</span><div><b>Tierra</b><p>Fin del verano y cambios de estación · amarillo · dulce · preocupación · la media tarde</p></div></li>
+      <li class="el-metal"><span class="seal">金</span><div><b>Metal</b><p>Otoño (marzo a mayo) · blanco · picante · tristeza · el atardecer</p></div></li>
+      <li class="el-agua"><span class="seal">水</span><div><b>Agua</b><p>Invierno (junio a agosto) · negro y azul oscuro · salado · miedo · la noche</p></div></li>
+    </ul>
+    <div class="fact">
+      <b>Un detalle del hemisferio sur</b>
+      <p>En China el fuego está al sur, porque es ahí donde se ve el sol. En Argentina el sol recorre el cielo por el norte. Por eso algunos estudiosos de estas tradiciones, en este lado del mundo, ponen el fuego al norte y el agua al sur.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--text" id="test" data-cap="China · Test">
+  <div class="pg-body">
+    <p class="kicker">Capítulo 5 · Test</p>
+    <h2 class="pg-title">¿Qué elemento sos?</h2>
+    <p>Ocho preguntas. Elegí la respuesta que más se parece a vos, sin pensarlo demasiado.</p>
+    <div class="quiz" id="quiz">
+      <div class="quiz-top"><span id="qStep">Pregunta 1 de 8</span></div>
+      <div class="meter" aria-hidden="true"><i id="qMeter"></i></div>
+      <p class="quiz-q" id="qText">Un domingo libre ideal:</p>
+      <div class="opts" id="qOpts">
+        <button class="opt" type="button">Arrancar algo nuevo: un proyecto, un arreglo, una salida.</button>
+        <button class="opt" type="button">Un asado largo, con mucha gente y música.</button>
+        <button class="opt" type="button">Cocinar para la familia y tener a todos en la mesa.</button>
+        <button class="opt" type="button">Ordenar la casa y después leer un buen libro.</button>
+        <button class="opt" type="button">Silencio, una caminata sin apuro y tiempo para pensar.</button>
+      </div>
+      <button class="linkbtn" type="button" id="qBack" disabled>← Pregunta anterior</button>
+    </div>
+    <div class="result" id="qResult" hidden>
+      <div class="res-head" id="rHead">
+        <span class="seal" id="rSeal">木</span>
+        <div><h3 id="rName">Sos Madera</h3><p id="rLine"></p></div>
+      </div>
+      <div class="bars" id="rBars"></div>
+      <div class="btns">
+        <button class="btn" type="button" id="rGo">Leer mi capítulo</button>
+        <button class="btn btn--ghost" type="button" id="rAgain">Hacer el test de nuevo</button>
+      </div>
+    </div>
+    <p class="note">Es un juego basado en la tradición china, no un diagnóstico. Lo normal es tener de todos los elementos, con uno o dos más fuertes.</p>
+  </div>
+</section>
+
+<!-- MADERA -->
+<section class="pg pg--fig el-madera" id="madera" data-cap="China · Madera">
+  <figure class="pg-fig" style="--pos:50% 30%">
+    <img src="img/madera-bambu.jpg" alt="Pintura china de cañas de bambú con hojas finas" width="1014" height="1520" loading="lazy" decoding="async">
+    <figcaption>Li Kan, <i>Bambú y rocas</i> (detalle). China, 1318.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Elemento 1 · Primavera</p>
+    <h2 class="pg-title"><span class="glyph">木</span>Madera</h2>
+    <p class="lead">La fuerza de lo que nace y empuja hacia arriba, como un brote que rompe la tierra.</p>
+    <div class="prose">
+      <p>La persona Madera tiene visión. Ve lo que todavía no existe y se pone a construirlo. Le gustan los comienzos, los proyectos y los desafíos, y no soporta quedarse quieta. Defiende lo que le parece justo y suele ser la primera en proponer un cambio.</p>
+      <p>Como un árbol, necesita espacio para crecer. Si la encierran o la frenan sin motivo, se impacienta.</p>
+    </div>
+    <div class="split">
+      <div><h3>En equilibrio</h3><ul class="ticks"><li>Decidida y generosa.</li><li>Planifica y cumple.</li><li>Flexible, como el bambú que se dobla y no se quiebra.</li></ul></div>
+      <div><h3>Cuando se pasa</h3><ul class="ticks"><li>Impaciente, se enoja fácil.</li><li>Quiere controlar todo.</li><li>Se pone rígida.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--text el-madera" id="madera-2" data-cap="China · Madera">
+  <span class="wm" aria-hidden="true">木</span>
+  <div class="pg-body">
+    <p class="kicker">Madera · Su ficha</p>
+    <h2 class="pg-title">Dónde se ve la Madera</h2>
+    <dl class="facts">
+      <dt>Estación</dt><dd>Primavera. En Argentina, de septiembre a noviembre.</dd>
+      <dt>Color</dt><dd>Verde.</dd>
+      <dt>Sabor</dt><dd>Ácido: limón, vinagre, pomelo.</dd>
+      <dt>Emoción</dt><dd>El enojo, y su lado bueno: la determinación.</dd>
+      <dt>Momento del día</dt><dd>La mañana.</dd>
+      <dt>Medicina china</dt><dd>La asocia con el hígado y la vesícula.</dd>
+    </dl>
+    <div>
+      <h3>Con los otros elementos</h3>
+      <ul class="rels">
+        <li><span class="chip el-agua">水 Agua</span>la nutre.</li>
+        <li><span class="chip el-fuego">火 Fuego</span>es nutrido por ella.</li>
+        <li><span class="chip el-metal">金 Metal</span>la frena.</li>
+        <li><span class="chip el-tierra">土 Tierra</span>es frenada por ella.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Lo que aconseja la tradición</h3>
+      <ul class="ticks"><li>Empezar proyectos en primavera, su estación.</li><li>Caminar entre árboles y tener plantas en casa.</li><li>Descargar el enojo moviéndose: una caminata, la bici, el jardín.</li></ul>
+    </div>
+    <blockquote class="quote">“Lo duro y lo rígido acompañan a la muerte. Lo blando y lo flexible acompañan a la vida.”<cite>Tao Te Ching, capítulo 76</cite></blockquote>
+  </div>
+</section>
+
+<!-- FUEGO -->
+<section class="pg pg--fig el-fuego" id="fuego" data-cap="China · Fuego">
+  <figure class="pg-fig" style="--pos:60% 45%">
+    <img src="img/fuego-llamas.jpg" alt="Grabado japonés: un bombero de espaldas frente a grandes llamas anaranjadas" width="1116" height="1780" loading="lazy" decoding="async">
+    <figcaption>Tsukioka Yoshitoshi, <i>La luna entre las llamas</i>. Japón, 1886.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Elemento 2 · Verano</p>
+    <h2 class="pg-title"><span class="glyph">火</span>Fuego</h2>
+    <p class="lead">La energía en su punto más alto: el mediodía, el verano, la llama encendida.</p>
+    <div class="prose">
+      <p>La persona Fuego ilumina el lugar donde entra. Es cálida, expresiva y entusiasta, y tiene un don para conectar con la gente. Vive el presente, se ríe fuerte y contagia ganas.</p>
+      <p>El fuego necesita leña y también aire: sin descanso, se consume. Su desafío es cuidarse tanto como cuida su alegría.</p>
+    </div>
+    <div class="split">
+      <div><h3>En equilibrio</h3><ul class="ticks"><li>Afectuosa y divertida.</li><li>Inspira a los demás.</li><li>Intuitiva, lee las emociones.</li></ul></div>
+      <div><h3>Cuando se pasa</h3><ul class="ticks"><li>Ansiosa y acelerada.</li><li>Dispersa, empieza mil cosas.</li><li>Le cuesta estar sola o en silencio.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--text el-fuego" id="fuego-2" data-cap="China · Fuego">
+  <span class="wm" aria-hidden="true">火</span>
+  <div class="pg-body">
+    <p class="kicker">Fuego · Su ficha</p>
+    <h2 class="pg-title">Dónde se ve el Fuego</h2>
+    <dl class="facts">
+      <dt>Estación</dt><dd>Verano. En Argentina, de diciembre a febrero.</dd>
+      <dt>Color</dt><dd>Rojo.</dd>
+      <dt>Sabor</dt><dd>Amargo: el café y, sí, el mate amargo.</dd>
+      <dt>Emoción</dt><dd>La alegría.</dd>
+      <dt>Momento del día</dt><dd>El mediodía.</dd>
+      <dt>Medicina china</dt><dd>Lo asocia con el corazón y el intestino delgado.</dd>
+    </dl>
+    <div>
+      <h3>Con los otros elementos</h3>
+      <ul class="rels">
+        <li><span class="chip el-madera">木 Madera</span>lo nutre.</li>
+        <li><span class="chip el-tierra">土 Tierra</span>es nutrida por él.</li>
+        <li><span class="chip el-agua">水 Agua</span>lo frena.</li>
+        <li><span class="chip el-metal">金 Metal</span>es frenado por él.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Lo que aconseja la tradición</h3>
+      <ul class="ticks"><li>Reuniones, música y risa: son su combustible.</li><li>Siesta y sombra en verano, para no quemarse.</li><li>Un rato de calma después de cada día intenso.</li></ul>
+    </div>
+    <blockquote class="quote">“¿No es una alegría tener amigos que vienen de lejos?”<cite>Confucio, Analectas 1.1</cite></blockquote>
+  </div>
+</section>
+
+<!-- TIERRA -->
+<section class="pg pg--fig el-tierra" id="tierra" data-cap="China · Tierra">
+  <figure class="pg-fig" style="--pos:45% 50%">
+    <img src="img/tierra-arroz.jpg" alt="Pintura china antigua: campesinos trabajando juntos en la cosecha del arroz" width="1400" height="999" loading="lazy" decoding="async">
+    <figcaption>Artista desconocido, <i>El cultivo del arroz</i> (detalle). China, antes de 1353.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Elemento 3 · Fin del verano</p>
+    <h2 class="pg-title"><span class="glyph">土</span>Tierra</h2>
+    <p class="lead">El centro que sostiene: el campo maduro, la cosecha, la mesa servida.</p>
+    <div class="prose">
+      <p>La persona Tierra es el centro de su familia o de su grupo. Es práctica, leal y paciente. Se da cuenta de lo que le falta a cada uno y lo resuelve sin que se lo pidan. En su casa siempre hay algo para comer.</p>
+      <p>Su desafío es aprender a recibir. De tanto cuidar a los demás, a veces se olvida de sí misma.</p>
+    </div>
+    <div class="split">
+      <div><h3>En equilibrio</h3><ul class="ticks"><li>Generosa y contenedora.</li><li>Estable: se puede confiar en ella.</li><li>Gran anfitriona.</li></ul></div>
+      <div><h3>Cuando se pasa</h3><ul class="ticks"><li>Se preocupa de más.</li><li>Le cuesta decir que no.</li><li>Le da mil vueltas a las cosas.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--text el-tierra" id="tierra-2" data-cap="China · Tierra">
+  <span class="wm" aria-hidden="true">土</span>
+  <div class="pg-body">
+    <p class="kicker">Tierra · Su ficha</p>
+    <h2 class="pg-title">Dónde se ve la Tierra</h2>
+    <dl class="facts">
+      <dt>Estación</dt><dd>El final del verano (en Argentina, febrero y marzo) y los días de cambio entre una estación y otra.</dd>
+      <dt>Color</dt><dd>Amarillo y tonos tierra.</dd>
+      <dt>Sabor</dt><dd>Dulce: un buen dulce de leche.</dd>
+      <dt>Emoción</dt><dd>La preocupación, y su lado bueno: la empatía.</dd>
+      <dt>Momento del día</dt><dd>La media tarde.</dd>
+      <dt>Medicina china</dt><dd>La asocia con el estómago y el bazo.</dd>
+    </dl>
+    <div>
+      <h3>Con los otros elementos</h3>
+      <ul class="rels">
+        <li><span class="chip el-fuego">火 Fuego</span>la nutre.</li>
+        <li><span class="chip el-metal">金 Metal</span>es nutrido por ella.</li>
+        <li><span class="chip el-madera">木 Madera</span>la frena.</li>
+        <li><span class="chip el-agua">水 Agua</span>es frenada por ella.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Lo que aconseja la tradición</h3>
+      <ul class="ticks"><li>Comer a horario, sentada y sin apuro.</li><li>Comida casera y tibia.</li><li>Dejarse cuidar de vez en cuando.</li></ul>
+    </div>
+    <blockquote class="quote">“Un viaje de mil li empieza bajo tus pies.”<cite>Tao Te Ching, capítulo 64 · un li es una medida china de unos 500 metros</cite></blockquote>
+  </div>
+</section>
+
+<!-- METAL -->
+<section class="pg pg--fig el-metal" id="metal" data-cap="China · Metal">
+  <figure class="pg-fig" style="--pos:50% 45%">
+    <img src="img/metal-ding.jpg" alt="Caldero chino de bronce de tres patas, con dibujos geométricos y pátina verde" width="1300" height="1559" loading="lazy" decoding="async">
+    <figcaption>Caldero ritual de bronce (<i>ding</i>). China, siglos XII a XI antes de Cristo.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Elemento 4 · Otoño</p>
+    <h2 class="pg-title"><span class="glyph">金</span>Metal</h2>
+    <p class="lead">Lo que se recoge y se ordena: el otoño, el aire limpio, la hoja que cae.</p>
+    <div class="prose">
+      <p>La persona Metal tiene valores firmes y una gran claridad. Le gusta lo bien hecho, lo prolijo y lo bello. Prefiere pocas cosas buenas antes que muchas cosas mediocres, y cumple su palabra.</p>
+      <p>El otoño enseña a soltar lo que ya cumplió su ciclo. Ese es su gran aprendizaje: despedirse sin quedar atrapada en la tristeza.</p>
+    </div>
+    <div class="split">
+      <div><h3>En equilibrio</h3><ul class="ticks"><li>Justa y confiable.</li><li>Ordenada y precisa.</li><li>Con muy buen gusto.</li></ul></div>
+      <div><h3>Cuando se pasa</h3><ul class="ticks"><li>Perfeccionista y crítica.</li><li>Distante, le cuesta mostrar cariño.</li><li>No logra soltar.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--text el-metal" id="metal-2" data-cap="China · Metal">
+  <span class="wm" aria-hidden="true">金</span>
+  <div class="pg-body">
+    <p class="kicker">Metal · Su ficha</p>
+    <h2 class="pg-title">Dónde se ve el Metal</h2>
+    <dl class="facts">
+      <dt>Estación</dt><dd>Otoño. En Argentina, de marzo a mayo.</dd>
+      <dt>Color</dt><dd>Blanco y gris plata.</dd>
+      <dt>Sabor</dt><dd>Picante: ají, pimienta, mostaza.</dd>
+      <dt>Emoción</dt><dd>La tristeza, y su lado bueno: saber despedirse.</dd>
+      <dt>Momento del día</dt><dd>El atardecer.</dd>
+      <dt>Medicina china</dt><dd>Lo asocia con los pulmones y el intestino grueso.</dd>
+    </dl>
+    <div>
+      <h3>Con los otros elementos</h3>
+      <ul class="rels">
+        <li><span class="chip el-tierra">土 Tierra</span>lo nutre.</li>
+        <li><span class="chip el-agua">水 Agua</span>es nutrida por él.</li>
+        <li><span class="chip el-fuego">火 Fuego</span>lo frena.</li>
+        <li><span class="chip el-madera">木 Madera</span>es frenada por él.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Lo que aconseja la tradición</h3>
+      <ul class="ticks"><li>Ordenar placares y regalar lo que no se usa.</li><li>Respirar hondo al aire libre en otoño.</li><li>Cerrar etapas con un gesto: una carta, una charla, una despedida.</li></ul>
+    </div>
+    <blockquote class="quote">“Saber que sabés lo que sabés, y que no sabés lo que no sabés: eso es saber.”<cite>Confucio, Analectas 2.17</cite></blockquote>
+  </div>
+</section>
+
+<!-- AGUA -->
+<section class="pg pg--fig el-agua" id="agua" data-cap="China · Agua">
+  <figure class="pg-fig">
+    <img src="img/agua-lluvia.jpg" alt="Pintura china en abanico: barcas amarradas en un lago, bajo la lluvia y entre montañas" width="1400" height="1143" loading="lazy" decoding="async">
+    <figcaption>Artista desconocido, <i>Barcas amarradas bajo el viento y la lluvia</i> (detalle). China, siglo XIII.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Elemento 5 · Invierno</p>
+    <h2 class="pg-title"><span class="glyph">水</span>Agua</h2>
+    <p class="lead">La quietud profunda: el invierno, la noche, la semilla que espera bajo la tierra.</p>
+    <div class="prose">
+      <p>La persona Agua es profunda y reflexiva. Observa antes de hablar, tiene buena intuición y una sabiduría tranquila. Es independiente y persistente, como el agua que gota a gota horada la piedra.</p>
+      <p>Necesita tiempo a solas para recargarse. Su desafío es no aislarse ni dejar que el miedo le gane.</p>
+    </div>
+    <div class="split">
+      <div><h3>En equilibrio</h3><ul class="ticks"><li>Serena y sabia.</li><li>Curiosa: quiere entender a fondo.</li><li>Valiente cuando hace falta.</li></ul></div>
+      <div><h3>Cuando se pasa</h3><ul class="ticks"><li>Miedosa o desconfiada.</li><li>Se aísla.</li><li>Le cuesta arrancar.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--text el-agua" id="agua-2" data-cap="China · Agua">
+  <span class="wm" aria-hidden="true">水</span>
+  <div class="pg-body">
+    <p class="kicker">Agua · Su ficha</p>
+    <h2 class="pg-title">Dónde se ve el Agua</h2>
+    <dl class="facts">
+      <dt>Estación</dt><dd>Invierno. En Argentina, de junio a agosto.</dd>
+      <dt>Color</dt><dd>Negro y azul oscuro.</dd>
+      <dt>Sabor</dt><dd>Salado: queso, aceitunas, salame.</dd>
+      <dt>Emoción</dt><dd>El miedo, y su lado bueno: la prudencia.</dd>
+      <dt>Momento del día</dt><dd>La noche.</dd>
+      <dt>Medicina china</dt><dd>La asocia con los riñones y la vejiga.</dd>
+    </dl>
+    <div>
+      <h3>Con los otros elementos</h3>
+      <ul class="rels">
+        <li><span class="chip el-metal">金 Metal</span>la nutre.</li>
+        <li><span class="chip el-madera">木 Madera</span>es nutrida por ella.</li>
+        <li><span class="chip el-tierra">土 Tierra</span>la frena.</li>
+        <li><span class="chip el-fuego">火 Fuego</span>es frenado por ella.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Lo que aconseja la tradición</h3>
+      <ul class="ticks"><li>Dormir más en invierno, su estación.</li><li>Sopas, caldos y comidas calientes.</li><li>Silencio, lectura y tiempo propio.</li></ul>
+    </div>
+    <blockquote class="quote">“Nada en el mundo es más blando y débil que el agua. Pero para vencer a lo duro y lo fuerte, nada la supera.”<cite>Tao Te Ching, capítulo 78</cite></blockquote>
+  </div>
+</section>
+
+<!-- VÍNCULOS -->
+<section class="pg pg--text" id="vinculos" data-cap="China · Vínculos">
+  <div class="pg-body">
+    <p class="kicker">Capítulo 6</p>
+    <h2 class="pg-title">Cómo te llevás con los demás</h2>
+    <p>Elegí tu elemento y el de otra persona: tu pareja, tu hija, tu jefe, tu amiga. Los dos ciclos explican por qué con algunos fluye todo y con otros saltan chispas.</p>
+    <fieldset class="pick">
+      <legend>Vos sos</legend>
+      <div class="pick-row">
+        <input type="radio" name="vos" id="vos-madera" value="madera" checked><label class="el-madera" for="vos-madera"><b>木</b>Madera</label>
+        <input type="radio" name="vos" id="vos-fuego" value="fuego"><label class="el-fuego" for="vos-fuego"><b>火</b>Fuego</label>
+        <input type="radio" name="vos" id="vos-tierra" value="tierra"><label class="el-tierra" for="vos-tierra"><b>土</b>Tierra</label>
+        <input type="radio" name="vos" id="vos-metal" value="metal"><label class="el-metal" for="vos-metal"><b>金</b>Metal</label>
+        <input type="radio" name="vos" id="vos-agua" value="agua"><label class="el-agua" for="vos-agua"><b>水</b>Agua</label>
+      </div>
+    </fieldset>
+    <fieldset class="pick">
+      <legend>La otra persona es</legend>
+      <div class="pick-row">
+        <input type="radio" name="otro" id="otro-madera" value="madera"><label class="el-madera" for="otro-madera"><b>木</b>Madera</label>
+        <input type="radio" name="otro" id="otro-fuego" value="fuego"><label class="el-fuego" for="otro-fuego"><b>火</b>Fuego</label>
+        <input type="radio" name="otro" id="otro-tierra" value="tierra"><label class="el-tierra" for="otro-tierra"><b>土</b>Tierra</label>
+        <input type="radio" name="otro" id="otro-metal" value="metal"><label class="el-metal" for="otro-metal"><b>金</b>Metal</label>
+        <input type="radio" name="otro" id="otro-agua" value="agua" checked><label class="el-agua" for="otro-agua"><b>水</b>Agua</label>
+      </div>
+    </fieldset>
+    <div class="rel-out" id="relOut" aria-live="polite">
+      <p class="kicker" id="relKind">Te nutre</p>
+      <h3 id="relTitle">Esa persona te da energía</h3>
+      <p id="relText">Su Agua alimenta tu Madera, como el agua que riega un árbol. Es alguien que te recarga y te ayuda a crecer. Devolvele el cariño a tu manera.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARTE 2 -->
+<section class="pg pg--fig pg--part" id="japon" data-cap="Parte 2 · Japón">
+  <figure class="pg-fig">
+    <img src="img/japon-fuji-rojo.jpg" alt="Grabado de Hokusai: el monte Fuji rojo bajo un cielo azul con nubes" width="1400" height="959" loading="lazy" decoding="async">
+    <figcaption>Katsushika Hokusai, <i>Viento del sur, cielo despejado</i>, conocido como “Fuji rojo”. Japón, hacia 1831.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Parte 2</p>
+    <h2 class="pg-title">Japón</h2>
+    <p class="lead">Los cinco elementos cruzaron el mar hace más de mil cuatrocientos años.</p>
+    <div class="prose">
+      <p>En Japón se mezclaron con el budismo y con la cultura local, y dieron algo propio: otros cinco elementos, un samurái que escribió un libro con ellos, una astrología de nueve estrellas y una manera muy especial de festejar los sesenta años.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--text" id="llegada" data-cap="Japón · Cómo llegaron">
+  <div class="pg-body">
+    <p class="kicker">Capítulo 7</p>
+    <h2 class="pg-title">Cómo llegaron a Japón</h2>
+    <div class="prose">
+      <p>En el año 602, un monje del reino coreano de Baekje llamado Kanroku llegó a Japón con libros chinos de calendario, astronomía y adivinación. Poco después, la corte creó una oficina dedicada al yin y el yang y a los cinco elementos.</p>
+      <p>Sus especialistas, los <i>onmyōji</i>, elegían fechas, interpretaban señales y orientaban los edificios. El más famoso fue <b>Abe no Seimei</b> (921–1005). Su símbolo era una estrella de cinco puntas, una por elemento, que todavía se ve en el santuario que lleva su nombre, en Kioto.</p>
+      <p>Los elementos también quedaron en el calendario. En japonés, cinco días de la semana llevan su nombre:</p>
+    </div>
+    <div class="week">
+      <div class="day"><b>月</b><span>lunes</span><small>luna</small></div>
+      <div class="day el-fuego"><b>火</b><span>martes</span><small>fuego</small></div>
+      <div class="day el-agua"><b>水</b><span>miércoles</span><small>agua</small></div>
+      <div class="day el-madera"><b>木</b><span>jueves</span><small>madera</small></div>
+      <div class="day el-metal"><b>金</b><span>viernes</span><small>metal</small></div>
+      <div class="day el-tierra"><b>土</b><span>sábado</span><small>tierra</small></div>
+      <div class="day"><b>日</b><span>domingo</span><small>sol</small></div>
+    </div>
+    <p class="note">No es casualidad. En español, martes viene de Marte, miércoles de Mercurio, jueves de Júpiter y viernes de Venus. En japonés esos planetas se llaman “estrella de fuego”, “estrella de agua”, “estrella de madera” y “estrella de metal”. Saturno es la “estrella de tierra”.</p>
+  </div>
+</section>
+
+<section class="pg pg--text" id="godai" data-cap="Japón · Godai">
+  <span class="wm" aria-hidden="true">五大</span>
+  <div class="pg-body">
+    <p class="kicker">Capítulo 8 · 五大</p>
+    <h2 class="pg-title">Japón tiene sus propios cinco elementos</h2>
+    <div class="prose">
+      <p>Además de los cinco chinos, Japón adoptó otros cinco que llegaron con el budismo desde la India. Se llaman <b>Godai</b>, “los cinco grandes”: <b>tierra, agua, fuego, viento y vacío</b>.</p>
+      <p>Desaparecen la madera y el metal y aparecen dos elementos nuevos: el viento, que es lo que se mueve, y el vacío, que es lo que no se ve.</p>
+    </div>
+    <div class="tablewrap">
+      <table class="cmp">
+        <thead><tr><th scope="col"><span class="sr">Aspecto</span></th><th scope="col">China · Wu Xing</th><th scope="col">Japón · Godai</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Los cinco</th><td>Madera, fuego, tierra, metal, agua</td><td>Tierra, agua, fuego, viento, vacío</td></tr>
+          <tr><th scope="row">Qué explican</th><td>Cómo cambian las cosas: fases de un ciclo</td><td>De qué está hecho todo: estados de la materia</td></tr>
+          <tr><th scope="row">De dónde vienen</th><td>Filosofía china</td><td>Budismo de la India, llegado a través de China</td></tr>
+          <tr><th scope="row">Dónde se usan</th><td>Medicina, calendario, astrología</td><td>Templos, arte marcial, arquitectura</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Lo difundió sobre todo el budismo esotérico, que el monje Kūkai trajo de China en el año 806.</p>
+  </div>
+</section>
+
+<section class="pg pg--text" id="gorinto" data-cap="Japón · La torre de los cinco anillos">
+  <div class="pg-body">
+    <p class="kicker">Capítulo 9 · 五輪塔</p>
+    <h2 class="pg-title">La torre de los cinco anillos</h2>
+    <div class="media-row">
+      <svg class="diagram gorinto" viewBox="50 74 340 340" role="img" aria-labelledby="gorintoT">
+        <title id="gorintoT">Gorintō: torre de piedra de cinco piezas. De abajo hacia arriba: cubo (tierra), esfera (agua), techo en pirámide (fuego), media luna (viento) y joya (vacío).</title>
+        <path class="stone" d="M128 82 C 152 104, 158 122, 150 136 Q 128 150 106 136 C 98 122, 104 104, 128 82 Z"/>
+        <path class="stone" d="M84 146 L172 146 A44 28 0 0 1 84 146 Z"/>
+        <path class="stone" d="M58 236 L198 236 L182 222 L128 180 L74 222 Z"/>
+        <circle class="stone" cx="128" cy="286" r="48"/>
+        <rect class="stone" x="70" y="334" width="116" height="74"/>
+        <g class="tick">
+          <line x1="164" y1="114" x2="240" y2="114"/>
+          <line x1="176" y1="160" x2="240" y2="160"/>
+          <line x1="190" y1="214" x2="240" y2="214"/>
+          <line x1="178" y1="286" x2="240" y2="286"/>
+          <line x1="188" y1="371" x2="240" y2="371"/>
+        </g>
+        <g>
+          <text class="k" x="248" y="123">空</text><text class="lb" x="282" y="112">Vacío</text><text class="sm" x="282" y="131">joya</text>
+          <text class="k" x="248" y="169">風</text><text class="lb" x="282" y="158">Viento</text><text class="sm" x="282" y="177">media luna</text>
+          <text class="k" x="248" y="223">火</text><text class="lb" x="282" y="212">Fuego</text><text class="sm" x="282" y="231">pirámide</text>
+          <text class="k" x="248" y="295">水</text><text class="lb" x="282" y="284">Agua</text><text class="sm" x="282" y="303">esfera</text>
+          <text class="k" x="248" y="380">地</text><text class="lb" x="282" y="369">Tierra</text><text class="sm" x="282" y="388">cubo</text>
+        </g>
+      </svg>
+      <div class="prose">
+        <p>En los templos y cementerios de Japón hay unas torres de piedra llamadas <b>gorintō</b>, “torre de los cinco anillos”. Tienen cinco piezas apiladas, y cada pieza es un elemento del Godai.</p>
+        <p>Abajo va la tierra, que sostiene. Arriba, el vacío, que todo lo contiene. La idea es que el cuerpo vuelve a los elementos de los que vino.</p>
+        <p>Muchas tienen talladas cinco sílabas sagradas en sánscrito, una en cada piedra. Se hacen así desde hace unos ochocientos años.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--fig" id="musashi" data-cap="Japón · Musashi">
+  <figure class="pg-fig" style="--pos:50% 30%">
+    <img src="img/musashi.jpg" alt="Grabado japonés: un samurái de pie en la nieve, con dos espadas" width="1300" height="1923" loading="lazy" decoding="async">
+    <figcaption>Gigadō Ashiyuki, <i>El actor Arashi Rikan II como Miyamoto Musashi</i>. Japón, 1832.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Capítulo 10</p>
+    <h2 class="pg-title">El samurái de los cinco libros</h2>
+    <div class="prose">
+      <p><b>Miyamoto Musashi</b> (hacia 1584–1645) es el espadachín más famoso de Japón. Según él mismo contó, peleó más de sesenta duelos y nunca perdió.</p>
+      <p>Cerca de los sesenta años se retiró a una cueva cerca de Kumamoto y escribió el <b>Libro de los Cinco Anillos</b>. Lo terminó en 1645, pocas semanas antes de morir, y lo dividió en cinco rollos, uno por cada elemento del Godai.</p>
+      <p>Hoy lo leen empresarios, deportistas y entrenadores de todo el mundo, porque sus lecciones sirven mucho más allá de la espada. Las próximas cinco páginas recorren un rollo cada una.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--fig el-tierra" id="libro-tierra" data-cap="Japón · El libro de la Tierra">
+  <figure class="pg-fig">
+    <img src="img/godai-tierra.jpg" alt="Grabado de Hokusai: un tonelero trabaja dentro de un barril gigante, con el monte Fuji a lo lejos" width="1400" height="921" loading="lazy" decoding="async">
+    <figcaption>Katsushika Hokusai, <i>Fujimigahara, en la provincia de Owari</i>. Japón, hacia 1831.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Godai 1 · 地 Chi</p>
+    <h2 class="pg-title">El libro de la Tierra</h2>
+    <p class="lead">Lo sólido: las piedras, las montañas, los huesos. Es la estabilidad y la resistencia al cambio.</p>
+    <div class="prose">
+      <p>Musashi empieza por las bases. Compara al buen guerrero con un maestro carpintero, que conoce cada madera, sabe dónde va cada pieza y elige bien a su gente.</p>
+    </div>
+    <p class="lesson"><b>Para la vida</b>Antes de cualquier cambio, conocé bien tu terreno: tus fuerzas, tus límites y con quién contás.</p>
+  </div>
+</section>
+
+<section class="pg pg--fig el-agua" id="libro-agua" data-cap="Japón · El libro del Agua">
+  <figure class="pg-fig" style="--pos:35% 50%">
+    <img src="img/godai-agua.jpg" alt="La gran ola de Kanagawa de Hokusai: una ola enorme sobre barcas, con el monte Fuji al fondo" width="1400" height="922" loading="lazy" decoding="async">
+    <figcaption>Katsushika Hokusai, <i>La gran ola de Kanagawa</i>. Japón, hacia 1831.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Godai 2 · 水 Sui</p>
+    <h2 class="pg-title">El libro del Agua</h2>
+    <p class="lead">Lo fluido: los ríos, la sangre, las emociones. Es la capacidad de adaptarse.</p>
+    <div class="prose">
+      <p>Musashi pide que el espíritu sea como el agua, que toma la forma del recipiente: a veces es una gota y a veces un mar embravecido. En este rollo explica la postura, la mirada y la calma interior.</p>
+    </div>
+    <p class="lesson"><b>Para la vida</b>Ser flexible no es ser débil. Es la forma más inteligente de la fuerza.</p>
+  </div>
+</section>
+
+<section class="pg pg--fig el-fuego" id="libro-fuego" data-cap="Japón · El libro del Fuego">
+  <figure class="pg-fig" style="--pos:50% 22%">
+    <img src="img/godai-fuego.jpg" alt="Grabado de Hiroshige: fuegos artificiales sobre un puente y un río de noche, lleno de barcas" width="1300" height="1948" loading="lazy" decoding="async">
+    <figcaption>Utagawa Hiroshige, <i>Fuegos artificiales en el puente Ryōgoku</i>. Japón, 1858.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Godai 3 · 火 Ka</p>
+    <h2 class="pg-title">El libro del Fuego</h2>
+    <p class="lead">Lo que da calor y energía: la pasión, el impulso, el deseo.</p>
+    <div class="prose">
+      <p>Es el rollo del combate en sí. Habla de la iniciativa, de leer el momento justo y de actuar con decisión cuando llega. Musashi insiste en tomar la delantera en lugar de esperar.</p>
+    </div>
+    <p class="lesson"><b>Para la vida</b>Hay un tiempo para pensar y otro para hacer. El fuego enseña a reconocer el segundo.</p>
+  </div>
+</section>
+
+<section class="pg pg--fig el-madera" id="libro-viento" data-cap="Japón · El libro del Viento">
+  <figure class="pg-fig">
+    <img src="img/godai-viento.jpg" alt="Grabado de Hokusai: viajeros sorprendidos por una ráfaga que hace volar papeles y sombreros" width="1400" height="977" loading="lazy" decoding="async">
+    <figcaption>Katsushika Hokusai, <i>Ejiri, en la provincia de Suruga</i>. Japón, hacia 1831.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Godai 4 · 風 Fū</p>
+    <h2 class="pg-title">El libro del Viento</h2>
+    <p class="lead">Lo que se mueve y crece: el aire, la respiración, la mente abierta. Es la libertad.</p>
+    <div class="prose">
+      <p>En japonés, <i>fū</i> también quiere decir “estilo”. En este rollo Musashi estudia las otras escuelas de esgrima: qué hacen bien y en qué se equivocan.</p>
+    </div>
+    <p class="lesson"><b>Para la vida</b>Entender cómo piensan los demás te hace más sabio, y no menos fiel a vos.</p>
+  </div>
+</section>
+
+<section class="pg pg--fig el-metal" id="libro-vacio" data-cap="Japón · El libro del Vacío">
+  <figure class="pg-fig" style="--pos:78% 50%">
+    <img src="img/godai-vacio.jpg" alt="Pintura zen: un monje dibujado con pocos trazos lee dentro de un gran círculo que es la luna, junto a un poema" width="1400" height="648" loading="lazy" decoding="async">
+    <figcaption>Jifei Ruyi, <i>Leyendo un sutra a la luz de la luna</i>. Japón, siglo XVII.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Godai 5 · 空 Kū</p>
+    <h2 class="pg-title">El libro del Vacío</h2>
+    <p class="lead">Lo que no se ve: el cielo, el espíritu, la creatividad. Es el elemento que contiene a todos los demás.</p>
+    <div class="prose">
+      <p>Es el rollo más corto. Habla de lo que está más allá de la técnica: cuando ya se aprendió todo, se actúa con naturalidad, sin pensar cada paso.</p>
+    </div>
+    <p class="lesson"><b>Para la vida</b>Con los años, mucho de lo que antes costaba sale solo. Eso también es el vacío: la experiencia que ya no hace ruido.</p>
+  </div>
+</section>
+
+<section class="pg pg--fig" id="estrellas" data-cap="Japón · Las Nueve Estrellas">
+  <figure class="pg-fig">
+    <img src="img/estrellas-mandala.jpg" alt="Mandala japonés antiguo: círculos con figuras de deidades de las estrellas alrededor de un Buda central" width="1302" height="1400" loading="lazy" decoding="async">
+    <figcaption><i>Mandala de las estrellas</i>. Japón, siglos XIII a XIV.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Capítulo 11 · 九星気学</p>
+    <h2 class="pg-title">Las Nueve Estrellas</h2>
+    <div class="prose">
+      <p>El <b>Kyūsei Kigaku</b> es una astrología japonesa basada en los cinco elementos. En Japón es muy popular: se consulta para elegir la fecha de una mudanza, un viaje o un casamiento. Fuera de Asia casi nadie la conoce.</p>
+      <p>Cada año tiene una estrella, del 1 al 9, y cada estrella pertenece a un elemento. La tuya es la del año en que naciste. El año cuenta desde el 4 de febrero, aproximadamente, y no desde el 1 de enero.</p>
+    </div>
+    <div class="loshu-row">
+      <div class="loshu" aria-label="Cuadrado Lo Shu: 4 9 2, 3 5 7, 8 1 6">
+        <span class="el-madera">4</span><span class="el-fuego">9</span><span class="el-tierra">2</span>
+        <span class="el-madera">3</span><span class="el-tierra">5</span><span class="el-metal">7</span>
+        <span class="el-tierra">8</span><span class="el-agua">1</span><span class="el-metal">6</span>
+      </div>
+      <p>Todo sale de este cuadrado chino, el <b>Lo Shu</b>. Cuenta la leyenda que apareció dibujado en el caparazón de una tortuga que salió del río Lo. Sumá cualquier fila, columna o diagonal: siempre da 15.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--text" id="calculadora" data-cap="Japón · Calculadora">
+  <div class="pg-body">
+    <p class="kicker">Calculadora</p>
+    <h2 class="pg-title">Calculá tu estrella</h2>
+    <p>Poné tu año de nacimiento. Además de tu estrella, vas a ver tu año en el calendario chino y en qué año te toca el <i>kanreki</i>, el gran cumpleaños japonés de los sesenta.</p>
+    <form class="calc" id="calcForm" novalidate>
+      <div class="field">
+        <label for="anio">Año de nacimiento</label>
+        <input id="anio" name="anio" type="number" inputmode="numeric" min="1900" max="2026" value="1966" autocomplete="bday-year">
+      </div>
+      <label class="check" for="antes"><input type="checkbox" id="antes" name="antes"> Nací entre el 1 de enero y el 3 de febrero</label>
+      <button class="btn" type="submit">Calcular</button>
+      <p class="calc-msg" id="calcMsg" hidden></p>
+    </form>
+    <div class="calc-out el-metal" id="calcOut" aria-live="polite">
+      <span class="tag" id="cTag">Ejemplo: nacidos en 1966</span>
+      <div class="star-head">
+        <span class="star-num" id="cNum">7</span>
+        <div><h3 id="cName">Metal Rojo</h3><p id="cJp">七赤金星 · Shichiseki Kinsei</p></div>
+      </div>
+      <p id="cText">Encantadora, conversadora y disfrutona. Sabe vivir bien y hace sentir cómodos a los demás. Puede gastar de más.</p>
+      <dl class="facts">
+        <dt>Año chino</dt><dd id="cEto">Caballo de Fuego</dd>
+        <dt>Tu kanreki</dt><dd id="cKan">2026: ¡es este año!</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--text" id="nueve" data-cap="Japón · Las nueve, una por una">
+  <div class="pg-body">
+    <p class="kicker">Las estrellas 1 a 5</p>
+    <h2 class="pg-title">Las nueve, una por una</h2>
+    <ul class="stars">
+      <li class="el-agua"><span class="star-num">1</span><div><b>Agua Blanca</b> <small>一白水星 · Ippaku Suisei</small><p>Adaptable y diplomática. Fluye con las situaciones, escucha mucho y guarda secretos. Le cuesta mostrar lo que siente.</p></div></li>
+      <li class="el-tierra"><span class="star-num">2</span><div><b>Tierra Negra</b> <small>二黒土星 · Jikoku Dosei</small><p>Servicial, paciente y trabajadora. Es el sostén silencioso de la familia o del equipo. Le cuesta tomar la iniciativa.</p></div></li>
+      <li class="el-madera"><span class="star-num">3</span><div><b>Madera Jade</b> <small>三碧木星 · Sanpeki Mokusei</small><p>Enérgica, directa y joven de espíritu, como el trueno de primavera. Arranca proyectos con entusiasmo. Puede ser impulsiva.</p></div></li>
+      <li class="el-madera"><span class="star-num">4</span><div><b>Madera Verde</b> <small>四緑木星 · Shiroku Mokusei</small><p>Amable, sociable y flexible, como el viento. Une a la gente y se adapta a todo. A veces le cuesta decidirse.</p></div></li>
+      <li class="el-tierra"><span class="star-num">5</span><div><b>Tierra Amarilla</b> <small>五黄土星 · Goō Dosei</small><p>Ocupa el centro del cuadrado y es la más fuerte de las nueve. Magnética, con mucha voluntad y madera de líder. Puede ser terca.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="pg pg--text" id="nueve-2" data-cap="Japón · Las nueve, una por una">
+  <div class="pg-body">
+    <p class="kicker">Las estrellas 6 a 9</p>
+    <h2 class="pg-title">Y las cuatro que faltan</h2>
+    <ul class="stars">
+      <li class="el-metal"><span class="star-num">6</span><div><b>Metal Blanco</b> <small>六白金星 · Roppaku Kinsei</small><p>Responsable, ética y orgullosa; su símbolo es el cielo. Líder natural que se exige mucho. Le cuesta pedir ayuda.</p></div></li>
+      <li class="el-metal"><span class="star-num">7</span><div><b>Metal Rojo</b> <small>七赤金星 · Shichiseki Kinsei</small><p>Encantadora, conversadora y disfrutona; su símbolo es el lago. Sabe vivir bien y hace sentir cómodos a los demás. Puede gastar de más.</p></div></li>
+      <li class="el-tierra"><span class="star-num">8</span><div><b>Tierra Blanca</b> <small>八白土星 · Happaku Dosei</small><p>Perseverante, ahorrativa y reservada, como una montaña. Construye de a poco y no abandona. Puede ser testaruda.</p></div></li>
+      <li class="el-fuego"><span class="star-num">9</span><div><b>Fuego Púrpura</b> <small>九紫火星 · Kyūshi Kasei</small><p>Brillante, intuitiva y elegante. Le gusta destacarse y tiene buen ojo para la belleza. Su ánimo sube y baja rápido.</p></div></li>
+    </ul>
+    <p class="note">Tu estrella puede no coincidir con el elemento que te dio el test. Es normal: el test mide tu carácter de hoy y la estrella habla del año en que naciste. Juntos dicen más que cada uno por separado.</p>
+  </div>
+</section>
+
+<section class="pg pg--fig" id="kanreki" data-cap="Japón · Kanreki">
+  <figure class="pg-fig" style="--pos:50% 10%">
+    <img src="img/kanreki-grulla.jpg" alt="Pintura japonesa vertical: una grulla vuela bajo un sol rojo; abajo, una tortuga junto a un pino y un bambú" width="1020" height="2000" loading="lazy" decoding="async">
+    <figcaption>Kano Chikanobu, <i>Grulla, tortuga, pino y bambú bajo el sol naciente</i>. Japón, siglos XVII a XVIII.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Capítulo 12 · 還暦</p>
+    <h2 class="pg-title">Kanreki: a los 60 se vuelve a nacer</h2>
+    <div class="prose">
+      <p>En el calendario chino, cada año combina un elemento, en su versión yin o yang, con uno de los doce animales. Como son diez combinaciones de elementos y doce animales, la misma pareja se repite recién a los sesenta años.</p>
+      <p>Por eso en Japón, al cumplir sesenta, el calendario “vuelve” (<i>kan</i>) al año en que naciste (<i>reki</i>). Es como nacer de nuevo. La familia le regala a quien cumple un chaleco rojo, y a veces también un gorro. El rojo es el color de los bebés: en japonés, bebé se dice <i>akachan</i>, “el rojito”.</p>
+    </div>
+    <div class="fact">
+      <b>1966, el año del Caballo de Fuego</b>
+      <p>Una vieja superstición decía que las mujeres nacidas en un año de Caballo de Fuego traerían mala suerte a sus maridos. En 1966 nacieron en Japón un 25% menos de bebés que el año anterior. En 2026 volvió el Caballo de Fuego, y los nacidos en el 66 celebraron su kanreki justo en su año.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--fig" id="cumples" data-cap="Japón · Los cumpleaños de la longevidad">
+  <figure class="pg-fig">
+    <img src="img/takasago.jpg" alt="Grabado japonés: una pareja de ancianos con escoba y rastrillo mira el sol naciente junto a un pino" width="1400" height="1097" loading="lazy" decoding="async">
+    <figcaption>Totoya Hokkei, <i>Jō y Uba de Takasago mirando el sol naciente</i>. Japón, siglo XIX. La pareja de ancianos de Takasago es el símbolo japonés de envejecer juntos.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Capítulo 13</p>
+    <h2 class="pg-title">Los cumpleaños de la longevidad</h2>
+    <p>Después de los sesenta, Japón festeja otros cumpleaños especiales. Casi todos esconden un juego con la escritura:</p>
+    <ul class="ages">
+      <li><span class="age">70</span><span class="kj">古希</span><p><em>Koki</em>, “lo raro desde la antigüedad”. Viene de un poema chino del siglo VIII: llegar a los setenta era muy raro.</p></li>
+      <li><span class="age">77</span><span class="kj">喜寿</span><p><em>Kiju</em>, “alegría”. El carácter 喜, escrito a mano, se parece a 七十七, setenta y siete.</p></li>
+      <li><span class="age">80</span><span class="kj">傘寿</span><p><em>Sanju</em>, “paraguas”. La forma abreviada de 傘 parece 八十, ochenta.</p></li>
+      <li><span class="age">88</span><span class="kj">米寿</span><p><em>Beiju</em>, “arroz”. El carácter 米 se puede desarmar en 八十八, ochenta y ocho.</p></li>
+      <li><span class="age">99</span><span class="kj">白寿</span><p><em>Hakuju</em>, “blanco”. Si al carácter de cien (百) le sacás el uno (一), queda blanco (白): cien menos uno.</p></li>
+    </ul>
+    <p class="note">Japón tiene hoy casi cien mil personas de más de cien años.</p>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="pg pg--fig" id="ficha" data-cap="Tu ficha">
+  <figure class="pg-fig" style="--pos:70% 50%">
+    <img src="img/cierre-primavera.jpg" alt="Pintura china en tonos suaves: un pino y montañas lejanas al comienzo de la primavera" width="1400" height="799" loading="lazy" decoding="async">
+    <figcaption>Artista desconocido, <i>Paisaje de principios de primavera</i> (detalle). China, siglo XIII.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Cierre</p>
+    <h2 class="pg-title">Tu ficha</h2>
+    <dl class="card">
+      <div><dt>Tu elemento</dt><dd id="fElemento"><span class="note">Todavía no hiciste el test.</span><button class="linkbtn" type="button" data-go="test">Hacer el test</button></dd></div>
+      <div><dt>Tu estrella</dt><dd id="fEstrella"><span class="note">Todavía no usaste la calculadora.</span><button class="linkbtn" type="button" data-go="calculadora">Calcular</button></dd></div>
+      <div><dt>Año chino</dt><dd id="fEto"><span class="note">Sale de la calculadora.</span></dd></div>
+      <div><dt>Tu kanreki</dt><dd id="fKan"><span class="note">Sale de la calculadora.</span></dd></div>
+    </dl>
+    <div class="prose">
+      <p>Los cinco elementos no son un destino, son un mapa. Sirven para entender por qué una estación te sienta mejor que otra, por qué con algunas personas todo fluye y por qué a veces hace falta un poco de freno.</p>
+      <p>Y recuerdan algo que en Oriente saben hace siglos: todo ciclo termina para volver a empezar, como la primavera después del invierno.</p>
+    </div>
+    <div class="btns"><button class="btn btn--ghost" type="button" data-go="indice">Volver al índice</button></div>
+  </div>
+</section>
+
+<section class="pg pg--text" id="creditos" data-cap="Créditos">
+  <div class="pg-body">
+    <p class="kicker">Créditos</p>
+    <h2 class="pg-title">Imágenes y fuentes</h2>
+    <p class="note">Todas las imágenes son obras de dominio público de la colección abierta del Museo Metropolitano de Arte de Nueva York (The Met).</p>
+    <ol class="credits">
+      <li>Ma Yuan, <i>Sabio contemplando una cascada</i>, China, siglo XIII.</li>
+      <li>Tan Song, <i>Paisaje al estilo de Guo Xi</i>, China, 1748.</li>
+      <li>Li Kan, <i>Bambú y rocas</i>, China, 1318.</li>
+      <li>Tsukioka Yoshitoshi, <i>La luna entre las llamas</i>, serie <i>Cien aspectos de la luna</i>, Japón, 1886.</li>
+      <li>Artista desconocido, <i>El cultivo del arroz: siembra y cosecha</i>, China, antes de 1353.</li>
+      <li>Caldero ritual de tres patas (<i>ding</i>), China, siglos XII a XI a. C.</li>
+      <li>Artista desconocido, <i>Barcas amarradas bajo el viento y la lluvia</i>, China, siglo XIII.</li>
+      <li>Katsushika Hokusai, <i>Viento del sur, cielo despejado</i> (Fuji rojo); <i>Fujimigahara, en la provincia de Owari</i>; <i>La gran ola de Kanagawa</i>; <i>Ejiri, en la provincia de Suruga</i>. Serie <i>Treinta y seis vistas del monte Fuji</i>, Japón, hacia 1830–1832.</li>
+      <li>Gigadō Ashiyuki, <i>El actor Arashi Rikan II como Miyamoto Musashi</i>, Japón, 1832.</li>
+      <li>Utagawa Hiroshige, <i>Fuegos artificiales en el puente Ryōgoku</i>, serie <i>Cien famosas vistas de Edo</i>, Japón, 1858.</li>
+      <li>Jifei Ruyi (Sokuhi Nyoitsu), <i>Leyendo un sutra a la luz de la luna</i>, Japón, después de 1661.</li>
+      <li>Artista desconocido, <i>Mandala de las estrellas</i>, Japón, siglos XIII a XIV.</li>
+      <li>Kano Chikanobu, <i>Grulla, tortuga, pino y bambú bajo el sol naciente</i>, Japón, siglos XVII a XVIII.</li>
+      <li>Totoya Hokkei, <i>Jō y Uba de Takasago mirando el sol naciente</i>, Japón, siglo XIX.</li>
+      <li>Artista desconocido, <i>Paisaje de principios de primavera</i>, China, siglo XIII.</li>
+    </ol>
+    <p class="note">Textos citados: <i>Tao Te Ching</i> (capítulos 64, 76 y 78); Confucio, <i>Analectas</i> (1.1, 2.4 y 2.17); Miyamoto Musashi, <i>Libro de los Cinco Anillos</i> (1645).</p>
+    <p class="note">Este libro es de divulgación cultural y entretenimiento. Las asociaciones de la medicina tradicional china y de la astrología no reemplazan la consulta con un profesional de la salud.</p>
+  </div>
+</section>
+
+</main>
+
+<button class="next" id="next" type="button" aria-label="Página siguiente">
+  <span id="nextLabel">Seguir</span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+</button>
+
+<script>
+(() => {
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => Array.from(document.querySelectorAll(s));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* ---------- Datos ---------- */
+  const EL = {
+    madera: { n: 'Madera', k: '木', line: 'Visión, iniciativa y ganas de crecer.' },
+    fuego:  { n: 'Fuego',  k: '火', line: 'Calidez, entusiasmo y corazón abierto.' },
+    tierra: { n: 'Tierra', k: '土', line: 'La persona que sostiene y cuida a todos.' },
+    metal:  { n: 'Metal',  k: '金', line: 'Claridad, orden y valores firmes.' },
+    agua:   { n: 'Agua',   k: '水', line: 'Profundidad, intuición y calma.' }
+  };
+  const ORDER = ['madera', 'fuego', 'tierra', 'metal', 'agua'];
+  const NUTRE = { agua: 'madera', madera: 'fuego', fuego: 'tierra', tierra: 'metal', metal: 'agua' };
+  const FRENA = { madera: 'tierra', tierra: 'agua', agua: 'fuego', fuego: 'metal', metal: 'madera' };
+  const IMG_NUTRE = {
+    agua: 'como el agua que riega un árbol',
+    madera: 'como la leña que mantiene vivo el fuego',
+    fuego: 'como el fuego que deja la tierra fértil',
+    tierra: 'como la montaña que guarda los minerales',
+    metal: 'como la copa fría que junta gotas de agua'
+  };
+  const IMG_FRENA = {
+    madera: 'como las raíces que abren el suelo',
+    tierra: 'como el dique que encauza el río',
+    agua: 'como el agua que apaga el fuego',
+    fuego: 'como el fuego que funde y da forma al metal',
+    metal: 'como el hacha que poda el árbol'
+  };
+  const PREGUNTAS = [
+    { q: 'Un domingo libre ideal:', a: [
+      ['Arrancar algo nuevo: un proyecto, un arreglo, una salida.', 'madera'],
+      ['Un asado largo, con mucha gente y música.', 'fuego'],
+      ['Cocinar para la familia y tener a todos en la mesa.', 'tierra'],
+      ['Ordenar la casa y después leer un buen libro.', 'metal'],
+      ['Silencio, una caminata sin apuro y tiempo para pensar.', 'agua'] ] },
+    { q: 'En tu grupo de amigos, sos…', a: [
+      ['Quien escucha y contiene.', 'tierra'],
+      ['Quien organiza y propone planes.', 'madera'],
+      ['Quien habla poco, pero cuando habla da en el clavo.', 'agua'],
+      ['Quien hace reír y le pone onda a todo.', 'fuego'],
+      ['Quien pone orden y dice las cosas claras.', 'metal'] ] },
+    { q: 'Cuando algo sale mal, lo primero que aparece es…', a: [
+      ['Bronca.', 'madera'],
+      ['Preocupación: le doy mil vueltas.', 'tierra'],
+      ['Tristeza: me guardo.', 'metal'],
+      ['Nervios: me acelero y no paro.', 'fuego'],
+      ['Miedo: necesito sentirme a salvo.', 'agua'] ] },
+    { q: 'Tu época del año favorita:', a: [
+      ['La primavera, cuando todo vuelve a crecer.', 'madera'],
+      ['El invierno: mantas, sopa y estar adentro.', 'agua'],
+      ['El verano: sol, calor y días largos.', 'fuego'],
+      ['El final del verano, cuando todo madura.', 'tierra'],
+      ['El otoño: aire fresco y hojas secas.', 'metal'] ] },
+    { q: 'Un sabor que no te puede faltar:', a: [
+      ['Dulce: un buen dulce de leche.', 'tierra'],
+      ['Picante: ají, pimienta, mostaza.', 'metal'],
+      ['Amargo: café o mate amargo.', 'fuego'],
+      ['Ácido: limón, vinagre, pomelo.', 'madera'],
+      ['Salado: queso, aceitunas, salame.', 'agua'] ] },
+    { q: '¿Qué es lo que más te molesta de los demás?', a: [
+      ['Que sean fríos o aburridos.', 'fuego'],
+      ['Que sean lentos o no se decidan.', 'madera'],
+      ['Que sean superficiales.', 'agua'],
+      ['Que sean desprolijos o impuntuales.', 'metal'],
+      ['Que sean egoístas.', 'tierra'] ] },
+    { q: 'Un lugar para vivir:', a: [
+      ['Un pueblo de campo, con huerta y horizonte.', 'tierra'],
+      ['Al lado de un lago en la Patagonia.', 'agua'],
+      ['Una casa en el bosque, entre árboles.', 'madera'],
+      ['Frente al mar, con mucho sol.', 'fuego'],
+      ['Al pie de la cordillera, con aire seco y limpio.', 'metal'] ] },
+    { q: 'Lo que más valorás en la vida:', a: [
+      ['La honestidad y el respeto.', 'metal'],
+      ['La libertad y poder crecer.', 'madera'],
+      ['La paz y la sabiduría.', 'agua'],
+      ['El amor y la alegría.', 'fuego'],
+      ['La familia y sentirme en casa.', 'tierra'] ] }
+  ];
+  const ESTRELLAS = {
+    1: { n: 'Agua Blanca', jp: '一白水星 · Ippaku Suisei', el: 'agua', t: 'Adaptable y diplomática. Fluye con las situaciones, escucha mucho y guarda secretos. Le cuesta mostrar lo que siente.' },
+    2: { n: 'Tierra Negra', jp: '二黒土星 · Jikoku Dosei', el: 'tierra', t: 'Servicial, paciente y trabajadora. Es el sostén silencioso de la familia o del equipo. Le cuesta tomar la iniciativa.' },
+    3: { n: 'Madera Jade', jp: '三碧木星 · Sanpeki Mokusei', el: 'madera', t: 'Enérgica, directa y joven de espíritu, como el trueno de primavera. Arranca proyectos con entusiasmo. Puede ser impulsiva.' },
+    4: { n: 'Madera Verde', jp: '四緑木星 · Shiroku Mokusei', el: 'madera', t: 'Amable, sociable y flexible, como el viento. Une a la gente y se adapta a todo. A veces le cuesta decidirse.' },
+    5: { n: 'Tierra Amarilla', jp: '五黄土星 · Goō Dosei', el: 'tierra', t: 'La más fuerte de las nueve. Magnética, con mucha voluntad y madera de líder. Puede ser terca.' },
+    6: { n: 'Metal Blanco', jp: '六白金星 · Roppaku Kinsei', el: 'metal', t: 'Responsable, ética y orgullosa. Líder natural que se exige mucho. Le cuesta pedir ayuda.' },
+    7: { n: 'Metal Rojo', jp: '七赤金星 · Shichiseki Kinsei', el: 'metal', t: 'Encantadora, conversadora y disfrutona. Sabe vivir bien y hace sentir cómodos a los demás. Puede gastar de más.' },
+    8: { n: 'Tierra Blanca', jp: '八白土星 · Happaku Dosei', el: 'tierra', t: 'Perseverante, ahorrativa y reservada, como una montaña. Construye de a poco y no abandona. Puede ser testaruda.' },
+    9: { n: 'Fuego Púrpura', jp: '九紫火星 · Kyūshi Kasei', el: 'fuego', t: 'Brillante, intuitiva y elegante. Le gusta destacarse y tiene buen ojo para la belleza. Su ánimo sube y baja rápido.' }
+  };
+  const TRONCOS = ['Metal', 'Metal', 'Agua', 'Agua', 'Madera', 'Madera', 'Fuego', 'Fuego', 'Tierra', 'Tierra'];
+  const ANIMALES = ['Rata', 'Buey', 'Tigre', 'Conejo', 'Dragón', 'Serpiente', 'Caballo', 'Cabra', 'Mono', 'Gallo', 'Perro', 'Cerdo'];
+
+  /* ---------- Guardado (solo en este navegador) ---------- */
+  const KEY = 'cincoElementos.v1';
+  let state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { state = {}; }
+  const save = (patch) => {
+    Object.assign(state, patch);
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* sin almacenamiento: queda en memoria */ }
+  };
+
+  /* ---------- Navegación entre páginas ---------- */
+  const pages = $$('.pg');
+  const total = pages.length;
+  const barCap = $('#barCap'), barNum = $('#barNum'), barProg = $('#barProg');
+  const next = $('#next'), nextLabel = $('#nextLabel');
+  let current = -1;
+
+  function goTo(target) {
+    const el = typeof target === 'number' ? pages[target] : document.getElementById(target);
+    if (el) el.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+  }
+
+  function updateCurrent() {
+    const line = window.innerHeight * 0.45;
+    let idx = 0;
+    for (let i = 0; i < total; i++) {
+      if (pages[i].getBoundingClientRect().top <= line) idx = i; else break;
+    }
+    if (idx === current) return;
+    current = idx;
+    barCap.textContent = pages[idx].dataset.cap || '';
+    barNum.textContent = (idx + 1) + ' / ' + total;
+    barProg.style.transform = 'scaleX(' + (idx / (total - 1)) + ')';
+    const last = idx === total - 1;
+    nextLabel.textContent = last ? 'Volver al inicio' : 'Seguir';
+    next.setAttribute('aria-label', last ? 'Volver a la portada' : 'Página siguiente');
+    next.classList.toggle('is-up', last);
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { ticking = false; updateCurrent(); });
+  }, { passive: true });
+  window.addEventListener('resize', () => { current = -1; updateCurrent(); });
+
+  next.addEventListener('click', () => goTo(current < total - 1 ? current + 1 : 0));
+
+  document.addEventListener('click', (e) => {
+    const go = e.target.closest('[data-go]');
+    if (go) { e.preventDefault(); goTo(go.dataset.go); return; }
+    const a = e.target.closest('a[href^="#"]');
+    if (a && a.getAttribute('href').length > 1) { e.preventDefault(); goTo(a.getAttribute('href').slice(1)); }
+  });
+
+  $$('[data-page-of]').forEach((n) => {
+    const i = pages.indexOf(document.getElementById(n.dataset.pageOf));
+    n.textContent = i >= 0 ? String(i + 1) : '';
+  });
+
+  /* ---------- Test ---------- */
+  const quiz = $('#quiz'), qStep = $('#qStep'), qMeter = $('#qMeter'), qText = $('#qText'), qOpts = $('#qOpts'), qBack = $('#qBack');
+  const qResult = $('#qResult');
+  let qi = 0, answers = [];
+
+  function renderQuestion() {
+    const item = PREGUNTAS[qi];
+    qStep.textContent = 'Pregunta ' + (qi + 1) + ' de ' + PREGUNTAS.length;
+    qMeter.style.width = (qi / PREGUNTAS.length * 100) + '%';
+    qText.textContent = item.q;
+    qOpts.replaceChildren(...item.a.map(([texto, el]) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'opt'; b.textContent = texto;
+      b.setAttribute('aria-pressed', String(answers[qi] === el));
+      b.addEventListener('click', () => choose(el));
+      return b;
+    }));
+    qBack.disabled = qi === 0;
+  }
+
+  function choose(el) {
+    answers[qi] = el;
+    if (qi < PREGUNTAS.length - 1) { qi++; renderQuestion(); qText.focus({ preventScroll: true }); }
+    else finishQuiz();
+  }
+
+  function scoresFrom(list) {
+    const s = { madera: 0, fuego: 0, tierra: 0, metal: 0, agua: 0 };
+    list.forEach((el) => { if (s[el] !== undefined) s[el]++; });
+    return s;
+  }
+
+  function showResult(scores) {
+    const sorted = ORDER.slice().sort((a, b) => scores[b] - scores[a]);
+    const top = sorted[0];
+    const second = scores[sorted[1]] === scores[top] ? sorted[1] : null;
+    const head = $('#rHead');
+    head.className = 'res-head el-' + top;
+    $('#rSeal').textContent = EL[top].k;
+    $('#rName').textContent = 'Sos ' + EL[top].n;
+    $('#rLine').textContent = second
+      ? EL[top].line + ' Y con la misma fuerza, ' + EL[second].n + '.'
+      : EL[top].line;
+    $('#rBars').replaceChildren(...ORDER.map((el) => {
+      const row = document.createElement('div');
+      row.className = 'el-' + el;
+      row.innerHTML = '<span>' + EL[el].n + '</span><span class="track"><i style="width:' + (scores[el] / PREGUNTAS.length * 100) + '%"></i></span><span>' + scores[el] + '</span>';
+      return row;
+    }));
+    $('#rGo').textContent = 'Leer el capítulo ' + EL[top].n;
+    $('#rGo').dataset.target = top;
+    quiz.hidden = true;
+    qResult.hidden = false;
+    return top;
+  }
+
+  function finishQuiz() {
+    const scores = scoresFrom(answers);
+    const top = showResult(scores);
+    save({ elemento: top, puntajes: scores });
+    setVos(top);
+    renderFicha();
+  }
+
+  qBack.addEventListener('click', () => { if (qi > 0) { qi--; renderQuestion(); } });
+  $('#rGo').addEventListener('click', (e) => goTo(e.currentTarget.dataset.target));
+  $('#rAgain').addEventListener('click', () => {
+    qi = 0; answers = [];
+    qResult.hidden = true; quiz.hidden = false;
+    renderQuestion();
+  });
+  qText.tabIndex = -1;
+
+  /* ---------- Vínculos ---------- */
+  function renderRelation() {
+    const vos = (document.querySelector('input[name="vos"]:checked') || {}).value || 'madera';
+    const otro = (document.querySelector('input[name="otro"]:checked') || {}).value || 'agua';
+    const A = EL[vos].n, B = EL[otro].n;
+    let kind, title, text;
+    if (vos === otro) {
+      kind = 'Mismo elemento'; title = 'Se entienden sin palabras';
+      text = 'Dos personas ' + A + ' se reconocen enseguida y comparten ritmo. El desafío es que también se potencian los excesos: a veces hace falta alguien de otro elemento que equilibre.';
+    } else if (NUTRE[vos] === otro) {
+      kind = 'Vos nutrís'; title = 'Con vos, esa persona crece';
+      text = 'Tu ' + A + ' alimenta su ' + B + ', ' + IMG_NUTRE[vos] + '. Es una relación generosa. Fijate de no vaciarte: vos también necesitás recibir.';
+    } else if (NUTRE[otro] === vos) {
+      kind = 'Te nutre'; title = 'Esa persona te da energía';
+      text = 'Su ' + B + ' alimenta tu ' + A + ', ' + IMG_NUTRE[otro] + '. Es alguien que te recarga y te ayuda a crecer. Devolvele el cariño a tu manera.';
+    } else if (FRENA[vos] === otro) {
+      kind = 'Vos ponés límites'; title = 'Tenés influencia sobre ella';
+      text = 'Tu ' + A + ' controla su ' + B + ', ' + IMG_FRENA[vos] + '. Esa persona puede vivirte como un freno. Usá esa fuerza para ordenar, no para apagar.';
+    } else {
+      kind = 'Te pone límites'; title = 'Esa persona te frena, y no siempre está mal';
+      text = 'Su ' + B + ' controla tu ' + A + ', ' + IMG_FRENA[otro] + '. A veces molesta, pero esos límites te ayudan a crecer derecho, como la poda a un árbol.';
+    }
+    $('#relKind').textContent = kind;
+    $('#relTitle').textContent = title;
+    $('#relText').textContent = text;
+  }
+  function setVos(el) {
+    const input = document.getElementById('vos-' + el);
+    if (input) { input.checked = true; renderRelation(); }
+  }
+  $$('input[name="vos"], input[name="otro"]').forEach((i) => i.addEventListener('change', renderRelation));
+
+  /* ---------- Calculadora japonesa ---------- */
+  const thisYear = new Date().getFullYear();
+  const anio = $('#anio'), antes = $('#antes'), calcMsg = $('#calcMsg');
+  anio.max = String(thisYear);
+
+  function raizDigital(n) {
+    while (n > 9) n = String(n).split('').reduce((s, d) => s + Number(d), 0);
+    return n;
+  }
+  function estrellaDe(y) {
+    let n = 11 - raizDigital(y);
+    if (n > 9) n -= 9;
+    return n;
+  }
+  function etoDe(y) {
+    return ANIMALES[((y - 4) % 12 + 12) % 12] + ' de ' + TRONCOS[((y % 10) + 10) % 10];
+  }
+  function kanrekiTexto(nacimiento) {
+    const k = nacimiento + 60;
+    if (k === thisYear) return k + ': ¡es este año!';
+    if (k < thisYear) return 'Lo celebraste en ' + k + '.';
+    return 'Te toca en ' + k + '.';
+  }
+  function calcular(y, antesDeFebrero) {
+    const ajustado = antesDeFebrero ? y - 1 : y;
+    const n = estrellaDe(ajustado);
+    return { y, antesDeFebrero, n, estrella: ESTRELLAS[n], eto: etoDe(ajustado), kanreki: kanrekiTexto(y) };
+  }
+  function renderCalc(r, esEjemplo) {
+    const out = $('#calcOut');
+    out.className = 'calc-out el-' + r.estrella.el;
+    $('#cTag').textContent = esEjemplo ? 'Ejemplo: nacidos en ' + r.y : 'Tu resultado · ' + r.y;
+    $('#cNum').textContent = r.n;
+    $('#cName').textContent = r.estrella.n;
+    $('#cJp').textContent = r.estrella.jp;
+    $('#cText').textContent = r.estrella.t;
+    $('#cEto').textContent = r.eto;
+    $('#cKan').textContent = r.kanreki;
+  }
+  $('#calcForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const y = Number(anio.value);
+    if (!Number.isInteger(y) || y < 1900 || y > thisYear) {
+      calcMsg.textContent = 'Escribí un año entre 1900 y ' + thisYear + ', con los cuatro números.';
+      calcMsg.hidden = false;
+      anio.focus();
+      return;
+    }
+    calcMsg.hidden = true;
+    const r = calcular(y, antes.checked);
+    renderCalc(r, false);
+    save({ anio: y, antes: antes.checked });
+    renderFicha();
+  });
+
+  /* ---------- Ficha final ---------- */
+  function renderFicha() {
+    if (state.elemento && EL[state.elemento]) {
+      const e = EL[state.elemento];
+      $('#fElemento').innerHTML = '<span class="seal el-' + state.elemento + '">' + e.k + '</span><span class="big">' + e.n + '</span><button class="linkbtn" type="button" data-go="' + state.elemento + '">Releer</button>';
+    }
+    if (state.anio) {
+      const r = calcular(state.anio, !!state.antes);
+      $('#fEstrella').innerHTML = '<span class="seal el-' + r.estrella.el + '">' + r.n + '</span><span class="big">' + r.estrella.n + '</span>';
+      $('#fEto').textContent = r.eto;
+      $('#fKan').textContent = r.kanreki;
+    }
+  }
+
+  /* ---------- Arranque ---------- */
+  renderQuestion();
+  renderRelation();
+  if (state.elemento && EL[state.elemento]) {
+    showResult(state.puntajes || scoresFrom([state.elemento]));
+    setVos(state.elemento);
+  }
+  if (state.anio) {
+    anio.value = state.anio;
+    antes.checked = !!state.antes;
+    renderCalc(calcular(state.anio, !!state.antes), false);
+  } else {
+    renderCalc(calcular(1966, false), true);
+  }
+  renderFicha();
+  updateCurrent();
+  const hash = location.hash.slice(1);
+  if (hash && document.getElementById(hash)) requestAnimationFrame(() => goTo(hash));
+})();
+</script>
+</body>
+</html>
