@@ -141,7 +141,7 @@ main { padding-top: var(--top); }
   flex: 1; width: 100%; max-width: 41rem; margin-inline: auto;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
-  padding-block: 28px 116px;
+  padding-block: 28px 140px;
   display: flex; flex-direction: column; justify-content: center; gap: 18px;
 }
 .pg-body > * { margin: 0; }
@@ -152,7 +152,7 @@ main { padding-top: var(--top); }
   .pg--fig .pg-body {
     max-width: 44rem; margin: 0;
     padding-left: clamp(32px, 5vw, 84px); padding-right: max(clamp(32px, 5vw, 84px), env(safe-area-inset-right, 0px));
-    padding-block: 48px 120px;
+    padding-block: 48px 140px;
   }
 }
 
@@ -217,6 +217,20 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   opacity: .07; pointer-events: none; user-select: none;
 }
 
+/* Historias */
+.dropcap::first-letter {
+  float: left; margin: .06em .12em 0 0;
+  font-family: var(--font-display); font-weight: 800; font-size: 3.3em; line-height: .86;
+  color: var(--el, var(--seal));
+}
+.pg--story .lead { font-size: 1.22em; }
+.letter {
+  padding: 18px 20px; background: var(--paper-2); border-radius: 6px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.letter p { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 1.05em; line-height: 1.6; }
+.letter .kicker { font-family: var(--font-body); font-size: .8rem; font-weight: 700; }
+
 /* Botones */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
@@ -230,13 +244,17 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   position: fixed; z-index: 20;
   right: max(16px, env(safe-area-inset-right, 0px));
   bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-  display: inline-flex; align-items: center; gap: 10px;
-  min-height: 54px; padding: 0 24px; border-radius: 999px; border: 0;
-  background: var(--ink); color: var(--paper);
-  font: 700 1.02rem var(--font-body); cursor: pointer;
+  max-width: min(25rem, calc(100vw - 32px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)));
+  display: inline-flex; align-items: center; gap: 14px;
+  min-height: 56px; padding: 8px 20px 8px 24px; border-radius: 30px; border: 0;
+  background: var(--ink); color: var(--paper); text-align: left;
+  font: 700 1rem/1.25 var(--font-body); cursor: pointer;
   box-shadow: 0 8px 24px var(--shadow);
 }
-.next svg { width: 18px; height: 18px; transition: transform .25s ease; }
+.next-txt { display: flex; flex-direction: column; min-width: 0; }
+.next-k { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; opacity: .72; }
+#nextLabel { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.next svg { flex: none; width: 18px; height: 18px; transition: transform .25s ease; }
 .next.is-up svg { transform: rotate(180deg); }
 
 /* Portada */
@@ -249,6 +267,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
 .scrolls { order: 4; }
 .cover-note { order: 5; }
 .cover-text .btns { order: 6; }
+.cover-meta { order: 7; font-size: .85rem; color: var(--ink-2); letter-spacing: .04em; }
 @media (min-width: 960px) {
   .pg--cover .pg-body { max-width: 78rem; flex-direction: row; align-items: center; gap: clamp(40px, 5vw, 88px); }
   .cover-text { display: flex; flex-direction: column; gap: 22px; flex: 1.15; min-width: 0; }
@@ -290,6 +309,10 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   text-decoration: none; line-height: 1.35;
 }
 .toc a:hover .t { text-decoration: underline; text-underline-offset: 3px; }
+.tag-h {
+  margin-left: 8px; font-style: normal; font-size: .68rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--seal); white-space: nowrap;
+}
 .toc .n { flex: none; width: 2.2ch; text-align: right; color: var(--ink-2); font-size: .88rem; font-variant-numeric: tabular-nums; }
 
 /* Diagramas */
@@ -463,6 +486,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
     <p class="cover-sub">Lo que China y Japón saben de vos</p>
     <p class="cover-note">Madera, fuego, tierra, metal y agua: una idea de más de dos mil años para entender tu carácter, tus estaciones y tu manera de llevarte con los demás.</p>
     <div class="btns"><button class="btn" type="button" data-go="indice">Empezar a leer ↓</button></div>
+    <p class="cover-meta" id="coverMeta">46 páginas · 4 historias · unos 30 minutos</p>
     </div>
     <div class="scrolls" aria-label="Los cinco elementos">
       <figure class="scroll el-madera"><img src="img/madera-bambu.jpg" alt="Bambú" width="1014" height="1520" style="object-position:50% 30%"><span class="seal">木</span></figure>
@@ -475,7 +499,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
 </section>
 
 <!-- ÍNDICE -->
-<section class="pg pg--text" id="indice" data-cap="Índice">
+<section class="pg pg--text" id="indice" data-hook="Qué vas a encontrar" data-cap="Índice">
   <div class="pg-body">
     <p class="kicker">Índice</p>
     <h2 class="pg-title">Qué vas a encontrar</h2>
@@ -484,6 +508,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
         <h3>Parte 1 · China</h3>
         <ol>
           <li><a href="#intro"><span class="n" data-page-of="intro"></span><span class="t">Antes de empezar</span></a></li>
+          <li><a href="#wukong"><span class="n" data-page-of="wukong"></span><span class="t">El mono que desafió al cielo <em class="tag-h">Historia</em></span></a></li>
           <li><a href="#que-son"><span class="n" data-page-of="que-son"></span><span class="t">No son cosas, son movimientos</span></a></li>
           <li><a href="#ciclo-crea"><span class="n" data-page-of="ciclo-crea"></span><span class="t">El ciclo que crea</span></a></li>
           <li><a href="#ciclo-controla"><span class="n" data-page-of="ciclo-controla"></span><span class="t">El ciclo que controla</span></a></li>
@@ -491,6 +516,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
           <li><a href="#test"><span class="n" data-page-of="test"></span><span class="t">Test: ¿qué elemento sos?</span></a></li>
           <li><a href="#madera"><span class="n" data-page-of="madera"></span><span class="t">Madera</span></a></li>
           <li><a href="#fuego"><span class="n" data-page-of="fuego"></span><span class="t">Fuego</span></a></li>
+          <li><a href="#soles"><span class="n" data-page-of="soles"></span><span class="t">Los diez soles y la mujer de la luna <em class="tag-h">Historia</em></span></a></li>
           <li><a href="#tierra"><span class="n" data-page-of="tierra"></span><span class="t">Tierra</span></a></li>
           <li><a href="#metal"><span class="n" data-page-of="metal"></span><span class="t">Metal</span></a></li>
           <li><a href="#agua"><span class="n" data-page-of="agua"></span><span class="t">Agua</span></a></li>
@@ -501,12 +527,14 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
         <h3>Parte 2 · Japón</h3>
         <ol>
           <li><a href="#llegada"><span class="n" data-page-of="llegada"></span><span class="t">Cómo llegaron a Japón</span></a></li>
+          <li><a href="#momotaro"><span class="n" data-page-of="momotaro"></span><span class="t">El niño que nació de un durazno <em class="tag-h">Historia</em></span></a></li>
           <li><a href="#godai"><span class="n" data-page-of="godai"></span><span class="t">Los cinco elementos de Japón</span></a></li>
           <li><a href="#gorinto"><span class="n" data-page-of="gorinto"></span><span class="t">La torre de los cinco anillos</span></a></li>
           <li><a href="#musashi"><span class="n" data-page-of="musashi"></span><span class="t">El samurái de los cinco libros</span></a></li>
           <li><a href="#estrellas"><span class="n" data-page-of="estrellas"></span><span class="t">Las Nueve Estrellas</span></a></li>
           <li><a href="#calculadora"><span class="n" data-page-of="calculadora"></span><span class="t">Calculá tu estrella</span></a></li>
           <li><a href="#nueve"><span class="n" data-page-of="nueve"></span><span class="t">Las nueve, una por una</span></a></li>
+          <li><a href="#urashima"><span class="n" data-page-of="urashima"></span><span class="t">El pescador que volvió 300 años después <em class="tag-h">Historia</em></span></a></li>
           <li><a href="#kanreki"><span class="n" data-page-of="kanreki"></span><span class="t">Kanreki: a los 60 se vuelve a nacer</span></a></li>
           <li><a href="#cumples"><span class="n" data-page-of="cumples"></span><span class="t">Los cumpleaños de la longevidad</span></a></li>
           <li><a href="#ficha"><span class="n" data-page-of="ficha"></span><span class="t">Tu ficha</span></a></li>
@@ -517,7 +545,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
 </section>
 
 <!-- INTRO -->
-<section class="pg pg--text" id="intro" data-cap="Antes de empezar">
+<section class="pg pg--text" id="intro" data-hook="Antes de empezar" data-cap="Antes de empezar">
   <span class="wm" aria-hidden="true">五行</span>
   <div class="pg-body">
     <p class="kicker">Antes de empezar</p>
@@ -525,19 +553,23 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
     <blockquote class="quote">“A los cuarenta ya no tenía dudas.”<cite>Confucio, Analectas 2.4</cite></blockquote>
     <div class="prose">
       <p>Confucio escribió esa frase hace dos mil quinientos años. Las dudas no desaparecen a los cuarenta, pero cambian: ya sabemos bastante de la vida y empezamos a preguntarnos por qué somos como somos.</p>
-      <p>Este libro reúne dos maneras orientales de responder esa pregunta. La primera son los cinco elementos de China. La segunda es la versión que nació en Japón, con samuráis, estrellas y una forma muy especial de festejar los sesenta años.</p>
+      <p>Este libro reúne dos maneras orientales de responder esa pregunta. La primera son los cinco elementos de China. La segunda es la versión que nació en Japón, con samuráis, estrellas y una forma muy especial de festejar los sesenta años. En el camino vas a encontrar cuatro historias que en China y en Japón conoce todo el mundo, y que acá casi nadie escuchó.</p>
       <p>No hace falta creer en nada para disfrutarlo. Es historia, filosofía y un poco de juego.</p>
+    </div>
+    <div class="fact">
+      <b>Lo que te llevás</b>
+      <p>Al terminar vas a saber tres cosas de vos: tu elemento, tu estrella japonesa y el año en que, según Japón, volvés a nacer.</p>
     </div>
     <ul class="ticks">
       <li>Deslizá hacia arriba para pasar de página, o tocá <b>Seguir</b>.</li>
       <li>El botón <b>Índice</b>, arriba, te lleva a cualquier capítulo.</li>
-      <li>Hay un test para descubrir tu elemento y una calculadora japonesa con tu año de nacimiento. Al final, todo queda en tu ficha.</li>
+      <li>Hay un test y una calculadora. Tus resultados te esperan en la última página.</li>
     </ul>
   </div>
 </section>
 
 <!-- PARTE 1 -->
-<section class="pg pg--fig pg--part" id="china" data-cap="Parte 1 · China">
+<section class="pg pg--fig pg--part" id="china" data-hook="Parte 1: China" data-cap="Parte 1 · China">
   <figure class="pg-fig" style="--pos:52% 70%">
     <img src="img/china-cascada.jpg" alt="Pintura china: un sabio con su sirviente mira una cascada bajo un pino" width="1400" height="1321" loading="lazy" decoding="async">
     <figcaption>Ma Yuan, <i>Sabio contemplando una cascada</i>. China, siglo XIII.</figcaption>
@@ -553,7 +585,43 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--fig" id="que-son" data-cap="China · Qué son">
+<!-- HISTORIA: EL REY MONO -->
+<section class="pg pg--fig pg--story" id="wukong" data-hook="El mono que desafió al cielo" data-cap="Historia de China · El Rey Mono">
+  <figure class="pg-fig" style="--pos:50% 30%">
+    <img src="img/wukong.jpg" alt="Grabado japonés del Rey Mono con armadura roja, soplando pelos que se convierten en pequeños monos" width="1300" height="1455" loading="lazy" decoding="async">
+    <figcaption>Yashima Gakutei, <i>El Rey Mono Son Gokū</i>. Japón, hacia 1824. Wukong sopla pelos de su cuerpo y cada uno se convierte en un mono.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Historia de China · Viaje al Oeste</p>
+    <h2 class="pg-title">El mono que desafió al cielo</h2>
+    <p class="lead">El personaje más famoso de China pasó quinientos años atrapado bajo una montaña. La montaña se llamaba Cinco Elementos.</p>
+    <div class="prose">
+      <p class="dropcap">Sun Wukong, el Rey Mono, nació de una piedra en la cima de una montaña. Aprendió setenta y dos transformaciones y podía recorrer cincuenta mil kilómetros de un solo salto, montado en una nube. Se volvió tan poderoso que se hizo llamar “Gran Sabio Igual al Cielo”.</p>
+      <p>Se comió los duraznos de la inmortalidad del jardín celestial, se tragó las píldoras de vida eterna de Laozi y derrotó a todos los ejércitos que mandaron a detenerlo. Lo encerraron cuarenta y nueve días en un horno de fuego y salió más fuerte, con los ojos de oro.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--text pg--story" id="wukong-2" data-hook="La apuesta con Buda" data-cap="Historia de China · El Rey Mono">
+  <span class="wm" aria-hidden="true">五行山</span>
+  <div class="pg-body">
+    <p class="kicker">Historia de China · La apuesta</p>
+    <h2 class="pg-title">La palma de Buda</h2>
+    <div class="prose">
+      <p>Como ningún dios podía con él, llamaron a Buda. Buda le propuso una apuesta: “Si salís de la palma de mi mano de un salto, el cielo es tuyo”.</p>
+      <p>Wukong se rió, saltó y voló hasta el fin del mundo, donde encontró cinco columnas enormes. Para dejar constancia, escribió su nombre en una y, de pura insolencia, hizo pis al pie de otra.</p>
+      <p>Volvió triunfante. Buda le mostró la mano: en uno de sus dedos estaba la firma, y todavía olía a pis de mono. Las cinco columnas eran sus cinco dedos. Nunca había salido de la palma.</p>
+      <p>Entonces Buda dio vuelta la mano y la convirtió en una montaña de cinco picos: <b>la Montaña de los Cinco Elementos</b>. Wukong quedó atrapado debajo quinientos años, hasta que un monje lo liberó a cambio de que lo acompañara a la India a buscar los textos sagrados. Ese viaje es la novela <i>Viaje al Oeste</i>, publicada en el siglo XVI.</p>
+    </div>
+    <div class="fact">
+      <b>Lo que esconde</b>
+      <p>Muchos lectores chinos ven la novela como una alegoría de los cinco elementos: Wukong sería el Metal; Zhu Bajie, el cerdo glotón que lo acompaña, la Madera; y el silencioso monje Sha, la Tierra. En Japón, Wukong se llama Son Gokū: en él se inspiró Akira Toriyama para crear a Gokú, el de <i>Dragon Ball</i>, con su nube voladora y su bastón que se estira.</p>
+    </div>
+    <p class="lead">¿Qué son esos cinco elementos que ni el Rey Mono pudo vencer? Empecemos.</p>
+  </div>
+</section>
+
+<section class="pg pg--fig" id="que-son" data-hook="No son cosas, son movimientos" data-cap="China · Qué son">
   <figure class="pg-fig">
     <img src="img/paisaje-guo-xi.jpg" alt="Paisaje chino en tinta con montañas, árboles y agua" width="889" height="717" loading="lazy" decoding="async">
     <figcaption>Tan Song, <i>Paisaje al estilo de Guo Xi</i>. China, 1748.</figcaption>
@@ -569,7 +637,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text" id="ciclo-crea" data-cap="China · El ciclo que crea">
+<section class="pg pg--text" id="ciclo-crea" data-hook="El ciclo que crea" data-cap="China · El ciclo que crea">
   <div class="pg-body">
     <p class="kicker">Capítulo 2 · 相生</p>
     <h2 class="pg-title">El ciclo que crea</h2>
@@ -611,7 +679,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text" id="ciclo-controla" data-cap="China · El ciclo que controla">
+<section class="pg pg--text" id="ciclo-controla" data-hook="El ciclo que controla" data-cap="China · El ciclo que controla">
   <div class="pg-body">
     <p class="kicker">Capítulo 3 · 相克</p>
     <h2 class="pg-title">El ciclo que controla</h2>
@@ -654,7 +722,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text" id="mapa" data-cap="China · El mapa de los cinco">
+<section class="pg pg--text" id="mapa" data-hook="El mapa de los cinco" data-cap="China · El mapa de los cinco">
   <div class="pg-body">
     <p class="kicker">Capítulo 4</p>
     <h2 class="pg-title">El mapa de los cinco</h2>
@@ -673,7 +741,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text" id="test" data-cap="China · Test">
+<section class="pg pg--text" id="test" data-hook="Test: ¿qué elemento sos?" data-cap="China · Test">
   <div class="pg-body">
     <p class="kicker">Capítulo 5 · Test</p>
     <h2 class="pg-title">¿Qué elemento sos?</h2>
@@ -707,7 +775,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
 </section>
 
 <!-- MADERA -->
-<section class="pg pg--fig el-madera" id="madera" data-cap="China · Madera">
+<section class="pg pg--fig el-madera" id="madera" data-hook="Madera" data-cap="China · Madera">
   <figure class="pg-fig" style="--pos:50% 30%">
     <img src="img/madera-bambu.jpg" alt="Pintura china de cañas de bambú con hojas finas" width="1014" height="1520" loading="lazy" decoding="async">
     <figcaption>Li Kan, <i>Bambú y rocas</i> (detalle). China, 1318.</figcaption>
@@ -727,7 +795,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text el-madera" id="madera-2" data-cap="China · Madera">
+<section class="pg pg--text el-madera" id="madera-2" data-hook="Dónde se ve la Madera" data-cap="China · Madera">
   <span class="wm" aria-hidden="true">木</span>
   <div class="pg-body">
     <p class="kicker">Madera · Su ficha</p>
@@ -758,7 +826,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
 </section>
 
 <!-- FUEGO -->
-<section class="pg pg--fig el-fuego" id="fuego" data-cap="China · Fuego">
+<section class="pg pg--fig el-fuego" id="fuego" data-hook="Fuego" data-cap="China · Fuego">
   <figure class="pg-fig" style="--pos:60% 45%">
     <img src="img/fuego-llamas.jpg" alt="Grabado japonés: un bombero de espaldas frente a grandes llamas anaranjadas" width="1116" height="1780" loading="lazy" decoding="async">
     <figcaption>Tsukioka Yoshitoshi, <i>La luna entre las llamas</i>. Japón, 1886.</figcaption>
@@ -778,7 +846,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text el-fuego" id="fuego-2" data-cap="China · Fuego">
+<section class="pg pg--text el-fuego" id="fuego-2" data-hook="Dónde se ve el Fuego" data-cap="China · Fuego">
   <span class="wm" aria-hidden="true">火</span>
   <div class="pg-body">
     <p class="kicker">Fuego · Su ficha</p>
@@ -808,8 +876,45 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
+<!-- HISTORIA: LOS DIEZ SOLES Y CHANG'E -->
+<section class="pg pg--fig pg--story el-fuego" id="soles" data-hook="El día que salieron diez soles" data-cap="Historia de China · Los diez soles">
+  <figure class="pg-fig" style="--pos:55% 45%">
+    <img src="img/soles-cuervos.jpg" alt="Grabado japonés: tres cuervos negros vuelan delante de un gran sol rojo" width="1300" height="1478" loading="lazy" decoding="async">
+    <figcaption>Totoya Hokkei, <i>Tres cuervos frente al sol naciente</i>. Japón, hacia 1815. En China se decía que dentro de cada sol vivía un cuervo.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Historia de China · Fuego</p>
+    <h2 class="pg-title">El día que salieron diez soles</h2>
+    <p class="lead">Al principio había diez soles. Eran hijos del dios del cielo y salían de a uno, por turno, cada mañana.</p>
+    <div class="prose">
+      <p class="dropcap">Un día se cansaron de esperar y salieron los diez juntos. Los ríos se secaron, las cosechas se quemaron y la gente se moría de calor. Era fuego sin nada que lo frenara.</p>
+      <p>El emperador llamó a Hou Yi, el mejor arquero del mundo. Hou Yi tensó su arco rojo y empezó a disparar. Cada flecha que daba en el blanco hacía caer un sol, que al tocar la tierra se convertía en un cuervo de tres patas. Derribó nueve. Dejó uno solo: el que todavía hoy nos alumbra.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--fig pg--story el-agua" id="change" data-hook="La mujer que se fue a la luna" data-cap="Historia de China · Chang'e">
+  <figure class="pg-fig" style="--pos:50% 22%">
+    <img src="img/change.jpg" alt="Pintura china vertical: una mujer de túnica clara, de pie, con poemas escritos alrededor" width="798" height="1920" loading="lazy" decoding="async">
+    <figcaption>Artista desconocido, <i>La diosa de la luna Chang'e</i>. China.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Historia de China · La luna</p>
+    <h2 class="pg-title">La mujer que se fue a la luna</h2>
+    <div class="prose">
+      <p class="dropcap">Como premio, la Reina Madre del Oeste le regaló a Hou Yi un elixir de la inmortalidad. Alcanzaba para una sola persona, y él no quería vivir para siempre sin su esposa, Chang'e. Así que lo guardó.</p>
+      <p>Las versiones no coinciden en lo que pasó después. En la más contada hoy, un discípulo de Hou Yi intentó robarlo y Chang'e, para que no cayera en malas manos, se lo tomó. Su cuerpo se volvió liviano y empezó a subir hasta llegar a la luna. Desde entonces vive allí, acompañada por un conejo de jade.</p>
+      <p>Hou Yi puso en el patio las frutas y los dulces favoritos de ella, bajo la luna llena. Así nació, dice la tradición, la Fiesta del Medio Otoño: cada año, millones de familias chinas miran la luna y comen pasteles de luna pensando en los que están lejos.</p>
+    </div>
+    <div class="fact">
+      <b>Lo que esconde</b>
+      <p>Diez soles son puro Fuego sin control, y la historia enseña lo mismo que el ciclo de los elementos: nada sobrevive al exceso. La luna es lo opuesto al sol, el lado fresco y tranquilo. Hoy las misiones lunares de China se llaman Chang'e, y su robot explorador se llama Yutu, “conejo de jade”.</p>
+    </div>
+  </div>
+</section>
+
 <!-- TIERRA -->
-<section class="pg pg--fig el-tierra" id="tierra" data-cap="China · Tierra">
+<section class="pg pg--fig el-tierra" id="tierra" data-hook="Tierra" data-cap="China · Tierra">
   <figure class="pg-fig" style="--pos:45% 50%">
     <img src="img/tierra-arroz.jpg" alt="Pintura china antigua: campesinos trabajando juntos en la cosecha del arroz" width="1400" height="999" loading="lazy" decoding="async">
     <figcaption>Artista desconocido, <i>El cultivo del arroz</i> (detalle). China, antes de 1353.</figcaption>
@@ -829,7 +934,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text el-tierra" id="tierra-2" data-cap="China · Tierra">
+<section class="pg pg--text el-tierra" id="tierra-2" data-hook="Dónde se ve la Tierra" data-cap="China · Tierra">
   <span class="wm" aria-hidden="true">土</span>
   <div class="pg-body">
     <p class="kicker">Tierra · Su ficha</p>
@@ -860,7 +965,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
 </section>
 
 <!-- METAL -->
-<section class="pg pg--fig el-metal" id="metal" data-cap="China · Metal">
+<section class="pg pg--fig el-metal" id="metal" data-hook="Metal" data-cap="China · Metal">
   <figure class="pg-fig" style="--pos:50% 45%">
     <img src="img/metal-ding.jpg" alt="Caldero chino de bronce de tres patas, con dibujos geométricos y pátina verde" width="1300" height="1559" loading="lazy" decoding="async">
     <figcaption>Caldero ritual de bronce (<i>ding</i>). China, siglos XII a XI antes de Cristo.</figcaption>
@@ -880,7 +985,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text el-metal" id="metal-2" data-cap="China · Metal">
+<section class="pg pg--text el-metal" id="metal-2" data-hook="Dónde se ve el Metal" data-cap="China · Metal">
   <span class="wm" aria-hidden="true">金</span>
   <div class="pg-body">
     <p class="kicker">Metal · Su ficha</p>
@@ -911,7 +1016,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
 </section>
 
 <!-- AGUA -->
-<section class="pg pg--fig el-agua" id="agua" data-cap="China · Agua">
+<section class="pg pg--fig el-agua" id="agua" data-hook="Agua" data-cap="China · Agua">
   <figure class="pg-fig">
     <img src="img/agua-lluvia.jpg" alt="Pintura china en abanico: barcas amarradas en un lago, bajo la lluvia y entre montañas" width="1400" height="1143" loading="lazy" decoding="async">
     <figcaption>Artista desconocido, <i>Barcas amarradas bajo el viento y la lluvia</i> (detalle). China, siglo XIII.</figcaption>
@@ -931,7 +1036,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text el-agua" id="agua-2" data-cap="China · Agua">
+<section class="pg pg--text el-agua" id="agua-2" data-hook="Dónde se ve el Agua" data-cap="China · Agua">
   <span class="wm" aria-hidden="true">水</span>
   <div class="pg-body">
     <p class="kicker">Agua · Su ficha</p>
@@ -962,7 +1067,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
 </section>
 
 <!-- VÍNCULOS -->
-<section class="pg pg--text" id="vinculos" data-cap="China · Vínculos">
+<section class="pg pg--text" id="vinculos" data-hook="Cómo te llevás con los demás" data-cap="China · Vínculos">
   <div class="pg-body">
     <p class="kicker">Capítulo 6</p>
     <h2 class="pg-title">Cómo te llevás con los demás</h2>
@@ -996,7 +1101,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
 </section>
 
 <!-- PARTE 2 -->
-<section class="pg pg--fig pg--part" id="japon" data-cap="Parte 2 · Japón">
+<section class="pg pg--fig pg--part" id="japon" data-hook="Parte 2: Japón" data-cap="Parte 2 · Japón">
   <figure class="pg-fig">
     <img src="img/japon-fuji-rojo.jpg" alt="Grabado de Hokusai: el monte Fuji rojo bajo un cielo azul con nubes" width="1400" height="959" loading="lazy" decoding="async">
     <figcaption>Katsushika Hokusai, <i>Viento del sur, cielo despejado</i>, conocido como “Fuji rojo”. Japón, hacia 1831.</figcaption>
@@ -1011,7 +1116,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text" id="llegada" data-cap="Japón · Cómo llegaron">
+<section class="pg pg--text" id="llegada" data-hook="El mago de la estrella de cinco puntas" data-cap="Japón · Cómo llegaron">
   <div class="pg-body">
     <p class="kicker">Capítulo 7</p>
     <h2 class="pg-title">Cómo llegaron a Japón</h2>
@@ -1033,7 +1138,45 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text" id="godai" data-cap="Japón · Godai">
+<!-- HISTORIA: MOMOTARŌ -->
+<section class="pg pg--fig pg--story" id="momotaro" data-hook="El niño que nació de un durazno" data-cap="Historia de Japón · Momotarō">
+  <figure class="pg-fig" style="--pos:50% 60%">
+    <img src="img/momotaro.jpg" alt="Caja japonesa de laca dorada con figuras en relieve: un niño guerrero con un perro y, del otro lado, un mono y un faisán" width="754" height="733" loading="lazy" decoding="async">
+    <figcaption>Kogyoku Tokayo, caja de laca (<i>inrō</i>) con Momotarō y el perro; del otro lado, el mono y el faisán. Japón, siglo XIX.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Historia de Japón</p>
+    <h2 class="pg-title">El niño que nació de un durazno</h2>
+    <p class="lead">Es el cuento que todos los chicos japoneses saben de memoria.</p>
+    <div class="prose">
+      <p class="dropcap">Una anciana lavaba ropa en el río cuando vio bajar, flotando, un durazno enorme. Se lo llevó a casa para comerlo con su marido, pero al abrirlo encontraron adentro a un bebé. No tenían hijos, así que lo criaron y lo llamaron Momotarō, “el niño del durazno”.</p>
+      <p>Ya grande, Momotarō decidió ir a la Isla de los Demonios, donde vivían los <i>oni</i> que saqueaban los pueblos. La anciana le preparó unas bolitas de mijo para el viaje. En el camino se le acercaron un perro, un mono y un faisán; cada uno recibió una bolita y se sumó a la aventura.</p>
+      <p>Los cuatro cruzaron el mar, vencieron a los oni y volvieron con sus tesoros. Momotarō cuidó a sus padres por el resto de sus vidas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--fig pg--story" id="momotaro-2" data-hook="El código secreto de Momotarō" data-cap="Historia de Japón · Momotarō">
+  <figure class="pg-fig" style="--pos:72% 50%">
+    <img src="img/oni-mascara.jpg" alt="Grabado de Hokusai: una máscara de demonio de ojos saltones junto a la máscara blanca de una diosa" width="1300" height="626" loading="lazy" decoding="async">
+    <figcaption>Katsushika Hokusai, <i>Máscaras de un oni y de la diosa Uzume</i>. Japón, hacia 1807.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Lo que esconde el cuento</p>
+    <h2 class="pg-title">El código secreto de Momotarō</h2>
+    <div class="prose">
+      <p class="dropcap">¿Por qué justo un perro, un mono y un faisán? El cuento no lo dice, pero en Japón circula desde hace siglos una explicación que sale del mismo sistema de los onmyōji.</p>
+      <p>Para ellos, el noreste es la dirección peligrosa: la “puerta de los demonios”. En la brújula de los doce animales, el noreste es la dirección del buey y del tigre. Por eso los oni se dibujan con cuernos de buey y taparrabos de piel de tigre.</p>
+      <p>Del otro lado de la brújula, uno detrás del otro, están el mono, el gallo y el perro. Son los compañeros de Momotarō: el faisán ocupa el lugar del gallo. Su equipo es el antídoto contra los demonios.</p>
+    </div>
+    <div class="fact">
+      <b>¿Y el durazno?</b>
+      <p>Tampoco es casualidad. En la tradición china, la madera de durazno espanta a los malos espíritus. Y en el mito japonés más antiguo, el dios Izanagi escapa del mundo de los muertos tirándoles duraznos a quienes lo persiguen.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--text" id="godai" data-hook="Japón tiene sus propios cinco elementos" data-cap="Japón · Godai">
   <span class="wm" aria-hidden="true">五大</span>
   <div class="pg-body">
     <p class="kicker">Capítulo 8 · 五大</p>
@@ -1057,7 +1200,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text" id="gorinto" data-cap="Japón · La torre de los cinco anillos">
+<section class="pg pg--text" id="gorinto" data-hook="La torre de los cinco anillos" data-cap="Japón · La torre de los cinco anillos">
   <div class="pg-body">
     <p class="kicker">Capítulo 9 · 五輪塔</p>
     <h2 class="pg-title">La torre de los cinco anillos</h2>
@@ -1093,7 +1236,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--fig" id="musashi" data-cap="Japón · Musashi">
+<section class="pg pg--fig" id="musashi" data-hook="El samurái que nunca perdió un duelo" data-cap="Japón · Musashi">
   <figure class="pg-fig" style="--pos:50% 30%">
     <img src="img/musashi.jpg" alt="Grabado japonés: un samurái de pie en la nieve, con dos espadas" width="1300" height="1923" loading="lazy" decoding="async">
     <figcaption>Gigadō Ashiyuki, <i>El actor Arashi Rikan II como Miyamoto Musashi</i>. Japón, 1832.</figcaption>
@@ -1109,7 +1252,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--fig el-tierra" id="libro-tierra" data-cap="Japón · El libro de la Tierra">
+<section class="pg pg--fig el-tierra" id="libro-tierra" data-hook="El libro de la Tierra" data-cap="Japón · El libro de la Tierra">
   <figure class="pg-fig">
     <img src="img/godai-tierra.jpg" alt="Grabado de Hokusai: un tonelero trabaja dentro de un barril gigante, con el monte Fuji a lo lejos" width="1400" height="921" loading="lazy" decoding="async">
     <figcaption>Katsushika Hokusai, <i>Fujimigahara, en la provincia de Owari</i>. Japón, hacia 1831.</figcaption>
@@ -1125,7 +1268,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--fig el-agua" id="libro-agua" data-cap="Japón · El libro del Agua">
+<section class="pg pg--fig el-agua" id="libro-agua" data-hook="El libro del Agua" data-cap="Japón · El libro del Agua">
   <figure class="pg-fig" style="--pos:35% 50%">
     <img src="img/godai-agua.jpg" alt="La gran ola de Kanagawa de Hokusai: una ola enorme sobre barcas, con el monte Fuji al fondo" width="1400" height="922" loading="lazy" decoding="async">
     <figcaption>Katsushika Hokusai, <i>La gran ola de Kanagawa</i>. Japón, hacia 1831.</figcaption>
@@ -1136,12 +1279,13 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
     <p class="lead">Lo fluido: los ríos, la sangre, las emociones. Es la capacidad de adaptarse.</p>
     <div class="prose">
       <p>Musashi pide que el espíritu sea como el agua, que toma la forma del recipiente: a veces es una gota y a veces un mar embravecido. En este rollo explica la postura, la mirada y la calma interior.</p>
+      <p>Hokusai grabó esta ola con más de setenta años. Según él mismo escribió, nada de lo que había hecho antes de los setenta valía la pena.</p>
     </div>
     <p class="lesson"><b>Para la vida</b>Ser flexible no es ser débil. Es la forma más inteligente de la fuerza.</p>
   </div>
 </section>
 
-<section class="pg pg--fig el-fuego" id="libro-fuego" data-cap="Japón · El libro del Fuego">
+<section class="pg pg--fig el-fuego" id="libro-fuego" data-hook="El libro del Fuego" data-cap="Japón · El libro del Fuego">
   <figure class="pg-fig" style="--pos:50% 22%">
     <img src="img/godai-fuego.jpg" alt="Grabado de Hiroshige: fuegos artificiales sobre un puente y un río de noche, lleno de barcas" width="1300" height="1948" loading="lazy" decoding="async">
     <figcaption>Utagawa Hiroshige, <i>Fuegos artificiales en el puente Ryōgoku</i>. Japón, 1858.</figcaption>
@@ -1157,7 +1301,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--fig el-madera" id="libro-viento" data-cap="Japón · El libro del Viento">
+<section class="pg pg--fig el-madera" id="libro-viento" data-hook="El libro del Viento" data-cap="Japón · El libro del Viento">
   <figure class="pg-fig">
     <img src="img/godai-viento.jpg" alt="Grabado de Hokusai: viajeros sorprendidos por una ráfaga que hace volar papeles y sombreros" width="1400" height="977" loading="lazy" decoding="async">
     <figcaption>Katsushika Hokusai, <i>Ejiri, en la provincia de Suruga</i>. Japón, hacia 1831.</figcaption>
@@ -1173,7 +1317,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--fig el-metal" id="libro-vacio" data-cap="Japón · El libro del Vacío">
+<section class="pg pg--fig el-metal" id="libro-vacio" data-hook="El libro del Vacío" data-cap="Japón · El libro del Vacío">
   <figure class="pg-fig" style="--pos:78% 50%">
     <img src="img/godai-vacio.jpg" alt="Pintura zen: un monje dibujado con pocos trazos lee dentro de un gran círculo que es la luna, junto a un poema" width="1400" height="648" loading="lazy" decoding="async">
     <figcaption>Jifei Ruyi, <i>Leyendo un sutra a la luz de la luna</i>. Japón, siglo XVII.</figcaption>
@@ -1189,7 +1333,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--fig" id="estrellas" data-cap="Japón · Las Nueve Estrellas">
+<section class="pg pg--fig" id="estrellas" data-hook="Las Nueve Estrellas" data-cap="Japón · Las Nueve Estrellas">
   <figure class="pg-fig">
     <img src="img/estrellas-mandala.jpg" alt="Mandala japonés antiguo: círculos con figuras de deidades de las estrellas alrededor de un Buda central" width="1302" height="1400" loading="lazy" decoding="async">
     <figcaption><i>Mandala de las estrellas</i>. Japón, siglos XIII a XIV.</figcaption>
@@ -1212,7 +1356,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text" id="calculadora" data-cap="Japón · Calculadora">
+<section class="pg pg--text" id="calculadora" data-hook="Calculá tu estrella" data-cap="Japón · Calculadora">
   <div class="pg-body">
     <p class="kicker">Calculadora</p>
     <h2 class="pg-title">Calculá tu estrella</h2>
@@ -1241,7 +1385,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text" id="nueve" data-cap="Japón · Las nueve, una por una">
+<section class="pg pg--text" id="nueve" data-hook="Las nueve, una por una" data-cap="Japón · Las nueve, una por una">
   <div class="pg-body">
     <p class="kicker">Las estrellas 1 a 5</p>
     <h2 class="pg-title">Las nueve, una por una</h2>
@@ -1255,7 +1399,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text" id="nueve-2" data-cap="Japón · Las nueve, una por una">
+<section class="pg pg--text" id="nueve-2" data-hook="Las cuatro estrellas que faltan" data-cap="Japón · Las nueve, una por una">
   <div class="pg-body">
     <p class="kicker">Las estrellas 6 a 9</p>
     <h2 class="pg-title">Y las cuatro que faltan</h2>
@@ -1269,10 +1413,49 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--fig" id="kanreki" data-cap="Japón · Kanreki">
+<!-- HISTORIA: URASHIMA TARŌ -->
+<section class="pg pg--fig pg--story el-agua" id="urashima" data-hook="El pescador que volvió 300 años después" data-cap="Historia de Japón · Urashima Tarō">
+  <figure class="pg-fig" style="--pos:50% 58%">
+    <img src="img/urashima-tortuga.jpg" alt="Pintura japonesa: un joven pescador viaja entre las olas sobre el caparazón de una tortuga" width="999" height="2000" loading="lazy" decoding="async">
+    <figcaption>Kawanabe Kyōsai, <i>Urashima Tarō sobre una tortuga</i> (detalle). Japón, después de 1888.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Historia de Japón · Agua</p>
+    <h2 class="pg-title">El pescador que volvió trescientos años después</h2>
+    <p class="lead">Es uno de los cuentos más antiguos de Japón: ya aparece en una crónica del año 720.</p>
+    <div class="prose">
+      <p class="dropcap">Urashima Tarō era un joven pescador. Un día vio a unos chicos que maltrataban a una tortuga en la playa, los echó y devolvió la tortuga al mar.</p>
+      <p>Al día siguiente, la tortuga volvió a buscarlo. Para agradecerle, lo llevó en su caparazón hasta el fondo del océano, al Palacio del Dragón, donde lo recibió la princesa Otohime. Había banquetes, música y peces que bailaban, y por cada ventana del palacio se veía una estación distinta del año.</p>
+      <p>A Urashima le pareció que habían pasado apenas tres días. Entonces se acordó de su madre y quiso volver.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--fig pg--story" id="urashima-2" data-hook="Lo que había en la caja" data-cap="Historia de Japón · Urashima Tarō">
+  <figure class="pg-fig" style="--pos:45% 50%">
+    <img src="img/urashima-regreso.jpg" alt="Grabado japonés: Urashima vuelve a casa montado en un gran pez rojo sobre las olas, despedido por el rey del mar" width="1300" height="964" loading="lazy" decoding="async">
+    <figcaption>Totoya Hokkei, <i>Urashima Tarō vuelve a casa sobre un pez, despedido por el Rey del Mar</i>. Japón, siglo XIX.</figcaption>
+  </figure>
+  <div class="pg-body">
+    <p class="kicker">Historia de Japón · La caja</p>
+    <h2 class="pg-title">Lo que había en la caja</h2>
+    <div class="prose">
+      <p class="dropcap">Antes de despedirlo, Otohime le regaló una cajita laqueada y le pidió una sola cosa: que no la abriera nunca.</p>
+      <p>Cuando llegó a su playa, nada era igual. No reconocía las casas ni a la gente. Preguntó por su familia y un anciano le contestó que había oído hablar de un tal Urashima que se había perdido en el mar… hacía trescientos años.</p>
+      <p>Solo y sin nadie, Urashima abrió la caja. Salió un humo blanco y en un instante su pelo se volvió blanco, su cara se llenó de arrugas y se convirtió en un anciano. La caja guardaba sus años.</p>
+      <p>En algunas versiones, Urashima se transforma en grulla y vuela hacia el mar, donde lo espera Otohime convertida en tortuga. Por eso, en Japón, la grulla y la tortuga son los símbolos de una vida larga.</p>
+    </div>
+    <div class="fact">
+      <b>Lo que esconde</b>
+      <p>La tortuga es el animal del Agua: en la tradición china, la Tortuga Negra cuida el norte y el invierno. Y la historia habla del tiempo, el que pasa sin que nos demos cuenta y el que ninguna caja puede guardar.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg--fig" id="kanreki" data-hook="A los 60 se vuelve a nacer" data-cap="Japón · Kanreki">
   <figure class="pg-fig" style="--pos:50% 10%">
     <img src="img/kanreki-grulla.jpg" alt="Pintura japonesa vertical: una grulla vuela bajo un sol rojo; abajo, una tortuga junto a un pino y un bambú" width="1020" height="2000" loading="lazy" decoding="async">
-    <figcaption>Kano Chikanobu, <i>Grulla, tortuga, pino y bambú bajo el sol naciente</i>. Japón, siglos XVII a XVIII.</figcaption>
+    <figcaption>Kano Chikanobu, <i>Grulla, tortuga, pino y bambú bajo el sol naciente</i>. Japón, siglos XVII a XVIII. La grulla y la tortuga, como en el final de Urashima.</figcaption>
   </figure>
   <div class="pg-body">
     <p class="kicker">Capítulo 12 · 還暦</p>
@@ -1288,7 +1471,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--fig" id="cumples" data-cap="Japón · Los cumpleaños de la longevidad">
+<section class="pg pg--fig" id="cumples" data-hook="Los cumpleaños de la longevidad" data-cap="Japón · Los cumpleaños de la longevidad">
   <figure class="pg-fig">
     <img src="img/takasago.jpg" alt="Grabado japonés: una pareja de ancianos con escoba y rastrillo mira el sol naciente junto a un pino" width="1400" height="1097" loading="lazy" decoding="async">
     <figcaption>Totoya Hokkei, <i>Jō y Uba de Takasago mirando el sol naciente</i>. Japón, siglo XIX. La pareja de ancianos de Takasago es el símbolo japonés de envejecer juntos.</figcaption>
@@ -1309,7 +1492,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
 </section>
 
 <!-- CIERRE -->
-<section class="pg pg--fig" id="ficha" data-cap="Tu ficha">
+<section class="pg pg--fig" id="ficha" data-hook="Tu ficha y tu carta" data-cap="Tu ficha">
   <figure class="pg-fig" style="--pos:70% 50%">
     <img src="img/cierre-primavera.jpg" alt="Pintura china en tonos suaves: un pino y montañas lejanas al comienzo de la primavera" width="1400" height="799" loading="lazy" decoding="async">
     <figcaption>Artista desconocido, <i>Paisaje de principios de primavera</i> (detalle). China, siglo XIII.</figcaption>
@@ -1323,6 +1506,10 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
       <div><dt>Año chino</dt><dd id="fEto"><span class="note">Sale de la calculadora.</span></dd></div>
       <div><dt>Tu kanreki</dt><dd id="fKan"><span class="note">Sale de la calculadora.</span></dd></div>
     </dl>
+    <div class="letter" id="fCarta" hidden>
+      <p class="kicker">Tu carta</p>
+      <div id="fCartaTxt"></div>
+    </div>
     <div class="prose">
       <p>Los cinco elementos no son un destino, son un mapa. Sirven para entender por qué una estación te sienta mejor que otra, por qué con algunas personas todo fluye y por qué a veces hace falta un poco de freno.</p>
       <p>Y recuerdan algo que en Oriente saben hace siglos: todo ciclo termina para volver a empezar, como la primavera después del invierno.</p>
@@ -1331,7 +1518,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   </div>
 </section>
 
-<section class="pg pg--text" id="creditos" data-cap="Créditos">
+<section class="pg pg--text" id="creditos" data-hook="Imágenes y fuentes" data-cap="Créditos">
   <div class="pg-body">
     <p class="kicker">Créditos</p>
     <h2 class="pg-title">Imágenes y fuentes</h2>
@@ -1352,6 +1539,12 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
       <li>Kano Chikanobu, <i>Grulla, tortuga, pino y bambú bajo el sol naciente</i>, Japón, siglos XVII a XVIII.</li>
       <li>Totoya Hokkei, <i>Jō y Uba de Takasago mirando el sol naciente</i>, Japón, siglo XIX.</li>
       <li>Artista desconocido, <i>Paisaje de principios de primavera</i>, China, siglo XIII.</li>
+      <li>Yashima Gakutei, <i>El Rey Mono Son Gokū</i>, de la novela china <i>Viaje al Oeste</i>, Japón, hacia 1824.</li>
+      <li>Totoya Hokkei, <i>Tres cuervos frente al sol naciente</i>, Japón, hacia 1815; <i>Urashima Tarō vuelve a casa sobre un pez, despedido por el Rey del Mar</i>, Japón, siglo XIX.</li>
+      <li>Artista desconocido, <i>La diosa de la luna Chang'e</i>, China.</li>
+      <li>Kogyoku Tokayo, caja de laca (<i>inrō</i>) con Momotarō, el perro, el mono y el faisán, Japón, siglo XIX.</li>
+      <li>Katsushika Hokusai, <i>Máscaras de un oni y de la diosa Uzume</i>, Japón, hacia 1807.</li>
+      <li>Kawanabe Kyōsai, <i>Urashima Tarō sobre una tortuga</i>, Japón, después de 1888.</li>
     </ol>
     <p class="note">Textos citados: <i>Tao Te Ching</i> (capítulos 64, 76 y 78); Confucio, <i>Analectas</i> (1.1, 2.4 y 2.17); Miyamoto Musashi, <i>Libro de los Cinco Anillos</i> (1645).</p>
     <p class="note">Este libro es de divulgación cultural y entretenimiento. Las asociaciones de la medicina tradicional china y de la astrología no reemplazan la consulta con un profesional de la salud.</p>
@@ -1361,7 +1554,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
 </main>
 
 <button class="next" id="next" type="button" aria-label="Página siguiente">
-  <span id="nextLabel">Seguir</span>
+  <span class="next-txt"><span class="next-k" id="nextK" hidden>Sigue</span><span id="nextLabel">Seguir</span></span>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
 </button>
 
@@ -1457,6 +1650,13 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
     8: { n: 'Tierra Blanca', jp: '八白土星 · Happaku Dosei', el: 'tierra', t: 'Perseverante, ahorrativa y reservada, como una montaña. Construye de a poco y no abandona. Puede ser testaruda.' },
     9: { n: 'Fuego Púrpura', jp: '九紫火星 · Kyūshi Kasei', el: 'fuego', t: 'Brillante, intuitiva y elegante. Le gusta destacarse y tiene buen ojo para la belleza. Su ánimo sube y baja rápido.' }
   };
+  const CARTA = {
+    madera: 'Esta etapa te pide lo que mejor sabés hacer: empezar. Elegí un proyecto que te dé ganas de levantarte temprano y dale espacio para crecer.',
+    fuego: 'Esta etapa te pide cuidar tu llama: rodearte de gente que te dé calor y aprender a descansar sin culpa.',
+    tierra: 'Esta etapa te pide algo que te cuesta: dejarte cuidar. Lo que das a los demás también te lo merecés.',
+    metal: 'Esta etapa te pide soltar lo que ya cumplió su ciclo y quedarte con lo esencial, que es lo que mejor sabés reconocer.',
+    agua: 'Esta etapa te pide confiar en tu intuición y darte silencio: lo que buscás ya está adentro tuyo.'
+  };
   const TRONCOS = ['Metal', 'Metal', 'Agua', 'Agua', 'Madera', 'Madera', 'Fuego', 'Fuego', 'Tierra', 'Tierra'];
   const ANIMALES = ['Rata', 'Buey', 'Tigre', 'Conejo', 'Dragón', 'Serpiente', 'Caballo', 'Cabra', 'Mono', 'Gallo', 'Perro', 'Cerdo'];
 
@@ -1473,7 +1673,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   const pages = $$('.pg');
   const total = pages.length;
   const barCap = $('#barCap'), barNum = $('#barNum'), barProg = $('#barProg');
-  const next = $('#next'), nextLabel = $('#nextLabel');
+  const next = $('#next'), nextLabel = $('#nextLabel'), nextK = $('#nextK');
   let current = -1;
 
   function goTo(target) {
@@ -1493,9 +1693,12 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
     barNum.textContent = (idx + 1) + ' / ' + total;
     barProg.style.transform = 'scaleX(' + (idx / (total - 1)) + ')';
     const last = idx === total - 1;
-    nextLabel.textContent = last ? 'Volver al inicio' : 'Seguir';
-    next.setAttribute('aria-label', last ? 'Volver a la portada' : 'Página siguiente');
+    const hook = last ? '' : (pages[idx + 1].dataset.hook || '');
+    nextK.hidden = !hook;
+    nextLabel.textContent = last ? 'Volver al inicio' : (hook || 'Seguir');
+    next.setAttribute('aria-label', last ? 'Volver a la portada' : (hook ? 'Página siguiente: ' + hook : 'Página siguiente'));
     next.classList.toggle('is-up', last);
+    next.hidden = idx === 0;
   }
 
   let ticking = false;
@@ -1681,6 +1884,27 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
   });
 
   /* ---------- Ficha final ---------- */
+  function addPara(box, text) {
+    const p = document.createElement('p');
+    p.textContent = text;
+    box.appendChild(p);
+  }
+  function renderCarta() {
+    const box = $('#fCartaTxt');
+    const tieneElemento = state.elemento && EL[state.elemento];
+    if (!tieneElemento && !state.anio) { $('#fCarta').hidden = true; return; }
+    box.replaceChildren();
+    if (tieneElemento) addPara(box, 'Sos ' + EL[state.elemento].n + '. ' + CARTA[state.elemento]);
+    if (state.anio) {
+      const r = calcular(state.anio, !!state.antes);
+      const k = state.anio + 60;
+      addPara(box, 'Naciste bajo la estrella ' + r.n + ', ' + r.estrella.n + ': ' + r.estrella.t.charAt(0).toLowerCase() + r.estrella.t.slice(1));
+      if (k > thisYear) addPara(box, 'Tu kanreki llega en ' + k + ': ese año, según Japón, volvés a nacer. Hokusai grabó La gran ola con más de setenta años. Tenés tiempo de sobra.');
+      else if (k === thisYear) addPara(box, 'Este año es tu kanreki: según Japón, volvés a nacer. Hokusai grabó La gran ola con más de setenta años. Lo mejor puede estar por empezar.');
+      else addPara(box, 'Ya celebraste tu kanreki en ' + k + '. Hokusai grabó La gran ola con más de setenta años: nunca es tarde para tu mejor obra.');
+    }
+    $('#fCarta').hidden = false;
+  }
   function renderFicha() {
     if (state.elemento && EL[state.elemento]) {
       const e = EL[state.elemento];
@@ -1692,6 +1916,7 @@ h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line
       $('#fEto').textContent = r.eto;
       $('#fKan').textContent = r.kanreki;
     }
+    renderCarta();
   }
 
   /* ---------- Arranque ---------- */
