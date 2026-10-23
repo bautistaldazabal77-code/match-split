@@ -1,5 +1,5 @@
 {
- "duration": 135.529,
+ "duration": 135.44,
  "cues": [
   {
    "id": "lead",
@@ -9,78 +9,78 @@
   {
    "id": "c1",
    "start": 2.8,
-   "end": 6.237,
+   "end": 6.233,
    "text": "El robo perfecto fracasó por culpa del nombre de una calle."
   },
   {
    "id": "c2",
-   "start": 7.537,
-   "end": 17.217,
+   "start": 7.533,
+   "end": 17.212,
    "text": "La noche del cuatro de febrero de dos mil dieciséis, alguien intentó robar casi mil millones de dólares del banco central de uno de los países más pobres del mundo."
   },
   {
    "id": "c3",
-   "start": 18.117,
-   "end": 20.205,
+   "start": 18.112,
+   "end": 20.203,
    "text": "Tenía las contraseñas correctas."
   },
   {
    "id": "c4",
-   "start": 20.555,
-   "end": 22.769,
+   "start": 20.553,
+   "end": 22.776,
    "text": "Tenía acceso al sistema correcto."
   },
   {
    "id": "c5",
-   "start": 23.119,
-   "end": 26.47,
+   "start": 23.126,
+   "end": 26.461,
    "text": "Había elegido el día, la hora, y hasta el feriado perfectos."
   },
   {
    "id": "c6",
-   "start": 27.47,
-   "end": 28.97,
+   "start": 27.461,
+   "end": 28.957,
    "text": "Y aun así, fracasó."
   },
   {
    "id": "c7",
-   "start": 30.37,
-   "end": 32.168,
+   "start": 30.357,
+   "end": 32.156,
    "text": "No lo detuvo un antivirus."
   },
   {
    "id": "c8",
-   "start": 32.468,
-   "end": 33.555,
+   "start": 32.456,
+   "end": 33.544,
    "text": "Ni un guardia."
   },
   {
    "id": "c9",
-   "start": 33.855,
-   "end": 36.321,
+   "start": 33.844,
+   "end": 36.31,
    "text": "Ni un analista brillante en Nueva York."
   },
   {
    "id": "c10",
-   "start": 37.321,
-   "end": 38.887,
+   "start": 37.31,
+   "end": 38.876,
    "text": "Lo detuvo una palabra."
   },
   {
    "id": "c11",
-   "start": 39.787,
-   "end": 41.267,
+   "start": 39.776,
+   "end": 41.249,
    "text": "Y después, una letra."
   },
   {
    "id": "c12",
-   "start": 43.067,
-   "end": 52.743,
+   "start": 43.049,
+   "end": 52.739,
    "text": "Esta es la historia de cómo un grupo de hackers estuvo a centímetros de cometer el mayor robo bancario de la historia, y de las dos casualidades absurdas que lo impidieron."
   },
   {
    "id": "c13",
-   "start": 53.643,
+   "start": 53.639,
    "end": 56.535,
    "text": "Una de ellas se hizo famosa en todo el mundo."
   },
@@ -103,55 +103,55 @@
   {
    "id": "c16",
    "start": 73.24,
-   "end": 79.76,
+   "end": 79.761,
    "text": "Daca, Bangladés. Viernes cinco de febrero de dos mil dieciséis. Son las ocho y cuarenta y cinco de la mañana."
   },
   {
    "id": "c17",
-   "start": 80.56,
-   "end": 87.804,
+   "start": 80.561,
+   "end": 87.802,
    "text": "En el décimo piso de la sede del Banco de Bangladés, dentro de una sala de acceso restringido, hay una impresora que no imprime."
   },
   {
    "id": "c18",
-   "start": 88.804,
-   "end": 97.763,
+   "start": 88.802,
+   "end": 97.753,
    "text": "No es cualquier impresora. Su única función es dejar en papel un registro de cada transferencia internacional que entra o sale del banco central."
   },
   {
    "id": "c19",
-   "start": 98.263,
-   "end": 105.191,
+   "start": 98.253,
+   "end": 105.174,
    "text": "Son movimientos de millones de dólares que, además de quedar guardados en las computadoras, quedan impresos como respaldo."
   },
   {
    "id": "c20",
-   "start": 105.891,
-   "end": 109.656,
+   "start": 105.874,
+   "end": 109.64,
    "text": "Es, de alguna manera, la memoria física del dinero de un país."
   },
   {
    "id": "c21",
-   "start": 110.656,
-   "end": 113.022,
+   "start": 110.64,
+   "end": 113.001,
    "text": "Esa mañana, la bandeja está vacía."
   },
   {
    "id": "c22",
-   "start": 114.522,
-   "end": 119.739,
+   "start": 114.501,
+   "end": 119.698,
    "text": "El encargado de turno, Zubair Bin Huda, no se alarma. Más tarde le diría a la policía:"
   },
   {
    "id": "c23",
-   "start": 120.239,
-   "end": 126.188,
+   "start": 120.198,
+   "end": 126.144,
    "text": "Pensamos que era un problema común, como cualquier otro día. Esas fallas ya habían pasado antes."
   },
   {
    "id": "c24",
-   "start": 127.188,
-   "end": 132.029,
+   "start": 127.144,
+   "end": 131.94,
    "text": "Es viernes, el comienzo del fin de semana en Bangladés. La impresora puede esperar."
   }
  ]

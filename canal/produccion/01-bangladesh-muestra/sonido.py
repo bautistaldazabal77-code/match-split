@@ -3,6 +3,8 @@ from scipy.signal import butter, sosfilt, fftconvolve, resample_poly
 SR = 44100
 rng = np.random.default_rng(7)
 tl = json.load(open('timeline.json')); C = {c['id']: c for c in tl['cues']}
+def AT(cid, frase):  # misma fórmula que AT() en escenas.js
+    c = C[cid]; return c['start'] + (c['end'] - c['start']) * c['text'].index(frase) / len(c['text'])
 D = tl['duration']; N = int(D * SR); T = np.arange(N) / SR
 
 def lp(x, f, o=4): return sosfilt(butter(o, f, 'low', fs=SR, output='sos'), x)
@@ -98,6 +100,35 @@ for i, ch in enumerate(quote):
 # tecleo de JUPITER
 j0 = C['c10']['end'] + 0.25
 for i in range(7): place(sfx, click(0.8), j0 + i * 0.11)
+
+# ---------- Efectos de las escenas con imágenes (mismos tiempos que escenas.js) ----------
+def beep(f, dur=0.09, g=0.3):
+    tt = np.arange(int(dur * SR)) / SR
+    return np.sin(2 * np.pi * f * tt) * np.minimum(1, tt / 0.004) * np.exp(-tt * 18) * g
+def swish(dur=0.35, g=0.3): return whoosh(dur, g)
+s3, s4 = C['c3']['start'], C['c4']['start']
+for i in range(11): place(sfx, click(0.45 + 0.2 * rng.random()), s3 - 0.3 + i * 0.045)       # usuario
+for i in range(10): place(sfx, click(0.55 + 0.2 * rng.random()), s3 + 0.25 + i * 0.085)      # contraseña
+place(sfx, beep(660), AT('c3', 'correctas')); place(sfx, beep(990), AT('c3', 'correctas') + 0.1)
+place(sfx, beep(520, 0.06, 0.18), s4 + 0.2); place(sfx, beep(780, 0.08, 0.22), AT('c4', 'sistema'))
+place(sfx, click(0.8), AT('c5', 'el día') - 0.15)
+hr = AT('c5', 'la hora')
+for i in range(9): place(sfx, click(0.35), hr - 0.25 + i * 0.09)                            # agujas del reloj
+for i in range(4): place(sfx, click(0.6), AT('c5', 'feriado') - 0.45 + i * 0.14)
+place(sfx, thud(1.1), C['c6']['start'] + 0.02)                                              # sello
+for c in ['c7', 'c8', 'c9']: place(sfx, swish(0.4, 0.28), C[c]['end'] - 0.3)                 # rayas rojas
+place(sfx, click(0.7), AT('c10', 'palabra') - 0.1)
+place(sfx, whoosh(1.2, 0.22), C['c2']['start'] - 0.6)                                       # Daca de noche
+place(sfx, whoosh(1.3, 0.25), C['c17']['start'] - 0.5)                                      # la torre
+t0 = C['c18']['start'] + 0.2                                                                # la impresora imprime
+for i in range(9):
+    place(sfx, motor(0.5, 118) * 0.55, t0 + i * 0.95)
+    for k in range(3): place(sfx, click(0.3), t0 + i * 0.95 + 0.1 + k * 0.13)
+a = C['c20']['start'] - 0.3                                                                 # cajas del archivo
+for d in [0.6, 0.9, 1.2, 1.5]: place(sfx, thud(0.35), a + d + 0.3)
+for d in [2.2, 1.4, 0.6]:                                                                   # se apagan las luces
+    tt = AT('c24', 'La impresora') - d
+    place(sfx, click(1.0), tt); place(sfx, thud(0.4), tt + 0.01)
 
 # ---------- Narración ----------
 nar, nsr = sf.read('audio/narracion.wav', dtype='float64')
