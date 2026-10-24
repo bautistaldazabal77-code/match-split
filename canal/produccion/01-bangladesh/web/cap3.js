@@ -205,9 +205,9 @@ RENDER.push(function cap3(t) {
   }
   // las cuatro fichas
   if (on('s3_acc')) {
-    const a = AT('c79', 'cuatro cuentas') - .5;
+    const a = S('c79') + .2;
     for (let i = 0; i < 4; i++) {
-      const c = $('ac' + i), k = eo(P(t, a + i * .2, a + .5 + i * .2));
+      const c = $('ac' + i), k = eo(P(t, a + i * 1.1, a + .6 + i * 1.1));
       c.style.opacity = k * lerp(1, .5, P(t, S('c83'), S('c83') + .5)) + P(t, S('c83'), S('c83') + .5) * .5 * k;
       c.style.transform = `translateY(${lerp(50, 0, k)}px) rotate(${(i - 1.5) * lerp(2, .6, k)}deg)`;
       const fk = P(t, ACC_FAKE + i * .15, ACC_FAKE + .12 + i * .15);

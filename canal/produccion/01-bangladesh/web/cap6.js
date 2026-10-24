@@ -233,7 +233,7 @@ RENDER.push(function cap6(t) {
   }
   // dinero → fichas → mesa → fichas → dinero; el rastro se corta en la mesa
   if (on('s6_cyc')) {
-    const m = [AT('c204', 'convertir'), AT('c204', 'en fichas'), AT('c204', 'jugarlo'), AT('c204', 'volver a cambiarlo'), AT('c204', 'volver a cambiarlo') + .5];
+    const m = [S('c204') + .1, AT('c204', 'en fichas'), AT('c204', 'jugarlo'), AT('c204', 'volver a cambiarlo'), AT('c204', 'volver a cambiarlo') + .5];
     for (let i = 0; i < 5; i++) { const k = eo(P(t, m[i] - .2, m[i] + .3)); $('cy' + i).style.opacity = k; $('cy' + i).style.transform = `translateY(${lerp(30, 0, k)}px)`; }
     const tr = P(t, m[0], m[4] + .4), cut = P(t, S('c205') - .1, S('c205') + .6);
     $('cyl1').setAttribute('x2', 1600 * tr);

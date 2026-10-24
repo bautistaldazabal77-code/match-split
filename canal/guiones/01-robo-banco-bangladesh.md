@@ -649,21 +649,21 @@ Y al final, lo único que protegió casi mil millones de dólares de uno de los 
 
 ## 5. Descripción para YouTube (lista para pegar)
 
-> Los tiempos de los capítulos son aproximados: hay que ajustarlos cuando el video esté editado.
+> Los tiempos de los capítulos son los del video terminado (26:54). La lista de fotos con sus autores y licencias está en `canal/produccion/01-bangladesh/web/img/CREDITOS.md` y va al final de la descripción, después de FUENTES.
 
 ```
 En febrero de 2016, un grupo de hackers envió 35 órdenes de pago para vaciar la cuenta del Banco Central de Bangladés en la Reserva Federal de Nueva York: 951 millones de dólares. Tenían las claves correctas, el sistema correcto y el calendario perfecto. Lo que los frenó fue una palabra… y una letra.
 
 CAPÍTULOS
 00:00 Apertura
-01:10 I. La impresora
-04:10 II. Rasel Ahlam
-07:05 III. Calle Júpiter
-10:10 IV. La noche del jueves
-14:40 V. Cinco días
-17:50 VI. La mesa de bacará
-21:40 VII. Lázaro
-26:20 Epílogo
+01:09 I. La impresora
+03:52 II. Rasel Ahlam
+06:43 III. Calle Júpiter
+09:41 IV. La noche del jueves
+13:56 V. Cinco días
+16:55 VI. La mesa de bacará
+20:22 VII. Lázaro
+24:51 Epílogo
 
 FUENTES
 · BBC: "The Lazarus heist: How North Korea almost pulled off a billion-dollar hack" (Geoff White y Jean H. Lee, 2021): https://www.bbc.com/news/stories-57520169
@@ -676,6 +676,11 @@ FUENTES
 · Podcast recomendado: "The Lazarus Heist" (BBC World Service)
 
 Corea del Norte niega su participación en este y otros ataques que se le atribuyen.
+
+FOTOS (licencias libres)
+[pegar acá la lista de canal/produccion/01-bangladesh/web/img/CREDITOS.md]
+
+Narración generada con Kokoro (Apache 2.0). Mapas: Natural Earth (dominio público). Música y efectos originales.
 ```
 
 ---

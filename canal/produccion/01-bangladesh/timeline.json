@@ -1,5 +1,5 @@
 {
- "duration": 1614.194,
+ "duration": 1614.326,
  "cues": [
   {
    "id": "lead",
@@ -653,1130 +653,1130 @@
   {
    "id": "c106",
    "start": 561.903,
-   "end": 567.718,
+   "end": 567.809,
    "text": "Rakesh Asthana, un especialista en ciberseguridad que trabajó en el caso, lo resumió en una frase:"
   },
   {
    "id": "c107",
-   "start": 568.118,
-   "end": 570.325,
+   "start": 568.209,
+   "end": 570.416,
    "text": "Ahí se ve la elegancia del ataque."
   },
   {
    "id": "c108",
-   "start": 572.525,
-   "end": 576.535,
+   "start": 572.616,
+   "end": 576.626,
    "text": "Ya tenían las claves. Ya tenían las cuentas. Ya tenían el reloj."
   },
   {
    "id": "c109",
-   "start": 577.535,
-   "end": 579.681,
+   "start": 577.626,
+   "end": 579.772,
    "text": "Solo faltaba apretar el botón."
   },
   {
    "id": "ch4",
-   "start": 581.681,
-   "end": 585.881
+   "start": 581.772,
+   "end": 585.972
   },
   {
    "id": "c110",
-   "start": 585.881,
-   "end": 591.528,
+   "start": 585.972,
+   "end": 591.619,
    "text": "Jueves cuatro de febrero de dos mil dieciséis. Ocho y treinta y seis de la noche, hora de Daca."
   },
   {
    "id": "c111",
-   "start": 592.328,
-   "end": 599.176,
+   "start": 592.419,
+   "end": 599.267,
    "text": "Desde las terminales del Banco de Bangladés empiezan a salir órdenes de pago hacia la Reserva Federal de Nueva York."
   },
   {
    "id": "c112",
-   "start": 599.876,
-   "end": 600.41,
+   "start": 599.967,
+   "end": 600.501,
    "text": "Una."
   },
   {
    "id": "c113",
-   "start": 600.86,
-   "end": 601.487,
+   "start": 600.951,
+   "end": 601.578,
    "text": "Otra."
   },
   {
    "id": "c114",
-   "start": 601.937,
-   "end": 602.87,
+   "start": 602.028,
+   "end": 602.961,
    "text": "Otra más."
   },
   {
    "id": "c115",
-   "start": 603.87,
-   "end": 606.311,
+   "start": 603.961,
+   "end": 606.402,
    "text": "En total, treinta y cinco órdenes."
   },
   {
    "id": "c116",
-   "start": 606.711,
-   "end": 613.348,
+   "start": 606.802,
+   "end": 613.439,
    "text": "Suman novecientos cincuenta y un millones de dólares: prácticamente todo lo que el banco tenía en esa cuenta."
   },
   {
    "id": "c117",
-   "start": 614.348,
-   "end": 620.071,
+   "start": 614.439,
+   "end": 620.162,
    "text": "Los destinos: las cuentas dormidas de la calle Júpiter, en Manila, y una fundación en Sri Lanka."
   },
   {
    "id": "c118",
-   "start": 621.171,
-   "end": 624.211,
+   "start": 621.262,
+   "end": 624.302,
    "text": "En el décimo piso, la impresora no imprime nada."
   },
   {
    "id": "c119",
-   "start": 626.511,
-   "end": 630.678,
+   "start": 626.602,
+   "end": 630.769,
    "text": "Del otro lado del mundo, los sistemas de la Fed reciben las órdenes."
   },
   {
    "id": "c120",
-   "start": 631.078,
-   "end": 634.612,
+   "start": 631.169,
+   "end": 634.703,
    "text": "Llegan por SWIFT, autenticadas, desde la cuenta correcta."
   },
   {
    "id": "c121",
-   "start": 635.012,
-   "end": 638.66,
+   "start": 635.103,
+   "end": 638.751,
    "text": "Desde el punto de vista técnico, son perfectamente válidas."
   },
   {
    "id": "c122",
-   "start": 639.66,
-   "end": 643.264,
+   "start": 639.751,
+   "end": 643.355,
    "text": "Pero la Fed no solo verifica que una orden sea auténtica."
   },
   {
    "id": "c123",
-   "start": 644.264,
-   "end": 652.987,
+   "start": 644.355,
+   "end": 653.078,
    "text": "Como cualquier banco en Estados Unidos, también revisa que el dinero no vaya a parar a personas o empresas sancionadas por el gobierno estadounidense."
   },
   {
    "id": "c124",
-   "start": 653.487,
-   "end": 660.582,
+   "start": 653.578,
+   "end": 660.673,
    "text": "Ese control es automático: un programa compara los nombres y direcciones de cada pago con las listas de sanciones."
   },
   {
    "id": "c125",
-   "start": 661.582,
-   "end": 666.449,
+   "start": 661.673,
+   "end": 666.54,
    "text": "Y en una de las órdenes, en la dirección del banco de destino, aparecía una palabra."
   },
   {
    "id": "c126",
-   "start": 668.449,
-   "end": 669.213,
+   "start": 668.54,
+   "end": 669.304,
    "text": "Júpiter."
   },
   {
    "id": "c127",
-   "start": 672.413,
-   "end": 679.284,
+   "start": 672.504,
+   "end": 679.375,
    "text": "Además de una calle de Manila, Júpiter era el nombre de un buque iraní incluido en la lista de sanciones de Estados Unidos."
   },
   {
    "id": "c128",
-   "start": 680.284,
-   "end": 683.4,
+   "start": 680.375,
+   "end": 683.491,
    "text": "El sistema no sabía nada de calles en Filipinas."
   },
   {
    "id": "c129",
-   "start": 683.75,
-   "end": 685.152,
+   "start": 683.841,
+   "end": 685.243,
    "text": "Solo vio la palabra."
   },
   {
    "id": "c130",
-   "start": 685.602,
-   "end": 687.198,
+   "start": 685.693,
+   "end": 687.289,
    "text": "Y levantó una alerta."
   },
   {
    "id": "c131",
-   "start": 688.498,
-   "end": 694.807,
+   "start": 688.589,
+   "end": 694.898,
    "text": "Así lo explicó después la congresista estadounidense Carolyn Maloney, que le pidió explicaciones a la Fed:"
   },
   {
    "id": "c132",
-   "start": 695.207,
-   "end": 703.553,
+   "start": 695.298,
+   "end": 703.644,
    "text": "las transacciones quedaron retenidas porque la dirección incluía la palabra Júpiter, que también es el nombre de un barco iraní sancionado."
   },
   {
    "id": "c133",
-   "start": 704.553,
-   "end": 707.364,
+   "start": 704.644,
+   "end": 707.455,
    "text": "La alerta obligó a revisar los pagos a mano."
   },
   {
    "id": "c134",
-   "start": 707.764,
-   "end": 710.905,
+   "start": 707.855,
+   "end": 710.996,
    "text": "Y una vez que alguien los miró, había más cosas raras:"
   },
   {
    "id": "c135",
-   "start": 711.205,
-   "end": 718.301,
+   "start": 711.296,
+   "end": 718.392,
    "text": "demasiadas órdenes, demasiado grandes y hacia cuentas de particulares, algo muy poco habitual para un banco central."
   },
   {
    "id": "c136",
-   "start": 719.301,
-   "end": 722.375,
+   "start": 719.392,
+   "end": 722.466,
    "text": "La Fed frenó treinta de las treinta y cinco órdenes."
   },
   {
    "id": "c137",
-   "start": 723.675,
-   "end": 725.895,
+   "start": 723.766,
+   "end": 725.986,
    "text": "En Manila había cientos de bancos."
   },
   {
    "id": "c138",
-   "start": 726.295,
-   "end": 730.552,
+   "start": 726.386,
+   "end": 730.643,
    "text": "Los hackers eligieron una sucursal en una calle con nombre de planeta."
   },
   {
    "id": "c139",
-   "start": 731.052,
-   "end": 735.366,
+   "start": 731.143,
+   "end": 735.457,
    "text": "Esa decisión les costó más de ochocientos cincuenta millones de dólares."
   },
   {
    "id": "c140",
-   "start": 737.466,
-   "end": 739.367,
+   "start": 737.557,
+   "end": 739.458,
    "text": "Pero cinco órdenes pasaron."
   },
   {
    "id": "c141",
-   "start": 739.867,
-   "end": 743.089,
+   "start": 739.958,
+   "end": 743.18,
    "text": "Ciento un millones de dólares salieron de Nueva York."
   },
   {
    "id": "c142",
-   "start": 744.089,
-   "end": 749.577,
+   "start": 744.18,
+   "end": 749.668,
    "text": "Veinte de esos millones iban a Sri Lanka, a una organización llamada Shalika Foundation."
   },
   {
    "id": "c143",
-   "start": 750.177,
-   "end": 752.645,
+   "start": 750.268,
+   "end": 752.736,
    "text": "Y aquí aparece la segunda casualidad."
   },
   {
    "id": "c144",
-   "start": 752.995,
-   "end": 754.61,
+   "start": 753.086,
+   "end": 754.701,
    "text": "La que se hizo famosa."
   },
   {
    "id": "c145",
-   "start": 755.91,
-   "end": 760.495,
+   "start": 756.001,
+   "end": 760.586,
    "text": "En la orden, la palabra Foundation, fundación en inglés, estaba mal escrita."
   },
   {
    "id": "c146",
-   "start": 761.095,
-   "end": 763.898,
+   "start": 761.186,
+   "end": 763.989,
    "text": "Según la agencia Reuters, decía Fandation."
   },
   {
    "id": "c147",
-   "start": 764.248,
-   "end": 766.126,
+   "start": 764.339,
+   "end": 766.217,
    "text": "Según la BBC, Fundation."
   },
   {
    "id": "c148",
-   "start": 766.526,
-   "end": 771.739,
+   "start": 766.617,
+   "end": 771.83,
    "text": "Las fuentes no coinciden en el error exacto, pero sí en lo esencial: era una sola letra."
   },
   {
    "id": "c149",
-   "start": 772.739,
-   "end": 776.83,
+   "start": 772.83,
+   "end": 776.921,
    "text": "Esa letra llamó la atención de los bancos que intervenían en el camino."
   },
   {
    "id": "c150",
-   "start": 777.23,
-   "end": 783.421,
+   "start": 777.321,
+   "end": 783.512,
    "text": "Según Reuters, Deutsche Bank, que actuaba como intermediario, pidió aclaraciones al Banco de Bangladés."
   },
   {
    "id": "c151",
-   "start": 783.821,
-   "end": 787.31,
+   "start": 783.912,
+   "end": 787.401,
    "text": "La transferencia se frenó y los veinte millones volvieron."
   },
   {
    "id": "c152",
-   "start": 788.31,
-   "end": 795.2,
+   "start": 788.401,
+   "end": 795.291,
    "text": "La fundadora de la organización, Shalika Perera, dijo después que creía que el dinero era una donación legítima."
   },
   {
    "id": "c153",
-   "start": 797.2,
-   "end": 806.113,
+   "start": 797.291,
+   "end": 806.204,
    "text": "Cuando la noticia salió a la luz, los titulares de todo el mundo contaron la historia de la falta de ortografía que evitó un robo de mil millones de dólares."
   },
   {
    "id": "c154",
-   "start": 806.913,
-   "end": 808.407,
+   "start": 807.004,
+   "end": 808.498,
    "text": "Es una gran historia."
   },
   {
    "id": "c155",
-   "start": 808.857,
-   "end": 811.164,
+   "start": 808.948,
+   "end": 811.255,
    "text": "Pero no es exactamente lo que pasó."
   },
   {
    "id": "c156",
-   "start": 812.464,
-   "end": 815.372,
+   "start": 812.555,
+   "end": 815.463,
    "text": "La falta de ortografía salvó veinte millones."
   },
   {
    "id": "c157",
-   "start": 815.972,
-   "end": 822.254,
+   "start": 816.063,
+   "end": 822.345,
    "text": "Lo que frenó más de ochocientos cincuenta millones fue el nombre de una calle que coincidía con el de un barco."
   },
   {
    "id": "c158",
-   "start": 823.354,
-   "end": 829.038,
+   "start": 823.445,
+   "end": 829.129,
    "text": "Los dos detalles más pequeños de todo el plan, una palabra y una letra, fueron los que lo arruinaron."
   },
   {
    "id": "c159",
-   "start": 831.038,
-   "end": 834.615,
+   "start": 831.129,
+   "end": 834.706,
    "text": "Y aun así, ochenta y un millones de dólares llegaron a Manila."
   },
   {
    "id": "ch5",
-   "start": 836.615,
-   "end": 840.815
+   "start": 836.706,
+   "end": 840.906
   },
   {
    "id": "c160",
-   "start": 840.815,
-   "end": 842.495,
+   "start": 840.906,
+   "end": 842.586,
    "text": "Viernes cinco de febrero."
   },
   {
    "id": "c161",
-   "start": 842.995,
-   "end": 850.308,
+   "start": 843.086,
+   "end": 850.399,
    "text": "Mientras en Daca la impresora todavía no funciona, en Manila las cuatro cuentas dormidas de la calle Júpiter se despiertan."
   },
   {
    "id": "c162",
-   "start": 851.408,
-   "end": 853.996,
+   "start": 851.499,
+   "end": 854.087,
    "text": "El dinero empieza a moverse entre ellas."
   },
   {
    "id": "c163",
-   "start": 854.396,
-   "end": 859.518,
+   "start": 854.487,
+   "end": 859.609,
    "text": "Una parte se envía a una casa de cambio, PhilRem, que lo convierte en pesos filipinos."
   },
   {
    "id": "c164",
-   "start": 859.918,
-   "end": 862.047,
+   "start": 860.009,
+   "end": 862.138,
    "text": "Otra parte se retira en efectivo."
   },
   {
    "id": "c165",
-   "start": 862.947,
-   "end": 869.519,
+   "start": 863.038,
+   "end": 869.61,
    "text": "Una parte pasa además por una cuenta a nombre de un empresario, William Go, que aseguró no haberla abierto nunca."
   },
   {
    "id": "c166",
-   "start": 869.919,
-   "end": 875.657,
+   "start": 870.01,
+   "end": 875.748,
    "text": "Una investigación del propio RCBC concluyó que sus firmas habían sido falsificadas."
   },
   {
    "id": "c167",
-   "start": 876.557,
-   "end": 882.538,
+   "start": 876.648,
+   "end": 882.629,
    "text": "Para quien lava dinero, cada paso tiene un solo objetivo: que el rastro se vuelva cada vez más turbio."
   },
   {
    "id": "c168",
-   "start": 883.838,
-   "end": 889.252,
+   "start": 883.929,
+   "end": 889.343,
    "text": "En Bangladés, cuando por fin entienden lo que está pasando, intentan comunicarse con la Fed."
   },
   {
    "id": "c169",
-   "start": 889.552,
-   "end": 891.936,
+   "start": 889.643,
+   "end": 892.027,
    "text": "Pero en Nueva York es fin de semana."
   },
   {
    "id": "c170",
-   "start": 892.836,
-   "end": 895.386,
+   "start": 892.927,
+   "end": 895.477,
    "text": "Intentan frenar los pagos en Filipinas."
   },
   {
    "id": "c171",
-   "start": 895.686,
-   "end": 898.711,
+   "start": 895.777,
+   "end": 898.802,
    "text": "Pero el lunes es feriado por el Año Nuevo Lunar."
   },
   {
    "id": "c172",
-   "start": 899.711,
-   "end": 904.393,
+   "start": 899.802,
+   "end": 904.484,
    "text": "El reloj que los hackers habían diseñado funciona exactamente como esperaban."
   },
   {
    "id": "c173",
-   "start": 906.393,
-   "end": 912.756,
+   "start": 906.484,
+   "end": 912.847,
    "text": "Para cuando los pedidos de bloqueo llegan a la sucursal de la calle Júpiter, buena parte del dinero ya no está."
   },
   {
    "id": "c174",
-   "start": 914.356,
-   "end": 921.262,
+   "start": 914.447,
+   "end": 921.353,
    "text": "Mientras tanto, el gobernador del banco central, Atiur Rahman, toma una decisión que después le costaría el puesto:"
   },
   {
    "id": "c175",
-   "start": 921.562,
-   "end": 923.521,
+   "start": 921.653,
+   "end": 923.612,
    "text": "mantener el robo en secreto."
   },
   {
    "id": "c176",
-   "start": 924.021,
-   "end": 928.961,
+   "start": 924.112,
+   "end": 929.052,
    "text": "No solo frente al público, sino incluso, según Asthana, frente a su propio gobierno."
   },
   {
    "id": "c177",
-   "start": 929.961,
-   "end": 935.237,
+   "start": 930.052,
+   "end": 935.299,
    "text": "Llama a Rakesh Asthana convencido de que todavía puede recuperar el dinero sin escándalo."
   },
   {
    "id": "c178",
-   "start": 936.237,
-   "end": 937.009,
+   "start": 936.299,
+   "end": 937.071,
    "text": "No puede."
   },
   {
    "id": "c179",
-   "start": 938.509,
-   "end": 944.99,
+   "start": 938.571,
+   "end": 945.052,
    "text": "Para reclamar los fondos en Filipinas hace falta una orden judicial, y las órdenes judiciales son públicas."
   },
   {
    "id": "c180",
-   "start": 945.49,
-   "end": 949.665,
+   "start": 945.552,
+   "end": 949.727,
    "text": "A fines de febrero, la historia sale a la luz y explota en todo el mundo."
   },
   {
    "id": "c181",
-   "start": 950.665,
-   "end": 954.129,
+   "start": 950.727,
+   "end": 954.191,
    "text": "En marzo de dos mil dieciséis, el gobernador renuncia."
   },
   {
    "id": "c182",
-   "start": 955.629,
-   "end": 958.073,
+   "start": 955.691,
+   "end": 958.135,
    "text": "Lo que sigue es una pelea por las culpas."
   },
   {
    "id": "c183",
-   "start": 959.073,
-   "end": 964.095,
+   "start": 959.135,
+   "end": 964.157,
    "text": "El ministro de Finanzas de Bangladés llega a hablar de demandar a la Reserva Federal."
   },
   {
    "id": "c184",
-   "start": 964.495,
-   "end": 972.744,
+   "start": 964.557,
+   "end": 972.806,
    "text": "¿Cómo era posible que una de las instituciones más vigiladas del mundo aceptara vaciar en una sola noche la cuenta de un banco central?"
   },
   {
    "id": "c185",
-   "start": 973.844,
-   "end": 982.564,
+   "start": 973.906,
+   "end": 982.626,
    "text": "La Fed responde que sus sistemas nunca fueron vulnerados: las órdenes llegaron autenticadas, por los canales correctos y desde la cuenta correcta."
   },
   {
    "id": "c186",
-   "start": 983.164,
-   "end": 988.889,
+   "start": 983.226,
+   "end": 988.951,
    "text": "SWIFT dice lo mismo: su red no fue hackeada, el problema estaba en las computadoras del banco."
   },
   {
    "id": "c187",
-   "start": 989.889,
-   "end": 992.512,
+   "start": 989.951,
+   "end": 992.574,
    "text": "Y en cierto sentido, todos tienen razón."
   },
   {
    "id": "c188",
-   "start": 992.962,
-   "end": 994.925,
+   "start": 993.024,
+   "end": 994.987,
    "text": "Ese es justamente el problema."
   },
   {
    "id": "c189",
-   "start": 995.625,
-   "end": 998.912,
+   "start": 995.687,
+   "end": 998.974,
    "text": "Cada eslabón hizo exactamente lo que tenía que hacer."
   },
   {
    "id": "c190",
-   "start": 999.362,
-   "end": 1001.124,
+   "start": 999.424,
+   "end": 1001.186,
    "text": "Y aun así, el dinero se fue."
   },
   {
    "id": "c191",
-   "start": 1003.124,
-   "end": 1005.629,
+   "start": 1003.186,
+   "end": 1005.691,
    "text": "Pero el dinero ya estaba en otro lugar."
   },
   {
    "id": "c192",
-   "start": 1006.029,
-   "end": 1011.106,
+   "start": 1006.091,
+   "end": 1011.168,
    "text": "Un lugar al que, en ese momento, la ley filipina contra el lavado de dinero no llegaba."
   },
   {
    "id": "c193",
-   "start": 1012.806,
-   "end": 1013.783,
+   "start": 1012.868,
+   "end": 1013.845,
    "text": "Los casinos."
   },
   {
    "id": "ch6",
-   "start": 1015.983,
-   "end": 1020.183
+   "start": 1016.045,
+   "end": 1020.245
   },
   {
    "id": "c194",
-   "start": 1020.183,
-   "end": 1030.164,
+   "start": 1020.245,
+   "end": 1030.226,
    "text": "En los últimos años, Manila se convirtió en uno de los grandes destinos del juego en Asia, sobre todo para jugadores de China continental, donde el juego está prohibido."
   },
   {
    "id": "c195",
-   "start": 1031.164,
-   "end": 1041.056,
+   "start": 1031.226,
+   "end": 1041.118,
    "text": "Sobre la bahía se levanta el Solaire: un complejo blanco y brillante, con hotel, teatro, tiendas de lujo y un salón de juego con cientos de mesas y miles de tragamonedas."
   },
   {
    "id": "c196",
-   "start": 1042.256,
-   "end": 1050.189,
+   "start": 1042.318,
+   "end": 1050.251,
    "text": "De los ochenta y un millones que pasaron por el RCBC, unos cincuenta terminaron en cuentas de dos casinos: el Solaire y el Midas."
   },
   {
    "id": "c197",
-   "start": 1051.189,
-   "end": 1052.964,
+   "start": 1051.251,
+   "end": 1053.026,
    "text": "¿Y los otros treinta y uno?"
   },
   {
    "id": "c198",
-   "start": 1054.264,
-   "end": 1061.329,
+   "start": 1054.326,
+   "end": 1061.391,
    "text": "Según la comisión del Senado filipino que investigó el caso, fueron entregados a un ciudadano chino llamado Xu Weikang."
   },
   {
    "id": "c199",
-   "start": 1061.829,
-   "end": 1064.614,
+   "start": 1061.891,
+   "end": 1064.676,
    "text": "Se cree que salió del país en un avión privado."
   },
   {
    "id": "c200",
-   "start": 1065.514,
-   "end": 1067.234,
+   "start": 1065.576,
+   "end": 1067.296,
    "text": "Nunca se lo volvió a ver."
   },
   {
    "id": "c201",
-   "start": 1069.334,
-   "end": 1070.55,
+   "start": 1069.396,
+   "end": 1070.612,
    "text": "¿Por qué casinos?"
   },
   {
    "id": "c202",
-   "start": 1071.55,
-   "end": 1078.121,
+   "start": 1071.612,
+   "end": 1078.183,
    "text": "Porque en dos mil dieciséis los casinos filipinos no estaban alcanzados por la ley contra el lavado de dinero."
   },
   {
    "id": "c203",
-   "start": 1078.621,
-   "end": 1085.488,
+   "start": 1078.683,
+   "end": 1085.55,
    "text": "Para ellos, ese dinero lo habían depositado jugadores, y un jugador tiene todo el derecho de perderlo en las mesas."
   },
   {
    "id": "c204",
-   "start": 1086.488,
-   "end": 1091.998,
+   "start": 1086.55,
+   "end": 1092.06,
    "text": "La idea era justamente esa: convertir el dinero en fichas, jugarlo y volver a cambiarlo."
   },
   {
    "id": "c205",
-   "start": 1092.398,
-   "end": 1096.028,
+   "start": 1092.46,
+   "end": 1096.09,
    "text": "Después de eso, seguir el rastro se vuelve casi imposible."
   },
   {
    "id": "c206",
-   "start": 1097.028,
-   "end": 1098.876,
+   "start": 1097.09,
+   "end": 1098.938,
    "text": "Pero apostar es arriesgado."
   },
   {
    "id": "c207",
-   "start": 1099.226,
-   "end": 1101.687,
+   "start": 1099.288,
+   "end": 1101.749,
    "text": "¿Cómo evitar perder el botín en la mesa?"
   },
   {
    "id": "c208",
-   "start": 1102.987,
-   "end": 1105.445,
+   "start": 1103.049,
+   "end": 1105.507,
    "text": "Primero, no jugaban en las salas públicas."
   },
   {
    "id": "c209",
-   "start": 1105.795,
-   "end": 1109.857,
+   "start": 1105.857,
+   "end": 1109.919,
    "text": "Reservaban salones privados y los llenaban con sus propios jugadores."
   },
   {
    "id": "c210",
-   "start": 1110.857,
-   "end": 1113.837,
+   "start": 1110.919,
+   "end": 1113.899,
    "text": "Segundo, elegían un juego muy concreto: el bacará."
   },
   {
    "id": "c211",
-   "start": 1114.287,
-   "end": 1120.182,
+   "start": 1114.349,
+   "end": 1120.244,
    "text": "Es enormemente popular en Asia y, sobre todo, es muy simple: hay solo tres apuestas posibles."
   },
   {
    "id": "c212",
-   "start": 1120.632,
-   "end": 1126.004,
+   "start": 1120.694,
+   "end": 1126.066,
    "text": "Un jugador con experiencia puede recuperar el noventa por ciento de lo que apuesta, o más."
   },
   {
    "id": "c213",
-   "start": 1127.004,
-   "end": 1131.662,
+   "start": 1127.066,
+   "end": 1131.724,
    "text": "Para un lavador de dinero, perder diez centavos por cada dólar no es una pérdida."
   },
   {
    "id": "c214",
-   "start": 1132.112,
-   "end": 1133.762,
+   "start": 1132.174,
+   "end": 1133.824,
    "text": "Es una comisión barata."
   },
   {
    "id": "c215",
-   "start": 1135.062,
-   "end": 1143.925,
+   "start": 1135.124,
+   "end": 1143.987,
    "text": "Durante semanas, en salones privados de alfombras gruesas y luz tenue, mano tras mano de bacará, los millones del Banco de Bangladés se fueron lavando."
   },
   {
    "id": "c216",
-   "start": 1145.925,
-   "end": 1151.852,
+   "start": 1145.987,
+   "end": 1151.914,
    "text": "Los funcionarios de Bangladés viajaron a Manila y siguieron el rastro hasta las puertas de los casinos."
   },
   {
    "id": "c217",
-   "start": 1152.252,
-   "end": 1154.235,
+   "start": 1152.314,
+   "end": 1154.297,
    "text": "Ahí chocaron contra una pared."
   },
   {
    "id": "c218",
-   "start": 1155.235,
-   "end": 1163.302,
+   "start": 1155.297,
+   "end": 1163.364,
    "text": "Lograron recuperar unos dieciséis millones de dólares de Kim Wong, uno de los organizadores de los viajes de juego en el casino Midas."
   },
   {
    "id": "c219",
-   "start": 1163.702,
-   "end": 1167.02,
+   "start": 1163.764,
+   "end": 1167.082,
    "text": "Wong fue acusado, pero los cargos después se retiraron."
   },
   {
    "id": "c220",
-   "start": 1168.02,
-   "end": 1169.217,
+   "start": 1168.082,
+   "end": 1169.279,
    "text": "El resto se fue."
   },
   {
    "id": "c221",
-   "start": 1170.717,
-   "end": 1183.008,
+   "start": 1170.779,
+   "end": 1183.07,
    "text": "Según los investigadores, varios organizadores de las partidas en el Solaire, y dos de las empresas que reservaron los salones privados, estaban vinculados a Macao, el enclave chino famoso por sus casinos."
   },
   {
    "id": "c222",
-   "start": 1183.808,
-   "end": 1186.924,
+   "start": 1183.87,
+   "end": 1186.986,
    "text": "Y por sus viejos lazos con un país en particular."
   },
   {
    "id": "c223",
-   "start": 1189.024,
-   "end": 1195.788,
+   "start": 1189.086,
+   "end": 1195.85,
    "text": "Las audiencias del Senado filipino se transmitieron por televisión y se convirtieron en un espectáculo nacional."
   },
   {
    "id": "c224",
-   "start": 1196.288,
-   "end": 1202.696,
+   "start": 1196.35,
+   "end": 1202.758,
    "text": "En el centro de todas las miradas estaba la gerenta de la sucursal de la calle Júpiter, Maia Santos Deguito."
   },
   {
    "id": "c225",
-   "start": 1203.096,
-   "end": 1207.5,
+   "start": 1203.158,
+   "end": 1207.562,
    "text": "Negó haber hecho algo malo y apuntó contra otros funcionarios del banco."
   },
   {
    "id": "c226",
-   "start": 1208.5,
-   "end": 1212.772,
+   "start": 1208.562,
+   "end": 1212.834,
    "text": "Al año siguiente, Filipinas modificó su ley para incluir a los casinos."
   },
   {
    "id": "c227",
-   "start": 1214.072,
-   "end": 1217.913,
+   "start": 1214.134,
+   "end": 1217.975,
    "text": "Pero para entonces, la pregunta ya no era dónde estaba el dinero."
   },
   {
    "id": "c228",
-   "start": 1218.713,
-   "end": 1220.327,
+   "start": 1218.775,
+   "end": 1220.389,
    "text": "Era quién lo había robado."
   },
   {
    "id": "ch7",
-   "start": 1222.627,
-   "end": 1226.827
+   "start": 1222.689,
+   "end": 1226.889
   },
   {
    "id": "c229",
-   "start": 1226.827,
-   "end": 1231.683,
+   "start": 1226.889,
+   "end": 1231.745,
    "text": "En el mundo de la ciberseguridad, los responsables tienen nombre: el Grupo Lazarus."
   },
   {
    "id": "c230",
-   "start": 1232.583,
-   "end": 1237.208,
+   "start": 1232.645,
+   "end": 1237.27,
    "text": "El nombre viene de Lázaro, el personaje bíblico que vuelve de entre los muertos."
   },
   {
    "id": "c231",
-   "start": 1237.608,
-   "end": 1244.643,
+   "start": 1237.67,
+   "end": 1244.705,
    "text": "Los especialistas que se enfrentaron a sus programas maliciosos descubrieron que eran igual de difíciles de eliminar."
   },
   {
    "id": "c232",
-   "start": 1245.643,
-   "end": 1253.473,
+   "start": 1245.705,
+   "end": 1253.535,
    "text": "Las empresas de seguridad que analizaron las herramientas usadas en Bangladés encontraron similitudes con las de ataques anteriores."
   },
   {
    "id": "c233",
-   "start": 1253.873,
-   "end": 1256.095,
+   "start": 1253.935,
+   "end": 1256.157,
    "text": "En particular, con uno muy famoso."
   },
   {
    "id": "c234",
-   "start": 1258.095,
-   "end": 1260.193,
+   "start": 1258.157,
+   "end": 1260.255,
    "text": "Noviembre de dos mil catorce."
   },
   {
    "id": "c235",
-   "start": 1260.693,
-   "end": 1269.29,
+   "start": 1260.755,
+   "end": 1269.352,
    "text": "Sony Pictures, en Los Ángeles, está por estrenar The Interview, una comedia sobre dos periodistas que la CIA recluta para asesinar a Kim Jong-un."
   },
   {
    "id": "c236",
-   "start": 1269.69,
-   "end": 1272.818,
+   "start": 1269.752,
+   "end": 1272.88,
    "text": "Corea del Norte había amenazado con represalias."
   },
   {
    "id": "c237",
-   "start": 1273.818,
-   "end": 1279.197,
+   "start": 1273.88,
+   "end": 1279.259,
    "text": "Un día, en las pantallas de los empleados de Sony aparece la imagen de un esqueleto rojo."
   },
   {
    "id": "c238",
-   "start": 1279.697,
-   "end": 1288.509,
+   "start": 1279.759,
+   "end": 1288.571,
    "text": "Los atacantes filtran correos internos, salarios y películas sin estrenar, y dejan paralizadas las computadoras de la empresa durante semanas."
   },
   {
    "id": "c239",
-   "start": 1289.509,
-   "end": 1293.014,
+   "start": 1289.571,
+   "end": 1293.076,
    "text": "Estados Unidos atribuyó ese ataque a Corea del Norte."
   },
   {
    "id": "c240",
-   "start": 1295.014,
-   "end": 1303.332,
+   "start": 1295.076,
+   "end": 1303.394,
    "text": "En dos mil dieciocho, el Departamento de Justicia de Estados Unidos presentó cargos contra un hombre al que señala como miembro de ese grupo:"
   },
   {
    "id": "c241",
-   "start": 1303.632,
-   "end": 1304.777,
+   "start": 1303.694,
+   "end": 1304.807,
    "text": "Park Jin-hyok."
   },
   {
    "id": "c242",
-   "start": 1306.077,
-   "end": 1312.317,
+   "start": 1306.107,
+   "end": 1312.347,
    "text": "Según el FBI, es un programador norcoreano graduado de una de las mejores universidades de su país."
   },
   {
    "id": "c243",
-   "start": 1312.717,
-   "end": 1323.048,
+   "start": 1312.747,
+   "end": 1323.078,
    "text": "Durante años trabajó para una empresa norcoreana, Chosun Expo, en la ciudad china de Dalian, haciendo programas de juegos y apuestas en línea para clientes de todo el mundo."
   },
   {
    "id": "c244",
-   "start": 1324.048,
-   "end": 1325.4,
+   "start": 1324.078,
+   "end": 1325.43,
    "text": "Programador de día."
   },
   {
    "id": "c245",
-   "start": 1325.85,
-   "end": 1328.069,
+   "start": 1325.88,
+   "end": 1328.099,
    "text": "Hacker de noche, según la acusación."
   },
   {
    "id": "c246",
-   "start": 1329.569,
-   "end": 1344.339,
+   "start": 1329.599,
+   "end": 1344.369,
    "text": "Según la BBC, Park sería uno de miles de jóvenes norcoreanos seleccionados desde niños por su talento para las matemáticas, algunos con apenas doce años, y formados de manera intensiva para convertirse en guerreros cibernéticos del régimen."
   },
   {
    "id": "c247",
-   "start": 1345.339,
-   "end": 1348.576,
+   "start": 1345.369,
+   "end": 1348.606,
    "text": "El FBI llegó a reunir hasta correos personales."
   },
   {
    "id": "c248",
-   "start": 1348.976,
-   "end": 1354.746,
+   "start": 1349.006,
+   "end": 1354.776,
    "text": "En uno de dos mil once, Park cuenta que quiere volver a su país para casarse con su prometida."
   },
   {
    "id": "c249",
-   "start": 1355.246,
-   "end": 1364.067,
+   "start": 1355.276,
+   "end": 1364.097,
    "text": "Es uno de los pocos detalles humanos que se conocen del hombre al que Estados Unidos acusa de algunos de los ciberataques más grandes de la historia."
   },
   {
    "id": "c250",
-   "start": 1365.367,
-   "end": 1378.747,
+   "start": 1365.397,
+   "end": 1378.777,
    "text": "Lo acusan de participar en el ataque a Sony, en el robo al Banco de Bangladés y en WannaCry, el virus que en dos mil diecisiete secuestró computadoras en todo el mundo y llegó a afectar hospitales del sistema de salud británico."
   },
   {
    "id": "c251",
-   "start": 1379.747,
-   "end": 1381.396,
+   "start": 1379.777,
+   "end": 1381.426,
    "text": "Park nunca fue detenido."
   },
   {
    "id": "c252",
-   "start": 1381.746,
-   "end": 1387.364,
+   "start": 1381.776,
+   "end": 1387.394,
    "text": "Según el FBI, había vuelto a Corea del Norte años antes de que se presentaran los cargos."
   },
   {
    "id": "c253",
-   "start": 1388.264,
-   "end": 1394.995,
+   "start": 1388.294,
+   "end": 1395.025,
    "text": "En dos mil veintiuno, la justicia estadounidense acusó a otros dos norcoreanos de pertenecer al mismo grupo."
   },
   {
    "id": "c254",
-   "start": 1395.995,
-   "end": 1397.909,
+   "start": 1396.025,
+   "end": 1397.939,
    "text": "Corea del Norte niega todo."
   },
   {
    "id": "c255",
-   "start": 1398.359,
-   "end": 1402.077,
+   "start": 1398.389,
+   "end": 1402.107,
    "text": "Su embajador en Londres calificó las acusaciones de farsa."
   },
   {
    "id": "c256",
-   "start": 1404.077,
-   "end": 1405.521,
+   "start": 1404.107,
+   "end": 1405.551,
    "text": "Hay que aclarar algo."
   },
   {
    "id": "c257",
-   "start": 1406.421,
-   "end": 1412.334,
+   "start": 1406.451,
+   "end": 1412.364,
    "text": "Atribuir un ciberataque nunca es tan claro como encontrar huellas digitales en una escena del crimen."
   },
   {
    "id": "c258",
-   "start": 1412.834,
-   "end": 1423.663,
+   "start": 1412.864,
+   "end": 1423.693,
    "text": "Cuando se empezó a señalar a Corea del Norte, varios investigadores fueron escépticos: ese tipo de código malicioso había aparecido en muchos países, y el código se puede copiar."
   },
   {
    "id": "c259",
-   "start": 1424.663,
-   "end": 1436.826,
+   "start": 1424.693,
+   "end": 1436.856,
    "text": "La acusación del FBI se apoya en un cruce de pruebas: código compartido, direcciones de correo, cuentas en internet y patrones de conexión que, según los investigadores, terminan llevando al mismo lugar."
   },
   {
    "id": "c260",
-   "start": 1438.426,
-   "end": 1440.491,
+   "start": 1438.456,
+   "end": 1440.521,
    "text": "¿Por qué un país haría algo así?"
   },
   {
    "id": "c261",
-   "start": 1441.491,
-   "end": 1450.248,
+   "start": 1441.521,
+   "end": 1450.278,
    "text": "Corea del Norte está entre los países más pobres y aislados del mundo, bajo sanciones internacionales cada vez más duras por su programa nuclear."
   },
   {
    "id": "c262",
-   "start": 1450.748,
-   "end": 1457.775,
+   "start": 1450.778,
+   "end": 1457.805,
    "text": "Según las autoridades estadounidenses, robar dinero es una forma de financiar al régimen esquivando esas sanciones."
   },
   {
    "id": "c263",
-   "start": 1458.775,
-   "end": 1464.4,
+   "start": 1458.805,
+   "end": 1464.43,
    "text": "Y Macao, adonde según los investigadores fue a parar buena parte del dinero, tiene antecedentes:"
   },
   {
    "id": "c264",
-   "start": 1464.7,
-   "end": 1470.833,
+   "start": 1464.73,
+   "end": 1470.965,
    "text": "a mediados de la década de dos mil, Estados Unidos sancionó a un banco de Macao por sus vínculos con Pyongyang."
   },
   {
    "id": "c265",
-   "start": 1471.933,
-   "end": 1475.641,
+   "start": 1472.065,
+   "end": 1475.773,
    "text": "Si las acusaciones son ciertas, Bangladés fue solo el comienzo."
   },
   {
    "id": "c266",
-   "start": 1476.141,
-   "end": 1482.178,
+   "start": 1476.273,
+   "end": 1482.31,
    "text": "Después vino el salto a las criptomonedas, sin bancos intermediarios ni casinos donde lavar el dinero."
   },
   {
    "id": "c267",
-   "start": 1482.678,
-   "end": 1489.615,
+   "start": 1482.81,
+   "end": 1489.747,
    "text": "Según distintas estimaciones, los robos atribuidos a hackers norcoreanos ya suman miles de millones de dólares."
   },
   {
    "id": "epi",
-   "start": 1491.815,
-   "end": 1496.015
+   "start": 1491.947,
+   "end": 1496.147
   },
   {
    "id": "c268",
-   "start": 1496.015,
-   "end": 1503.877,
+   "start": 1496.147,
+   "end": 1504.009,
    "text": "De los ciento un millones que salieron de Nueva York, Bangladés recuperó los veinte de Sri Lanka y una parte de lo que pasó por Filipinas."
   },
   {
    "id": "c269",
-   "start": 1504.477,
-   "end": 1508.186,
+   "start": 1504.609,
+   "end": 1508.318,
    "text": "Unos sesenta y cinco millones de dólares nunca aparecieron."
   },
   {
    "id": "c270",
-   "start": 1509.686,
-   "end": 1515.886,
+   "start": 1509.818,
+   "end": 1516.018,
    "text": "Una sola persona fue condenada: Maia Santos Deguito, la gerenta de la sucursal de la calle Júpiter."
   },
   {
    "id": "c271",
-   "start": 1516.386,
-   "end": 1525.608,
+   "start": 1516.518,
+   "end": 1525.74,
    "text": "En enero de dos mil diecinueve, un tribunal de Makati la declaró culpable de ocho cargos de lavado de dinero, con penas de cuatro a siete años por cada uno."
   },
   {
    "id": "c272",
-   "start": 1526.108,
-   "end": 1529.095,
+   "start": 1526.24,
+   "end": 1529.227,
    "text": "Ella siempre sostuvo que fue un chivo expiatorio."
   },
   {
    "id": "c273",
-   "start": 1529.545,
-   "end": 1533.764,
+   "start": 1529.677,
+   "end": 1533.896,
    "text": "En dos mil veintitrés, un tribunal de apelación confirmó la condena."
   },
   {
    "id": "c274",
-   "start": 1534.764,
-   "end": 1539.659,
+   "start": 1534.896,
+   "end": 1539.791,
    "text": "El Banco de Bangladés demandó al RCBC en Nueva York en dos mil diecinueve."
   },
   {
    "id": "c275",
-   "start": 1539.959,
-   "end": 1542.343,
+   "start": 1540.091,
+   "end": 1542.475,
    "text": "Años después, el caso sigue abierto."
   },
   {
    "id": "c276",
-   "start": 1543.343,
-   "end": 1548.409,
+   "start": 1543.475,
+   "end": 1548.541,
    "text": "Y en el propio Bangladés, la investigación policial se convirtió en una ironía amarga:"
   },
   {
    "id": "c277",
-   "start": 1548.759,
-   "end": 1552.652,
+   "start": 1548.891,
+   "end": 1552.784,
    "text": "la entrega del informe final se postergó más de ochenta veces."
   },
   {
    "id": "c278",
-   "start": 1554.952,
-   "end": 1558.98,
+   "start": 1555.084,
+   "end": 1559.112,
    "text": "Lo más inquietante de esta historia no es lo que los hackers lograron."
   },
   {
    "id": "c279",
-   "start": 1559.43,
-   "end": 1562.195,
+   "start": 1559.562,
+   "end": 1562.327,
    "text": "Es lo cerca que estuvieron de lograrlo todo."
   },
   {
    "id": "c280",
-   "start": 1563.495,
-   "end": 1565.799,
+   "start": 1563.627,
+   "end": 1565.931,
    "text": "Tenían las claves. Tenían las cuentas."
   },
   {
    "id": "c281",
-   "start": 1566.249,
-   "end": 1570.222,
+   "start": 1566.381,
+   "end": 1570.354,
    "text": "Habían calculado las zonas horarias y los feriados de tres países."
   },
   {
    "id": "c282",
-   "start": 1570.672,
-   "end": 1573.813,
+   "start": 1570.804,
+   "end": 1573.945,
    "text": "Habían silenciado la impresora que podía delatarlos."
   },
   {
    "id": "c283",
-   "start": 1575.113,
-   "end": 1578.154,
+   "start": 1575.245,
+   "end": 1578.286,
    "text": "Lo que los frenó no fue la seguridad del sistema."
   },
   {
    "id": "c284",
-   "start": 1578.754,
-   "end": 1583.202,
+   "start": 1578.886,
+   "end": 1583.334,
    "text": "Fue una calle con nombre de planeta, que compartía nombre con un barco iraní."
   },
   {
    "id": "c285",
-   "start": 1583.652,
-   "end": 1586.754,
+   "start": 1583.784,
+   "end": 1586.886,
    "text": "Y una letra mal escrita en la palabra fundación."
   },
   {
    "id": "c286",
-   "start": 1589.054,
-   "end": 1591.921,
+   "start": 1589.186,
+   "end": 1592.053,
    "text": "Todo empezó con una impresora que no imprimía."
   },
   {
    "id": "c287",
-   "start": 1593.421,
-   "end": 1599.601,
+   "start": 1593.553,
+   "end": 1599.733,
    "text": "Y al final, lo único que protegió casi mil millones de dólares de uno de los países más pobres del mundo..."
   },
   {
    "id": "c288",
-   "start": 1600.301,
-   "end": 1601.694,
+   "start": 1600.433,
+   "end": 1601.826,
    "text": "fue la casualidad."
   },
   {
    "id": "outro",
-   "start": 1605.194,
-   "end": 1614.194
+   "start": 1605.326,
+   "end": 1614.326
   }
  ]
 }

@@ -63,14 +63,6 @@
   "fuente": "https://www.flickr.com/photos/15790252@N06/4963118546",
   "corto": "Foto: arturodonate · CC BY 2.0"
  },
- "manhattan-alto.jpg": {
-  "titulo": "Manhattan Skyline",
-  "autor": "mlcastle",
-  "licencia": "CC BY-SA 2.0",
-  "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-  "fuente": "https://www.flickr.com/photos/66458073@N00/6651154317",
-  "corto": "Foto: mlcastle · CC BY-SA 2.0"
- },
  "teclado.jpg": {
   "titulo": "Tardy (77/365)",
   "autor": "LifeSupercharger",
@@ -229,14 +221,6 @@
   "fuente": "https://www.flickr.com/photos/26865339@N00/333092325",
   "corto": "Foto: MasterPhoto-DK · CC BY 2.0"
  },
- "cartas.jpg": {
-  "titulo": "Still life with playing cards",
-  "autor": "plong",
-  "licencia": "CC BY 2.0",
-  "licencia_url": "https://creativecommons.org/licenses/by/2.0/",
-  "fuente": "https://www.flickr.com/photos/12068800@N00/2340311423",
-  "corto": "Foto: plong · CC BY 2.0"
- },
  "pyongyang.jpg": {
   "titulo": "Kim Il Sung Square, Pyongyang",
   "autor": "D-Stanley",
@@ -247,11 +231,11 @@
  },
  "escuela-pyongyang.jpg": {
   "titulo": "School. Pyongyang, North Korea.",
-  "autor": "(stephan)",
+  "autor": "stephan",
   "licencia": "CC BY-SA 2.0",
   "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0/",
   "fuente": "https://www.flickr.com/photos/82992618@N00/2603192813",
-  "corto": "Foto: (stephan) · CC BY-SA 2.0"
+  "corto": "Foto: stephan · CC BY-SA 2.0"
  },
  "bitcoin.jpg": {
   "titulo": "Bitcoin statistic coin ANTANA",
@@ -276,5 +260,69 @@
   "licencia_url": "https://creativecommons.org/licenses/by/2.0/",
   "fuente": "https://www.flickr.com/photos/44835272@N02/4848579713",
   "corto": "Foto: rottenrot · CC BY 2.0"
+ },
+ "corea-noche.jpg": {
+  "titulo": "North Korea - Satellite view (5015891270)",
+  "autor": "Roman Harak",
+  "licencia": "CC BY-SA 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+  "fuente": "https://commons.wikimedia.org/w/index.php?curid=31638553",
+  "corto": "Foto: Roman Harak · CC BY-SA 2.0"
+ },
+ "wannacry.jpg": {
+  "titulo": "2017-05-14 München, DB Automat WannaCry Hbf (freddy2001)",
+  "autor": "Freddy2001",
+  "licencia": "CC BY-SA 3.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "fuente": "https://commons.wikimedia.org/w/index.php?curid=59154009",
+  "corto": "Foto: Freddy2001 · CC BY-SA 3.0"
+ },
+ "doj.jpg": {
+  "titulo": "Department of Justice Building - Washington, DC (14323816141)",
+  "autor": "Tony Webster",
+  "licencia": "CC BY 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/2.0/",
+  "fuente": "https://commons.wikimedia.org/w/index.php?curid=39879453",
+  "corto": "Foto: Tony Webster · CC BY 2.0"
+ },
+ "embajada-londres.jpg": {
+  "titulo": "Embassy of North Korea in London 2024-07-10",
+  "autor": "Matt Brown",
+  "licencia": "CC BY 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/2.0/",
+  "fuente": "https://commons.wikimedia.org/w/index.php?curid=150392355",
+  "corto": "Foto: Matt Brown · CC BY 2.0"
+ },
+ "tribunal-ny.jpg": {
+  "titulo": "New York County Courthouse - Angle Shot (48129112547)",
+  "autor": "Ajay Suresh",
+  "licencia": "CC BY 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/2.0/",
+  "fuente": "https://commons.wikimedia.org/w/index.php?curid=79951637",
+  "corto": "Foto: Ajay Suresh · CC BY 2.0"
+ },
+ "atiur-rahman.jpg": {
+  "titulo": "Dr Atiur Rahman at English Olympiad Grand Finale",
+  "autor": "ArifEOWOC",
+  "licencia": "CC BY-SA 4.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "fuente": "https://commons.wikimedia.org/w/index.php?curid=78312248",
+  "corto": "Foto: ArifEOWOC · CC BY-SA 4.0"
+ },
+ "sony.jpg": {
+  "titulo": "Sony Pictures Studios Motor Gate",
+  "autor": "Coolcaesar",
+  "licencia": "CC BY-SA 4.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "fuente": "https://commons.wikimedia.org/w/index.php?curid=104073646",
+  "corto": "Foto: Coolcaesar · CC BY-SA 4.0"
+ },
+ "dalian.jpg": {
+  "titulo": "Dalian City",
+  "autor": "Yibuki130726",
+  "licencia": "CC BY-SA 4.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "fuente": "https://commons.wikimedia.org/w/index.php?curid=133984006",
+  "corto": "Foto: Yibuki130726 · CC BY-SA 4.0"
  }
 }

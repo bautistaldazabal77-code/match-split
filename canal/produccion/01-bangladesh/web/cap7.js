@@ -91,10 +91,12 @@ addHTML(`
   <div class="credit">${CRED['bitcoin.jpg'] || ''}</div></div>
 `);
 chapterCard('s7_card', 'ch7', 'VII', 'Lázaro');
-photo('s7_la', [S('c234') - .3, S('c237') - .1, .6, .5], { src: 'sony.jpg', kb: [1.05, 1.16, -20, 20, 0, -10], filter: 'saturate(.55) brightness(.5) contrast(1.1)',
+photo('s7_la', [S('c234') - .3, S('c236') + .1, .6, .5], { src: 'sony.jpg', kb: [1.05, 1.16, -20, 20, 0, -10], filter: 'saturate(.55) brightness(.5) contrast(1.1)',
   html: `<div class="cap" id="la7"><div class="k">Noviembre de 2014 · Los Ángeles</div><div class="v">Sony Pictures</div></div>
   <div class="cap" id="la7b" style="opacity:0;left:auto;right:110px;text-align:right"><div class="k">Por estrenar</div><div class="v">“The Interview”</div></div>
-  <div class="tag" id="la7c" style="left:110px;top:96px;opacity:0;color:var(--red)">Corea del Norte amenaza con represalias</div>` });
+` });
+photo('s7_py', [S('c236') - .2, S('c237') - .1, .5, .5], { src: 'pyongyang.jpg', kb: [1.05, 1.15, 20, -20, 0, -10], filter: 'saturate(.5) brightness(.5) contrast(1.1)',
+  cap: ['Pyongyang · Corea del Norte', 'Amenazó con represalias'] });
 photo('s7_doj', [S('c240') - .3, S('c241') - .3, .6, .5], { src: 'doj.jpg', kb: [1.05, 1.15, 0, -20, 0, 0], filter: 'saturate(.5) brightness(.5) contrast(1.1)', cap: ['2018 · Washington', 'Departamento de Justicia de EE. UU.'] });
 photo('s7_dalp', [AT('c243', 'haciendo') - .3, S('c244') - .1, .5, .4], { src: 'dalian.jpg', kb: [1.05, 1.16, 30, -30, 0, 0], filter: 'saturate(.5) brightness(.5) contrast(1.1)',
   cap: ['Dalian, China', 'Programas de juegos y apuestas en línea'] });
@@ -238,7 +240,6 @@ RENDER.push(function cap7(t) {
   if (on('s7_la')) {
     $('la7').style.opacity = P(t, S('c234') - .2, S('c234') + .4);
     $('la7b').style.opacity = P(t, AT('c235', 'The Interview') - .3, AT('c235', 'The Interview') + .2);
-    $('la7c').style.opacity = P(t, S('c236') - .2, S('c236') + .3);
   }
   // el afiche
   if (on('s7_wanted')) {
@@ -289,7 +290,7 @@ RENDER.push(function cap7(t) {
   }
   // el código se puede copiar
   if (C7.cm && on('s7_copy')) {
-    C7.copies.forEach(c => c.g.setAttribute('opacity', P(t, AT('c258', 'muchos países') - .5 + c.r * 1.2, AT('c258', 'muchos países') - .2 + c.r * 1.2)));
+    C7.copies.forEach(c => c.g.setAttribute('opacity', P(t, S('c258') + .8 + c.r * 7.5, S('c258') + 1.1 + c.r * 7.5)));
     mapCam(C7.cm, W / 2, H / 2, lerp(1, 1.05, io(K('s7_copy', t))));
   }
   // cruce de pruebas
