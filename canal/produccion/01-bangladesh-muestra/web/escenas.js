@@ -29,7 +29,8 @@ function kb(img, k, s0, s1, x0 = 0, x1 = 0, y0 = 0, y1 = 0) {
 const SCN = {
   s_lead: [0, 2.75, .05, .25],
   s_hook: [2.55, S('c2') + .5, 1.0, .8],
-  s_night: [S('c2') - .4, AT('c2', 'del banco') + .5, .9, .8],
+  s_night: [S('c2') - .4, AT('c2', 'alguien') + .4, .9, .7],
+  s_cash: [AT('c2', 'alguien') - .3, AT('c2', 'del banco') + .5, .7, .8],
   s_map1: [AT('c2', 'del banco') - .3, S('c3') + .25, .8, .5],
   s_count: [AT('c2', 'alguien') - .2, S('c3') + .1, .5, .4],
   s_pc: [S('c3') - .35, S('c5') - .1, .4, .4],
@@ -46,13 +47,19 @@ const SCN = {
   s_clock: [AT('c16', 'Viernes') + .3, S('c17') - .1, .5, .5],
   s_tower: [S('c17') - .3, AT('c17', 'dentro') + .3, .7, .6],
   s_build: [AT('c17', 'dentro') - .2, S('c18') + .3, .5, .6],
-  s_printer: [S('c18') - .3, S('c19') + .1, .7, .5],
+  s_realpr: [S('c18') - .3, AT('c18', 'Su única') + .3, .7, .6],
+  s_printer: [AT('c18', 'Su única') - .3, S('c19') + .1, .6, .5],
   s_split: [S('c19') - .3, S('c20') + .05, .5, .5],
   s_arch: [S('c20') - .3, S('c21') + .05, .5, .5],
   s_empty: [S('c21') - .3, S('c22') + .2, .6, .5],
   s_quote: [S('c22') - .3, S('c24') + .2, .6, .6],
-  s_end: [S('c24') - .3, TL.duration - .8, .8, 2.8],
+  s_friday: [S('c24') - .3, AT('c24', 'La impresora') + .3, .8, .7],
+  s_end: [AT('c24', 'La impresora') - .4, TL.duration - .8, .7, 2.8],
 };
+// la impresora saca una hoja cada PRINTGAP segundos desde PRINT0 (sonido.py usa los mismos valores)
+const PRINT0 = AT('c18', 'Su única') + .1, PRINTGAP = .8;
+// las tres luces del techo se apagan mientras dice "La impresora puede esperar" (también en sonido.py)
+const LIGHTS_OFF = [.35, 1.05, 1.75].map(d => AT('c24', 'La impresora') + d);
 
 // ---------- Mapas ----------
 const cities = { daca: [90.41, 23.81], ny: [-74.0, 40.71], manila: [120.98, 14.6], colombo: [79.86, 6.93] };
@@ -176,7 +183,7 @@ function lightDefs(svg) {
   el('stop', { offset: '0%', 'stop-color': '#ffd9a0', 'stop-opacity': .2 }, wg);
   el('stop', { offset: '100%', 'stop-color': '#ffd9a0', 'stop-opacity': 0 }, wg);
 }
-let B = {}, PR = {}, PR2 = {}, PE = {}, AR = {};
+let B = {}, PR = {}, PR2 = {}, PE = {};
 function setupBuilding() {
   const svg = $('bsvg'); lightDefs(svg);
   const g = el('g', {}, svg); B.g = g;
@@ -249,26 +256,6 @@ function setupPrinters() {
   $('sms').innerHTML = `<div style="font-size:18px;letter-spacing:.2em;color:#5c7d94;margin-bottom:10px">BASE DE DATOS · TRANSFERENCIAS</div>${r7}`;
   $('sps').innerHTML = `<div style="font:500 20px 'IBM Plex Mono';letter-spacing:.2em;border-bottom:2px solid #1c1d1f;padding-bottom:14px;margin-bottom:8px">REGISTRO IMPRESO</div>${r7}`;
 }
-// archivo: pilas de cajas que caen en su lugar
-function setupArchive() {
-  const svg = $('asvg'); lightDefs(svg);
-  const g = el('g', {}, svg); AR.g = g;
-  poly(g, [[-900, -900, 0], [1400, -900, 0], [1400, 1400, 0], [-900, 1400, 0]], '#090b0e');
-  el('ellipse', { cx: iso(250, 250, 0)[0], cy: iso(250, 250, 0)[1], rx: 820, ry: 430, fill: 'url(#warm)' }, g);
-  // tres hileras de estantes, con pasillos entre medio
-  const R = rnd(11), items = [];
-  for (let j = 0; j < 3; j++) for (let i = 0; i < 6; i++) {
-    const n = 2 + Math.floor(R() * 2) + (j === 0 ? 1 : 0);
-    for (let k = 0; k < n; k++) items.push({ x: i * 104, y: j * 170, k, d: i * .1 + (2 - j) * .3 + k * .09 });
-  }
-  items.sort((a, b) => (a.x + a.y) - (b.x + b.y) || a.k - b.k);   // de atrás hacia adelante, de abajo hacia arriba
-  AR.boxes = items.map(it => {
-    const b = box(g, it.x, it.y, it.k * 40, 92, 76, 38, ['#5a4a38', '#47392b', '#3a2f24'], '#6b5944');
-    const lab = poly(g, [[it.x + 20, it.y + 76.5, it.k * 40 + 12], [it.x + 62, it.y + 76.5, it.k * 40 + 12], [it.x + 62, it.y + 76.5, it.k * 40 + 26], [it.x + 20, it.y + 76.5, it.k * 40 + 26]], '#d8d2c4');
-    return { b, lab, it, d: it.d };
-  });
-}
-
 // ---------- Ilustraciones de trazo ----------
 function stroke(svg, d, extra = {}) {
   return el('path', Object.assign({ d, fill: 'none', stroke: '#e9e6df', 'stroke-width': 5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', pathLength: 1, 'stroke-dasharray': 1, 'stroke-dashoffset': 1 }, extra), svg);
@@ -379,7 +366,9 @@ function render(t) {
     $('hookimg').style.filter = `blur(${lerp(20, 10, k).toFixed(1)}px) brightness(${lerp(.46, .72, k).toFixed(3)}) saturate(.55) contrast(1.12)`;
   }
   // 2 · Daca de noche
-  if (on('s_night')) kb($('nightimg'), P(t, SCN.s_night[0], SCN.s_night[1]), 1.08, 1.16, 70, -70, 0, -10);
+  if (on('s_night')) kb($('nightimg'), P(t, SCN.s_night[0], SCN.s_night[1]), 1.08, 1.14, 70, -30, 0, -10);
+  // 2b · los billetes, mientras corre el contador
+  if (on('s_cash')) kb($('cashimg'), P(t, SCN.s_cash[0], SCN.s_cash[1]), 1.05, 1.17, -40, 30, 20, -20);
   // 3 · mapa: zoom hasta Bangladés
   if (M1 && on('s_map1')) {
     const [a] = SCN.s_map1;
@@ -403,6 +392,9 @@ function render(t) {
     const [a, b] = SCN.s_pc;
     const k = io(P(t, a, b));
     $('mon').style.transform = `perspective(2600px) rotateY(${lerp(-16, -7, k)}deg) rotateX(3deg) scale(${lerp(.9, 1.0, k)})`;
+    // la sala de servidores detrás: se aclara cuando entra al sistema
+    kb($('servimg'), k, 1.12, 1.2, 30, -30, 0, 0);
+    $('pcbg').style.opacity = lerp(.55, 1, P(t, S('c4') - .2, S('c4') + .5));
     const u = 'operador.10', u0 = S('c3') - .3, p0 = S('c3') + .25;
     const nu = clamp(Math.floor((t - u0) / .045) + 1, 0, u.length);
     const np = clamp(Math.floor((t - p0) / .085) + 1, 0, 10);
@@ -438,12 +430,18 @@ function render(t) {
     const h8 = $('d8').querySelector('.hl'); h8.style.opacity = k8; h8.style.transform = `scale(${lerp(1.25, 1, k8)})`;
     $('d8').style.boxShadow = `0 0 ${50 * k8}px rgba(255,178,62,${.3 * k8})`;
     const ck = eo(P(t, hr - .25, hr + .6));
-    $('clk').style.opacity = lerp(.18, 1, eo(P(t, hr - .4, hr)));
+    // el reloj le deja el lugar a la foto del feriado
+    const cy = eo(P(t, fe - .3, fe + .45));
+    $('clk').style.opacity = lerp(.18, 1, eo(P(t, hr - .4, hr))) * (1 - P(t, fe - .45, fe - .05));
+    $('cny').style.opacity = cy;
+    $('cny').style.transform = `translateY(${lerp(30, 0, cy)}px)`;
+    $('cny').style.boxShadow = `0 0 ${70 * cy}px rgba(255,178,62,${.18 * cy})`;
+    kb($('cnyimg'), P(t, fe - .3, S('c7')), 1.04, 1.14, 0, -10, 0, 12);
     IL.hh.setAttribute('transform', `rotate(${258 * ck} 190 190)`);
     IL.mh.setAttribute('transform', `rotate(${(216 + 720) * ck} 190 190)`);
     const mins = Math.round((20 * 60 + 36) * ck);
     $('clkt').textContent = String(Math.floor(mins / 60)).padStart(2, '0') + ':' + String(mins % 60).padStart(2, '0');
-    $('clkny').style.opacity = P(t, hr + .5, hr + .9);
+    $('clkny').style.opacity = P(t, hr + .1, hr + .4);
     // y aun así, fracasó
     const st = P(t, S('c6') - .02, S('c6') + .16);
     $('stamp').style.opacity = st > 0 ? .95 : 0;
@@ -453,6 +451,7 @@ function render(t) {
     const dim = P(t, S('c6'), S('c6') + .5);
     $('cal').style.opacity = lerp(1, .38, dim); $('clk').style.filter = `grayscale(${dim})`;
     $('cal').style.filter = `grayscale(${dim})`;
+    $('cny').style.filter = `grayscale(${dim}) brightness(${lerp(1, .5, dim)})`;
   }
   // 6 · ni antivirus, ni guardia, ni analista
   if (on('s_neg')) {
@@ -488,6 +487,7 @@ function render(t) {
   }
   // 8 · JUPITER tecleado y la letra equivocada
   if (on('s_jup')) {
+    kb($('makimg'), P(t, SCN.s_jup[0], SCN.s_jup[1]), 1.06, 1.14, 40, -40, 0, 0);
     const j0 = E('c10') + .25;
     const n = clamp(Math.floor((t - j0) / .11) + 1, 0, 7);
     $('jupt').textContent = 'JUPITER'.slice(0, t < j0 ? 0 : n);
@@ -603,9 +603,11 @@ function render(t) {
     const camY = lerp(260, 560, k), s = lerp(1.0, 1.7, io(P(t, b + .2, S('c18') + .3)));
     B.g.setAttribute('transform', `translate(${1060} ${camY}) scale(${s}) translate(0 ${lerp(0, 90, k)})`);
   }
+  // 16b · una impresora real
+  if (on('s_realpr')) kb($('realprimg'), P(t, SCN.s_realpr[0], SCN.s_realpr[1]), 1.1, 1.2, 0, -30, 0, 10);
   // 17 · la impresora imprime el registro
   if (PR.g && on('s_printer')) {
-    const t0 = S('c18') + .2, gap = .95;
+    const t0 = PRINT0, gap = PRINTGAP;
     PR.sheets.forEach((sh, i) => {
       const a = t0 + i * gap, k = eo(P(t, a, a + .6));
       const vis = t > a;
@@ -621,7 +623,7 @@ function render(t) {
     PR.led.setAttribute('fill', '#3d8a5a'); PR.halo.setAttribute('opacity', .25);
     const push = io(P(t, SCN.s_printer[0], SCN.s_printer[1]));
     PR.g.setAttribute('transform', `translate(${lerp(560, 620, push)} ${lerp(420, 440, push)}) scale(${lerp(1.3, 1.5, push)})`);
-    $('ptag').style.opacity = P(t, S('c18'), S('c18') + 1) * (1 - P(t, lA, lA + .6));
+    $('ptag').style.opacity = P(t, t0 - .2, t0 + .6) * (1 - P(t, lA, lA + .6));
   }
   // 18 · en las computadoras y en papel
   if (on('s_split')) {
@@ -637,20 +639,8 @@ function render(t) {
     $('sm').style.opacity = lerp(1, .55, g2 * (1 - g1 * .4));
     GEO.links.forEach((l, i) => l.setAttribute('stroke-dashoffset', 1 - io(P(t, AT('c19', 'impresos') + i * .1, AT('c19', 'impresos') + .5 + i * .1))));
   }
-  // 19 · el archivo
-  if (AR.g && on('s_arch')) {
-    const a = S('c20') - .3;
-    AR.boxes.forEach(({ b, lab, it, d }) => {
-      const k = eo(P(t, a + d, a + d + .35));
-      const z = it.k * 40 + (1 - k) * 160;
-      moveBox(b, it.x, it.y, z, 92, 76, 38);
-      lab.setAttribute('points', pts([[it.x + 20, it.y + 76.5, z + 12], [it.x + 62, it.y + 76.5, z + 12], [it.x + 62, it.y + 76.5, z + 26], [it.x + 20, it.y + 76.5, z + 26]]));
-      const o = k > 0 ? 1 : 0;
-      for (const f of [b.top, b.left, b.right, lab]) f.setAttribute('opacity', o);
-    });
-    const k = io(P(t, a, S('c21')));
-    AR.g.setAttribute('transform', `translate(${lerp(1040, 990, k)} ${lerp(380, 330, k)}) scale(${lerp(1.45, 1.1, k)})`);
-  }
+  // 19 · el archivo: la cámara avanza por el pasillo
+  if (on('s_arch')) kb($('archimg'), P(t, SCN.s_arch[0], SCN.s_arch[1]), 1.02, 1.2, 0, 0, 0, 10);
   // 20 · la bandeja vacía
   if (PR2.g && on('s_empty')) {
     const blink = Math.floor((t - S('c21')) * 1.6) % 2 === 0;
@@ -662,6 +652,10 @@ function render(t) {
   }
   // 21 · la denuncia y la cita a máquina
   if (on('s_quote')) {
+    // la policía de Daca de fondo; se oscurece cuando sube la denuncia
+    const pk = P(t, AT('c22', 'Más tarde') - .2, AT('c22', 'Más tarde') + .8);
+    kb($('polimg'), P(t, SCN.s_quote[0], SCN.s_quote[1]), 1.06, 1.16, -20, 30, 0, -10);
+    $('polimg').style.filter = `saturate(.45) contrast(1.08) brightness(${lerp(.5, .2, pk).toFixed(3)}) blur(${lerp(0, 3, pk).toFixed(2)}px)`;
     $('qbar').style.height = (110 * eo(P(t, S('c22') + .1, S('c22') + .8))) + 'px';
     $('qname').style.opacity = P(t, S('c22') + .2, S('c22') + .9);
     $('qrole').style.opacity = P(t, S('c22') + .6, S('c22') + 1.3);
@@ -673,14 +667,20 @@ function render(t) {
     $('qt').textContent = QUOTE.slice(0, n);
     $('qcaret').style.opacity = (n < QUOTE.length || Math.floor(t * 2.2) % 2 === 0) && t > ts - .5 ? 1 : 0;
   }
+  // 21b · viernes: la mezquita desde arriba, la cámara gira muy despacio
+  if (on('s_friday')) {
+    const k = P(t, SCN.s_friday[0], SCN.s_friday[1]);
+    $('friimg').style.transform = `rotate(${lerp(-1.6, .8, k).toFixed(3)}deg) scale(${lerp(1.2, 1.1, io(k)).toFixed(4)})`;
+    $('etag').style.opacity = P(t, S('c24') + .2, S('c24') + 1.0);
+  }
   // 22 · cierre: se apagan las luces, solo queda la luz que titila
   if (PE.g && on('s_end')) {
-    const k = io(P(t, S('c24') - .3, TL.duration));
+    const k = io(P(t, SCN.s_end[0], TL.duration));
     PE.g.setAttribute('transform', `translate(${860} ${520}) scale(${lerp(.95, 1.12, k)})`);
     const blink = Math.floor(t * 1.6) % 2 === 0;
     PE.led.setAttribute('fill', blink ? '#ffb23e' : '#3a2a12');
     PE.halo.setAttribute('opacity', blink ? 1 : .05);
-    const offs = [AT('c24', 'La impresora') - 2.2, AT('c24', 'La impresora') - 1.4, AT('c24', 'La impresora') - .6];
+    const offs = LIGHTS_OFF;
     let dark = 0;
     PE.lamps.forEach((l, i) => {
       const off = t > offs[i];
@@ -690,14 +690,13 @@ function render(t) {
       if (off) dark++;
     });
     PE.dark.setAttribute('opacity', [0, .25, .45, .62][dark]);
-    $('etag').style.opacity = P(t, S('c24') + .4, S('c24') + 1.4) * (1 - P(t, E('c24') + .3, E('c24') + 1.5));
   }
 }
 
 window.READY = (async () => {
   await document.fonts.ready;
   await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
-  setupCalendar(); setupIllustrations(); setupPrinters(); setupBuilding(); setupArchive();
+  setupCalendar(); setupIllustrations(); setupPrinters(); setupBuilding();
   measure();
   await setupMaps();
   render(0);

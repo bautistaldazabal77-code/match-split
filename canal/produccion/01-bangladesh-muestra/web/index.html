@@ -64,6 +64,10 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:
 #clk .c1{font:500 78px 'IBM Plex Mono';margin-top:14px}
 #clk .c2{font:400 22px 'IBM Plex Mono';letter-spacing:.22em;color:var(--mut);margin-top:6px}
 #clk .c3{font:400 24px 'IBM Plex Mono';letter-spacing:.16em;color:var(--mut);margin-top:30px;border-top:1px solid #1d232b;padding-top:22px}
+#cny{position:absolute;left:1210px;top:178px;width:580px;height:690px;overflow:hidden;border:1px solid #2a313b;opacity:0}
+#cny .ph img{object-position:62% 50%;transform-origin:50% 40%;filter:saturate(.7) brightness(.62) contrast(1.08)}
+#cny .k{position:absolute;left:30px;right:30px;bottom:96px;font:400 20px 'IBM Plex Mono';letter-spacing:.2em;color:var(--amber)}
+#cny .v{position:absolute;left:30px;right:30px;bottom:40px;font:600 46px 'Cormorant Garamond';letter-spacing:.02em}
 #stamp{position:absolute;left:50%;top:50%;width:900px;margin:-110px 0 0 -450px;height:220px;border:12px solid var(--red);color:var(--red);font:700 150px Inter;letter-spacing:.14em;display:flex;align-items:center;justify-content:center;opacity:0;mix-blend-mode:screen;text-indent:.14em}
 /* tríptico */
 #tri{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:46px}
@@ -157,13 +161,16 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:
 <div class="scene" id="s_night"><div class="cam"><div class="ph"><img id="nightimg" src="img/daca-noche.jpg"></div><div class="vig"></div></div>
   <div class="tag" style="left:110px;top:96px">Daca · 4 de febrero de 2016 · noche</div>
   <div class="credit">Foto: Sajeeb Ahmed Photography · CC BY 3.0</div></div>
+<!-- 2b · casi mil millones de dólares -->
+<div class="scene" id="s_cash"><div class="cam"><div class="ph"><img id="cashimg" src="img/dolares.jpg" style="filter:saturate(.45) brightness(.48) contrast(1.12)"></div><div class="vig"></div></div>
+  <div class="credit">Foto: Revisorweb · CC BY-SA 3.0</div></div>
 <!-- 3 · mapa nocturno con Daca -->
 <div class="scene" id="s_map1"><div class="cam"><svg id="map1" width="1920" height="1080"></svg></div>
   <div class="tag" style="left:110px;top:96px">Banco central · Bangladés</div></div>
 <!-- contador del intento de robo (encima de 2 y 3) -->
 <div class="scene" id="s_count"><div id="count"><div class="k">INTENTO DE ROBO</div><div class="v"><small>US$</small><span id="countv">0</span></div></div></div>
 <!-- 4 · la terminal: contraseña y sistema -->
-<div class="scene" id="s_pc"><div class="cam" id="pccam"><div id="scrglow"></div>
+<div class="scene" id="s_pc"><div class="cam" id="pccam"><div class="ph" id="pcbg"><img id="servimg" src="img/servidores.jpg" style="filter:blur(6px) saturate(.45) brightness(.3)"></div><div class="vig"></div><div id="scrglow"></div>
   <div id="mon"><div id="bezel"></div><div id="screen">
     <div class="win" id="wlogin"><div class="bar">TERMINAL DE PAGOS INTERNACIONALES<b>PISO 10</b></div>
       <div id="login"><div class="t">INICIAR SESIÓN</div>
@@ -174,12 +181,16 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:
       <div class="hd"><span>MENSAJE</span><span>DESTINO</span><span>MONTO</span></div>
       <div class="rows" id="mrows"></div>
       <div id="link"><i id="ld1"></i>DACA<span style="color:#2a4a62">———————</span><i id="ld2"></i>NUEVA YORK<span id="lst" style="margin-left:auto;color:#5c7d94">ENLACE ACTIVO</span></div></div>
-  </div><div id="rec">RECREACIÓN</div></div></div></div>
+  </div><div id="rec">RECREACIÓN</div></div></div>
+  <div class="credit">Fondo: torkildr · CC BY-SA 2.0</div></div>
 <!-- 5 · el calendario perfecto -->
 <div class="scene" id="s_cal"><div class="cam" id="calcam">
   <div id="cal"><h3>Febrero 2016<span>DACA · NUEVA YORK · MANILA</span></h3><div class="cg" id="cgrid"></div></div>
   <div id="clk"><svg viewBox="0 0 380 380" id="clksvg"></svg><div class="c1" id="clkt">20:36</div><div class="c2">JUEVES · HORA DE DACA</div>
     <div class="c3" id="clkny">NUEVA YORK · 09:36 · LA FED ABIERTA</div></div>
+  <div id="cny"><div class="ph"><img id="cnyimg" src="img/anio-nuevo-chino.jpg"></div><div class="vig"></div>
+    <div class="k">LUNES 8 · AÑO NUEVO CHINO</div><div class="v">Feriado en Manila</div>
+    <div class="credit" style="right:16px;bottom:12px;font-size:12px">Foto: Ralff Nestor Nacor · CC BY-SA 4.0</div></div>
   <div id="stamp">FRACASÓ</div></div></div>
 <!-- 6 · ni antivirus, ni guardia, ni analista -->
 <div class="scene" id="s_neg"><div class="cam"><div id="tri">
@@ -198,9 +209,11 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:
     <div class="dl"><span class="a">MONTO</span><span>USD ██.███.███</span></div>
     <div class="dl" style="border:0"><span class="a">ESTADO</span><span id="dst">EN PROCESO</span></div></div></div></div>
 <!-- 8 · JUPITER y la letra -->
-<div class="scene" id="s_jup"><div class="cam"><div class="center">
+<div class="scene" id="s_jup"><div class="cam"><div class="ph"><img id="makimg" src="img/makati-noche.jpg" style="filter:blur(2.5px) saturate(.4) brightness(.3)"></div><div class="vig"></div><div class="center">
   <div id="jup"><span id="jupt"></span><span id="caret"></span></div>
-  <div id="fund">F<b>U</b>NDATION</div></div></div></div>
+  <div id="fund">F<b>U</b>NDATION</div></div></div>
+  <div class="tag" style="left:110px;bottom:100px">Makati · Manila · donde está la calle Jupiter</div>
+  <div class="credit" id="makcr">Foto: Lawrence Ruiz · CC BY-SA 4.0</div></div>
 <!-- 9 · mapa con arcos y órdenes viajando -->
 <div class="scene" id="s_map2"><div class="cam"><svg id="map2" width="1920" height="1080"></svg></div>
   <div id="ord"><div class="v" id="ordv">00</div><div class="k">ÓRDENES DE PAGO</div></div></div>
@@ -232,6 +245,9 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:
 <!-- 16 · edificio: piso 10 -->
 <div class="scene" id="s_build"><div class="cam"><svg id="bsvg" width="1920" height="1080"></svg></div>
   <div id="floorlbl"><div class="k">BANCO DE BANGLADÉS · SEDE</div><div class="v" id="floorv">PISO 01</div><div class="r" id="floorr">SALA DE ACCESO RESTRINGIDO</div></div></div>
+<!-- 16b · no es cualquier impresora -->
+<div class="scene" id="s_realpr"><div class="cam"><div class="ph"><img id="realprimg" src="img/impresora.jpg" style="filter:saturate(.4) brightness(.55) contrast(1.15)"></div><div class="vig"></div></div>
+  <div class="credit" id="realprcr">Imagen ilustrativa · Foto: Jud McCranie · CC BY-SA 4.0</div></div>
 <!-- 17 · la impresora imprime -->
 <div class="scene" id="s_printer"><div class="cam" id="pcam"><svg id="psvg" width="1920" height="1080"></svg>
   <div id="ledger"><h4>REGISTRO DE TRANSFERENCIAS</h4><div id="lrows"></div><div class="rec">RECREACIÓN</div></div></div>
@@ -244,20 +260,26 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:
   <div class="slbl" id="sl1" style="left:150px;top:830px">EN LAS COMPUTADORAS</div>
   <div class="slbl" id="sl2" style="right:150px;top:920px;text-align:right">IMPRESO · RESPALDO</div></div></div></div>
 <!-- 19 · archivo: la memoria física -->
-<div class="scene" id="s_arch"><div class="cam"><svg id="asvg" width="1920" height="1080"></svg></div>
-  <div class="cap"><div class="k">La memoria física</div><div class="v">del dinero de un país</div></div></div>
+<div class="scene" id="s_arch"><div class="cam"><div class="ph"><img id="archimg" src="img/archivo.jpg" style="filter:saturate(.5) brightness(.5) contrast(1.1)"></div><div class="vig"></div></div>
+  <div class="cap"><div class="k">La memoria física</div><div class="v">del dinero de un país</div></div>
+  <div class="credit" id="archcr">Imagen ilustrativa · Foto: -JvL- · CC BY 2.0</div></div>
 <!-- 20 · bandeja vacía -->
 <div class="scene" id="s_empty"><div class="cam"><svg id="esvg1" width="1920" height="1080"></svg></div>
   <div class="tag" id="etag1" style="left:110px;bottom:100px">Viernes · 8:45 · bandeja vacía</div></div>
 <!-- 21 · la denuncia -->
-<div class="scene" id="s_quote"><div class="cam"><div id="qbar"></div><div id="qname">ZUBAIR BIN HUDA</div>
+<div class="scene" id="s_quote"><div class="cam"><div class="ph" id="polbg"><img id="polimg" src="img/policia-daca.jpg"></div><div class="vig"></div><div id="qbar"></div><div id="qname">ZUBAIR BIN HUDA</div>
   <div id="qrole">BANCO DE BANGLADÉS · DECLARACIÓN ANTE LA POLICÍA</div>
   <div id="pdoc"><h4>DENUNCIA POLICIAL · DACA · 2016<span>RECREACIÓN</span></h4>
     <div class="blur"><i style="width:92%"></i><i style="width:78%"></i></div>
-    <div id="qtext"><span id="qt"></span><span id="qcaret"></span></div></div></div></div>
+    <div id="qtext"><span id="qt"></span><span id="qcaret"></span></div></div></div>
+  <div class="credit" id="polcr">Foto: Samee55 · CC BY-SA 2.0</div></div>
+<!-- 21b · viernes en Daca: el rezo en la mezquita nacional -->
+<div class="scene" id="s_friday"><div class="cam"><div class="ph"><img id="friimg" src="img/viernes-daca.jpg" style="filter:saturate(.55) brightness(.55) contrast(1.08)"></div><div class="vig"></div></div>
+  <div class="tag" id="etag" style="left:0;right:0;bottom:150px;text-align:center">VIERNES · COMIENZA EL FIN DE SEMANA</div>
+  <div class="tag" style="left:110px;top:96px;font-size:22px">Baitul Mukarram · la mezquita nacional · Daca</div>
+  <div class="credit">Foto: Azim Khan Ronnie · CC BY-SA 4.0</div></div>
 <!-- 22 · cierre: se apagan las luces -->
-<div class="scene" id="s_end"><div class="cam"><svg id="esvg" width="1920" height="1080"></svg></div>
-  <div class="tag" id="etag" style="left:0;right:0;bottom:150px;text-align:center">VIERNES · COMIENZA EL FIN DE SEMANA</div></div>
+<div class="scene" id="s_end"><div class="cam"><svg id="esvg" width="1920" height="1080"></svg></div></div>
 <!-- LED parpadeante del arranque -->
 <div class="scene" id="s_lead"><div style="position:absolute;left:956px;top:536px;width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 18px 6px rgba(255,178,62,.6)" id="leadled"></div></div>
 <script src="d3.min.js"></script><script src="topojson.min.js"></script><script src="timeline.js"></script><script src="escenas.js"></script>

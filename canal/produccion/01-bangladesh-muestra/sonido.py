@@ -120,14 +120,13 @@ for c in ['c7', 'c8', 'c9']: place(sfx, swish(0.4, 0.28), C[c]['end'] - 0.3)    
 place(sfx, click(0.7), AT('c10', 'palabra') - 0.1)
 place(sfx, whoosh(1.2, 0.22), C['c2']['start'] - 0.6)                                       # Daca de noche
 place(sfx, whoosh(1.3, 0.25), C['c17']['start'] - 0.5)                                      # la torre
-t0 = C['c18']['start'] + 0.2                                                                # la impresora imprime
+t0, gap = AT('c18', 'Su única') + 0.1, 0.8                                                 # la impresora imprime (PRINT0, PRINTGAP)
 for i in range(9):
-    place(sfx, motor(0.5, 118) * 0.55, t0 + i * 0.95)
-    for k in range(3): place(sfx, click(0.3), t0 + i * 0.95 + 0.1 + k * 0.13)
-a = C['c20']['start'] - 0.3                                                                 # cajas del archivo
-for d in [0.6, 0.9, 1.2, 1.5]: place(sfx, thud(0.35), a + d + 0.3)
-for d in [2.2, 1.4, 0.6]:                                                                   # se apagan las luces
-    tt = AT('c24', 'La impresora') - d
+    place(sfx, motor(0.5, 118) * 0.55, t0 + i * gap)
+    for k in range(3): place(sfx, click(0.3), t0 + i * gap + 0.1 + k * 0.13)
+place(sfx, whoosh(1.0, 0.18), C['c20']['start'] - 0.5)                                      # entra el archivo
+for d in [0.35, 1.05, 1.75]:                                                                # se apagan las luces (LIGHTS_OFF)
+    tt = AT('c24', 'La impresora') + d
     place(sfx, click(1.0), tt); place(sfx, thud(0.4), tt + 0.01)
 
 # ---------- Narración ----------
