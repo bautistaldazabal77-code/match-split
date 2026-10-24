@@ -1,4 +1,4 @@
-const { chromium } = require('/opt/node-tools/node_modules/playwright');
+const { chromium } = require('playwright');
 (async () => {
   const times = process.argv.slice(2).map(Number);
   const browser = await chromium.launch();

@@ -152,6 +152,22 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:
 #qtext{margin-top:30px;font:italic 500 66px/1.2 'Cormorant Garamond';color:#15161a}
 #qcaret{display:inline-block;width:3px;height:.85em;background:#15161a;vertical-align:-.1em;margin-left:4px}
 .small{font:400 24px 'IBM Plex Mono';letter-spacing:.2em;color:var(--mut)}
+/* plantillas del motor */
+.chn{font:600 280px 'Cormorant Garamond';line-height:.9}
+.cht{font:500 110px 'Cormorant Garamond';margin-top:10px}
+.chd{font:400 28px 'IBM Plex Mono';letter-spacing:.22em;color:var(--mut);margin-top:46px;text-transform:uppercase}
+.big{font:600 120px 'Cormorant Garamond';text-align:center;line-height:1.1;max-width:1600px}
+.big.mono{font:500 84px 'IBM Plex Mono';letter-spacing:.06em}
+.big.red{color:var(--red);text-shadow:0 0 50px rgba(210,58,50,.45)}
+.bigsub{font:400 30px 'IBM Plex Mono';letter-spacing:.2em;color:var(--mut);margin-top:40px;text-transform:uppercase;text-align:center}
+.qwrap{position:absolute;left:220px;right:220px;top:50%;transform:translateY(-50%)}
+.qbar{position:absolute;left:-60px;top:6px;width:6px;height:100%;background:var(--red);transform-origin:top;transform:scaleY(0)}
+.qtext{font:italic 500 78px/1.18 'Cormorant Garamond';color:var(--ink);min-height:200px}
+.qc{display:inline-block;width:3px;height:.8em;background:var(--ink);vertical-align:-.08em;margin-left:6px}
+.qwho{font:600 34px Inter;letter-spacing:.16em;margin-top:56px;text-transform:uppercase}
+.qrole{font:400 22px 'IBM Plex Mono';letter-spacing:.14em;color:var(--mut);margin-top:12px}
+.paper{background:var(--paper);color:#1c1d1f;box-shadow:0 40px 120px rgba(0,0,0,.7)}
+.lbl{font:400 24px 'IBM Plex Mono';letter-spacing:.22em;color:var(--mut);text-transform:uppercase}
 </style></head>
 <body>
 <!-- 1 · gancho: el cartel real de la calle Jupiter, borroso -->
@@ -282,5 +298,9 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:
 <div class="scene" id="s_end"><div class="cam"><svg id="esvg" width="1920" height="1080"></svg></div></div>
 <!-- LED parpadeante del arranque -->
 <div class="scene" id="s_lead"><div style="position:absolute;left:956px;top:536px;width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 18px 6px rgba(255,178,62,.6)" id="leadled"></div></div>
-<script src="d3.min.js"></script><script src="topojson.min.js"></script><script src="timeline.js"></script><script src="escenas.js"></script>
+<script src="d3.min.js"></script><script src="topojson.min.js"></script><script src="timeline.js"></script><script src="fotos.js"></script><script src="motor.js"></script>
+<script src="cap0.js"></script>
+<script src="cap1.js"></script>
+<script src="cap2.js"></script>
+<script>start()</script>
 </body></html>
