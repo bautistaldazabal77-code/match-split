@@ -204,5 +204,77 @@
   "fuente": "https://commons.wikimedia.org/w/index.php?curid=62236998",
   "corto": "Foto: Azim Khan Ronnie · CC BY-SA 4.0",
   "muestra": true
+ },
+ "solaire.jpg": {
+  "titulo": "Solaire Manila",
+  "autor": "Andu Tan",
+  "licencia": "CC BY 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/2.0/",
+  "fuente": "https://www.flickr.com/photos/64336627@N04/9961171245",
+  "corto": "Foto: Andu Tan · CC BY 2.0"
+ },
+ "petrolero.jpg": {
+  "titulo": "Romantic Oil Tanker",
+  "autor": "rabiem22",
+  "licencia": "CC BY 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/2.0/",
+  "fuente": "https://www.flickr.com/photos/28490141@N03/9439668547",
+  "corto": "Foto: rabiem22 · CC BY 2.0"
+ },
+ "jet.jpg": {
+  "titulo": "Runway 22L (3)",
+  "autor": "MasterPhoto-DK",
+  "licencia": "CC BY 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/2.0/",
+  "fuente": "https://www.flickr.com/photos/26865339@N00/333092325",
+  "corto": "Foto: MasterPhoto-DK · CC BY 2.0"
+ },
+ "cartas.jpg": {
+  "titulo": "Still life with playing cards",
+  "autor": "plong",
+  "licencia": "CC BY 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/2.0/",
+  "fuente": "https://www.flickr.com/photos/12068800@N00/2340311423",
+  "corto": "Foto: plong · CC BY 2.0"
+ },
+ "pyongyang.jpg": {
+  "titulo": "Kim Il Sung Square, Pyongyang",
+  "autor": "D-Stanley",
+  "licencia": "CC BY 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/2.0/",
+  "fuente": "https://www.flickr.com/photos/79721788@N00/5063726600",
+  "corto": "Foto: D-Stanley · CC BY 2.0"
+ },
+ "escuela-pyongyang.jpg": {
+  "titulo": "School. Pyongyang, North Korea.",
+  "autor": "(stephan)",
+  "licencia": "CC BY-SA 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+  "fuente": "https://www.flickr.com/photos/82992618@N00/2603192813",
+  "corto": "Foto: (stephan) · CC BY-SA 2.0"
+ },
+ "bitcoin.jpg": {
+  "titulo": "Bitcoin statistic coin ANTANA",
+  "autor": "antanacoins",
+  "licencia": "CC BY-SA 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+  "fuente": "https://www.flickr.com/photos/105644709@N08/10867329446",
+  "corto": "Foto: antanacoins · CC BY-SA 2.0"
+ },
+ "rcbc.jpg": {
+  "titulo": "RCBC Plaza",
+  "autor": "dextercn",
+  "licencia": "CC BY 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/2.0/",
+  "fuente": "https://www.flickr.com/photos/28384560@N06/2657388011",
+  "corto": "Foto: dextercn · CC BY 2.0"
+ },
+ "makati-dia.jpg": {
+  "titulo": "Makati Skyline",
+  "autor": "rottenrot",
+  "licencia": "CC BY 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/2.0/",
+  "fuente": "https://www.flickr.com/photos/44835272@N02/4848579713",
+  "corto": "Foto: rottenrot · CC BY 2.0"
  }
 }
