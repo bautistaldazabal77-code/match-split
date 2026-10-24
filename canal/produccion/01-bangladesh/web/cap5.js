@@ -94,7 +94,7 @@ addHTML(`
 chapterCard('s5_card', 'ch5', 'V', 'Cinco días');
 photo('s5_cny', [S('c170') - .3, S('c172') - .1, .6, .5], { src: 'anio-nuevo-chino.jpg', pos: '60% 50%', kb: [1.05, 1.16, 20, -20, 0, 0], filter: 'saturate(.6) brightness(.5) contrast(1.1)',
   cap: ['Lunes 8 · Año Nuevo Lunar', 'Bancos cerrados en Manila'] });
-photo('s5_gov', [S('c174') - .3, S('c175') - .1, .6, .5], { src: 'atiur-rahman.jpg', pos: '50% 22%', kb: [1.06, 1.16, 0, 0, 20, -10], filter: 'grayscale(.6) brightness(.5) contrast(1.1)',
+photo('s5_gov', [S('c174') - .3, S('c175') - .1, .6, .5], { src: 'atiur-rahman.jpg', pos: '50% 6%', kb: [1.06, 1.16, 0, 0, 20, -10], filter: 'grayscale(.6) brightness(.5) contrast(1.1)',
   cap: ['Gobernador del Banco de Bangladés', 'Atiur Rahman'] });
 bigText('s5_resign', [S('c181') - .2, S('c182') - .1, .5, .5], 'Marzo de 2016', { sub: 'Renuncia el gobernador', subDelay: 1.2 });
 photo('s5_neon', [S('c193') - .7, S('ch6') + .3, .6, .9], { src: 'tragamonedas.jpg', kb: [1.1, 1.22, 0, 0, 0, -20], filter: 'saturate(.8) brightness(.55) contrast(1.15)', ilus: true });
