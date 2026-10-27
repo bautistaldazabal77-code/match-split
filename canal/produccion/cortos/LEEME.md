@@ -1,0 +1,17 @@
+# Cortos verticales: cómo se fabrican
+
+Videos de 1080x1920 para Instagram, TikTok y Shorts, con el formato de `canal/formato-cortos.md`. Todo se genera desde código, igual que el video largo (`../01-bangladesh/LEEME.md`, donde está cómo instalar la voz).
+
+**Carpetas:** `comun/` tiene lo compartido por todos los episodios; cada episodio tiene su carpeta (`01-subte-bsas/`, …) con `cues.json`, `sonido.py`, `web/index.html`, `web/escenas.js` y `web/img/`.
+
+1. **Guion y voz:** `cues.json` tiene el guion frase por frase (con `say` para la escritura fonética si una palabra se lee mal). Desde la carpeta del episodio, `python3 ../comun/narrar.py` lo narra con la voz del canal (Kokoro `em_alex` con el tono bajado, velocidad 1,0) y transcribe la narración con Whisper para saber **en qué momento se dice cada palabra**. Genera `audio/narracion.wav`, `timeline.json` y `web/timeline.js`. Para comprobar una frase difícil sin escucharla, se transcribe con Whisper: si Whisper la entiende mal, conviene cambiar la frase (así se pasó de "Él es Tomás" a "Este es Tomás" y de "Vení a buscarme" a "Venite a buscarme").
+2. **Imágenes:** `comun/web/motor.js` tiene el motor (cada escena se dibuja en función del tiempo), los subtítulos palabra por palabra con colores, la interfaz fija (serie, aviso de recreación y reloj) y dibujos simples (personas, flechas). `AT('c5', 'Perú')` da el momento exacto en que se dice una palabra. Las escenas del episodio están en `web/escenas.js`.
+   - Para revisar cuadros sueltos: con `python3 -m http.server 8778 --bind 127.0.0.1` corriendo en `cortos/`, desde la carpeta del episodio `node ../comun/shots.js 0.5 12 48.3` guarda capturas en `shots/`.
+3. **Sonido:** `python3 sonido.py` (usa `comun/sfx.py`: colchón musical, latidos, alerta de celular, frenos, puertas, multitud, vidrios, contador Geiger…) mezcla todo en `audio/mezcla.wav`. Tarda menos de un minuto.
+4. **Render:** con el servidor corriendo, `node ../comun/render.js` captura 30 cuadros por segundo en 3 procesos y arma `video_limpio.mp4` (unos 15 a 20 minutos para 2 minutos de video).
+5. **Terminación:** `../comun/terminar.sh "Nombre.mp4"` agrega grano, viñeta y color, une el audio y lo deja en -14 LUFS.
+6. **Publicación:** cada episodio tiene un `PUBLICACION.md` con el texto sugerido, las fuentes de cada dato y los créditos de las fotos.
+
+**Zonas seguras:** los subtítulos van entre 1170 y 1380 px de alto; nada importante debajo de 1536 px (el 20 % de abajo) ni a la derecha de 918 px (el 15 % derecho), donde las aplicaciones ponen sus botones.
+
+Licencias: fotos según `web/img/CREDITOS.md` de cada episodio; Kokoro (Apache 2.0), Whisper / faster-whisper (MIT), d3 (ISC), fuentes Inter e IBM Plex Mono (SIL OFL). La música y los efectos son originales, sintetizados en Python.

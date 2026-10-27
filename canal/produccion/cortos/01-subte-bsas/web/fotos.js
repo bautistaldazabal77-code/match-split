@@ -1,0 +1,1 @@
+window.CRED={"linea-a-vagon.jpg": "Foto: Thomas Locke Hobbs · CC BY-SA 2.0", "peru.jpg": "Foto: Diego3336 · CC BY 2.0", "escaleras.jpg": "Foto: Diego3336 · CC BY 2.0", "bsas-noche.jpg": "Foto: thraxil · CC BY-SA 2.0"};
