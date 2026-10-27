@@ -1,9 +1,10 @@
 // Mapas para los cortos (d3 + Natural Earth): el Atlántico Sur plano, un globo que gira y el mundo entero.
 // Necesitan MAPDATA, que se carga en SETUP_MAPAS antes de armar las escenas (ver cargarMapas()).
 let MAPDATA = null;
+const MAPAS_BASE = new URL('.', document.currentScript.src).href;   // los datos están junto a este archivo
 async function cargarMapas() {
-  const land = topojson.feature(await (await fetch('../../comun/web/land-50m.json')).json(), 'land');
-  const world = await (await fetch('../../comun/web/countries-50m.json')).json();
+  const land = topojson.feature(await (await fetch(MAPAS_BASE + 'land-50m.json')).json(), 'land');
+  const world = await (await fetch(MAPAS_BASE + 'countries-50m.json')).json();
   MAPDATA = { land, world, countries: topojson.feature(world, world.objects.countries), borders: topojson.mesh(world, world.objects.countries, (a, b) => a !== b) };
 }
 const LUGAR = {

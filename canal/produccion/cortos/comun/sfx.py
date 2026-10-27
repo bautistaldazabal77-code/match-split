@@ -197,3 +197,11 @@ def bips(dst, a, n=3, f=1800, g=0.18, sep=0.12):
 def klaxon(dur=2.0, g=0.3):                        # alarma de zafarrancho
     t = tt(dur); x = np.sign(np.sin(2 * np.pi * 420 * t)) * ((t % 0.6) < 0.4)
     return lp(x.astype(F32), 2200) * np.minimum(1, (dur - t) / .05) * g
+
+# ---------- laboratorio ----------
+def zumbido(dur, f=55, g=.3):                       # acelerador: zumbido grave que late
+    x = tt(dur); s = np.sin(2 * np.pi * f * x) + .5 * np.sin(2 * np.pi * 2 * f * x) + .25 * np.sin(2 * np.pi * 3.01 * f * x)
+    return (s * (.75 + .25 * np.sin(2 * np.pi * 3 * x)) * np.minimum(1, x / .6) * np.minimum(1, (dur - x) / .6) * g).astype(F32)
+def teclas(dst, a, b, g=.25, per=.07):              # computadora vieja escribiendo datos
+    r = np.random.default_rng(5); t = a
+    while t < b: place(dst, (hp(noise(.025), 2500) * np.exp(-tt(.025) * 160) * g * (.6 + .4 * r.random())).astype(F32), t); t += per * (.6 + .8 * r.random())

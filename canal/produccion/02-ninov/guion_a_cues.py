@@ -4,7 +4,7 @@ Las placas de capítulo son silencios. SAY tiene la escritura fonética de los n
 import json
 SAY = {'GSI': 'ge ese i', 'Smolańczuk': 'Smolánchuk', 'Darleane Hoffman': 'Darlín Jófman', 'Albert Ghiorso': 'Álbert Guiórso',
        'Physical Review Letters': 'Físical Rivíu Léters', 'RIKEN': 'Ríken', 'GANIL': 'Ganíl', 'Rochus Vogt': 'Rójus Fogt',
-       'Lawrence Livermore': 'Lórens Lívermor', 'Lawrence Berkeley': 'Lórens Bérkli'}
+       'Lawrence Livermore': 'Lórens Lívermor', 'Lawrence Berkeley': 'Lórens Bérkli', 'Berkeley': 'Bérkli'}
 B = [
  ('lead', 2.0),
  "El siete de junio de mil novecientos noventa y nueve, un laboratorio de Estados Unidos anunció que había creado algo que nunca había existido en la Tierra. | Dos elementos químicos nuevos. | El ciento dieciséis, y el ciento dieciocho.",

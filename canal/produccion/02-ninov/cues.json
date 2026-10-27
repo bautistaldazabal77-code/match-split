@@ -149,7 +149,8 @@
  {
   "id": "c28",
   "text": "Berkeley, en California.",
-  "pause": 0.42
+  "pause": 0.42,
+  "say": "Bérkli, en California."
  },
  {
   "id": "c29",
@@ -202,7 +203,8 @@
  {
   "id": "c38",
   "text": "Berkeley quería volver a la carrera de los elementos.",
-  "pause": 0.42
+  "pause": 0.42,
+  "say": "Bérkli quería volver a la carrera de los elementos."
  },
  {
   "id": "c39",
@@ -232,7 +234,7 @@
   "id": "c43",
   "text": "Y entonces llegó a Berkeley un teórico polaco, Robert Smolańczuk, con un cálculo sorprendente.",
   "pause": 0.42,
-  "say": "Y entonces llegó a Berkeley un teórico polaco, Robert Smolánchuk, con un cálculo sorprendente."
+  "say": "Y entonces llegó a Bérkli un teórico polaco, Robert Smolánchuk, con un cálculo sorprendente."
  },
  {
   "id": "c44",
@@ -267,7 +269,8 @@
  {
   "id": "c50",
   "text": "Pero en Berkeley decidieron probarla.",
-  "pause": 0.42
+  "pause": 0.42,
+  "say": "Pero en Bérkli decidieron probarla."
  },
  {
   "id": "c51",
@@ -352,7 +355,8 @@
  {
   "id": "c66",
   "text": "El resultado de Berkeley parecía mostrar que esa isla existía, y que se podía llegar.",
-  "pause": 0.95
+  "pause": 0.95,
+  "say": "El resultado de Bérkli parecía mostrar que esa isla existía, y que se podía llegar."
  },
  {
   "id": "c67",
@@ -447,7 +451,8 @@
  {
   "id": "c83",
   "text": "Pero en el año dos mil, el propio equipo de Berkeley repitió el experimento, con el mismo acelerador y el mismo método.",
-  "pause": 0.42
+  "pause": 0.42,
+  "say": "Pero en el año dos mil, el propio equipo de Bérkli repitió el experimento, con el mismo acelerador y el mismo método."
  },
  {
   "id": "c84",
@@ -562,7 +567,8 @@
  {
   "id": "c105",
   "text": "El veintisiete de julio de dos mil uno, Berkeley retiró el descubrimiento.",
-  "pause": 0.42
+  "pause": 0.42,
+  "say": "El veintisiete de julio de dos mil uno, Bérkli retiró el descubrimiento."
  },
  {
   "id": "c106",
@@ -632,7 +638,8 @@
  {
   "id": "c118",
   "text": "En mayo de dos mil dos, Berkeley despidió a Ninov.",
-  "pause": 0.95
+  "pause": 0.95,
+  "say": "En mayo de dos mil dos, Bérkli despidió a Ninov."
  },
  {
   "id": "c119",
