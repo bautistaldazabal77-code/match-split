@@ -163,6 +163,7 @@ function start() {
   window.READY = (async () => {
     await document.fonts.ready;
     await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+    if (window.cargarMapas) await cargarMapas();     // los episodios con mapas arman esas escenas en SETUP
     for (const f of SETUP) f();
     render(0);
     return true;

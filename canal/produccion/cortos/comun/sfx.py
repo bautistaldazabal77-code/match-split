@@ -169,3 +169,30 @@ def mezclar(nar_path, music, sfx, pulse, D, out='audio/mezcla.wav', mg=0.22, sg=
     T = np.arange(len(mix)) / SR
     wide = norm(lp(hp(rng.standard_normal(len(mix)).astype(F32), 2500), 7000) * (0.5 + 0.5 * np.sin(2 * np.pi * T / 11)).astype(F32), 0.02)
     sf.write(out, np.stack([mix + wide, mix - wide], 1), SR)
+
+# ---------- efectos navales y de comunicaciones ----------
+def ping(g=0.35, f=1450):                          # sonar activo: pulso con cola larga
+    t = tt(2.2); x = np.sin(2 * np.pi * f * t) * np.exp(-t * 2.2) * np.minimum(1, t / .01)
+    return reverb(x.astype(F32), 2.5, .8, .5) * g
+def torpedo_sfx(dur=2.0, g=0.4):                   # zumbido de hélice que se acerca
+    t = tt(dur); f = 180 + 120 * (t / dur)
+    x = np.sin(2 * np.pi * np.cumsum(f) / SR) * 0.5 + bp(noise(dur), 300, 1800) * 0.6
+    return (x * (t / dur) ** 1.5 * g).astype(F32)
+def bajo_agua(x): return lp(x, 900)                # cualquier sonido, como se oye debajo del agua
+def crujido(dur=2.5, g=0.4):                       # casco de metal que se dobla
+    t = tt(dur); f = 55 + 25 * np.sin(2 * np.pi * .7 * t) + 15 * lp(noise(dur), 3) * 30
+    x = np.sign(np.sin(2 * np.pi * np.cumsum(f) / SR)) * 0.3 + bp(noise(dur), 80, 400) * 0.5
+    return (lp(x.astype(F32), 700) * np.sin(np.pi * t / dur) * g).astype(F32)
+def ring(dur=2.0, g=0.25):                         # tono de llamada (dos frecuencias, con cortes)
+    t = tt(dur); x = (np.sin(2 * np.pi * 440 * t) + np.sin(2 * np.pi * 480 * t)) * (((t % 1.2) < 0.8).astype(F32))
+    return bp(x.astype(F32), 300, 3400) * np.minimum(1, (dur - t) / .02) * g
+def jet(dur=2.4, g=0.4):                           # avión que pasa
+    t = tt(dur); env_ = np.exp(-((t - dur / 2) / (dur / 5)) ** 2)
+    x = bp(noise(dur), 400, 4000) * 0.7 + lp(noise(dur), 200) * 0.6
+    return (x * env_ * g).astype(F32)
+def estatica(dur, g=0.15): return (bp(noise(dur), 1500, 5000) * (0.6 + 0.4 * (rng.random(int(dur * SR)) > .7)) * g).astype(F32)
+def bips(dst, a, n=3, f=1800, g=0.18, sep=0.12):
+    for i in range(n): place(dst, beep(f, .06, g), a + i * sep)
+def klaxon(dur=2.0, g=0.3):                        # alarma de zafarrancho
+    t = tt(dur); x = np.sign(np.sin(2 * np.pi * 420 * t)) * ((t % 0.6) < 0.4)
+    return lp(x.astype(F32), 2200) * np.minimum(1, (dur - t) / .05) * g

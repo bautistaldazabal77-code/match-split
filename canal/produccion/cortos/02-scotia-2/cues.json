@@ -1,0 +1,20 @@
+[
+ {"id": "lead", "silence": 0.3},
+ {"id": "h1", "text": "Un submarino hundió una fragata argentina en aguas internacionales. ¿Qué pasa después?", "pause": 0.4},
+ {"id": "h2", "text": "Parte dos. Ficción política, con datos reales.", "pause": 0.6},
+ {"id": "c1", "text": "Primero, Lucas. Lo rescatan después de once horas en una balsa salvavidas. Es uno de los sobrevivientes.", "pause": 0.6},
+ {"id": "c2", "text": "Las sospechas apuntan a un submarino nuclear británico, de la clase Astute.", "say": "Las sospechas apuntan a un submarino nuclear británico, de la clase Ástiut.", "pause": 0.4},
+ {"id": "c3", "text": "Y en esta historia aparece una teoría: que alguien quiso provocar la crisis para romper la alianza entre Washington y Buenos Aires.", "pause": 0.5},
+ {"id": "c4", "text": "Pero el plan falla. Trump no suelta a Milei: lo llama directamente.", "pause": 0.5},
+ {"id": "c5", "text": "La Cuarta Flota de Estados Unidos, la que cubre Sudamérica, pone rumbo al sur. Oficialmente, para proteger las rutas comerciales.", "pause": 0.4},
+ {"id": "c6", "text": "Y la Argentina recibe algo más valioso que barcos: imágenes satelitales en tiempo real.", "pause": 0.6},
+ {"id": "c7", "text": "No hay desembarco. Hay bloqueo.", "pause": 0.5},
+ {"id": "c8", "text": "Buques y cazas argentinos rodean las islas. Cada avión o barco de reabastecimiento es interceptado y obligado a volver.", "pause": 0.5},
+ {"id": "c9", "text": "Londres pide ayuda a la OTAN. Y acá aparece un dato real que casi nadie conoce.", "pause": 0.5},
+ {"id": "c10", "text": "La defensa mutua de la OTAN no cubre las Malvinas. Solo protege territorios al norte del Trópico de Cáncer.", "pause": 0.4},
+ {"id": "c11", "text": "Por eso la OTAN no estaba obligada a intervenir en mil novecientos ochenta y dos. Y tampoco lo estaría ahora.", "pause": 0.6},
+ {"id": "c12", "text": "Sin la OTAN y sin Washington, Londres tiene que sentarse a negociar.", "pause": 0.6},
+ {"id": "c13", "text": "¿Podría pasar? Hoy, no. Pero cada pieza de este tablero ya existe.", "pause": 0.5},
+ {"id": "c14", "text": "¿Vos qué creés que haría Londres? Te leo en los comentarios.", "pause": 0.6},
+ {"id": "outro", "silence": 3.0}
+]

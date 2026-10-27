@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/usr/local/lib/python3.13/dist-packages/torch/nn/modules/rnn.py:1011: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.2 and num_layers=1
+  super().__init__("LSTM", *args, **kwargs)
+/usr/local/lib/python3.13/dist-packages/torch/nn/utils/weight_norm.py:145: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+h1 0.3
+h2 5.7
+c1 9.2
+c2 15.9
+c3 20.7
+c4 28.8
+c5 33.0
+c6 40.8
+c7 46.7
+c8 49.0
+c9 57.1
+c10 62.3
+c11 69.0
+c12 75.8
+c13 80.3
+c14 84.6
+palabras alineadas con Whisper: 221 de 230
+duración total 91.35

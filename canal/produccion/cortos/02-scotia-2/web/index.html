@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../comun/web/fonts/local.css">
+<style>
+:root{--bg:#06080b;--ink:#ecebe6;--mut:#8b919a;--dim:#4a5059;--red:#e0433a;--amber:#ffb23e;--green:#4fc483;--blue:#5ec8f0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Inter,sans-serif}
+#stage{position:absolute;inset:0}
+.scene{position:absolute;inset:0;opacity:0;overflow:hidden}
+.cam{position:absolute;inset:0;transform-origin:50% 42%}
+.mono{font-family:'IBM Plex Mono',monospace}
+svg.full{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+/* fotos */
+.ph{position:absolute;inset:0;overflow:hidden}
+.ph img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 50%}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 40%,rgba(4,6,9,.8) 100%),linear-gradient(rgba(6,8,11,.65),rgba(6,8,11,0) 22%,rgba(6,8,11,0) 55%,rgba(6,8,11,.85) 80%)}
+.credit{position:absolute;left:64px;top:1488px;font:400 17px 'IBM Plex Mono';letter-spacing:.06em;color:rgba(236,235,230,.42)}
+/* subtítulos */
+#caps{position:absolute;left:100px;width:820px;top:1170px;height:210px;display:flex;align-items:center;justify-content:center;z-index:50}
+.cg{font:820 80px/1.05 'Inter Var';text-align:center;color:#fff;letter-spacing:-.015em;text-shadow:0 0 3px rgba(0,0,0,.95),0 5px 0 rgba(0,0,0,.55),0 0 30px rgba(0,0,0,.75)}
+.cg span{display:inline-block;transform-origin:0 75%}
+.cg .r{color:#ff5148}.cg .g{color:#5ee093}.cg .a{color:#ffc142}
+/* interfaz fija */
+#hud{position:absolute;inset:0;z-index:60}
+#serie{position:absolute;left:64px;top:148px;font:500 25px 'IBM Plex Mono';letter-spacing:.2em;color:var(--amber)}
+#aviso{position:absolute;left:64px;top:186px;font:400 18px 'IBM Plex Mono';letter-spacing:.16em;color:rgba(236,235,230,.5)}
+#reloj{position:absolute;left:64px;top:232px;display:flex;align-items:center;gap:14px;padding:10px 20px;border-radius:12px;background:rgba(8,10,14,.75);border:1px solid rgba(255,255,255,.14);font:500 36px 'IBM Plex Mono';transform-origin:0 50%}
+#reloj i{width:12px;height:12px;border-radius:50%;background:var(--red)}
+#reloj .d{font-size:22px;letter-spacing:.2em;color:var(--mut)}
+#reloj.rojo{border-color:var(--red);background:rgba(70,10,8,.85)}
+#reloj.rojo .h{color:#ff6a60}
+/* etiquetas */
+.lbl{position:absolute;font:500 26px 'IBM Plex Mono';letter-spacing:.16em;text-transform:uppercase}
+.pill{display:inline-flex;align-items:center;gap:12px;padding:10px 20px;border-radius:10px;font:600 30px 'Inter Var';letter-spacing:.04em}
+.card{position:absolute;background:rgba(9,12,17,.86);border:1px solid rgba(255,255,255,.13);border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+</style>
+</head><body>
+<div id="stage"></div>
+<script src="../../comun/web/d3.min.js"></script>
+<script src="../../comun/web/topojson.min.js"></script>
+<script src="timeline.js"></script>
+<script>window.CRED = {};</script>
+<script src="../../comun/web/motor.js"></script>
+<script src="../../comun/web/dibujos.js"></script>
+<script src="../../comun/web/mapas.js"></script>
+<script src="../../comun/web/personajes.js"></script>
+<script src="escenas.js"></script>
+<script>start();</script>
+</body></html>
