@@ -10,4 +10,5 @@ Video largo horizontal (1920x1080, 24 cuadros por segundo, sin subtítulos) en e
 5. **Sonido:** `python3 sonido.py` (acordes oscuros por capítulo, sellos, contador, obturador en las fotos, estática en las cámaras; mezcla en `audio/mezcla.wav`).
 6. **Render:** `node ../cortos/comun/render.js 0 900 video_limpio.mp4 3` (unos 35 minutos con 3 procesos).
 7. **Terminación:** `CRF=22 ../cortos/comun/terminar.sh "Impune - El caso Jeffrey Epstein.mp4"`.
-8. **Publicación:** título, descripción con capítulos, fuentes y créditos en `PUBLICACION.md`.
+8. **Copia para enviar:** el archivo terminado pesa casi 1 GB; para mandarlo por el chat (límite de 400 MB) se hace una copia más liviana: `ffmpeg -i "Impune - El caso Jeffrey Epstein.mp4" -c:v libx264 -crf 24 -tune grain -maxrate 3.2M -bufsize 6.4M -c:a aac -b:a 160k -movflags +faststart "… (para enviar).mp4"`. Para subir a YouTube conviene el original.
+9. **Publicación:** título, descripción con capítulos, fuentes y créditos en `PUBLICACION.md`.
