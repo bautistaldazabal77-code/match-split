@@ -11,12 +11,6 @@
   "autor": "Stephen Ogilvy",
   "licencia": "PD-US-1978-89"
  },
- "casa-blanca-1993.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Maxwell_Epstein_Clinton_1993_1.jpg",
-  "corto": "Foto: Casa Blanca (1993) · Dominio público",
-  "autor": "White House photographer, probably Ralph Alswang",
-  "licencia": "PD-USGov"
- },
  "maxwell-epstein-1993.jpg": {
   "archivo": "https://commons.wikimedia.org/wiki/File:Maxwell_and_Epstein%2C_1993.jpg",
   "corto": "Foto: Casa Blanca (1993) · Dominio público",
@@ -131,12 +125,6 @@
   "autor": "US Department of Labor",
   "licencia": "cc-by-2.0"
  },
- "rancho.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:EFTA00028566_-_Aerial_view_of_Zorro_Ranch_mansion_in_New_Mexico.jpg",
-  "corto": "Foto: Departamento de Justicia de EE. UU. · Dominio público",
-  "autor": "U.S. Department of Justice",
-  "licencia": "PD-USGov-DOJ"
- },
  "mar-a-lago.jpg": {
   "archivo": "https://commons.wikimedia.org/wiki/File:Mar-A-Lago%2C_Palm_Beach%2C_Florida%2C_United_States_-_Exterior%2C_March_1999.jpg",
   "corto": "Foto: J. Cook, Servicio de Parques Nacionales de EE. UU. (1999) · Dominio público",
@@ -179,12 +167,6 @@
   "autor": "unknown photographer (Anefo)",
   "licencia": "CC-zero"
  },
- "headington.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Oxford_brookes_headington_hill.JPG",
-  "corto": "Foto: Donegalscott · CC BY 1.0",
-  "autor": "Donegalscott (talk)",
-  "licencia": "Cc-by-1.0"
- },
  "fianza.jpg": {
   "archivo": "https://commons.wikimedia.org/wiki/File:Epstein_Bail.png",
   "corto": "Documento: Departamento de Justicia de EE. UU. · Dominio público",
@@ -220,11 +202,5 @@
   "corto": "Foto: FBI · Dominio público",
   "autor": "Federal Bureau of Investigation",
   "licencia": "PD-USGov-DOJ, PD-USGov"
- },
- "isla-casa.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:USVI_IMG_5162_-_Grand_estate_with_turquoise_roofs_and_lush_palm_trees_under_a_cloudy_sky.jpg",
-  "corto": "Foto: Gobierno de las Islas Vírgenes de EE. UU. · Dominio público",
-  "autor": ":Category:Government of the United States Virgin Islands",
-  "licencia": "PD-USGov"
  }
 }

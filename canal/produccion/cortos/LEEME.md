@@ -10,8 +10,9 @@ Videos de 1080x1920 para Instagram, TikTok y Shorts, con el formato de `canal/fo
 3. **Sonido:** `python3 sonido.py` (usa `comun/sfx.py`: colchón musical, latidos, alerta de celular, frenos, puertas, multitud, vidrios, contador Geiger…) mezcla todo en `audio/mezcla.wav`. Tarda menos de un minuto.
 4. **Render:** con el servidor corriendo, `node ../comun/render.js` captura 30 cuadros por segundo en 3 procesos y arma `video_limpio.mp4` (unos 15 a 20 minutos para 2 minutos de video).
 5. **Terminación:** `../comun/terminar.sh "Nombre.mp4"` agrega grano, viñeta y color, une el audio y lo deja en -14 LUFS. Con los valores por defecto (CRF 23, como máximo 10 Mb/s), 2 minutos pesan unos 100 MB.
+   - **Estilo "caso real"** (`04-epstein-*`): las escenas usan `comun/web/caso.js` (fotos tratadas, documentos con marcas, tablero, cámara de seguridad, sellos, contador) con los ajustes para vertical de `web/index.html`. Comparten las fotos del video largo: `web/img` es un enlace a `../../../03-epstein/web/img`, y los créditos salen de `03-epstein/web/fotos.js`.
 6. **Publicación:** cada episodio tiene un `PUBLICACION.md` con el texto sugerido, las fuentes de cada dato y los créditos de las fotos.
 
 **Zonas seguras:** los subtítulos van entre 1170 y 1380 px de alto; nada importante debajo de 1536 px (el 20 % de abajo) ni a la derecha de 918 px (el 15 % derecho), donde las aplicaciones ponen sus botones.
 
-Licencias: fotos según `web/img/CREDITOS.md` de cada episodio; Kokoro (Apache 2.0), Whisper / faster-whisper (MIT), d3 (ISC), fuentes Inter e IBM Plex Mono (SIL OFL). La música y los efectos son originales, sintetizados en Python.
+Licencias: fotos según `web/img/CREDITOS.md` de cada episodio; Kokoro (Apache 2.0), Whisper / faster-whisper (MIT), d3 (ISC), fuentes Inter, IBM Plex Mono, Bebas Neue y Oswald (SIL OFL). La música y los efectos son originales, sintetizados en Python.

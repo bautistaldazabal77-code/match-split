@@ -101,7 +101,7 @@ function textosC(id, w, items, o = {}) {
 const selloC = (id, txt, x, y, size = 110) => `<div class="csello" id="${id}" style="left:${x}px;top:${y}px;font-size:${size}px">${txt}</div>`;
 const golpeC = (id, t, a, rot = -6) => { const s = P(t, a - .05, a + .18), n = $(id); n.style.opacity = s; n.style.transform = `rotate(${rot}deg) scale(${lerp(1.8, 1, eo(s)).toFixed(3)})`; return s; };
 // documento real sobre fondo oscuro, con zoom a una zona y marcas rojas: o = {marcas:[{t,x,y,w,h}] en % de la hoja, zoom:[[t,cx,cy,z]], sello, fijo, dx, ancho, alto}
-// el sello y o.fijo quedan fijos en pantalla; o.inner se mueve con la hoja; o.dx corre la hoja a un costado
+// el sello y o.fijo quedan fijos en pantalla; o.inner se mueve con la hoja; o.dx y o.dy corren la hoja
 function docC(id, w, src, o = {}) {
   const AW = o.ancho || 900, AH = o.alto || 1160, X0 = (W - AW) / 2, Y0 = o.y ?? 60;
   scene(id, [...w.slice(0, 4), 0], `<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#1d1b18,#060606 70%)"></div>
@@ -118,7 +118,7 @@ function docC(id, w, src, o = {}) {
     let z = zs[0]; for (let i = 0; i < zs.length; i++) if (t >= zs[i][0]) z = zs[i];
     const i = zs.indexOf(z), nx = zs[i + 1], k = nx ? io(P(t, z[0], nx[0])) : 0, cur = nx ? z.map((v, j) => j ? lerp(v, nx[j], k) : v) : z;
     const px = X0 + AW * cur[1] / 100, py = Y0 + AH * cur[2] / 100;
-    cam.style.transformOrigin = '0 0'; cam.style.transform = `translate(${W / 2 + (o.dx || 0)}px,${H / 2}px) scale(${cur[3]}) translate(${-px}px,${-py}px)`;
+    cam.style.transformOrigin = '0 0'; cam.style.transform = `translate(${W / 2 + (o.dx || 0)}px,${H / 2 + (o.dy || 0)}px) scale(${cur[3]}) translate(${-px}px,${-py}px)`;
     (o.marcas || []).forEach((m, j) => { const q = P(t, m.t, m.t + .3), n = $(id + 'm' + j); n.style.opacity = q; n.style.boxShadow = q > 0 ? `0 0 0 2000px rgba(0,0,0,${.45 * q})` : 'none'; });
     if (o.sello) golpeC(id + 's', t, o.sello.t, o.sello.rot ?? -8);
   });

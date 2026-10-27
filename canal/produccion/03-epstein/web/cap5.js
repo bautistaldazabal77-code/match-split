@@ -20,7 +20,7 @@ capituloC('e_ch5', 'cap5', 5, 'LA ISLA');
 {
   const a = S('c103'), re = S('c104'), cl = AT('c104', 'Bill Clinton'), tr = AT('c104', 'Donald Trump'), ac = AT('c104', 'actores'), b = S('c105');
   const filas = [['1997', 'PALM BEACH → NUEVA YORK', 'D. TRUMP', 'tr'], ['1998', 'NUEVA YORK → ISLAS VÍRGENES', '██████ ██████', ''], ['2001', 'PALM BEACH → ISLAS VÍRGENES', '██████ ██████', ''],
-    ['2002', 'NUEVA YORK → ÁFRICA (VIAJE DE FUNDACIÓN)', 'B. CLINTON', 'cl'], ['2002', 'ÁFRICA → EUROPA', 'B. CLINTON · ACTORES', 'cl'], ['2003', 'NUEVA YORK → HONG KONG', 'B. CLINTON', 'cl'], ['2004', 'NUEVA YORK → NUEVO MÉXICO', '██████ ██████', '']];
+    ['2002', 'NUEVA YORK → ÁFRICA (VIAJE DE FUNDACIÓN)', 'B. CLINTON', 'cl'], ['2002', 'ÁFRICA → EUROPA', 'B. CLINTON · ACTORES', 'cl'], ['2003', 'NUEVA YORK → PALM BEACH', '██████ ██████', ''], ['2004', 'NUEVA YORK → NUEVO MÉXICO', '██████ ██████', '']];
   scene('e_vue', [a - .1, b - .1, .4, .4, 1.03], `<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#1d1b18,#060606 70%)"></div>
     <div class="cpapel" id="evuD" style="left:260px;top:110px;width:1400px;height:860px;padding:44px 54px;font:400 27px 'IBM Plex Mono';color:#1c1c1c">
       <div style="display:flex;justify-content:space-between;font:600 28px Oswald;letter-spacing:.2em;border-bottom:3px solid #1c1c1c;padding-bottom:12px"><span>REGISTRO DE VUELOS · N908JE</span><span style="color:#777;font-weight:400">RECREACIÓN · EJEMPLOS</span></div>

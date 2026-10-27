@@ -1,0 +1,98 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "Jeffrey Epstein cruzó un límite tras otro.",
+  "pause": 0.35,
+  "say": "Yéfri Épstin cruzó un límite tras otro."
+ },
+ {
+  "id": "h2",
+  "text": "Y siete veces salió sin consecuencias.",
+  "pause": 0.45
+ },
+ {
+  "id": "c1",
+  "text": "Vamos a contarlas.",
+  "pause": 0.6
+ },
+ {
+  "id": "c2",
+  "text": "Mil novecientos setenta y cuatro. Sin título universitario, lo contratan como profesor de matemáticas en una de las escuelas más caras de Manhattan.",
+  "pause": 0.35,
+  "say": "Mil novecientos setenta y cuatro. Sin título universitario, lo contratan como profesor de matemáticas en una de las escuelas más caras de Manjátan."
+ },
+ {
+  "id": "c3",
+  "text": "Según exalumnos, prestaba una atención incómoda a las alumnas. Nadie hizo nada.",
+  "pause": 0.6
+ },
+ {
+  "id": "c4",
+  "text": "Pasa a Wall Street, al banco Bear Stearns. En mil novecientos ochenta y uno se va en medio de una investigación interna. No hubo cargos.",
+  "pause": 0.6,
+  "say": "Pasa a Uol Strit, al banco Ber Stérns. En mil novecientos ochenta y uno se va en medio de una investigación interna. No hubo cargos."
+ },
+ {
+  "id": "c5",
+  "text": "Se asocia con Towers Financial, una estafa piramidal de cuatrocientos sesenta millones de dólares. Su socio recibe veinte años de cárcel. A Epstein nunca lo acusan.",
+  "pause": 0.6,
+  "say": "Se asocia con Táuers Fainánshal, una estafa piramidal de cuatrocientos sesenta millones de dólares. Su socio recibe veinte años de cárcel. A Épstin nunca lo acusan."
+ },
+ {
+  "id": "c6",
+  "text": "En mil novecientos noventa y seis, la artista Maria Farmer lo denuncia ante la policía y el FBI. La denuncia no avanza.",
+  "pause": 0.6,
+  "say": "En mil novecientos noventa y seis, la artista María Fármer lo denuncia ante la policía y el efebeí. La denuncia no avanza."
+ },
+ {
+  "id": "c7",
+  "text": "En dos mil tres, la revista Vanity Fair prepara un perfil sobre él. Según la periodista, Epstein presionó a la revista y los testimonios de las víctimas desaparecieron.",
+  "pause": 0.6,
+  "say": "En dos mil tres, la revista Vániti Fér prepara un perfil sobre él. Según la periodista, Épstin presionó a la revista y los testimonios de las víctimas desaparecieron."
+ },
+ {
+  "id": "c8",
+  "text": "En dos mil cinco, en Palm Beach, la policía encuentra decenas de chicas con historias parecidas. Muchas eran menores.",
+  "pause": 0.45,
+  "say": "En dos mil cinco, en Pam Bich, la policía encuentra decenas de chicas con historias parecidas. Muchas eran menores."
+ },
+ {
+  "id": "c9",
+  "text": "El FBI identifica a más de treinta víctimas. Pero el fiscal federal firma con sus abogados un acuerdo secreto: no habrá juicio federal. Y a las víctimas no se lo dicen.",
+  "pause": 0.6,
+  "say": "El efebeí identifica a más de treinta víctimas. Pero el fiscal federal firma con sus abogados un acuerdo secreto: no habrá juicio federal. Y a las víctimas no se lo dicen."
+ },
+ {
+  "id": "c10",
+  "text": "La condena: dieciocho meses en una cárcel del condado. Cumple trece.",
+  "pause": 0.35
+ },
+ {
+  "id": "c11",
+  "text": "Y puede salir a su oficina doce horas por día, seis días por semana.",
+  "pause": 0.7
+ },
+ {
+  "id": "c12",
+  "text": "Siete veces. Siete veces sin consecuencias.",
+  "pause": 0.6
+ },
+ {
+  "id": "c13",
+  "text": "Once años después, todo volvió.",
+  "pause": 0.5
+ },
+ {
+  "id": "c14",
+  "text": "En la parte dos: la noche en que fallaron las cámaras.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.6
+ }
+]

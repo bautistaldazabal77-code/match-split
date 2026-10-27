@@ -1,0 +1,88 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "El seis de julio de dos mil diecinueve, Jeffrey Epstein aterrizó en Nueva Jersey en su avión privado.",
+  "pause": 0.35,
+  "say": "El seis de julio de dos mil diecinueve, Yéfri Épstin aterrizó en Nueva Jersey en su avión privado."
+ },
+ {
+  "id": "h2",
+  "text": "Lo estaban esperando.",
+  "pause": 0.5
+ },
+ {
+  "id": "c1",
+  "text": "Lo acusaron de tráfico sexual de menores. Podía pasar el resto de su vida preso.",
+  "pause": 0.45
+ },
+ {
+  "id": "c2",
+  "text": "Un mes después, estaba muerto.",
+  "pause": 0.7
+ },
+ {
+  "id": "c3",
+  "text": "El veintitrés de julio lo encontraron en su celda con marcas en el cuello. Lo pusieron bajo vigilancia por riesgo de suicidio. Seis días después, se la quitaron.",
+  "pause": 0.4
+ },
+ {
+  "id": "c4",
+  "text": "El nueve de agosto trasladaron a su compañero de celda. Nadie lo reemplazó.",
+  "pause": 0.5
+ },
+ {
+  "id": "c5",
+  "text": "Esa noche, los dos guardias no hicieron las rondas. Después se supo que habían falsificado los registros. Y dos cámaras del pasillo no grabaron.",
+  "pause": 0.5
+ },
+ {
+  "id": "c6",
+  "text": "A las seis y media de la mañana lo encontraron sin vida.",
+  "pause": 0.7
+ },
+ {
+  "id": "c7",
+  "text": "La forense dijo suicidio. En dos mil veintitrés, el inspector general del Departamento de Justicia lo confirmó, pero describió una cadena de negligencias.",
+  "pause": 0.45
+ },
+ {
+  "id": "c8",
+  "text": "En dos mil veinticinco, el FBI publicó el video del pasillo. Le faltaba un minuto, justo antes de la medianoche.",
+  "pause": 0.6,
+  "say": "En dos mil veinticinco, el efebeí publicó el video del pasillo. Le faltaba un minuto, justo antes de la medianoche."
+ },
+ {
+  "id": "c9",
+  "text": "Con Epstein muerto, no hubo juicio. Solo Ghislaine Maxwell fue condenada: veinte años de prisión.",
+  "pause": 0.5,
+  "say": "Con Épstin muerto, no hubo juicio. Solo Guilén Máxuel fue condenada: veinte años de prisión."
+ },
+ {
+  "id": "c10",
+  "text": "En enero de dos mil veintiséis se publicaron más de tres millones de páginas. Aparecen cientos de nombres.",
+  "pause": 0.4
+ },
+ {
+  "id": "c11",
+  "text": "Pero aparecer en esos archivos no es un delito.",
+  "pause": 0.5
+ },
+ {
+  "id": "c12",
+  "text": "Y las víctimas siguen preguntando: si había una red, ¿dónde están los demás?",
+  "pause": 0.6
+ },
+ {
+  "id": "c13",
+  "text": "¿Vos qué creés? Te leo en los comentarios.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.4
+ }
+]
