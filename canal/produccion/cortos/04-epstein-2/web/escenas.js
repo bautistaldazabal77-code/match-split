@@ -85,9 +85,9 @@ textosC('sFor', [S('c7') - .1, S('c8') - .1, .3, .3, 1.04], [
 // ---------- 8 · Sin juicio; Maxwell, 20 años ----------
 {
   const so = AT('c9', 'Solo');
-  fotoC('sSJ', [S('c9') - .1, so, .3, .3], 'epstein-2019.jpg', { bn: true, pos: '50% 30%', kb: [1.05, 1.12, 0, 0, 0, 0], inner: selloC('jX', 'SIN JUICIO', 170, 780, 150) });
+  fotoC('sSJ', [S('c9') - .1, so, .3, .3], 'epstein-2019.jpg', { bn: true, pos: '50% 30%', kb: [1.05, 1.12, 0, 0, 0, 0], inner: selloC('jX', 'SIN JUICIO', 200, 960, 130) });
   fotoC('sGM', [so - .2, S('c10') - .1, .3, .3], 'maxwell-2020.jpg', { bn: true, pos: '50% 30%', lbl: 'Ghislaine Maxwell', kb: [1.05, 1.12, 0, 0, 0, 0],
-    inner: `<div id="gP" class="cpill" style="position:absolute;left:64px;top:410px;opacity:0">Culpable · 2021</div>${selloC('gX', '20 AÑOS', 260, 820, 160)}` });
+    inner: `<div id="gP" class="cpill" style="position:absolute;left:64px;top:410px;opacity:0">Culpable · 2021</div>${selloC('gX', '20 AÑOS', 280, 950, 140)}` });
   RENDER.push(t => {
     if (on('sSJ')) golpeC('jX', t, AT('c9', 'juicio'), -6);
     if (on('sGM')) { $('gP').style.opacity = P(t, AT('c9', 'condenada') - .2, AT('c9', 'condenada') + .2); golpeC('gX', t, AT('c9', 'veinte'), -6); }
@@ -115,12 +115,12 @@ textosC('sApa', [S('c11') - .1, S('c12') - .1, .3, .3, 1.04], [
   { t: AT('c11', 'no es'), html: '<span class="r">≠ DELITO</span>', size: 230, top: 650 }]);
 // ---------- 11 · ¿Dónde están los demás? ----------
 {
-  const a = S('c12'), q = AT('c12', 'dónde'), xs = [[150, 820], [430, 900], [700, 830], [930, 900], [260, 1010], [800, 1010]];
+  const a = S('c12'), q = AT('c12', 'dónde'), xs = [[150, 900], [420, 960], [690, 900], [930, 960], [280, 1040], [800, 1040]];
   tableroC('sDem', [a - .1, S('c13') - .1, .3, .3], [
     { t: a, x: 110, y: 400, w: 380, h: 470, img: 'epstein-2006.jpg', tx: 'J. EPSTEIN', rot: -3, pos: '50% 22%' },
     { t: a + .3, x: 590, y: 400, w: 380, h: 470, img: 'maxwell-2020.jpg', tx: 'G. MAXWELL', rot: 3, pos: '50% 25%' },
     ...xs.map(([x, y], i) => ({ t: q - .3 + i * .12, x: x - 60, y, txt: '?', rot: (i % 3 - 1) * 5, est: 'font-size:80px;padding:4px 30px' }))],
-    xs.map((_, i) => ({ t: q + i * .12, de: i % 2, a: i + 2 })), { cam: [[a - .1, 540, 820, 1.05], [q, 540, 860, 1]] });
+    xs.map((_, i) => ({ t: q + i * .12, de: i % 2, a: i + 2 })), { cam: [[a - .1, 540, 900, 1.04], [q, 540, 960, 1]] });
 }
 // ---------- 12 · ¿Vos qué creés? ----------
 {

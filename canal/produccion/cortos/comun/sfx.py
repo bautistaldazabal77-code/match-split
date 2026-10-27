@@ -153,6 +153,11 @@ def rumble(dur, g=0.5):                            # retumbo que crece
 def pop(g=0.4, f=1200):                            # burbuja de mensaje
     t = tt(0.09); return (np.sin(2 * np.pi * (f + 900 * np.exp(-t * 60)) * t) * np.exp(-t * 40) * g).astype(F32)
 
+def media_movil(x, w):
+    """igual que np.convolve(x, np.ones(w) / w, 'same'), pero con sumas acumuladas (no tarda minutos en audios largos)"""
+    c = np.concatenate([[0.0], np.cumsum(x)]); i = np.arange(len(x))
+    return (c[np.minimum(len(x), i + (w - 1) // 2 + 1)] - c[np.maximum(0, i - w // 2)]) / w
+
 def mezclar(nar_path, music, sfx, pulse, D, out='audio/mezcla.wav', mg=0.22, sg=0.5, pg=0.12):
     """voz al frente; la música baja cuando habla la voz"""
     N = len(music)
@@ -161,10 +166,9 @@ def mezclar(nar_path, music, sfx, pulse, D, out='audio/mezcla.wav', mg=0.22, sg=
     if nsr != SR: k = gcd(SR, nsr); nar = resample_poly(nar, SR // k, nsr // k).astype(F32)
     nar = nar[:N]; nar = np.pad(nar, (0, N - len(nar)))
     nar = hp(nar, 75, 2); nar = reverb(nar, 0.9, 0.12, 0.08)
-    w = int(0.25 * SR)
-    e = np.sqrt(np.convolve(nar.astype(np.float64) ** 2, np.ones(w) / w, 'same')).astype(F32)
+    e = np.sqrt(np.maximum(media_movil(nar.astype(np.float64) ** 2, int(0.25 * SR)), 0)).astype(F32)
     duck = np.clip(e / (np.percentile(e, 90) + 1e-9), 0, 1)
-    duck = np.convolve(duck, np.ones(int(0.4 * SR), F32) / int(0.4 * SR), 'same').astype(F32)
+    duck = media_movil(duck.astype(np.float64), int(0.4 * SR)).astype(F32)
     mix = norm(nar, 0.85) + norm(music, mg) * (1 - 0.45 * duck) + norm(pulse, pg) + norm(sfx, sg)
     mix = (np.tanh(mix * 1.1) / np.tanh(1.1)).astype(F32)[:int(D * SR)]
     T = np.arange(len(mix)) / SR
