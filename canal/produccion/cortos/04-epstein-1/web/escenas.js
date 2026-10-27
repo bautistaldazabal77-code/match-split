@@ -21,9 +21,9 @@ contador([[AT('c3', 'Nadie'), 1], [AT('c4', 'No hubo'), 2], [AT('c5', 'nunca'), 
 SETUP.push(() => {
 // ---------- 1 · Jeffrey Epstein: siete veces sin consecuencias ----------
 fotoC('sAbre', [-1, S('c2') - .1, .01, .4], 'epstein-2006.jpg', { bn: true, pos: '50% 30%', kb: [1.18, 1.04, 0, 0, 0, 0],
-  inner: `<div id="aN" class="cbig" style="position:absolute;left:64px;top:360px;font-size:170px;opacity:0;text-shadow:0 0 30px #000">JEFFREY<br><span class="r">EPSTEIN</span></div>
-    <div id="aS" class="cbig" style="position:absolute;left:64px;top:700px;font-size:120px;opacity:0;text-shadow:0 0 30px #000">7 VECES</div>
-    ${selloC('aX', 'SIN CONSECUENCIAS', 70, 840, 92)}` });
+  inner: `<div id="aN" class="cbig" style="position:absolute;left:0;right:0;top:330px;text-align:center;font-size:136px;opacity:0;text-shadow:0 0 30px #000">JEFFREY <span class="r">EPSTEIN</span></div>
+    <div id="aS" class="cbig" style="position:absolute;left:0;right:0;top:880px;text-align:center;font-size:120px;opacity:0;text-shadow:0 0 30px #000">7 VECES</div>
+    ${selloC('aX', 'SIN CONSECUENCIAS', 110, 1000, 84)}` });
 RENDER.push(t => {
   if (!on('sAbre')) return;
   $('aN').style.opacity = P(t, .2, .7); $('aS').style.opacity = P(t, AT('h2', 'siete') - .1, AT('h2', 'siete') + .2); golpeC('aX', t, AT('h2', 'consecuencias'), -5);
@@ -105,11 +105,11 @@ RENDER.push(t => { if (!on('sPB')) return; $('pA').style.opacity = P(t, AT('c8',
 // ---------- 8 · El acuerdo secreto de 2007 (documento real) ----------
 {
   const a = S('c9'), pe = AT('c9', 'Pero'), fi = AT('c9', 'fiscal federal'), se = AT('c9', 'acuerdo secreto'), nj = AT('c9', 'no habrá'), nd = AT('c9', 'no se lo dicen'), b = S('c10');
-  docC('sNPA', [a - .1, b - .1, .3, .3], 'acuerdo-2007.jpg', { ancho: 820, alto: 1061, y: 380, dy: -250,
+  docC('sNPA', [a - .1, b - .1, .3, .3], 'acuerdo-2007.jpg', { ancho: 820, alto: 1061, y: 380, dy: -220,
     zoom: [[a - .1, 50, 40, .85], [se, 50, 30, 1.1], [nj, 50, 52, 1.15], [nd, 50, 45, .9]],
     marcas: [{ t: se, x: 31, y: 26.5, w: 34, h: 3 }, { t: nj, x: 24, y: 50.5, w: 56, h: 9.5 }],
     sello: { t: nd, txt: 'NADIE AVISÓ A LAS VÍCTIMAS', x: 50, y: 860, size: 64, rot: -6 },
-    fijo: `<div id="nV" style="position:absolute;left:0;right:0;top:330px;bottom:0;background:radial-gradient(ellipse at 50% 30%,#170404,#050505 75%);opacity:0">
+    fijo: `<div style="position:absolute;left:0;right:0;top:0;height:420px;background:linear-gradient(#050505 72%,transparent)"></div><div style="position:absolute;left:0;right:0;top:1060px;bottom:0;background:linear-gradient(transparent,#050505 14%)"></div><div id="nV" style="position:absolute;left:0;right:0;top:330px;bottom:0;background:radial-gradient(ellipse at 50% 30%,#170404,#050505 75%);opacity:0">
         <div style="position:absolute;left:0;right:0;top:330px;text-align:center"><div class="osw" style="font-size:30px;letter-spacing:.3em;color:#8a8a8a">EL FBI IDENTIFICA</div><div class="cbig" style="font-size:300px;color:#ff2a2a">+30</div><div class="osw" style="font-size:40px;letter-spacing:.2em">VÍCTIMAS</div></div></div>
       <div class="cpol" id="nA" style="left:620px;top:420px;width:380px;height:470px;opacity:0"><div class="im"><img src="img/acosta.jpg" style="object-position:50% 20%"></div><div class="tx">A. ACOSTA · FISCAL FEDERAL</div></div>
       <div class="clbl" style="opacity:1"><i></i>Acuerdo de no persecución · 2007</div>` });

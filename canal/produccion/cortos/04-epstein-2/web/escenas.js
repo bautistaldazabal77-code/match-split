@@ -34,11 +34,11 @@ SETUP.push(() => {
   RENDER.push(t => { if (on('sTet')) $('tB').style.opacity = P(t, S('h2') - .1, S('h2') + .3); });
 }
 // ---------- 2 · La acusación (documento real) ----------
-docC('sAcu', [S('c1') - .1, S('c2') - .1, .3, .3], 'acusacion-2019.jpg', { ancho: 860, alto: 1111, y: 380, dy: -250,
+docC('sAcu', [S('c1') - .1, S('c2') - .1, .3, .3], 'acusacion-2019.jpg', { ancho: 860, alto: 1111, y: 380, dy: -220,
   zoom: [[S('c1') - .1, 50, 35, .9], [AT('c1', 'tráfico'), 50, 36, 1.3]],
   marcas: [{ t: AT('c1', 'tráfico'), x: 31, y: 34.3, w: 36, h: 4.8 }],
   sello: { t: AT('c1', 'resto'), txt: 'HASTA 45 AÑOS', x: 140, y: 880, size: 120, rot: -6 },
-  fijo: `<div class="clbl" style="opacity:1"><i></i>Acusación federal · julio de 2019</div>` });
+  fijo: `<div style="position:absolute;left:0;right:0;top:0;height:420px;background:linear-gradient(#050505 72%,transparent)"></div><div style="position:absolute;left:0;right:0;top:1060px;bottom:0;background:linear-gradient(transparent,#050505 14%)"></div><div class="clbl" style="opacity:1"><i></i>Acusación federal · julio de 2019</div>` });
 // ---------- 3 · Un mes después ----------
 fotoC('sMue', [S('c2') - .1, S('c3') - .1, .3, .3], 'mcc.jpg', { lbl: 'Centro Correccional Metropolitano · Manhattan', kb: [1.08, 1.2, 0, 0, 0, -30],
   inner: `<div id="uM" class="cbig" style="position:absolute;left:64px;top:430px;font-size:170px;opacity:0;text-shadow:0 0 30px #000">UN MES<br><span class="r">DESPUÉS</span></div>` });
