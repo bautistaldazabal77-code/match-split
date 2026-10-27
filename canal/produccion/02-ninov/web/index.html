@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../cortos/comun/web/fonts/local.css">
+<style>
+:root{--bg:#06080b;--ink:#e9e6df;--mut:#8b919a;--dim:#4a5059;--red:#d23a32;--amber:#ffb23e;--green:#4fb07a;--blue:#8fd0ff;--paper:#e6e0d2}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Inter,sans-serif}
+#stage{position:absolute;inset:0}
+.scene{position:absolute;inset:0;opacity:0;overflow:hidden}
+.cam{position:absolute;inset:0;transform-origin:50% 50%}
+.mono{font-family:'IBM Plex Mono',monospace}
+.serif{font-family:'Cormorant Garamond',serif}
+svg.full{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible}
+.center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,rgba(60,80,110,.18),transparent 60%)}
+.bgA{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#121a24,#05070a 70%)}
+.bgR{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1d0907,#050304 70%)}
+.bgO{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1e1708,#050403 70%)}
+.tag{position:absolute;left:110px;top:90px;font:400 24px 'IBM Plex Mono';letter-spacing:.2em;color:var(--mut);text-transform:uppercase}
+.lt{position:absolute;left:110px;bottom:100px}
+.lt .k{font:400 24px 'IBM Plex Mono';letter-spacing:.22em;color:var(--mut);text-transform:uppercase}
+.lt .v{font:600 60px Inter;letter-spacing:.03em;margin-top:6px}
+.lt .s{font:400 22px 'IBM Plex Mono';letter-spacing:.14em;color:var(--mut);margin-top:10px}
+.rec{position:absolute;right:42px;bottom:30px;font:400 15px 'IBM Plex Mono';letter-spacing:.14em;color:rgba(233,230,223,.38)}
+/* plantillas */
+.chn{font:600 280px 'Cormorant Garamond';line-height:.9}
+.cht{font:500 110px 'Cormorant Garamond';margin-top:10px}
+.chd{font:400 28px 'IBM Plex Mono';letter-spacing:.22em;color:var(--mut);margin-top:46px;text-transform:uppercase}
+.big{font:600 112px 'Cormorant Garamond';text-align:center;line-height:1.1;max-width:1600px}
+.big .r{color:var(--red)}.big .a{color:var(--amber)}
+.bigsub{font:400 28px 'IBM Plex Mono';letter-spacing:.2em;color:var(--mut);margin-top:40px;text-transform:uppercase;text-align:center}
+.qwrap{position:absolute;left:240px;right:240px;top:50%;transform:translateY(-50%)}
+.qbar{position:absolute;left:-60px;top:6px;width:6px;height:100%;background:var(--red);transform-origin:top;transform:scaleY(0)}
+.qtext{font:italic 500 76px/1.18 'Cormorant Garamond';color:var(--ink);min-height:180px}
+.qc{display:inline-block;width:3px;height:.8em;background:var(--ink);vertical-align:-.08em;margin-left:6px}
+.qwho{font:600 32px Inter;letter-spacing:.16em;margin-top:52px;text-transform:uppercase}
+.qrole{font:400 22px 'IBM Plex Mono';letter-spacing:.14em;color:var(--mut);margin-top:12px}
+.paper{position:absolute;background:var(--paper);color:#1c1d1f;box-shadow:0 40px 120px rgba(0,0,0,.7);padding:46px 56px}
+.paper h4{font:500 22px 'IBM Plex Mono';letter-spacing:.2em;border-bottom:2px solid #1c1d1f;padding-bottom:16px;margin-bottom:22px;display:flex;justify-content:space-between}
+.paper h4 span{color:#6d6a64;font-weight:400}
+.paper .ln{height:13px;background:#c9c2b2;margin:14px 0;border-radius:2px}
+.paper .tx{font:500 40px/1.3 'Cormorant Garamond'}
+.card{position:absolute;background:rgba(10,13,18,.88);border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.pill{display:inline-flex;align-items:center;gap:12px;padding:10px 22px;border-radius:10px;font:600 28px 'Inter Var';letter-spacing:.04em}
+.lbl{position:absolute;font:400 22px 'IBM Plex Mono';letter-spacing:.2em;color:var(--mut);text-transform:uppercase}
+.sello{position:absolute;padding:14px 34px;border:10px solid var(--red);color:var(--red);font:700 110px Inter;letter-spacing:.1em;mix-blend-mode:screen;opacity:0;white-space:nowrap}
+</style>
+</head><body>
+<div id="stage"></div>
+<script>window.ANCHO = 1920; window.ALTO = 1080;</script>
+<script src="../../cortos/comun/web/d3.min.js"></script>
+<script src="../../cortos/comun/web/topojson.min.js"></script>
+<script src="timeline.js"></script>
+<script>window.CRED = {};</script>
+<script src="../../cortos/comun/web/motor.js"></script>
+<script src="../../cortos/comun/web/dibujos.js"></script>
+<script src="../../cortos/comun/web/mapas.js"></script>
+<script src="../../cortos/comun/web/ciencia.js"></script>
+<script src="plantillas.js"></script>
+<script src="cap0.js"></script>
+<script src="cap1.js"></script>
+<script src="cap2.js"></script>
+<script src="cap3.js"></script>
+<script src="cap4.js"></script>
+<script src="cap5.js"></script>
+<script src="cap6.js"></script>
+<script src="epilogo.js"></script>
+<script>start();</script>
+</body></html>

@@ -17,7 +17,7 @@ function posTabla(z) {
 // o.simb: símbolos propios para algunas casillas, p. ej. {116: '?'}. Cada casilla es #<id>z<Z>.
 function tablaHTML(id, o = {}) {
   const cw = o.cw || 52, gap = o.gap || 3.5, L = o.left ?? 40, T = o.top ?? 560, hasta = o.hasta || 118, st = cw + gap;
-  let h = `<div id="${id}" style="position:absolute;left:0;top:0;width:1080px;height:1920px">`;
+  let h = `<div id="${id}" style="position:absolute;left:0;top:0;width:${W}px;height:${H}px">`;
   for (let z = 1; z <= 118; z++) {
     const [f, c] = posTabla(z), y = T + (f <= 7 ? (f - 1) * st : 7 * st + 16 + (f - 9) * st), x = L + (c - 1) * st;
     const vacia = z > hasta, s = (o.simb && o.simb[z]) ?? (vacia ? '' : SIMB[z - 1]);
@@ -95,3 +95,12 @@ function nucleo(svg, parent, Z, N, s = 11, seed = 3, oro = false) {
   g.radio = c * Math.sqrt(A) + s; g.bolas = bolas;
   return g;
 }
+
+// silueta sin rasgos (cabeza y hombros) en un <g>, con borde de luz; mide unos 380 x 420 y apoya en y = 0
+function silueta(parent, col = '#ffb23e', fid = 'slGl') {
+  const g = el('g', {}, parent), d = 'M0,-415 C62,-415 102,-365 102,-300 C102,-245 74,-205 47,-190 L47,-165 C162,-145 252,-95 282,0 L-282,0 C-252,-95 -162,-145 -47,-165 L-47,-190 C-74,-205 -102,-245 -102,-300 C-102,-365 -62,-415 0,-415 Z';
+  el('path', { d, fill: 'none', stroke: col, 'stroke-width': 12, opacity: .55, filter: `url(#${fid})` }, g);
+  el('path', { d, fill: '#05070a' }, g);
+  return g;
+}
+function filtroBrillo(svg, id = 'slGl') { const f = el('filter', { id, x: '-30%', y: '-30%', width: '160%', height: '160%' }, el('defs', {}, svg)); el('feGaussianBlur', { stdDeviation: 9 }, f); }

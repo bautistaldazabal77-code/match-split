@@ -1,12 +1,13 @@
-// Capturas sueltas de un corto para revisar: node ../comun/shots.js 0.5 4 12.3  (desde la carpeta del episodio, con el servidor en cortos/)
+// Capturas sueltas para revisar: node ../comun/shots.js 0.5 4 12.3  (desde la carpeta del episodio, con el servidor en canal/produccion/)
 const { chromium } = require('playwright');
 const path = require('path'), fs = require('fs');
-const ep = path.basename(process.cwd());
+const cfg = fs.existsSync('video.json') ? JSON.parse(fs.readFileSync('video.json')) : {};
+const URL_EP = `http://127.0.0.1:${process.env.PUERTO || 8778}/${path.relative(path.resolve(__dirname, '..', '..'), process.cwd()).split(path.sep).join('/')}/web/index.html`;
 (async () => {
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
+  const page = await browser.newPage({ viewport: { width: cfg.ancho || 1080, height: cfg.alto || 1920 } });
   const errs = []; page.on('pageerror', e => errs.push(e.message)); page.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
-  await page.goto(`http://127.0.0.1:8778/${ep}/web/index.html`);
+  await page.goto(URL_EP);
   await page.waitForFunction(() => window.READY && window.READY.then, null, { timeout: 60000 });
   await page.evaluate(() => window.READY);
   fs.mkdirSync('shots', { recursive: true });

@@ -16,14 +16,6 @@ hud({ serie: 'PASÓ DE VERDAD · PARTE 2', aviso: 'HISTORIA REAL · RECREACIÓN 
   horas: [[S('h1') - .1, '1999'], [S('c1') - .1, '2001', true], [S('c8') - .1, '2002', true], [S('c13') - .1, '2006'], [S('c14') - .1, '2016']] });
 CAPS_OFF(S('outro'), TL.duration + 1);
 
-// silueta sin rasgos (cabeza y hombros) en un <g>, con borde de luz; mide unos 380 x 420 y apoya en y = 0
-function silueta(parent, col = '#ffb23e', fid = 'slGl') {
-  const g = el('g', {}, parent), d = 'M0,-415 C62,-415 102,-365 102,-300 C102,-245 74,-205 47,-190 L47,-165 C162,-145 252,-95 282,0 L-282,0 C-252,-95 -162,-145 -47,-165 L-47,-190 C-74,-205 -102,-245 -102,-300 C-102,-365 -62,-415 0,-415 Z';
-  el('path', { d, fill: 'none', stroke: col, 'stroke-width': 12, opacity: .55, filter: `url(#${fid})` }, g);
-  el('path', { d, fill: '#05070a' }, g);
-  return g;
-}
-function filtroBrillo(svg, id = 'slGl') { const f = el('filter', { id, x: '-30%', y: '-30%', width: '160%', height: '160%' }, el('defs', {}, svg)); el('feGaussianBlur', { stdDeviation: 9 }, f); }
 const sello = (id, txt, x, y, size = 92, extra = '') => `<div id="${id}" style="position:absolute;left:${x}px;top:${y}px;padding:14px 30px;border:9px solid #ff5148;border-radius:16px;color:#ff5148;font:900 ${size}px/1 'Inter Var';text-align:center;opacity:0;background:rgba(24,4,4,.85);${extra}">${txt}</div>`;
 const golpe = (id, t, a, rot = -6) => { const s = P(t, a - .05, a + .2), n = $(id); n.style.opacity = s; n.style.transform = `rotate(${rot}deg) scale(${lerp(1.7, 1, eo(s)).toFixed(3)})`; return s; };
 

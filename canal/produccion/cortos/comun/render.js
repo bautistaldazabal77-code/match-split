@@ -1,12 +1,16 @@
 // Captura los cuadros de un corto con Chromium y arma el video sin sonido (1080x1920, 30 cuadros por segundo).
-// Correr desde la carpeta del episodio, con el servidor en cortos/ (python3 -m http.server 8778):
+// Correr desde la carpeta del episodio, con el servidor en canal/produccion/ (python3 -m http.server 8778).
+// Un video.json en la carpeta del episodio cambia el formato, p. ej. {"ancho": 1920, "alto": 1080, "fps": 24} para un video largo.
 //   node ../comun/render.js                       → todo el corto en video_limpio.mp4, repartido en varios procesos
 //   node ../comun/render.js 40 60                 → solo de 40 s a 60 s
 //   node ../comun/render.js 40 60 parte.mp4 1     → un solo proceso (lo usan los procesos hijos)
 const { chromium } = require('playwright');
 const { spawn } = require('child_process');
 const fs = require('fs'), path = require('path');
-const FPS = 30, ep = path.basename(process.cwd());
+const cfg = fs.existsSync('video.json') ? JSON.parse(fs.readFileSync('video.json')) : {};
+const FPS = cfg.fps || 30, ANCHO = cfg.ancho || 1080, ALTO = cfg.alto || 1920;
+// dirección de la página: la carpeta del episodio relativa a canal/produccion/, que es la raíz del servidor
+const URL_EP = `http://127.0.0.1:${process.env.PUERTO || 8778}/${path.relative(path.resolve(__dirname, '..', '..'), process.cwd()).split(path.sep).join('/')}/web/index.html`;
 const tl = JSON.parse(fs.readFileSync('timeline.json'));
 const [a = 0, b = tl.duration, out = 'video_limpio.mp4', workers = Math.max(1, require('os').cpus().length - 1)] = process.argv.slice(2).map((x, i) => i === 2 ? x : Number(x));
 const f0 = Math.round(a * FPS), f1 = Math.min(Math.ceil(tl.duration * FPS), Math.round(b * FPS));
@@ -15,9 +19,9 @@ async function one(f0, f1, out, tag = '') {
   const ff = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'mjpeg', '-i', '-',
     '-c:v', 'libx264', '-preset', 'medium', '-crf', '14', '-pix_fmt', 'yuv420p', out], { stdio: ['pipe', 'inherit', 'inherit'] });
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
+  const page = await browser.newPage({ viewport: { width: ANCHO, height: ALTO } });
   const errs = []; page.on('pageerror', e => errs.push(e.message));
-  await page.goto(`http://127.0.0.1:8778/${ep}/web/index.html`);
+  await page.goto(URL_EP);
   await page.waitForFunction(() => window.READY && window.READY.then, null, { timeout: 60000 });
   await page.evaluate(() => window.READY);
   const t0 = Date.now();

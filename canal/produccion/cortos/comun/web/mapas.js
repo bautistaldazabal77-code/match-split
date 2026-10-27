@@ -71,12 +71,12 @@ function circuloGeo(M, centro, radioGrados, attrs, parent) {
 
 // ---------- Globo (proyección ortográfica que gira) ----------
 function globo(svg, o = {}) {
-  const r = o.r || 470, proj = d3.geoOrthographic().scale(r).translate([540, o.cy || 900]).clipAngle(90), path = d3.geoPath(proj);
+  const r = o.r || 470, cx = o.cx || 540, cy = o.cy || 900, proj = d3.geoOrthographic().scale(r).translate([cx, cy]).clipAngle(90), path = d3.geoPath(proj);
   const d = el('defs', {}, svg), id = svg.id;
   const rg = el('radialGradient', { id: id + 'gl', cx: .38, cy: .32 }, d);
   el('stop', { offset: 0, 'stop-color': '#13283b' }, rg); el('stop', { offset: 1, 'stop-color': '#050b12' }, rg);
   const G = { proj, path, root: el('g', {}, svg) };
-  el('circle', { cx: 540, cy: o.cy || 900, r: r + 30, fill: '#2f6f9e', opacity: .08 }, G.root);
+  el('circle', { cx, cy, r: r + 30, fill: '#2f6f9e', opacity: .08 }, G.root);
   G.sphere = el('path', { fill: `url(#${id}gl)`, stroke: '#2f4b66', 'stroke-width': 2 }, G.root);
   G.grat = el('path', { fill: 'none', stroke: '#8fb3cc', 'stroke-opacity': .1, 'stroke-width': 1 }, G.root);
   G.land = el('path', { fill: '#1a222c', stroke: '#33404e', 'stroke-width': 1 }, G.root);
@@ -91,7 +91,7 @@ function globo(svg, o = {}) {
     for (const cid in G.hi) G.hi[cid].setAttribute('d', path(G.feat(cid)) || '');
   };
   // un punto del globo en pantalla (null si está del otro lado)
-  G.xy = ll => { const c = proj.invert([540, o.cy || 900]); return d3.geoDistance(ll, c) < Math.PI / 2 - .02 ? proj(ll) : null; };
+  G.xy = ll => { const c = proj.invert([cx, cy]); return d3.geoDistance(ll, c) < Math.PI / 2 - .02 ? proj(ll) : null; };
   return G;
 }
 // arco (círculo máximo) entre dos lugares, dibujado hasta la fracción k

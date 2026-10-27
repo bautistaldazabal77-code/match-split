@@ -33,6 +33,9 @@ from faster_whisper import WhisperModel
 m = WhisperModel('small', device='cpu', compute_type='int8', cpu_threads=4)
 a16 = resample_poly(audio, 2, 3).astype(np.float32)
 segs, _ = m.transcribe(a16, language='es', beam_size=3, word_timestamps=True)
+segs = list(segs)
+# lo que entendió Whisper, para buscar palabras mal pronunciadas
+open('audio/oido.txt', 'w').write('\n'.join(f'{s.start:7.1f}  {s.text.strip()}' for s in segs))
 heard = [(norm(w.word), w.start, w.end) for s in segs for w in s.words]
 heard = [h for h in heard if h[0]]
 ours = []   # (cue, índice, palabra tal como se escribe, normalizada)

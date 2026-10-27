@@ -1,0 +1,787 @@
+[
+ {
+  "id": "lead",
+  "silence": 2.0
+ },
+ {
+  "id": "c1",
+  "text": "El siete de junio de mil novecientos noventa y nueve, un laboratorio de Estados Unidos anunció que había creado algo que nunca había existido en la Tierra.",
+  "pause": 0.42
+ },
+ {
+  "id": "c2",
+  "text": "Dos elementos químicos nuevos.",
+  "pause": 0.42
+ },
+ {
+  "id": "c3",
+  "text": "El ciento dieciséis, y el ciento dieciocho.",
+  "pause": 0.95
+ },
+ {
+  "id": "c4",
+  "text": "Los había fabricado chocando átomos a una velocidad enorme, en un acelerador de partículas en California.",
+  "pause": 0.42
+ },
+ {
+  "id": "c5",
+  "text": "Las revistas de ciencia lo celebraron.",
+  "pause": 0.42
+ },
+ {
+  "id": "c6",
+  "text": "Los libros de texto se preparaban para cambiar.",
+  "pause": 0.95
+ },
+ {
+  "id": "c7",
+  "text": "El primer autor del trabajo era un físico de casi cuarenta años, uno de los mejores cazadores de elementos del mundo.",
+  "pause": 0.42
+ },
+ {
+  "id": "c8",
+  "text": "Se llamaba Victor Ninov.",
+  "pause": 1.9
+ },
+ {
+  "id": "c9",
+  "text": "Dos años después, el mismo laboratorio tuvo que admitir algo que nunca le había pasado a ningún laboratorio de su tipo.",
+  "pause": 0.42
+ },
+ {
+  "id": "c10",
+  "text": "Esos átomos no existieron nunca.",
+  "pause": 0.42
+ },
+ {
+  "id": "c11",
+  "text": "Y cuando revisaron los datos originales, descubrieron que la prueba tampoco estaba ahí.",
+  "pause": 0.95
+ },
+ {
+  "id": "c12",
+  "text": "Esta es la historia de cómo un científico brillante intentó agregar dos casillas a la tabla periódica.",
+  "pause": 0.42
+ },
+ {
+  "id": "c13",
+  "text": "Y de por qué no pudo.",
+  "pause": 1.9
+ },
+ {
+  "id": "titulo",
+  "silence": 5.5
+ },
+ {
+  "id": "cap1",
+  "silence": 4.0
+ },
+ {
+  "id": "c14",
+  "text": "En la naturaleza hay unos noventa elementos.",
+  "pause": 0.42
+ },
+ {
+  "id": "c15",
+  "text": "Del hidrógeno, el más liviano, al uranio, el más pesado que se encuentra en cantidad en la Tierra.",
+  "pause": 0.42
+ },
+ {
+  "id": "c16",
+  "text": "Todo lo que está después del uranio hubo que fabricarlo.",
+  "pause": 0.95
+ },
+ {
+  "id": "c17",
+  "text": "La receta es simple de explicar, y muy difícil de hacer.",
+  "pause": 0.42
+ },
+ {
+  "id": "c18",
+  "text": "Se toma un átomo pesado, se le dispara otro átomo a una velocidad enorme, y se espera que, en algún choque entre billones, los dos núcleos se fundan en uno solo.",
+  "pause": 0.95
+ },
+ {
+  "id": "c19",
+  "text": "Si se funden, el número de protones se suma.",
+  "pause": 0.42
+ },
+ {
+  "id": "c20",
+  "text": "Y el número de protones es lo que define a un elemento.",
+  "pause": 0.95
+ },
+ {
+  "id": "c21",
+  "text": "Pero estos núcleos gigantes son inestables.",
+  "pause": 0.42
+ },
+ {
+  "id": "c22",
+  "text": "Viven milésimas de segundo, y se desarman.",
+  "pause": 0.42
+ },
+ {
+  "id": "c23",
+  "text": "Cada vez que pierden un pedazo, una partícula alfa, bajan dos casillas en la tabla.",
+  "pause": 0.95
+ },
+ {
+  "id": "c24",
+  "text": "Esa escalera de caídas, una detrás de otra, es la huella digital del elemento.",
+  "pause": 0.42
+ },
+ {
+  "id": "c25",
+  "text": "Nadie ve el átomo.",
+  "pause": 0.42
+ },
+ {
+  "id": "c26",
+  "text": "Lo que se ve es la cadena de desintegraciones que deja en un detector, con su posición y su tiempo exactos.",
+  "pause": 1.9
+ },
+ {
+  "id": "c27",
+  "text": "Durante el siglo veinte, la caza de elementos fue una carrera entre tres lugares.",
+  "pause": 0.42
+ },
+ {
+  "id": "c28",
+  "text": "Berkeley, en California.",
+  "pause": 0.42
+ },
+ {
+  "id": "c29",
+  "text": "Dubna, en la Unión Soviética.",
+  "pause": 0.42
+ },
+ {
+  "id": "c30",
+  "text": "Y Darmstadt, en Alemania, donde funciona un centro de investigación llamado GSI.",
+  "pause": 0.95,
+  "say": "Y Darmstadt, en Alemania, donde funciona un centro de investigación llamado ge ese i."
+ },
+ {
+  "id": "c31",
+  "text": "En GSI, entre mil novecientos noventa y cuatro y mil novecientos noventa y seis, un equipo creó los elementos ciento diez, ciento once y ciento doce.",
+  "pause": 0.95,
+  "say": "En ge ese i, entre mil novecientos noventa y cuatro y mil novecientos noventa y seis, un equipo creó los elementos ciento diez, ciento once y ciento doce."
+ },
+ {
+  "id": "c32",
+  "text": "En ese equipo había un joven físico búlgaro.",
+  "pause": 0.42
+ },
+ {
+  "id": "c33",
+  "text": "Su especialidad era un aparato llamado separador de gas: un filtro que, de todo lo que sale de un choque, deja pasar solo a los átomos pesados que interesan.",
+  "pause": 0.42
+ },
+ {
+  "id": "c34",
+  "text": "Era Victor Ninov.",
+  "pause": 0.95
+ },
+ {
+  "id": "c35",
+  "text": "Además de saber construir el filtro, Ninov dominaba el programa con el que se analizaban los datos.",
+  "pause": 0.42
+ },
+ {
+  "id": "c36",
+  "text": "Un programa complicado, que muy pocos sabían usar.",
+  "pause": 0.95
+ },
+ {
+  "id": "c37",
+  "text": "A mediados de los noventa, el Laboratorio Nacional Lawrence Berkeley lo contrató.",
+  "pause": 0.42,
+  "say": "A mediados de los noventa, el Laboratorio Nacional Lórens Bérkli lo contrató."
+ },
+ {
+  "id": "c38",
+  "text": "Berkeley quería volver a la carrera de los elementos.",
+  "pause": 0.42
+ },
+ {
+  "id": "c39",
+  "text": "Y Ninov era exactamente lo que necesitaba.",
+  "pause": 0.95
+ },
+ {
+  "id": "cap2",
+  "silence": 4.0
+ },
+ {
+  "id": "c40",
+  "text": "Para fabricar elementos cada vez más pesados, los físicos tenían un problema.",
+  "pause": 0.42
+ },
+ {
+  "id": "c41",
+  "text": "Cuanto más arriba en la tabla, menos probable es que el choque funcione.",
+  "pause": 0.42
+ },
+ {
+  "id": "c42",
+  "text": "Para los últimos elementos que se habían descubierto, hacían falta semanas de choques continuos para conseguir uno o dos átomos.",
+  "pause": 0.95
+ },
+ {
+  "id": "c43",
+  "text": "Y entonces llegó a Berkeley un teórico polaco, Robert Smolańczuk, con un cálculo sorprendente.",
+  "pause": 0.42,
+  "say": "Y entonces llegó a Berkeley un teórico polaco, Robert Smolánchuk, con un cálculo sorprendente."
+ },
+ {
+  "id": "c44",
+  "text": "Según su cálculo, si se disparaba criptón contra plomo, la probabilidad de crear el elemento ciento dieciocho era mucho más alta de lo que todo el mundo pensaba.",
+  "pause": 0.95
+ },
+ {
+  "id": "c45",
+  "text": "El criptón tiene treinta y seis protones.",
+  "pause": 0.42
+ },
+ {
+  "id": "c46",
+  "text": "El plomo, ochenta y dos.",
+  "pause": 0.42
+ },
+ {
+  "id": "c47",
+  "text": "Juntos, ciento dieciocho.",
+  "pause": 0.95
+ },
+ {
+  "id": "c48",
+  "text": "Era una idea polémica.",
+  "pause": 0.42
+ },
+ {
+  "id": "c49",
+  "text": "Muchos colegas no la creían.",
+  "pause": 0.42
+ },
+ {
+  "id": "c50",
+  "text": "Pero en Berkeley decidieron probarla.",
+  "pause": 0.42
+ },
+ {
+  "id": "c51",
+  "text": "Tenían un acelerador capaz de producir un haz intenso de criptón, y un separador de gas recién instalado.",
+  "pause": 0.42
+ },
+ {
+  "id": "c52",
+  "text": "El experto en ese separador era Ninov.",
+  "pause": 0.95
+ },
+ {
+  "id": "c53",
+  "text": "En la primavera de mil novecientos noventa y nueve empezó el experimento.",
+  "pause": 0.42
+ },
+ {
+  "id": "c54",
+  "text": "El acelerador disparaba unos dos billones de átomos de criptón por segundo contra láminas finísimas de plomo.",
+  "pause": 0.42
+ },
+ {
+  "id": "c55",
+  "text": "Así, durante once días.",
+  "pause": 1.9
+ },
+ {
+  "id": "c56",
+  "text": "Y Ninov encontró algo.",
+  "pause": 0.42
+ },
+ {
+  "id": "c57",
+  "text": "Tres cadenas.",
+  "pause": 0.42
+ },
+ {
+  "id": "c58",
+  "text": "En cada una, un átomo pesado que se clavaba en el detector y, después, seis desintegraciones seguidas, en menos de un segundo.",
+  "pause": 0.42
+ },
+ {
+  "id": "c59",
+  "text": "Justo lo que se esperaba del elemento ciento dieciocho.",
+  "pause": 0.42
+ },
+ {
+  "id": "c60",
+  "text": "Y en el camino, como un escalón de la cadena, el elemento ciento dieciséis.",
+  "pause": 0.95
+ },
+ {
+  "id": "c61",
+  "text": "Tres átomos de un elemento que nadie había visto jamás.",
+  "pause": 0.42
+ },
+ {
+  "id": "c62",
+  "text": "Casi exactamente como había predicho Smolańczuk.",
+  "pause": 0.95,
+  "say": "Casi exactamente como había predicho Smolánchuk."
+ },
+ {
+  "id": "cap3",
+  "silence": 4.0
+ },
+ {
+  "id": "c63",
+  "text": "Hay una idea que obsesiona a los físicos desde hace décadas: la isla de estabilidad.",
+  "pause": 0.42
+ },
+ {
+  "id": "c64",
+  "text": "La teoría dice que, más allá de la zona de los elementos que se desarman en un instante, podría haber una región de núcleos más estables, que vivan mucho más.",
+  "pause": 0.42
+ },
+ {
+  "id": "c65",
+  "text": "Algunos sueñan con que duren minutos, días, o incluso años.",
+  "pause": 0.95
+ },
+ {
+  "id": "c66",
+  "text": "El resultado de Berkeley parecía mostrar que esa isla existía, y que se podía llegar.",
+  "pause": 0.95
+ },
+ {
+  "id": "c67",
+  "text": "El anuncio fue un acontecimiento.",
+  "pause": 0.42
+ },
+ {
+  "id": "c68",
+  "text": "Ninov, primer autor del trabajo, lo resumió con una frase que salió en todos lados:",
+  "pause": 0.42
+ },
+ {
+  "id": "c69",
+  "text": "Saltamos por encima de un mar de inestabilidad, hasta una isla de estabilidad.",
+  "pause": 0.95
+ },
+ {
+  "id": "c70",
+  "text": "Darleane Hoffman, una de las grandes químicas de los elementos pesados, dijo que después de treinta años de búsqueda, el descubrimiento era enormemente gratificante.",
+  "pause": 0.42,
+  "say": "Darlín Jófman, una de las grandes químicas de los elementos pesados, dijo que después de treinta años de búsqueda, el descubrimiento era enormemente gratificante."
+ },
+ {
+  "id": "c71",
+  "text": "Y Albert Ghiorso, una leyenda que había participado en el descubrimiento de doce elementos, veía en Ninov a una versión más joven de sí mismo.",
+  "pause": 0.95,
+  "say": "Y Álbert Guiórso, una leyenda que había participado en el descubrimiento de doce elementos, veía en Ninov a una versión más joven de sí mismo."
+ },
+ {
+  "id": "c72",
+  "text": "El trabajo se publicó en agosto en Physical Review Letters, una de las revistas de física más importantes del mundo.",
+  "pause": 0.42,
+  "say": "El trabajo se publicó en agosto en Físical Rivíu Léters, una de las revistas de física más importantes del mundo."
+ },
+ {
+  "id": "c73",
+  "text": "Ninov empezó a dar charlas en otros laboratorios.",
+  "pause": 0.95
+ },
+ {
+  "id": "c74",
+  "text": "Solo faltaba una cosa.",
+  "pause": 0.42
+ },
+ {
+  "id": "c75",
+  "text": "La que siempre falta en ciencia.",
+  "pause": 0.42
+ },
+ {
+  "id": "c76",
+  "text": "Que alguien más lo repitiera.",
+  "pause": 0.95
+ },
+ {
+  "id": "cap4",
+  "silence": 4.0
+ },
+ {
+  "id": "c77",
+  "text": "Ese mismo año, el equipo de GSI en Darmstadt, el lugar donde se había formado Ninov, intentó reproducir el experimento.",
+  "pause": 0.42,
+  "say": "Ese mismo año, el equipo de ge ese i en Darmstadt, el lugar donde se había formado Ninov, intentó reproducir el experimento."
+ },
+ {
+  "id": "c78",
+  "text": "No encontró nada.",
+  "pause": 0.42
+ },
+ {
+  "id": "c79",
+  "text": "En Japón, el instituto RIKEN tampoco.",
+  "pause": 0.42,
+  "say": "En Japón, el instituto Ríken tampoco."
+ },
+ {
+  "id": "c80",
+  "text": "En Francia, el laboratorio GANIL tampoco.",
+  "pause": 0.95,
+  "say": "En Francia, el laboratorio Ganíl tampoco."
+ },
+ {
+  "id": "c81",
+  "text": "Al principio no era tan raro.",
+  "pause": 0.42
+ },
+ {
+  "id": "c82",
+  "text": "Fabricar un átomo así es dificilísimo, y cualquier diferencia en el haz o en el detector puede cambiar el resultado.",
+  "pause": 0.95
+ },
+ {
+  "id": "c83",
+  "text": "Pero en el año dos mil, el propio equipo de Berkeley repitió el experimento, con el mismo acelerador y el mismo método.",
+  "pause": 0.42
+ },
+ {
+  "id": "c84",
+  "text": "Y tampoco encontró nada.",
+  "pause": 1.9
+ },
+ {
+  "id": "c85",
+  "text": "Revisaron el equipo.",
+  "pause": 0.42
+ },
+ {
+  "id": "c86",
+  "text": "Cambiaron detalles.",
+  "pause": 0.42
+ },
+ {
+  "id": "c87",
+  "text": "Siguieron midiendo.",
+  "pause": 0.95
+ },
+ {
+  "id": "c88",
+  "text": "En abril de dos mil uno hicieron otra corrida.",
+  "pause": 0.42
+ },
+ {
+  "id": "c89",
+  "text": "Y esta vez, el programa de análisis de Ninov encontró una nueva cadena del elemento ciento dieciocho.",
+  "pause": 0.95
+ },
+ {
+  "id": "c90",
+  "text": "Pero esta vez pasó algo distinto.",
+  "pause": 0.42
+ },
+ {
+  "id": "c91",
+  "text": "Otros miembros del equipo ya habían escrito sus propios programas para leer los datos.",
+  "pause": 0.42
+ },
+ {
+  "id": "c92",
+  "text": "Y cuando buscaron esa cadena en el mismo archivo,",
+  "pause": 0.42
+ },
+ {
+  "id": "c93",
+  "text": "no estaba.",
+  "pause": 0.95
+ },
+ {
+  "id": "cap5",
+  "silence": 4.0
+ },
+ {
+  "id": "c94",
+  "text": "Si la cadena de dos mil uno no aparecía en los datos, había que hacer una pregunta incómoda.",
+  "pause": 0.42
+ },
+ {
+  "id": "c95",
+  "text": "¿Qué pasaba con las de mil novecientos noventa y nueve?",
+  "pause": 0.95
+ },
+ {
+  "id": "c96",
+  "text": "En mil novecientos noventa y nueve, Ninov había sido el único del equipo que trabajó directamente con los datos en bruto.",
+  "pause": 0.42
+ },
+ {
+  "id": "c97",
+  "text": "Los demás habían confiado en su análisis.",
+  "pause": 0.95
+ },
+ {
+  "id": "c98",
+  "text": "Un grupo coordinado por Darleane Hoffman volvió a los archivos originales de mil novecientos noventa y nueve, los que salieron del detector durante esos once días.",
+  "pause": 0.42,
+  "say": "Un grupo coordinado por Darlín Jófman volvió a los archivos originales de mil novecientos noventa y nueve, los que salieron del detector durante esos once días."
+ },
+ {
+  "id": "c99",
+  "text": "Los leyeron con otros programas, evento por evento.",
+  "pause": 0.95
+ },
+ {
+  "id": "c100",
+  "text": "Las tres cadenas no estaban.",
+  "pause": 0.42
+ },
+ {
+  "id": "c101",
+  "text": "No eran dudosas, ni estaban mal interpretadas.",
+  "pause": 0.42
+ },
+ {
+  "id": "c102",
+  "text": "No estaban.",
+  "pause": 0.42
+ },
+ {
+  "id": "c103",
+  "text": "En los datos que había registrado el detector no había ningún rastro del elemento ciento dieciocho.",
+  "pause": 0.42
+ },
+ {
+  "id": "c104",
+  "text": "Tampoco del ciento dieciséis.",
+  "pause": 0.95
+ },
+ {
+  "id": "c105",
+  "text": "El veintisiete de julio de dos mil uno, Berkeley retiró el descubrimiento.",
+  "pause": 0.42
+ },
+ {
+  "id": "c106",
+  "text": "El equipo escribió que, después de volver a analizar los datos primarios, había llegado a una conclusión: las tres cadenas no estaban en los datos de mil novecientos noventa y nueve.",
+  "pause": 0.95
+ },
+ {
+  "id": "c107",
+  "text": "Ninov pidió que su nombre no figurara en esa retractación.",
+  "pause": 0.42
+ },
+ {
+  "id": "c108",
+  "text": "Por eso la revista recién publicó una nota editorial un año después.",
+  "pause": 1.9
+ },
+ {
+  "id": "c109",
+  "text": "Ahora la pregunta ya no era si el elemento existía.",
+  "pause": 0.42
+ },
+ {
+  "id": "c110",
+  "text": "Era otra.",
+  "pause": 0.42
+ },
+ {
+  "id": "c111",
+  "text": "Si las cadenas no estaban en los datos, ¿de dónde habían salido?",
+  "pause": 0.95
+ },
+ {
+  "id": "cap6",
+  "silence": 4.0
+ },
+ {
+  "id": "c112",
+  "text": "El laboratorio armó primero un comité técnico, que trabajó unos cuatro meses.",
+  "pause": 0.42
+ },
+ {
+  "id": "c113",
+  "text": "Después, en noviembre de dos mil uno, un comité formal de investigación, presidido por el físico Rochus Vogt, del Instituto de Tecnología de California.",
+  "pause": 0.95,
+  "say": "Después, en noviembre de dos mil uno, un comité formal de investigación, presidido por el físico Rójus Fogt, del Instituto de Tecnología de California."
+ },
+ {
+  "id": "c114",
+  "text": "En marzo de dos mil dos, el comité entregó su informe.",
+  "pause": 0.42
+ },
+ {
+  "id": "c115",
+  "text": "Encontró, dice el informe, evidencia clara y convincente de que los datos de mil novecientos noventa y nueve habían sido fabricados.",
+  "pause": 0.42
+ },
+ {
+  "id": "c116",
+  "text": "Y concluyó que el responsable era Victor Ninov.",
+  "pause": 0.95
+ },
+ {
+  "id": "c117",
+  "text": "El informe también criticó al resto del equipo, por no haber tenido a nadie más que revisara los datos originales.",
+  "pause": 0.95
+ },
+ {
+  "id": "c118",
+  "text": "En mayo de dos mil dos, Berkeley despidió a Ninov.",
+  "pause": 0.95
+ },
+ {
+  "id": "c119",
+  "text": "Él nunca aceptó la acusación.",
+  "pause": 0.42
+ },
+ {
+  "id": "c120",
+  "text": "Escribió que en ningún momento había participado, a sabiendas, en ninguna forma de tergiversación de datos, ni de mala conducta científica.",
+  "pause": 0.42
+ },
+ {
+  "id": "c121",
+  "text": "Inició un reclamo formal contra el despido.",
+  "pause": 0.42
+ },
+ {
+  "id": "c122",
+  "text": "Y dijo una frase que resume cómo vivió todo esto:",
+  "pause": 0.42
+ },
+ {
+  "id": "c123",
+  "text": "Una vez que te marcan como falsificador, empieza la avalancha.",
+  "pause": 1.9
+ },
+ {
+  "id": "c124",
+  "text": "Porque mientras tanto, en Darmstadt, el equipo de GSI había hecho algo que nadie le había pedido.",
+  "pause": 0.42,
+  "say": "Porque mientras tanto, en Darmstadt, el equipo de ge ese i había hecho algo que nadie le había pedido."
+ },
+ {
+  "id": "c125",
+  "text": "Revisó los datos de sus propios descubrimientos, de mil novecientos noventa y cuatro a mil novecientos noventa y seis.",
+  "pause": 0.95
+ },
+ {
+  "id": "c126",
+  "text": "Eran treinta y cuatro cadenas.",
+  "pause": 0.42
+ },
+ {
+  "id": "c127",
+  "text": "Dos no aparecían en los datos: una del elemento ciento diez, de mil novecientos noventa y cuatro, y una del ciento doce, de mil novecientos noventa y seis.",
+  "pause": 0.42
+ },
+ {
+  "id": "c128",
+  "text": "Los investigadores descartaron que fuera un error simple.",
+  "pause": 0.42
+ },
+ {
+  "id": "c129",
+  "text": "Eran análisis en los que había trabajado Ninov.",
+  "pause": 0.95
+ },
+ {
+  "id": "c130",
+  "text": "Los descubrimientos de Darmstadt se mantuvieron, porque las demás cadenas eran reales y alcanzaban para probarlos.",
+  "pause": 0.42
+ },
+ {
+  "id": "c131",
+  "text": "Pero dos de las pruebas no estaban en los datos.",
+  "pause": 0.95
+ },
+ {
+  "id": "epi",
+  "silence": 4.0
+ },
+ {
+  "id": "c132",
+  "text": "Los elementos ciento dieciséis y ciento dieciocho existen.",
+  "pause": 0.42
+ },
+ {
+  "id": "c133",
+  "text": "Los crearon, de verdad, en Dubna, un equipo ruso junto a científicos del Laboratorio Nacional Lawrence Livermore, de Estados Unidos.",
+  "pause": 0.42,
+  "say": "Los crearon, de verdad, en Dubna, un equipo ruso junto a científicos del Laboratorio Nacional Lórens Lívermor, de Estados Unidos."
+ },
+ {
+  "id": "c134",
+  "text": "El ciento dieciséis, en el año dos mil.",
+  "pause": 0.42
+ },
+ {
+  "id": "c135",
+  "text": "El ciento dieciocho, en experimentos de dos mil dos y dos mil cinco, anunciados en dos mil seis.",
+  "pause": 0.95
+ },
+ {
+  "id": "c136",
+  "text": "Hoy se llaman livermorio y oganesón.",
+  "pause": 0.42
+ },
+ {
+  "id": "c137",
+  "text": "Y no se hicieron con la receta de criptón y plomo, sino con otra.",
+  "pause": 1.9
+ },
+ {
+  "id": "c138",
+  "text": "El caso cambió las reglas.",
+  "pause": 0.42
+ },
+ {
+  "id": "c139",
+  "text": "La Sociedad Estadounidense de Física pidió más formación en ética, y que cada coautor de un trabajo pueda responder por la parte que firma.",
+  "pause": 0.42
+ },
+ {
+  "id": "c140",
+  "text": "Nunca más un descubrimiento debería depender de una sola persona, y de un programa que solo esa persona entiende.",
+  "pause": 0.95
+ },
+ {
+  "id": "c141",
+  "text": "Ninov siempre sostuvo que es inocente.",
+  "pause": 0.95
+ },
+ {
+  "id": "c142",
+  "text": "La ciencia tiene una regla que no se puede esquivar.",
+  "pause": 0.42
+ },
+ {
+  "id": "c143",
+  "text": "Un resultado no vale porque lo diga alguien prestigioso, ni porque salga en una revista importante.",
+  "pause": 0.42
+ },
+ {
+  "id": "c144",
+  "text": "Vale si otro, en otro lugar, con otros aparatos, puede volver a verlo.",
+  "pause": 0.95
+ },
+ {
+  "id": "c145",
+  "text": "Victor Ninov anunció dos elementos que nadie más pudo ver.",
+  "pause": 0.42
+ },
+ {
+  "id": "c146",
+  "text": "Y la tabla periódica, al final, se completó sin él.",
+  "pause": 1.9
+ },
+ {
+  "id": "outro",
+  "silence": 6.0
+ }
+]

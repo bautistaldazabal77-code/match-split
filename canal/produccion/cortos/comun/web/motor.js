@@ -1,6 +1,6 @@
 // Motor de escenas para los cortos verticales (1080x1920). Todo depende solo de t (segundos), así cada cuadro es reproducible.
 // El episodio carga timeline.js (window.TL, con el momento de cada palabra) y agrega sus escenas en SCN, SETUP y RENDER.
-const W = 1080, H = 1920;
+const W = window.ANCHO || 1080, H = window.ALTO || 1920;   // los videos largos ponen ANCHO = 1920 y ALTO = 1080 antes de cargar el motor
 const C = Object.fromEntries(TL.cues.map(c => [c.id, c]));
 const S = id => C[id].start, E = id => C[id].end;
 const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9ñ ]/g, '');
