@@ -101,3 +101,34 @@ function arcoGeo(path, a, b, k) {
   for (let i = 0; i <= n * k; i++) pts.push(it(i / n));
   return pts.length > 1 ? path({ type: 'LineString', coordinates: pts }) : '';
 }
+
+// ---------- Mapas del mundo (videos horizontales) ----------
+// mapa mundi oscuro (Natural Earth); devuelve {proj, path, g}; la cámara se mueve con camMundo
+function mundo(svg, o = {}) {
+  const proj = o.proj || d3.geoNaturalEarth1().rotate(o.rotate || [-10, 0]).fitExtent(o.ext || [[40, 70], [1880, 1010]], { type: 'Sphere' }), path = d3.geoPath(proj);
+  const g = el('g', {}, svg);
+  el('path', { d: path({ type: 'Sphere' }), fill: '#080b0f', stroke: '#1b222b', 'stroke-width': 1.2, 'vector-effect': 'non-scaling-stroke' }, g);
+  el('path', { d: path(d3.geoGraticule10()), fill: 'none', stroke: '#121820', 'stroke-width': 1, 'vector-effect': 'non-scaling-stroke' }, g);
+  el('path', { d: path(MAPDATA.land), fill: '#141a21', stroke: '#2b3440', 'stroke-width': .8, 'vector-effect': 'non-scaling-stroke' }, g);
+  el('path', { d: path(MAPDATA.borders), fill: 'none', stroke: '#1d252f', 'stroke-width': .6, 'vector-effect': 'non-scaling-stroke' }, g);
+  const pais = (cid, fill) => el('path', { d: path(MAPDATA.countries.features.find(f => f.id === cid)), fill, stroke: '#06080b', 'stroke-width': .8, 'vector-effect': 'non-scaling-stroke' }, g);
+  return { proj, path, g, pais, svg };
+}
+const camMundo = (m, cx, cy, s) => m.g.setAttribute('transform', `translate(${W / 2} ${H / 2}) scale(${s}) translate(${-cx} ${-cy})`);
+// marcador de lugar con halo; queda del mismo tamaño aunque el mapa haga zoom (llamar a .fijo(escala))
+function lugar(m, ll, txt, o = {}) {
+  const [x, y] = m.proj(ll), c = el('g', { transform: `translate(${x} ${y})`, opacity: 0 }, o.parent || m.g), inner = el('g', {}, c);
+  const col = o.col || '#ffb23e';
+  el('circle', { r: 30, fill: col, opacity: .18 }, inner);
+  const ring = el('circle', { r: 12, fill: 'none', stroke: col, 'stroke-width': 2 }, inner);
+  el('circle', { r: 7, fill: o.dot || '#ffd28a' }, inner);
+  const an = o.anchor || 'start', tx = etiqueta(inner, txt, an === 'end' ? -24 : an === 'middle' ? 0 : 24, o.dy ?? 8, { size: o.size || 24, w: 500, anchor: an, col: o.tcol || '#e9e6df' });
+  return { c, inner, ring, xy: [x, y], tx,
+    fijo(s) { inner.setAttribute('transform', `scale(${1 / s})`); },
+    pulso(t, sp = .8) { const p = (t * sp) % 1; ring.setAttribute('r', 12 + p * 34); ring.setAttribute('opacity', 1 - p); } };
+}
+// arco animable (círculo máximo) entre dos lugares
+function arco(m, a, b, col = '#ffc142', w = 3) {
+  const p = el('path', { d: m.path({ type: 'LineString', coordinates: [a, b] }), fill: 'none', stroke: col, 'stroke-width': w, 'stroke-linecap': 'round', pathLength: 1, 'vector-effect': 'non-scaling-stroke' }, m.g);
+  return { p, draw(k) { p.style.strokeDasharray = `${k.toFixed(4)} 1`; } };
+}
