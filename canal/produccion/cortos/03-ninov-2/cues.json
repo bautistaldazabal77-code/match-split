@@ -1,0 +1,21 @@
+[
+ {"id": "lead", "silence": 0.3},
+ {"id": "h1", "text": "Un físico anunció dos elementos químicos nuevos. Cuando revisaron los datos, no estaban.", "pause": 0.45},
+ {"id": "h2", "text": "Esta es la parte dos.", "pause": 0.6},
+ {"id": "c1", "text": "Abril de dos mil uno. El programa de Victor Ninov encuentra una nueva cadena del elemento ciento dieciocho.", "pause": 0.4},
+ {"id": "c2", "text": "Pero los programas de sus compañeros, en el mismo archivo, no encuentran nada.", "pause": 0.5},
+ {"id": "c3", "text": "Y aparece una pregunta incómoda: ¿qué pasa con las tres cadenas de mil novecientos noventa y nueve?", "pause": 0.5},
+ {"id": "c4", "text": "En ese experimento, Ninov había sido el único que trabajó con los datos en bruto.", "pause": 0.4},
+ {"id": "c5", "text": "Un grupo vuelve a los archivos originales, y los revisa evento por evento, con otros programas.", "pause": 0.6},
+ {"id": "c6", "text": "Las tres cadenas no estaban.", "pause": 0.8},
+ {"id": "c7", "text": "En julio de dos mil uno, Berkeley retira el descubrimiento.", "pause": 0.4},
+ {"id": "c8", "text": "Un comité de investigación concluye que hay evidencia clara y convincente de que los datos fueron fabricados, y que el responsable fue Ninov.", "pause": 0.5},
+ {"id": "c9", "text": "En mayo de dos mil dos, Berkeley lo despide.", "pause": 0.5},
+ {"id": "c10", "text": "Ninov siempre lo negó. Dijo que nunca participó, a sabiendas, en ninguna falsificación de datos.", "pause": 0.6},
+ {"id": "c11", "text": "Pero en Alemania, donde se había formado, revisaron sus propios descubrimientos. De treinta y cuatro cadenas, dos tampoco estaban en los datos.", "pause": 0.4},
+ {"id": "c12", "text": "Eran análisis en los que había trabajado Ninov. Los descubrimientos alemanes se mantuvieron, porque las demás cadenas eran reales.", "pause": 0.6},
+ {"id": "c13", "text": "¿Y los elementos ciento dieciséis y ciento dieciocho? Existen. Los crearon en Rusia, con científicos de Estados Unidos, y con otra receta.", "pause": 0.4},
+ {"id": "c14", "text": "Hoy se llaman livermorio y oganesón. Y la tabla periódica se completó sin él.", "pause": 0.6},
+ {"id": "c15", "text": "¿Vos le creés a Ninov? Te leo en los comentarios.", "pause": 0.6},
+ {"id": "outro", "silence": 3.0}
+]

@@ -47,8 +47,9 @@ class Linea:
     def ATE(self, cid, frase): return self.C[cid]['words'][self._find(cid, frase)[1]]['e']
 
 # ---------- música ----------
-NOTE = {'D1': 36.71, 'E1': 41.2, 'F1': 43.65, 'G1': 49.0, 'A1': 55.0, 'Bb1': 58.27, 'C2': 65.41, 'D2': 73.42, 'E2': 82.41, 'F2': 87.31, 'G2': 98.0, 'A2': 110.0,
-        'Bb2': 116.54, 'C3': 130.81, 'D3': 146.83, 'E3': 164.81, 'F3': 174.61, 'G3': 196.0, 'A3': 220.0, 'Bb3': 233.08, 'C4': 261.63, 'D4': 293.66, 'E4': 329.63, 'F4': 349.23, 'A4': 440.0}
+# todas las notas de C1 a B5 (afinación temperada, A4 = 440), con sostenidos y bemoles: 'C2', 'Eb4', 'F#3'…
+_NOMBRES = [['C'], ['C#', 'Db'], ['D'], ['D#', 'Eb'], ['E'], ['F'], ['F#', 'Gb'], ['G'], ['G#', 'Ab'], ['A'], ['A#', 'Bb'], ['B']]
+NOTE = {n + str(o): round(440 * 2 ** ((o * 12 + k - 57) / 12), 2) for o in range(1, 6) for k, ns in enumerate(_NOMBRES) for n in ns}
 def voice(t, f, amp, harm=6, det=0.0025):
     out = np.zeros(len(t), F32)
     vib = 0.15 * np.sin(2 * np.pi * 0.07 * t + rng.uniform(0, 6))
