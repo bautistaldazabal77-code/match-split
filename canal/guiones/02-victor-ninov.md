@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Sección** | Fraudes científicos |
-| **Formato** | Video largo de unos 16 minutos (unas 2.200 palabras narradas a ritmo pausado) más dos reels de 90 segundos que salen del mismo material |
+| **Formato** | Video largo de unos 13 minutos (unas 1.650 palabras narradas a ritmo pausado) más dos reels de 90 segundos que salen del mismo material |
 | **Tono** | Serio y preciso. Es una persona real: se cuenta lo que concluyó la investigación del laboratorio y se aclara siempre que Ninov lo niega. |
 | **Idioma** | Español neutro, para que funcione en todos los países |
 | **Imágenes** | Todo animado, igual que los cortos de Malvinas: tabla periódica, átomos, acelerador, gráficos de datos y documentos recreados. Sin fotos de Ninov ni de otras personas. |
