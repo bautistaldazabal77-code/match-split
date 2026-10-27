@@ -9,7 +9,7 @@ Videos de 1080x1920 para Instagram, TikTok y Shorts, con el formato de `canal/fo
    - Para revisar cuadros sueltos: con `python3 -m http.server 8778 --bind 127.0.0.1` corriendo en `cortos/`, desde la carpeta del episodio `node ../comun/shots.js 0.5 12 48.3` guarda capturas en `shots/`.
 3. **Sonido:** `python3 sonido.py` (usa `comun/sfx.py`: colchón musical, latidos, alerta de celular, frenos, puertas, multitud, vidrios, contador Geiger…) mezcla todo en `audio/mezcla.wav`. Tarda menos de un minuto.
 4. **Render:** con el servidor corriendo, `node ../comun/render.js` captura 30 cuadros por segundo en 3 procesos y arma `video_limpio.mp4` (unos 15 a 20 minutos para 2 minutos de video).
-5. **Terminación:** `../comun/terminar.sh "Nombre.mp4"` agrega grano, viñeta y color, une el audio y lo deja en -14 LUFS.
+5. **Terminación:** `../comun/terminar.sh "Nombre.mp4"` agrega grano, viñeta y color, une el audio y lo deja en -14 LUFS. Con los valores por defecto (CRF 23, como máximo 10 Mb/s), 2 minutos pesan unos 100 MB.
 6. **Publicación:** cada episodio tiene un `PUBLICACION.md` con el texto sugerido, las fuentes de cada dato y los créditos de las fotos.
 
 **Zonas seguras:** los subtítulos van entre 1170 y 1380 px de alto; nada importante debajo de 1536 px (el 20 % de abajo) ni a la derecha de 918 px (el 15 % derecho), donde las aplicaciones ponen sus botones.
