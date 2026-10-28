@@ -1,0 +1,91 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "En los ensayos, su padre se sentaba frente a ellos con un cinturón en la mano.",
+  "pause": 0.35
+ },
+ {
+  "id": "h2",
+  "text": "Si se equivocaban, les pegaba. Lo contó él mismo, años después.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Michael Jackson nació en mil novecientos cincuenta y ocho en Gary, Indiana, en una casa de dos cuartos donde vivían once personas.",
+  "pause": 0.4,
+  "say": "Máikel Yákson nació en mil novecientos cincuenta y ocho en Gári, Indiana, en una casa de dos cuartos donde vivían once personas."
+ },
+ {
+  "id": "c2",
+  "text": "Su padre, Joe, trabajaba en una acería y soñaba con ser músico. Armó una banda con sus hijos: los Jackson Five.",
+  "pause": 0.4,
+  "say": "Su padre, Yóu, trabajaba en una acería y soñaba con ser músico. Armó una banda con sus hijos: los Yákson Fáiv."
+ },
+ {
+  "id": "c3",
+  "text": "Michael tenía seis años cuando empezó a cantar con ellos. A los once, ya tenían cuatro números uno seguidos.",
+  "pause": 0.45,
+  "say": "Máikel tenía seis años cuando empezó a cantar con ellos. A los once, ya tenían cuatro números uno seguidos."
+ },
+ {
+  "id": "c4",
+  "text": "Su infancia se le fue en estudios, giras y hoteles. Contó que lloraba al ver a otros chicos jugar.",
+  "pause": 0.45
+ },
+ {
+  "id": "c5",
+  "text": "Su padre también se burlaba de su nariz. De chico, dijo, no podía mirarse al espejo.",
+  "pause": 0.6
+ },
+ {
+  "id": "c6",
+  "text": "En mil novecientos ochenta y dos sacó Thriller. Se convirtió en el disco más vendido de la historia.",
+  "pause": 0.4,
+  "say": "En mil novecientos ochenta y dos sacó Tríler. Se convirtió en el disco más vendido de la historia."
+ },
+ {
+  "id": "c7",
+  "text": "En mil novecientos ochenta y cuatro ganó ocho premios Grammy en una sola noche, un récord.",
+  "pause": 0.4,
+  "say": "En mil novecientos ochenta y cuatro ganó ocho premios Grámi en una sola noche, un récord."
+ },
+ {
+  "id": "c8",
+  "text": "Ese año, grabando un comercial, se le prendió fuego el pelo. Desde entonces empezó a tomar calmantes.",
+  "pause": 0.5
+ },
+ {
+  "id": "c9",
+  "text": "Su piel también empezó a cambiar. Muchos decían que se la aclaraba a propósito. La autopsia confirmó que tenía vitiligo.",
+  "pause": 0.55
+ },
+ {
+  "id": "c10",
+  "text": "Era el artista más famoso del planeta. Y uno de los hombres más solos.",
+  "pause": 0.5
+ },
+ {
+  "id": "c11",
+  "text": "En mil novecientos ochenta y ocho compró un rancho y lo llamó Neverland, como la isla de Peter Pan: el lugar donde los niños nunca crecen.",
+  "pause": 0.45,
+  "say": "En mil novecientos ochenta y ocho compró un rancho y lo llamó Néverland, como la isla de Píter Pan: el lugar donde los niños nunca crecen."
+ },
+ {
+  "id": "c12",
+  "text": "Cinco años después, ese rancho iba a cambiar su vida para siempre.",
+  "pause": 0.5
+ },
+ {
+  "id": "c13",
+  "text": "En la parte dos: las acusaciones, el juicio, y la noche en que su médico le dio la última dosis.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

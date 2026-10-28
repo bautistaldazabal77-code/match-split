@@ -1,0 +1,97 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "En marzo de mil novecientos sesenta y tres, un hombre de veintitrés años recibió por correo un rifle que había comprado con un nombre falso.",
+  "pause": 0.35
+ },
+ {
+  "id": "h2",
+  "text": "Según la investigación oficial, ocho meses después, con ese rifle, mató a un presidente.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Se llamaba Lee Harvey Oswald. Había vivido en la Unión Soviética y había vuelto casado con una rusa.",
+  "pause": 0.4,
+  "say": "Se llamaba Li Járvi Ósuald. Había vivido en la Unión Soviética y había vuelto casado con una rusa."
+ },
+ {
+  "id": "c2",
+  "text": "Su esposa, Marina, le sacó una foto en el patio: él, vestido de negro, con el rifle en una mano y diarios de izquierda en la otra.",
+  "pause": 0.45
+ },
+ {
+  "id": "c3",
+  "text": "En abril intentó matar a un general retirado de extrema derecha, Edwin Walker. La bala pegó en el marco de una ventana. Nadie supo que había sido él.",
+  "pause": 0.6,
+  "say": "En abril intentó matar a un general retirado de extrema derecha, Édwin Uóker. La bala pegó en el marco de una ventana. Nadie supo que había sido él."
+ },
+ {
+  "id": "c4",
+  "text": "El veintidós de noviembre, John F. Kennedy llegó a Dallas.",
+  "pause": 0.35,
+  "say": "El veintidós de noviembre, Yon Ef Kénedi llegó a Dálas."
+ },
+ {
+  "id": "c5",
+  "text": "A las doce y media, su auto descapotable dobló por la calle Elm, frente al depósito de libros escolares donde trabajaba Oswald.",
+  "pause": 0.4,
+  "say": "A las doce y media, su auto descapotable dobló por la calle Elm, frente al depósito de libros escolares donde trabajaba Ósuald."
+ },
+ {
+  "id": "c6",
+  "text": "Desde una ventana del sexto piso sonaron tres disparos.",
+  "pause": 0.5
+ },
+ {
+  "id": "c7",
+  "text": "Uno le atravesó el cuello. Otro le dio en la cabeza.",
+  "pause": 0.45
+ },
+ {
+  "id": "c8",
+  "text": "Kennedy murió a la una de la tarde, en el hospital Parkland.",
+  "pause": 0.5,
+  "say": "Kénedi murió a la una de la tarde, en el hospital Párkland."
+ },
+ {
+  "id": "c9",
+  "text": "Oswald salió caminando del edificio antes de que lo cerraran.",
+  "pause": 0.35,
+  "say": "Ósuald salió caminando del edificio antes de que lo cerraran."
+ },
+ {
+  "id": "c10",
+  "text": "Cuarenta y cinco minutos después, un policía, J. D. Tippit, lo paró en la calle. Oswald lo mató a tiros.",
+  "pause": 0.45,
+  "say": "Cuarenta y cinco minutos después, un policía, Yei Di Típit, lo paró en la calle. Ósuald lo mató a tiros."
+ },
+ {
+  "id": "c11",
+  "text": "Lo detuvieron en un cine, a oscuras, en plena película.",
+  "pause": 0.4
+ },
+ {
+  "id": "c12",
+  "text": "Esa noche les dijo a los periodistas: soy solo un chivo expiatorio.",
+  "pause": 0.5
+ },
+ {
+  "id": "c13",
+  "text": "Dos días después, ya no pudo decir nada más.",
+  "pause": 0.5
+ },
+ {
+  "id": "c14",
+  "text": "En la parte dos: el hombre que lo mató frente a las cámaras, y la pregunta que nunca se cerró: ¿actuó solo?",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

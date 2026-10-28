@@ -1,0 +1,91 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "En agosto de mil novecientos noventa y tres, un chico de trece años acusó a Michael Jackson de abuso.",
+  "pause": 0.35,
+  "say": "En agosto de mil novecientos noventa y tres, un chico de trece años acusó a Máikel Yákson de abuso."
+ },
+ {
+  "id": "h2",
+  "text": "Él lo negó. La policía registró Neverland. No hubo cargos.",
+  "pause": 0.6,
+  "say": "Él lo negó. La policía registró Néverland. No hubo cargos."
+ },
+ {
+  "id": "c1",
+  "text": "Al año siguiente, pagó un acuerdo millonario a la familia, sin admitir culpa. Dijo que lo hizo para terminar con el circo.",
+  "pause": 0.5
+ },
+ {
+  "id": "c2",
+  "text": "En dos mil tres, en un documental, dijo que compartía su cama con niños, y que no había nada sexual.",
+  "pause": 0.45
+ },
+ {
+  "id": "c3",
+  "text": "Meses después, la familia de otro chico lo denunció. Lo arrestaron y lo acusaron de abuso.",
+  "pause": 0.45
+ },
+ {
+  "id": "c4",
+  "text": "En dos mil cinco, el juicio duró más de tres meses. El jurado lo declaró no culpable de los catorce cargos.",
+  "pause": 0.6
+ },
+ {
+  "id": "c5",
+  "text": "Lo absolvieron. Pero nunca volvió a ser el mismo. Se fue de Estados Unidos y casi no volvió a cantar en vivo.",
+  "pause": 0.5
+ },
+ {
+  "id": "c6",
+  "text": "En dos mil nueve anunció cincuenta conciertos en Londres. Tenía cincuenta años y una deuda enorme.",
+  "pause": 0.4
+ },
+ {
+  "id": "c7",
+  "text": "No podía dormir. Su médico personal, Conrad Murray, le daba propofol, un anestésico que se usa en los quirófanos.",
+  "pause": 0.45,
+  "say": "No podía dormir. Su médico personal, Cónrad Múrrei, le daba propofol, un anestésico que se usa en los quirófanos."
+ },
+ {
+  "id": "c8",
+  "text": "El veinticinco de junio de dos mil nueve, después de una noche sin dormir, Murray le dio una dosis más y salió de la habitación.",
+  "pause": 0.5,
+  "say": "El veinticinco de junio de dos mil nueve, después de una noche sin dormir, Múrrei le dio una dosis más y salió de la habitación."
+ },
+ {
+  "id": "c9",
+  "text": "Cuando volvió, Michael no respiraba. Murió a los cincuenta años.",
+  "pause": 0.7,
+  "say": "Cuando volvió, Máikel no respiraba. Murió a los cincuenta años."
+ },
+ {
+  "id": "c10",
+  "text": "En dos mil once, Murray fue condenado por homicidio involuntario. Pasó menos de dos años en la cárcel.",
+  "pause": 0.5,
+  "say": "En dos mil once, Múrrei fue condenado por homicidio involuntario. Pasó menos de dos años en la cárcel."
+ },
+ {
+  "id": "c11",
+  "text": "En dos mil diecinueve, dos hombres lo acusaron en un documental. Su familia lo niega. Nunca hubo una condena.",
+  "pause": 0.5
+ },
+ {
+  "id": "c12",
+  "text": "Para unos, un genio que fue víctima de todos. Para otros, alguien que nunca rindió cuentas.",
+  "pause": 0.5
+ },
+ {
+  "id": "c13",
+  "text": "¿Y vos qué pensás? Te leo en los comentarios.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

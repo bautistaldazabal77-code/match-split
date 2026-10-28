@@ -1,0 +1,90 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "En diciembre de mil novecientos treinta y ocho, en Berlín, dos químicos partieron un átomo de uranio en dos.",
+  "pause": 0.35
+ },
+ {
+  "id": "h2",
+  "text": "Al partirse, liberaba energía. Muchísima energía.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Los físicos entendieron enseguida lo que eso significaba: se podía fabricar una bomba.",
+  "pause": 0.4
+ },
+ {
+  "id": "c2",
+  "text": "Y tenían miedo de que Hitler la tuviera primero: Alemania tenía físicos como Werner Heisenberg.",
+  "pause": 0.45,
+  "say": "Y tenían miedo de que Jítler la tuviera primero: Alemania tenía físicos como Vérner Jáisenberg."
+ },
+ {
+  "id": "c3",
+  "text": "En agosto de mil novecientos treinta y nueve, el físico Leo Szilard escribió una carta al presidente Roosevelt. La firmó el científico más famoso del mundo: Albert Einstein.",
+  "pause": 0.4,
+  "say": "En agosto de mil novecientos treinta y nueve, el físico Léo Sílard escribió una carta al presidente Rúsvelt. La firmó el científico más famoso del mundo: Álbert Áinstain."
+ },
+ {
+  "id": "c4",
+  "text": "La carta advertía que una sola bomba de ese tipo podía destruir un puerto entero.",
+  "pause": 0.55
+ },
+ {
+  "id": "c5",
+  "text": "Tres años después nació el Proyecto Manhattan. Al frente quedaron un general, Leslie Groves, y un físico, Robert Oppenheimer.",
+  "pause": 0.4,
+  "say": "Tres años después nació el Proyecto Manhattan. Al frente quedaron un general, Lésli Gróuvs, y un físico, Róbert Ópenjaimer."
+ },
+ {
+  "id": "c6",
+  "text": "En el desierto de Nuevo México construyeron una ciudad secreta: Los Álamos. No figuraba en ningún mapa.",
+  "pause": 0.4
+ },
+ {
+  "id": "c7",
+  "text": "En todo el país, unas ciento treinta mil personas trabajaron en el proyecto. Casi ninguna sabía qué estaba construyendo.",
+  "pause": 0.5
+ },
+ {
+  "id": "c8",
+  "text": "El dieciséis de julio de mil novecientos cuarenta y cinco, a las cinco y veintinueve de la mañana, probaron la primera bomba atómica de la historia. La llamaron Trinity.",
+  "pause": 0.4,
+  "say": "El dieciséis de julio de mil novecientos cuarenta y cinco, a las cinco y veintinueve de la mañana, probaron la primera bomba atómica de la historia. La llamaron Tríniti."
+ },
+ {
+  "id": "c9",
+  "text": "Antes, algunos científicos calcularon si la explosión podía incendiar la atmósfera. Concluyeron que no. Igual, nadie estaba del todo seguro.",
+  "pause": 0.5
+ },
+ {
+  "id": "c10",
+  "text": "El destello se vio a cientos de kilómetros. La arena del desierto se convirtió en vidrio.",
+  "pause": 0.5
+ },
+ {
+  "id": "c11",
+  "text": "Años después, Oppenheimer recordó una frase de un texto sagrado hindú: ahora me he convertido en la muerte, el destructor de mundos.",
+  "pause": 0.6,
+  "say": "Años después, Ópenjaimer recordó una frase de un texto sagrado hindú: ahora me he convertido en la muerte, el destructor de mundos."
+ },
+ {
+  "id": "c12",
+  "text": "Pero había un detalle: Alemania se había rendido dos meses antes. La carrera ya no tenía rival.",
+  "pause": 0.5
+ },
+ {
+  "id": "c13",
+  "text": "Tres semanas después, la bomba igual se usó. En la parte dos: Hiroshima.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

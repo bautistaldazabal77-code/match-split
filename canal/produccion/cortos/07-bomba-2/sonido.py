@@ -1,0 +1,21 @@
+"""Música, efectos y mezcla de "Pasó de verdad" · La bomba atómica, parte 2. Los momentos salen de timeline.json con las mismas cuentas que web/escenas.js."""
+import sys; sys.path.insert(0, '../comun')
+from sonido_reel import *
+R = Reel([(0, 'C'), ('c3', 'F'), ('c6', 'A'), ('c9', 'G'), ('c12', 'Dfin')]); S, AT, E = R.S, R.AT, R.E
+R.latido(0, 'h2', 70, .7); R.latido('c4', 'c5', 84); R.latido('c12', R.D - .5, 60, .8)
+place(R.sfx, jet(3.0, .35), .1); R.golpe(AT('h1', 'Hiroshima'), .6)
+place(R.sfx, whoosh(S('c1') - S('h2'), .35), S('h2'))
+a = S('c1') - .05; place(R.sfx, (hp(noise(1.2), 300) * np.exp(-tt(1.2) * 2) * .6).astype(F32), a); place(R.sfx, boom(1.3, 6), a); place(R.sfx, rumble(3, .4), a + .2)
+for i in range(12): R.tic(AT('c2', 'setenta') + i * .1, .25)
+R.foto(AT('c2', 'De algunas') - .1); R.zumbido(AT('c2', 'De algunas'), 3, 45, .15)
+R.foto(S('c3') - .1); R.sello(AT('c3', 'rindió'))
+place(R.sfx, jet(2.4, .25), S('c4')); place(R.sfx, thud(.4), AT('c4', 'Kokura')); place(R.sfx, thud(.4), AT('c4', 'Nagasaki'))
+a = S('c5'); place(R.sfx, boom(1.1, 6), a + .2); place(R.sfx, rumble(2.5, .35), a + .3)
+R.foto(S('c6') - .1); R.estatica(AT('c6', 'radio'), 1.5, .12)
+for i in range(12): R.tic(AT('c7', 'doscientas') + i * .1, .25)
+R.golpe(AT('c8', 'evitó'), .5)
+R.zumbido(S('c9'), E('c9') - S('c9') + .4, 40, .15); R.foto(S('c10') - .1)
+R.foto(S('c11') - .1); R.sello(AT('c11', 'quitaron')); R.sello(AT('c11', 'anuló'))
+for i in range(30): R.tic(AT('c12', 'doce') + i * .04, .18)
+R.golpe(S('c13'), 1.0); R.sello(S('outro') + .3)
+R.mezclar()

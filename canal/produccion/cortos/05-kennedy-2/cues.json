@@ -1,0 +1,88 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "El veinticuatro de noviembre de mil novecientos sesenta y tres, la policía de Dallas trasladaba a Lee Harvey Oswald frente a las cámaras de televisión.",
+  "pause": 0.35,
+  "say": "El veinticuatro de noviembre de mil novecientos sesenta y tres, la policía de Dálas trasladaba a Li Járvi Ósuald frente a las cámaras de televisión."
+ },
+ {
+  "id": "h2",
+  "text": "Un hombre salió de entre los periodistas y le disparó en el estómago.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Se llamaba Jack Ruby. Tenía un club nocturno en Dallas. Dijo que lo hizo para ahorrarle a la viuda de Kennedy el dolor de un juicio.",
+  "pause": 0.45,
+  "say": "Se llamaba Yac Rúbi. Tenía un club nocturno en Dálas. Dijo que lo hizo para ahorrarle a la viuda de Kénedi el dolor de un juicio."
+ },
+ {
+  "id": "c2",
+  "text": "Oswald murió en el mismo hospital que Kennedy. Nunca hubo juicio.",
+  "pause": 0.6,
+  "say": "Ósuald murió en el mismo hospital que Kénedi. Nunca hubo juicio."
+ },
+ {
+  "id": "c3",
+  "text": "Una comisión presidida por el juez Earl Warren concluyó en mil novecientos sesenta y cuatro que Oswald actuó solo.",
+  "pause": 0.45,
+  "say": "Una comisión presidida por el juez Erl Uórren concluyó en mil novecientos sesenta y cuatro que Ósuald actuó solo."
+ },
+ {
+  "id": "c4",
+  "text": "Pero para eso, una sola bala tenía que haber atravesado a Kennedy y herido cuatro veces al gobernador John Connally.",
+  "pause": 0.4,
+  "say": "Pero para eso, una sola bala tenía que haber atravesado a Kénedi y herido cuatro veces al gobernador Yon Cónali."
+ },
+ {
+  "id": "c5",
+  "text": "Esa bala apareció casi intacta en una camilla del hospital. Los críticos la llamaron la bala mágica.",
+  "pause": 0.55
+ },
+ {
+  "id": "c6",
+  "text": "Oswald también dijo que la foto del patio era un montaje. Un análisis de las sombras concluyó después que es auténtica.",
+  "pause": 0.5,
+  "say": "Ósuald también dijo que la foto del patio era un montaje. Un análisis de las sombras concluyó después que es auténtica."
+ },
+ {
+  "id": "c7",
+  "text": "En mil novecientos setenta y nueve, un comité del Congreso dijo lo contrario: que probablemente hubo una conspiración.",
+  "pause": 0.4
+ },
+ {
+  "id": "c8",
+  "text": "Se basaba en una grabación de la policía. Otro estudio concluyó después que esos sonidos no eran disparos.",
+  "pause": 0.5
+ },
+ {
+  "id": "c9",
+  "text": "Las teorías nunca pararon: la mafia, la CIA, la Unión Soviética. Ninguna se pudo probar.",
+  "pause": 0.45,
+  "say": "Las teorías nunca pararon: la mafia, la Sía, la Unión Soviética. Ninguna se pudo probar."
+ },
+ {
+  "id": "c10",
+  "text": "Entre dos mil diecisiete y dos mil veinticinco, el gobierno publicó cientos de miles de páginas secretas. No apareció la prueba de un segundo tirador.",
+  "pause": 0.45
+ },
+ {
+  "id": "c11",
+  "text": "Aun así, según las encuestas, la mayoría de los estadounidenses cree que Oswald no actuó solo.",
+  "pause": 0.5,
+  "say": "Aun así, según las encuestas, la mayoría de los estadounidenses cree que Ósuald no actuó solo."
+ },
+ {
+  "id": "c12",
+  "text": "¿Vos qué creés? ¿Actuó solo, o fue parte de algo más grande? Te leo en los comentarios.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

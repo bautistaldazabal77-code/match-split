@@ -1,0 +1,89 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "El seis de agosto de mil novecientos cuarenta y cinco, a las ocho y cuarto de la mañana, un avión llamado Enola Gay soltó una bomba sobre Hiroshima.",
+  "pause": 0.35,
+  "say": "El seis de agosto de mil novecientos cuarenta y cinco, a las ocho y cuarto de la mañana, un avión llamado Enóla Guéi soltó una bomba sobre Hiroshima."
+ },
+ {
+  "id": "h2",
+  "text": "Tardó cuarenta y tres segundos en caer.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Explotó a unos seiscientos metros sobre la ciudad. Se llamaba Little Boy.",
+  "pause": 0.45,
+  "say": "Explotó a unos seiscientos metros sobre la ciudad. Se llamaba Lítel Bói."
+ },
+ {
+  "id": "c2",
+  "text": "Unas setenta mil personas murieron en el acto. De algunas solo quedó la sombra marcada en la piedra.",
+  "pause": 0.6
+ },
+ {
+  "id": "c3",
+  "text": "Japón no se rindió.",
+  "pause": 0.5
+ },
+ {
+  "id": "c4",
+  "text": "Tres días después, otro avión salió hacia la ciudad de Kokura con una segunda bomba. Estaba nublado. Cambiaron de objetivo: Nagasaki.",
+  "pause": 0.45
+ },
+ {
+  "id": "c5",
+  "text": "A las once y dos de la mañana, Fat Man explotó sobre Nagasaki.",
+  "pause": 0.5
+ },
+ {
+  "id": "c6",
+  "text": "El quince de agosto, el emperador Hirohito anunció la rendición por radio. Era la primera vez que los japoneses escuchaban su voz.",
+  "pause": 0.5
+ },
+ {
+  "id": "c7",
+  "text": "Para fin de año, las dos bombas habían matado a más de doscientas mil personas.",
+  "pause": 0.55
+ },
+ {
+  "id": "c8",
+  "text": "Estados Unidos dijo que así evitó una invasión que habría costado muchas más vidas. Los historiadores todavía lo discuten.",
+  "pause": 0.45
+ },
+ {
+  "id": "c9",
+  "text": "Oppenheimer fue recibido como un héroe. Pero en octubre le dijo al presidente Truman: siento que tengo las manos manchadas de sangre.",
+  "pause": 0.45,
+  "say": "Ópenjaimer fue recibido como un héroe. Pero en octubre le dijo al presidente Trúman: siento que tengo las manos manchadas de sangre."
+ },
+ {
+  "id": "c10",
+  "text": "A Truman no le gustó. Dijo que no quería volver a verlo.",
+  "pause": 0.45,
+  "say": "A Trúman no le gustó. Dijo que no quería volver a verlo."
+ },
+ {
+  "id": "c11",
+  "text": "En mil novecientos cincuenta y cuatro, en plena Guerra Fría, le quitaron el acceso a los secretos que él mismo había ayudado a crear. Recién en dos mil veintidós el gobierno anuló esa decisión.",
+  "pause": 0.5
+ },
+ {
+  "id": "c12",
+  "text": "Hoy hay más de doce mil armas nucleares en el mundo.",
+  "pause": 0.6
+ },
+ {
+  "id": "c13",
+  "text": "¿Fue necesaria la bomba? Te leo en los comentarios.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

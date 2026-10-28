@@ -1,0 +1,21 @@
+"""Música, efectos y mezcla de "Pasó de verdad" · Kennedy, parte 2. Los momentos salen de timeline.json con las mismas cuentas que web/escenas.js."""
+import sys; sys.path.insert(0, '../comun')
+from sonido_reel import *
+R = Reel([(0, 'C'), ('c3', 'G'), ('c7', 'A'), ('c10', 'F'), ('c12', 'Dfin')]); S, AT, E = R.S, R.AT, R.E
+R.latido('h1', 'h2', 92, .8); R.latido('c9', 'c10', 80); R.latido('c12', R.D - .5, 66, .7)
+R.foto(.1); R.estatica(.05, .3, .15); place(R.sfx, beep(1000, .08, .1), AT('h1', 'cámaras'))
+R.flash(AT('h2', 'disparó')); R.golpe(AT('h2', 'disparó'), 1.0)
+for t in [S('c1'), S('c2'), S('c3'), S('c5'), S('c6')]: R.foto(t - .1)
+R.sello(AT('c2', 'Nunca')); R.sello(AT('c3', 'actuó solo'))
+R.zumbido(AT('c4', 'una sola bala'), 3, 70, .12)
+for k in range(4): R.tic(AT('c4', 'una sola bala') + .3 + k * .6, .4)
+R.golpe(AT('c5', 'mágica'), .7); R.sello(AT('c6', 'auténtica'))
+R.tic(S('c7') - .1); R.golpe(AT('c7', 'conspiración'), .7)
+R.estatica(AT('c8', 'grabación'), 1.2, .18); R.sello(AT('c8', 'no eran'))
+for w in ['mafia', 'CIA', 'Soviética']: place(R.sfx, thud(.35), AT('c9', w))
+R.sello(AT('c9', 'Ninguna'))
+for i in range(22): place(R.sfx, (hp(noise(.15), 2000) * np.exp(-tt(.15) * 20) * .15).astype(F32), S('c10') + .2 + i * .1)
+R.golpe(AT('c10', 'No apareció'), .6)
+for i in range(12): R.tic(AT('c11', 'mayoría') - .2 + i * .08, .2)
+R.golpe(S('c12'), 1.0); R.sello(S('outro') + .3)
+R.mezclar()
