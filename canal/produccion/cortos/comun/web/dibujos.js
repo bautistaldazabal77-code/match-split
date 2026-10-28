@@ -87,6 +87,59 @@ function banderaUS(parent, w = 180) {
   for (let r = 0; r < 5; r++) for (let c = 0; c < 6; c++) el('circle', { cx: w * .4 * (c + .5) / 6, cy: h * 7 / 13 * (r + .5) / 5, r: w / 140, fill: '#fff' }, g);
   return g;
 }
+// estrella de cinco puntas centrada en (x, y), radio r, girada `rot` grados
+const estrella = (x, y, r, rot = 0) => { let d = ''; for (let i = 0; i < 10; i++) { const a = (rot - 90 + i * 36) * Math.PI / 180, q = i % 2 ? r * .382 : r; d += (i ? 'L' : 'M') + (x + q * Math.cos(a)).toFixed(2) + ',' + (y + q * Math.sin(a)).toFixed(2); } return d + 'Z'; };
+function banderaCN(parent, w = 180) {
+  const g = el('g', {}, parent), h = w * 2 / 3, u = h / 20;
+  el('rect', { width: w, height: h, fill: '#de2910' }, g);
+  el('path', { d: estrella(5 * u, 5 * u, 3 * u), fill: '#ffde00' }, g);
+  for (const [x, y] of [[10, 2], [12, 4], [12, 7], [10, 9]]) el('path', { d: estrella(x * u, y * u, u, Math.atan2(y - 5, x - 5) * 180 / Math.PI + 90), fill: '#ffde00' }, g);
+  return g;
+}
+function banderaCL(parent, w = 180) {
+  const g = el('g', {}, parent), h = w * 2 / 3;
+  el('rect', { width: w, height: h, fill: '#d52b1e' }, g); el('rect', { width: w, height: h / 2, fill: '#fff' }, g);
+  el('rect', { width: h / 2, height: h / 2, fill: '#0039a6' }, g); el('path', { d: estrella(h / 4, h / 4, h / 8), fill: '#fff' }, g);
+  return g;
+}
+function banderaEU(parent, w = 180) {
+  const g = el('g', {}, parent), h = w * 2 / 3;
+  el('rect', { width: w, height: h, fill: '#003399' }, g);
+  for (let i = 0; i < 12; i++) { const a = i / 12 * 2 * Math.PI; el('path', { d: estrella(w / 2 + Math.cos(a) * h / 3, h / 2 + Math.sin(a) * h / 3, h / 18), fill: '#ffcc00' }, g); }
+  return g;
+}
+// ---------- Antena de espacio profundo (de costado), unos 360 px de alto; el plato gira con antena.apuntar(grados) ----------
+function antena(parent, o = {}) {
+  const g = el('g', {}, parent), col = o.col || '#d7dce2', sombra = o.sombra || '#9aa3ad';
+  el('path', { d: 'M-90,250 L-46,60 L46,60 L90,250 Z', fill: sombra }, g);
+  el('path', { d: 'M-46,60 L46,60 L90,250 L20,250 Z', fill: '#000', opacity: .18 }, g);
+  for (let i = 0; i < 4; i++) el('rect', { x: -80 + i * 10, y: 90 + i * 40, width: 160 - i * 20 + 10 * i, height: 6, fill: '#000', opacity: .15 }, g);
+  el('rect', { x: -60, y: 30, width: 120, height: 40, rx: 8, fill: col }, g);
+  const plato = el('g', {}, g);
+  el('path', { d: 'M-190,-10 Q0,110 190,-10 L176,-24 Q0,80 -176,-24 Z', fill: col }, plato);
+  el('path', { d: 'M-176,-24 Q0,80 176,-24 Q0,40 -176,-24 Z', fill: sombra, opacity: .7 }, plato);
+  el('path', { d: 'M-150,-12 L0,-150 L150,-12', fill: 'none', stroke: col, 'stroke-width': 6 }, plato);
+  el('rect', { x: -22, y: -168, width: 44, height: 22, rx: 6, fill: col }, plato);
+  el('path', { d: 'M-10,40 L-30,60 L30,60 L10,40 Z', fill: sombra }, plato);
+  const haz = el('path', { d: 'M-16,-170 L-120,-1200 L120,-1200 L16,-170 Z', fill: o.haz || '#8fd0ff', opacity: 0 }, plato);
+  plato.setAttribute('transform', 'translate(0 20)');
+  return { g, plato, haz, apuntar(a) { plato.setAttribute('transform', `translate(0 20) rotate(${a})`); } };
+}
+// ---------- Rompehielos (de costado, casco rojo), unos 640 px de largo, línea de flotación en y = 0 ----------
+function rompehielos(parent, o = {}) {
+  const g = el('g', {}, parent), casco = o.casco || '#c8341f';
+  el('path', { d: 'M-320,-60 L250,-60 L330,-20 L300,30 L-300,30 L-320,0 Z', fill: casco }, g);
+  el('path', { d: 'M-320,0 L-300,30 L300,30 L316,6 Z', fill: '#000', opacity: .3 }, g);
+  el('rect', { x: -230, y: -150, width: 300, height: 92, fill: '#e9e6df' }, g);
+  el('rect', { x: -150, y: -230, width: 170, height: 82, fill: '#e9e6df' }, g);
+  el('rect', { x: -120, y: -282, width: 110, height: 54, fill: '#d9d5cc' }, g);
+  for (let i = 0; i < 6; i++) el('rect', { x: -215 + i * 46, y: -132, width: 28, height: 18, fill: '#2b3440' }, g);
+  for (let i = 0; i < 4; i++) el('rect', { x: -140 + i * 38, y: -214, width: 24, height: 16, fill: '#2b3440' }, g);
+  el('rect', { x: 90, y: -120, width: 26, height: 60, fill: '#c8341f' }, g); el('rect', { x: 90, y: -126, width: 26, height: 10, fill: '#222' }, g);
+  el('path', { d: 'M-80,-282 L-80,-340 M-100,-320 L-60,-320', stroke: '#cfd3d8', 'stroke-width': 5 }, g);
+  el('rect', { x: -300, y: -86, width: 60, height: 26, fill: '#3a4450' }, g);
+  return g;
+}
 // ---------- Edificios ----------
 // Casa Rosada de noche (fachada simplificada), unos 900 px de ancho, base en y = 0
 function casaRosada(parent, luz = 0) {

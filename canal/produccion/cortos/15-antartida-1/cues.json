@@ -1,0 +1,86 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "Dicen que en dos mil cuarenta y ocho se termina el Tratado Antártico. Es mentira.",
+  "pause": 0.45
+ },
+ {
+  "id": "h2",
+  "text": "Pero ese año sí puede pasar algo. Esto es ficción política, con datos reales.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Primero, lo real. En mil novecientos cincuenta y nueve, doce países, entre ellos la Argentina, firmaron el Tratado Antártico y congelaron los reclamos de soberanía.",
+  "pause": 0.45
+ },
+ {
+  "id": "c2",
+  "text": "Pero los reclamos siguen ahí. La Argentina reclama este sector. Chile, este. Y el Reino Unido, este otro. Los tres se pisan.",
+  "pause": 0.6
+ },
+ {
+  "id": "c3",
+  "text": "La Argentina está desde mil novecientos cuatro: la base Orcadas es la más antigua de la Antártida que sigue habitada.",
+  "pause": 0.5
+ },
+ {
+  "id": "c4",
+  "text": "Y ahora, el dato que casi nadie conoce.",
+  "pause": 0.4
+ },
+ {
+  "id": "c5",
+  "text": "En mil novecientos noventa y uno se firmó el Protocolo de Madrid, que prohíbe la minería en la Antártida. Desde dos mil cuarenta y ocho, cualquiera de los países con voto puede pedir revisarlo.",
+  "pause": 0.5
+ },
+ {
+  "id": "c6",
+  "text": "Y hay con qué tentarse: barcos rusos hicieron estudios sísmicos, y una estimación rusa habló de quinientos once mil millones de barriles de petróleo. Rusia dice que es ciencia.",
+  "pause": 0.6
+ },
+ {
+  "id": "c7",
+  "text": "Desde acá, ficción.",
+  "pause": 0.45
+ },
+ {
+  "id": "c8",
+  "text": "Valentina tiene veintitrés años. Nació en la base Esperanza, como Emilio Palma, el primer bebé nacido en la Antártida, en mil novecientos setenta y ocho.",
+  "pause": 0.5
+ },
+ {
+  "id": "c9",
+  "text": "Enero de dos mil cuarenta y ocho. Valentina trabaja en la base Marambio cuando llega la noticia: un grupo de países, encabezado por Rusia, pide revisar la prohibición.",
+  "pause": 0.5
+ },
+ {
+  "id": "c10",
+  "text": "Nueve días después, en el radar aparece un buque sísmico en el mar de Weddell, justo en la zona que reclaman la Argentina, Chile y el Reino Unido.",
+  "pause": 0.5,
+  "say": "Nueve días después, en el radar aparece un buque sísmico en el mar de Uédel, justo en la zona que reclaman la Argentina, Chile y el Reino Unido."
+ },
+ {
+  "id": "c11",
+  "text": "Ninguno de los tres lo invitó.",
+  "pause": 0.6
+ },
+ {
+  "id": "c12",
+  "text": "¿A quién llama primero la Argentina: a Santiago o a Londres? En la parte dos, quién se queda con qué.",
+  "pause": 0.4
+ },
+ {
+  "id": "c13",
+  "text": "¿Vos qué harías? Te leo en los comentarios.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 3.0
+ }
+]

@@ -1,0 +1,42 @@
+"""Música, efectos y mezcla de "¿Y si…? La antena china de Neuquén", parte 1. Los momentos salen de timeline.json con las mismas cuentas que web/escenas.js."""
+import sys; sys.path.insert(0, '../comun')
+from sonido_reel import *
+R = Reel([(0, 'D'), ('c1', 'A'), ('c3', 'F'), ('c5', 'D'), ('c7', 'Bb'), ('c9', 'A'), ('c11', 'G'), ('c13', 'D'), ('c14', 'Dfin')]); S, AT, E = R.S, R.AT, R.E
+AF = lambda c, f: AT(c, f) - .15
+# gancho: la antena en la noche
+R.zumbido(0, S('h2'), 48, .14); R.golpe(.05, .9); place(R.sfx, ping(.18, 900), .4)
+R.sello(AF('h1', 'treinta')); R.golpe(AF('h1', 'Es de China'), .8)
+for i in range(6): R.tic(AT('h1', 'cincuenta') - .3 + i * .12, .3)
+R.sello(AT('h1', 'años'))
+R.golpe(S('h2') - .05, .7); R.sello(AF('h2', 'ficción'))
+# lo real
+place(R.sfx, whoosh(1.0, .3), S('c1') - .4); R.tic(AF('c1', 'Bajada'), .5); R.foto(AF('c1', 'doscientas'))
+for i in range(5): R.tic(AT('c1', 'doscientas') + i * .14, .25)
+R.sello(AF('c1', 'Funciona') + .2)
+R.foto(S('c2') - .1); R.sello(AF('c2', 'Ejército')); R.foto(AF('c2', 'China dice'))
+place(R.sfx, chime(.18, 880), AF('c2', 'Luna')); place(R.sfx, chime(.18, 660), AF('c2', 'Marte'))
+R.golpe(S('c3') - .05, .6); R.foto(AF('c3', 'los trabajadores')); R.sello(AF('c3', 'leyes'))
+R.foto(AF('c3', 'y la Argentina')); R.sello(AF('c3', 'diez'))
+R.foto(S('c4') - .1)
+for i in range(5): place(R.sfx, beep(1300, .06, .12), AT('c4', 'equipos') - .3 + i * .28)
+R.foto(AF('c4', 'La Fuerza')); R.teclas(AT('c4', 'aunque') - .3, AT('c4', 'sensibles') + .2, .1)
+# la ficción
+R.golpe(S('c5') - .05, 1.0); R.estatica(S('c5') - .05, .6, .3)
+R.foto(S('c6') - .1); place(R.sfx, chime(.16, 990), AF('c6', 'diez'))
+R.latido(S('c7'), S('c9'), 92, .8)
+R.teclas(S('c7') + .2, AT('c7', 'raro'), .1); bips(R.sfx, AF('c7', 'raro'), 3, 1500, .16)
+R.foto(AF('c7', 'La antena') - .05); R.zumbido(AT('c7', 'satélite'), 2.0, 70, .14)
+R.foto(S('c8') - .1); place(R.sfx, whoosh(1.6, .3), AF('c8', 'Tres')); place(R.sfx, ring(1.6, .2), AF('c8', 'Washington'))
+R.foto(S('c9') - .1)
+for i in range(8): R.tic(AT('c9', 'veinte') - .3 + i * .12, .25)
+R.foto(AF('c9', 'el secretario')); R.sello(AF('c9', 'bases'))
+R.foto(S('c10') - .1); R.sello(AF('c10', 'cerrar') + .1); R.golpe(AF('c10', 'cerrar'), .6)
+R.foto(S('c11') - .1)
+for i in range(8): R.tic(AT('c11', 'dieciocho') - .3 + i * .12, .25)
+R.foto(AF('c11', 'y es la')); R.latido(S('c12'), S('c14'), 84, .7)
+R.golpe(S('c12'), .7); R.sello(AF('c12', 'todo') + .1)
+R.foto(S('c13') - .1); R.golpe(AF('c13', 'En la parte'), .9)
+R.foto(S('c14') - .1)
+for i in range(4): place(R.sfx, pop(.3, 1100 + i * 120), AT('c14', 'comentarios') - .2 + i * .25)
+R.golpe(S('outro') + .1, 1.0); R.sello(S('outro') + .5)
+R.mezclar()

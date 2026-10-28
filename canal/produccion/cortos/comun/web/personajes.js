@@ -1,10 +1,13 @@
 // Bustos de los personajes (SVG de 600 x 700). o.ropa: color del uniforme; o.chaleco: chaleco naranja reflectivo;
-// o.casco: casco blanco de obra; o.gorro: gorro de lana de marino; o.parche: parche con la bandera argentina en el hombro.
+// o.casco: casco blanco de obra; o.gorro: gorro de lana de marino; o.parche: parche con la bandera argentina en el hombro;
+// o.pelo: color de pelo largo (personajes mujeres); o.capucha: color de la capucha de una campera antártica, con borde de piel.
 function busto(o = {}) {
   const id = 'b' + Math.random().toString(36).slice(2, 7), ropa = o.ropa || '#1d2a3b', piel = o.piel || '#d79f7b';
   return `<svg viewBox="0 0 600 700" style="width:100%;height:100%">
   <defs><radialGradient id="${id}" cx=".5" cy=".55" r=".5"><stop offset="0" stop-color="${o.halo || '#ffb23e'}" stop-opacity=".22"/><stop offset="1" stop-color="${o.halo || '#ffb23e'}" stop-opacity="0"/></radialGradient></defs>
   <ellipse cx="300" cy="380" rx="300" ry="320" fill="url(#${id})"/>
+  ${o.capucha ? `<path d="M168,330 C160,170 230,120 300,120 C370,120 440,170 432,330 C430,420 400,486 300,498 C200,486 170,420 168,330 Z" fill="${o.capucha}"/>` : ''}
+  ${o.pelo ? `<path d="M204,300 C196,190 246,158 300,158 C354,158 404,190 396,300 L412,500 C380,520 220,520 188,500 Z" fill="${o.pelo}"/>` : ''}
   <path d="M40,700 C52,560 140,500 228,482 L372,482 C460,500 548,560 560,700 Z" fill="${ropa}"/>
   ${o.chaleco ? `<path d="M80,700 C92,582 150,522 230,496 L268,566 L258,700 Z" fill="#ff7a1a"/><path d="M520,700 C508,582 450,522 370,496 L332,566 L342,700 Z" fill="#ff7a1a"/>
   <path d="M86,612 L262,612 L262,634 L83,640 Z M80,660 L260,660 L259,684 L79,688 Z M514,612 L338,612 L338,634 L517,640 Z M520,660 L340,660 L341,684 L521,688 Z" fill="#e3e8ec"/>` :
@@ -24,6 +27,8 @@ function busto(o = {}) {
   <circle cx="269" cy="296" r="2" fill="#fff" opacity=".8"/><circle cx="337" cy="296" r="2" fill="#fff" opacity=".8"/>
   <path d="M302,296 Q298,334 289,348 Q299,356 312,349" stroke="#a5684f" stroke-width="5" fill="none" stroke-linecap="round"/>
   <path d="M278,386 Q300,393 322,386" stroke="#7d4636" stroke-width="6" fill="none" stroke-linecap="round"/>
+  ${o.pelo ? `<path d="M214,290 C210,214 254,178 300,178 C352,178 392,216 386,290 C372,240 336,220 292,222 C258,224 230,250 214,290 Z" fill="${o.pelo}"/>` : ''}
+  ${o.capucha ? `<path d="M180,330 C172,186 236,140 300,140 C364,140 428,186 420,330 C430,240 392,170 300,166 C208,170 170,240 180,330 Z M300,140 C236,140 172,186 180,330" fill="none" stroke="#e8e0d0" stroke-width="26" stroke-linecap="round"/>` : ''}
   ${o.casco ? `<path d="M198,266 C198,170 244,120 300,120 C356,120 402,170 402,266 Z" fill="#f2f4f6"/><path d="M300,120 C356,120 402,170 402,266 L330,266 C340,200 330,150 300,120 Z" fill="#c9ced5" opacity=".6"/>
   <path d="M288,123 L312,123 L316,264 L284,264 Z" fill="#dde1e6"/><path d="M178,262 Q300,242 422,262 L424,282 Q300,266 176,282 Z" fill="#e4e8ec"/><rect x="280" y="186" width="40" height="26" rx="7" fill="#2b2f36"/><circle cx="300" cy="199" r="8" fill="#ffe9a8"/>` : ''}
   ${o.gorro ? `<path d="M206,262 C200,170 246,128 300,128 C354,128 400,170 394,262 Z" fill="${o.gorro}"/><path d="M200,236 Q300,214 400,236 L402,270 Q300,250 198,270 Z" fill="#000" opacity=".3"/>

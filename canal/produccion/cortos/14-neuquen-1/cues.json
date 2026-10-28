@@ -1,0 +1,93 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "En el medio de la Patagonia hay una antena de treinta y cinco metros que mira al espacio. Es de China, y tiene contrato por cincuenta años.",
+  "pause": 0.45
+ },
+ {
+  "id": "h2",
+  "text": "¿Y si Washington pidiera cerrarla? Esto es ficción política, con datos reales.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Primero, lo real. La estación está en Bajada del Agrio, Neuquén: doscientas hectáreas en el desierto. Funciona desde dos mil dieciocho.",
+  "pause": 0.45
+ },
+ {
+  "id": "c2",
+  "text": "La opera una agencia vinculada al Ejército Popular de Liberación. China dice que es solo para ciencia: sigue sus misiones a la Luna y a Marte.",
+  "pause": 0.5
+ },
+ {
+  "id": "c3",
+  "text": "Y un dato que casi nadie conoce: los trabajadores chinos se rigen por las leyes laborales de China, y la Argentina solo usa el diez por ciento del tiempo de la antena.",
+  "pause": 0.5
+ },
+ {
+  "id": "c4",
+  "text": "En agosto de dos mil veintiséis, China pidió sumar equipos. La Fuerza Aérea advirtió que, aunque no haya antena nueva, puede haber más capacidades sensibles.",
+  "pause": 0.6
+ },
+ {
+  "id": "c5",
+  "text": "Desde acá, ficción.",
+  "pause": 0.45
+ },
+ {
+  "id": "c6",
+  "text": "Sofía tiene veintiséis años. Es radioastrónoma de la CONAE y trabaja en ese diez por ciento argentino.",
+  "pause": 0.45,
+  "say": "Sofía tiene veintiséis años. Es radioastrónoma de la Conáe y trabaja en ese diez por ciento argentino."
+ },
+ {
+  "id": "c7",
+  "text": "Una noche, en su turno, ve algo raro en los registros. La antena no apunta a la Luna: sigue a un satélite que pasa sobre el Atlántico Sur.",
+  "pause": 0.5
+ },
+ {
+  "id": "c8",
+  "text": "Sofía guarda una copia. Tres días después, ese archivo está en Washington.",
+  "pause": 0.5
+ },
+ {
+  "id": "c9",
+  "text": "No saldría de la nada: en dos mil veinticinco, con el swap de veinte mil millones de dólares, el secretario del Tesoro de Estados Unidos ya habló de las bases y los centros de observación chinos en la Argentina.",
+  "pause": 0.45,
+  "say": "No saldría de la nada: en dos mil veinticinco, con el suap de veinte mil millones de dólares, el secretario del Tesoro de Estados Unidos ya habló de las bases y los centros de observación chinos en la Argentina."
+ },
+ {
+  "id": "c10",
+  "text": "En esta historia, el pedido es directo: cerrar la estación de Neuquén.",
+  "pause": 0.5
+ },
+ {
+  "id": "c11",
+  "text": "Pero China también presiona: tiene un swap de unos dieciocho mil millones de dólares con el Banco Central, y es la principal compradora de carne argentina.",
+  "pause": 0.5,
+  "say": "Pero China también presiona: tiene un suap de unos dieciocho mil millones de dólares con el Banco Central, y es la principal compradora de carne argentina."
+ },
+ {
+  "id": "c12",
+  "text": "Pekín avisa que, si se rompe el contrato, revisa todo lo demás.",
+  "pause": 0.5
+ },
+ {
+  "id": "c13",
+  "text": "La Argentina, en el medio. ¿Cierra la antena o la mantiene? En la parte dos, la decisión.",
+  "pause": 0.4
+ },
+ {
+  "id": "c14",
+  "text": "¿Vos qué harías? Te leo en los comentarios.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 3.0
+ }
+]

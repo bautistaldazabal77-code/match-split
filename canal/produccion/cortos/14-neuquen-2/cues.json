@@ -1,0 +1,93 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "Washington pide cerrar la antena china de Neuquén. Pekín amenaza. ¿Qué hace la Argentina?",
+  "pause": 0.45
+ },
+ {
+  "id": "h2",
+  "text": "Parte dos. Ficción política, con datos reales.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Primero, Sofía. La citan a declarar. Su copia de los registros es lo que todos quieren ver.",
+  "pause": 0.45
+ },
+ {
+  "id": "c2",
+  "text": "Y acá aparece un dato real: en dos mil dieciséis, la Argentina y China firmaron que la estación es solo para uso civil.",
+  "pause": 0.45
+ },
+ {
+  "id": "c3",
+  "text": "Si se probara un uso militar, la Argentina tendría con qué reclamar. El problema es probarlo.",
+  "pause": 0.5
+ },
+ {
+  "id": "c4",
+  "text": "Y no sería la primera inspección. En abril de dos mil veinticuatro, la Cancillería, el ENACOM y la CONAE ya recorrieron la base, y concluyeron que se cumplían los fines pacíficos.",
+  "pause": 0.5,
+  "say": "Y no sería la primera inspección. En abril de dos mil veinticuatro, la Cancillería, el Enacom y la Conáe ya recorrieron la base, y concluyeron que se cumplían los fines pacíficos."
+ },
+ {
+  "id": "c5",
+  "text": "En esta historia, la Argentina elige un camino del medio: una inspección total, con la Fuerza Aérea, la CONAE y los servicios de inteligencia.",
+  "pause": 0.45,
+  "say": "En esta historia, la Argentina elige un camino del medio: una inspección total, con la Fuerza Aérea, la Conáe y los servicios de inteligencia."
+ },
+ {
+  "id": "c6",
+  "text": "China acepta a medias: abre la sala de control, pero no los servidores.",
+  "pause": 0.55
+ },
+ {
+  "id": "c7",
+  "text": "Y entonces aparece otro dato real que casi nadie conoce.",
+  "pause": 0.4
+ },
+ {
+  "id": "c8",
+  "text": "En Malargüe, Mendoza, hay otra antena de treinta y cinco metros. Es de la Agencia Espacial Europea, tiene un acuerdo por cincuenta años y también le deja a la Argentina hasta el diez por ciento del tiempo.",
+  "pause": 0.5
+ },
+ {
+  "id": "c9",
+  "text": "La diferencia no es la antena. Es quién la opera.",
+  "pause": 0.6
+ },
+ {
+  "id": "c10",
+  "text": "Día veinte. Washington ofrece inversiones si la estación pasa a control argentino.",
+  "pause": 0.45
+ },
+ {
+  "id": "c11",
+  "text": "Pekín ofrece lo contrario: más compras y el swap renovado, si todo sigue igual.",
+  "pause": 0.5,
+  "say": "Pekín ofrece lo contrario: más compras y el suap renovado, si todo sigue igual."
+ },
+ {
+  "id": "c12",
+  "text": "Y Sofía vuelve a su turno. Ahora, cada noche, dos potencias miran la misma pantalla que ella.",
+  "pause": 0.6
+ },
+ {
+  "id": "c13",
+  "text": "¿Podría pasar? La antena existe. El pedido de equipos nuevos existe. Y la presión de Washington, también.",
+  "pause": 0.45
+ },
+ {
+  "id": "c14",
+  "text": "¿Vos la cerrarías o la dejarías? Te leo en los comentarios.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 3.0
+ }
+]
