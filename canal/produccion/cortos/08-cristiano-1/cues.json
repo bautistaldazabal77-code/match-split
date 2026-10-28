@@ -1,0 +1,78 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "Su madre contó que, cuando quedó embarazada, pensó en no tenerlo.",
+  "pause": 0.4
+ },
+ {
+  "id": "h2",
+  "text": "Ese bebé se llamaba Cristiano Ronaldo.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Nació en mil novecientos ochenta y cinco en Madeira, una isla de Portugal, en una casa humilde.",
+  "pause": 0.4,
+  "say": "Nació en mil novecientos ochenta y cinco en Madéira, una isla de Portugal, en una casa humilde."
+ },
+ {
+  "id": "c2",
+  "text": "Su padre era utilero en un club de barrio y tenía problemas con el alcohol.",
+  "pause": 0.5
+ },
+ {
+  "id": "c3",
+  "text": "A los doce años lo fichó el Sporting de Lisboa. Se fue solo, a casi mil kilómetros de su familia.",
+  "pause": 0.45,
+  "say": "A los doce años lo fichó el Spórting de Lisboa. Se fue solo, a casi mil kilómetros de su familia."
+ },
+ {
+  "id": "c4",
+  "text": "En Lisboa se burlaban de su acento. Lloraba casi todos los días. Sus compañeros le decían el llorón.",
+  "pause": 0.5
+ },
+ {
+  "id": "c5",
+  "text": "A los quince le detectaron un problema en el corazón: latía demasiado rápido. Lo operaron, y a los pocos días ya estaba entrenando.",
+  "pause": 0.5
+ },
+ {
+  "id": "c6",
+  "text": "A los dieciocho jugó un amistoso contra el Manchester United. Esa misma semana, el club inglés lo fichó.",
+  "pause": 0.45,
+  "say": "A los dieciocho jugó un amistoso contra el Mánchester Iunáited. Esa misma semana, el club inglés lo fichó."
+ },
+ {
+  "id": "c7",
+  "text": "Le dieron la camiseta número siete, la de las leyendas del club.",
+  "pause": 0.4
+ },
+ {
+  "id": "c8",
+  "text": "Al principio lo criticaban por egoísta y por adornarse con la pelota.",
+  "pause": 0.45
+ },
+ {
+  "id": "c9",
+  "text": "En dos mil cinco murió su padre, por el alcohol. Cristiano tenía veinte años. Desde entonces, contó, casi no toma alcohol.",
+  "pause": 0.6
+ },
+ {
+  "id": "c10",
+  "text": "En dos mil ocho ganó su primer Balón de Oro. Y entonces empezaron a llamarlo arrogante.",
+  "pause": 0.5
+ },
+ {
+  "id": "c11",
+  "text": "En la parte dos: por qué no le importó.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

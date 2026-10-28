@@ -1,0 +1,79 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "En dos mil diecisiete, un chico de dieciocho años subió un video contando del uno al cien mil.",
+  "pause": 0.4
+ },
+ {
+  "id": "h2",
+  "text": "Tardó unas cuarenta horas. Se volvió viral.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Se llamaba Jimmy Donaldson. En internet, MrBeast.",
+  "pause": 0.4,
+  "say": "Se llamaba Yími Dónaldson. En internet, Míster Bist."
+ },
+ {
+  "id": "c2",
+  "text": "Subía videos desde los trece años. Dejó la universidad para dedicarse solo a YouTube.",
+  "pause": 0.45,
+  "say": "Subía videos desde los trece años. Dejó la universidad para dedicarse solo a Iutúb."
+ },
+ {
+  "id": "c3",
+  "text": "Y encontró una fórmula: retos imposibles, y dinero. Mucho dinero.",
+  "pause": 0.5
+ },
+ {
+  "id": "c4",
+  "text": "Ese mismo año le regaló diez mil dólares a una persona sin hogar. El dinero era de un patrocinador.",
+  "pause": 0.45
+ },
+ {
+  "id": "c5",
+  "text": "Todo lo que ganaba, lo volvía a poner en los videos.",
+  "pause": 0.45
+ },
+ {
+  "id": "c6",
+  "text": "Regaló autos, casas, hasta una isla. Recreó El juego del calamar con cuatrocientas cincuenta y seis personas.",
+  "pause": 0.45
+ },
+ {
+  "id": "c7",
+  "text": "Juntó veinte millones de dólares para plantar árboles, y otros treinta millones para sacar basura del mar.",
+  "pause": 0.45
+ },
+ {
+  "id": "c8",
+  "text": "En dos mil veinticuatro se convirtió en el canal con más suscriptores del mundo.",
+  "pause": 0.5
+ },
+ {
+  "id": "c9",
+  "text": "Para millones, era el youtuber más generoso del planeta.",
+  "pause": 0.45,
+  "say": "Para millones, era el iutúber más generoso del planeta."
+ },
+ {
+  "id": "c10",
+  "text": "Pero no para todos. En enero de dos mil veintitrés subió un video que dividió a internet.",
+  "pause": 0.5
+ },
+ {
+  "id": "c11",
+  "text": "En la parte dos: la crítica más grande que enfrentó MrBeast.",
+  "pause": 0.3,
+  "say": "En la parte dos: la crítica más grande que enfrentó Míster Bist."
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

@@ -1,0 +1,26 @@
+{
+ "biblioteca.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:Vista_a_la_Universidad_Nacional_Aut%C3%B3noma_de_M%C3%A9xico.jpg",
+  "corto": "Foto: Menazk · CC BY-SA 4.0",
+  "autor": "Menazk",
+  "licencia": "CC BY-SA 4.0"
+ },
+ "cu.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:Mexico_city_Universidad_Nacional_Aut%C3%B3noma_de_M%C3%A9xico_UNAM.JPG",
+  "corto": "Foto: Arne Müseler / arne-mueseler.com · CC BY-SA 3.0 DE",
+  "autor": "Arne Müseler / arne-mueseler.com",
+  "licencia": "CC BY-SA 3.0 DE"
+ },
+ "medicina.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:Medical_school_building%2C_UNAM_campus%2C_Mexico_City.jpg",
+  "corto": "Foto: Daniel Case · CC BY-SA 3.0",
+  "autor": "Daniel Case",
+  "licencia": "CC BY-SA 3.0"
+ },
+ "mural.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:Mural_UNAM.jpg",
+  "corto": "Foto: Naomi Ibuki · CC BY 2.0",
+  "autor": "Naomi Ibuki",
+  "licencia": "CC BY 2.0"
+ }
+}

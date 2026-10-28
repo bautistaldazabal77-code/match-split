@@ -1,0 +1,82 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "En diciembre de mil novecientos noventa y cuatro, un científico mexicano desapareció cuatro días antes de su cumpleaños.",
+  "pause": 0.4
+ },
+ {
+  "id": "h2",
+  "text": "Nunca lo encontraron.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Se llamaba Jacobo Grinberg. Era neurofisiólogo e investigador de la UNAM, la universidad más grande de México.",
+  "pause": 0.4,
+  "say": "Se llamaba Jacobo Grínberg. Era neurofisiólogo e investigador de la unám, la universidad más grande de México."
+ },
+ {
+  "id": "c2",
+  "text": "Se había doctorado en Nueva York y escribió más de cincuenta libros.",
+  "pause": 0.4
+ },
+ {
+  "id": "c3",
+  "text": "Pero no investigaba lo de siempre. Quería entender la conciencia: qué pasa en el cerebro cuando pensamos, meditamos o nos conectamos con otra persona.",
+  "pause": 0.45
+ },
+ {
+  "id": "c4",
+  "text": "Hizo experimentos con parejas que meditaban juntas. Según él, aunque estuvieran en cuartos aislados, sus cerebros mostraban patrones parecidos.",
+  "pause": 0.45
+ },
+ {
+  "id": "c5",
+  "text": "Para explicarlo creó la teoría sintérgica: la realidad sería un gran campo de información, y el cerebro, una especie de antena.",
+  "pause": 0.45
+ },
+ {
+  "id": "c6",
+  "text": "La mayoría de los científicos nunca la aceptó.",
+  "pause": 0.5
+ },
+ {
+  "id": "c7",
+  "text": "Para entender la conciencia, Grinberg pasó años con chamanes y curanderos de México.",
+  "pause": 0.4,
+  "say": "Para entender la conciencia, Grínberg pasó años con chamanes y curanderos de México."
+ },
+ {
+  "id": "c8",
+  "text": "La más famosa fue Pachita, una curandera que, según él, operaba a sus pacientes con un cuchillo y sin anestesia.",
+  "pause": 0.45
+ },
+ {
+  "id": "c9",
+  "text": "Escribió un libro sobre ella. Dijo que lo que vio no tenía explicación.",
+  "pause": 0.5
+ },
+ {
+  "id": "c10",
+  "text": "Muchos colegas empezaron a mirarlo con desconfianza.",
+  "pause": 0.5
+ },
+ {
+  "id": "c11",
+  "text": "Y entonces, un día de diciembre, simplemente dejó de aparecer.",
+  "pause": 0.5
+ },
+ {
+  "id": "c12",
+  "text": "En la parte dos: las pistas, las teorías, y la pregunta que sigue abierta.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

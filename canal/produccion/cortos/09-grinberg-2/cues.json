@@ -1,0 +1,83 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "El doce de diciembre de mil novecientos noventa y cuatro, Jacobo Grinberg cumplía cuarenta y ocho años.",
+  "pause": 0.4,
+  "say": "El doce de diciembre de mil novecientos noventa y cuatro, Jacobo Grínberg cumplía cuarenta y ocho años."
+ },
+ {
+  "id": "h2",
+  "text": "Su familia lo esperaba para festejar. Nunca llegó.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Según su familia, días antes había dicho que esperaba una invitación para viajar a la India.",
+  "pause": 0.45
+ },
+ {
+  "id": "c2",
+  "text": "Pero, según la investigación, no hay registro de que haya salido de México.",
+  "pause": 0.5
+ },
+ {
+  "id": "c3",
+  "text": "Y había otro detalle: su esposa, Teresa, también desapareció. Tampoco la encontraron.",
+  "pause": 0.6
+ },
+ {
+  "id": "c4",
+  "text": "Las teorías se multiplicaron.",
+  "pause": 0.45
+ },
+ {
+  "id": "c5",
+  "text": "Que se fue por su cuenta, a vivir lejos de todos, como los chamanes que estudiaba.",
+  "pause": 0.45
+ },
+ {
+  "id": "c6",
+  "text": "Que alguien se lo llevó por lo que investigaba. Hubo quienes señalaron a la CIA, sin ninguna prueba.",
+  "pause": 0.45,
+  "say": "Que alguien se lo llevó por lo que investigaba. Hubo quienes señalaron a la Sía, sin ninguna prueba."
+ },
+ {
+  "id": "c7",
+  "text": "Que le pasó algo, y alguien cercano sabe más de lo que dijo.",
+  "pause": 0.45
+ },
+ {
+  "id": "c8",
+  "text": "Y las más fantásticas: que logró lo que su teoría decía, y desapareció en otra realidad.",
+  "pause": 0.5
+ },
+ {
+  "id": "c9",
+  "text": "Ninguna se pudo probar.",
+  "pause": 0.5
+ },
+ {
+  "id": "c10",
+  "text": "Pasaron más de treinta años. No hay cuerpo, no hay pistas firmes, no hay culpables.",
+  "pause": 0.5
+ },
+ {
+  "id": "c11",
+  "text": "Sus libros, en cambio, se venden más que nunca.",
+  "pause": 0.5
+ },
+ {
+  "id": "c12",
+  "text": "¿Qué creés que le pasó a Jacobo Grinberg? Te leo en los comentarios.",
+  "pause": 0.3,
+  "say": "¿Qué creés que le pasó a Jacobo Grínberg? Te leo en los comentarios."
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

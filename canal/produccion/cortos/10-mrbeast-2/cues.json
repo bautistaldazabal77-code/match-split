@@ -1,0 +1,82 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "Mil personas ciegas ven por primera vez. Así se llamaba el video.",
+  "pause": 0.4
+ },
+ {
+  "id": "h2",
+  "text": "MrBeast pagó mil operaciones de cataratas, de unos diez minutos cada una, y filmó las reacciones.",
+  "pause": 0.6,
+  "say": "Míster Bist pagó mil operaciones de cataratas, de unos diez minutos cada una, y filmó las reacciones."
+ },
+ {
+  "id": "c1",
+  "text": "Tuvo decenas de millones de vistas. Y una lluvia de críticas.",
+  "pause": 0.45
+ },
+ {
+  "id": "c2",
+  "text": "Lo acusaron de usar a personas pobres y enfermas para conseguir vistas. Le pusieron un nombre: pornografía de la pobreza.",
+  "pause": 0.5
+ },
+ {
+  "id": "c3",
+  "text": "Decían que cada video de ayuda le hacía ganar millones en publicidad.",
+  "pause": 0.5
+ },
+ {
+  "id": "c4",
+  "text": "Él respondió: la gente dice que los ricos deberían ayudar con su dinero. Yo lo hago, y dicen que soy malo.",
+  "pause": 0.45
+ },
+ {
+  "id": "c5",
+  "text": "Y preguntó por qué la ceguera curable sigue existiendo, y por qué los gobiernos no hacen nada.",
+  "pause": 0.55
+ },
+ {
+  "id": "c6",
+  "text": "En noviembre de dos mil veintitrés construyó cien pozos de agua en África.",
+  "pause": 0.45
+ },
+ {
+  "id": "c7",
+  "text": "Antes de que nadie opinara, escribió: ya sé que me van a cancelar por ayudar a la gente, y no me importa.",
+  "pause": 0.5
+ },
+ {
+  "id": "c8",
+  "text": "Esta vez, en Kenia, muchos apuntaron a otro lado: un youtuber había hecho lo que su gobierno no hacía.",
+  "pause": 0.55,
+  "say": "Esta vez, en Kenia, muchos apuntaron a otro lado: un iutúber había hecho lo que su gobierno no hacía."
+ },
+ {
+  "id": "c9",
+  "text": "Entonces, ¿dónde está el problema?",
+  "pause": 0.45
+ },
+ {
+  "id": "c10",
+  "text": "Para unos, mostrar a alguien en su peor momento para ganar vistas no está bien, aunque lo ayudes.",
+  "pause": 0.45
+ },
+ {
+  "id": "c11",
+  "text": "Para otros, mil personas volvieron a ver, y eso es lo único que importa.",
+  "pause": 0.5
+ },
+ {
+  "id": "c12",
+  "text": "¿Ayudar frente a una cámara sigue siendo ayudar? Te leo en los comentarios.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

@@ -51,3 +51,53 @@ function papelesR(id, w, o = {}) {
 // cierre de serie sobre una escena final: "PASÓ DE VERDAD · FUENTES EN LA DESCRIPCIÓN"
 const cierreR = `<div id="cierreR" style="position:absolute;left:0;right:0;top:1180px;text-align:center;opacity:0"><div class="osw" style="font-size:30px;letter-spacing:.4em;color:#ff2a2a">PASÓ DE VERDAD</div><div class="osw" style="font-size:24px;letter-spacing:.24em;color:#8a8a8a;margin-top:10px">FUENTES EN LA DESCRIPCIÓN</div></div>`;
 function cierreAnim(t) { const n = $('cierreR'); if (n) n.style.opacity = P(t, S('outro') + .3, S('outro') + .9); }
+
+// título de apertura: el nombre del protagonista enorme desde el primer cuadro (retención de los primeros segundos).
+// html: 'CRISTIANO<br><span class="r">RONALDO</span>'; o = {sup: texto chico arriba, hasta: segundo en que se va (por defecto, antes de la segunda frase), top}
+function tituloInicio(html, o = {}) {
+  const lineas = html.split('<br>').map(l => l.replace(/<[^>]+>/g, '')), largo = Math.max(...lineas.map(l => l.length));
+  const size = o.size || Math.min(330, Math.floor(950 / (largo * .43))), hasta = o.hasta ?? Math.min(S('h2'), 2.8), top = o.top ?? 560;
+  addHTML(`<div id="tiR" style="position:absolute;inset:0;z-index:75;pointer-events:none">
+    <div style="position:absolute;left:0;right:0;top:${top - 220}px;height:${size * lineas.length + 460}px;background:radial-gradient(ellipse at 50% 50%,rgba(5,5,5,.78),rgba(5,5,5,0) 70%)"></div>
+    <div id="tiS" class="osw" style="position:absolute;left:0;right:0;top:${top - 70}px;text-align:center;font-size:34px;letter-spacing:.45em;color:#ff2a2a">${o.sup || 'HISTORIA REAL'}</div>
+    <div id="tiN" class="cbig" style="position:absolute;left:0;right:0;top:${top}px;text-align:center;font-size:${size}px;line-height:.88;text-shadow:0 0 40px rgba(0,0,0,.9),0 10px 0 rgba(0,0,0,.6)">${html}</div></div>`, document.body);
+  const box = $('tiR'), n = $('tiN');
+  RENDER.push(t => {
+    const sal = P(t, hasta - .35, hasta), gl = t < .5 && Math.floor(t * 24) % 5 === 0;
+    box.style.opacity = 1 - sal; box.style.display = t > hasta + .1 ? 'none' : 'block';
+    n.style.transform = `scale(${(lerp(1.06, 1, eo(P(t, 0, .6))) + .12 * sal).toFixed(3)}) translateX(${gl ? 8 : 0}px)`;
+    n.style.filter = sal > 0 ? `blur(${(8 * sal).toFixed(1)}px)` : 'none';
+    n.style.textShadow = gl ? '-8px 0 rgba(255,42,42,.8), 8px 0 rgba(0,200,255,.4)' : '0 0 40px rgba(0,0,0,.9),0 10px 0 rgba(0,0,0,.6)';
+  });
+}
+
+// calendario de un mes con días marcados que caen cuando se nombran; o = {mes, primero (0 = lunes), dias, top, t0, bg, inner, marcas: [{d, t, txt, col}]}
+function calendarioR(id, w, o = {}) {
+  const c = 130, h = 104, x0 = 85, top = o.top ?? 380, y0 = top + 150, pri = o.primero ?? 0, n = o.dias ?? 31;
+  const xy = d => { const k = d - 1 + pri; return [x0 + (k % 7) * c, y0 + 50 + Math.floor(k / 7) * h]; };
+  const cel = Array.from({ length: n }, (_, i) => { const [x, y] = xy(i + 1);
+    return `<div id="${id}d${i + 1}" style="position:absolute;left:${x}px;top:${y}px;width:${c}px;height:${h}px;border:1px solid #2a2a2a;font:400 54px 'Bebas Neue';color:#8a8a8a;padding:8px 12px;box-sizing:border-box;background:rgba(5,5,5,.6);opacity:0">${i + 1}</div>`; }).join('');
+  const marcas = (o.marcas || []).map((m, j) => { const [x, y] = xy(m.d);
+    return `<div id="${id}m${j}" style="position:absolute;left:${x}px;top:${y}px;width:${c}px;height:${h}px;background:${m.col || '#c8101b'};opacity:0;display:flex;flex-direction:column;justify-content:space-between;padding:8px 10px;box-sizing:border-box;box-shadow:0 0 40px rgba(0,0,0,.8)"><span style="font:400 54px/1 'Bebas Neue';color:#fff">${m.d}</span><span class="osw" style="font-size:16px;letter-spacing:.04em;color:#fff;white-space:nowrap">${m.txt}</span></div>`; }).join('');
+  scene(id, [...w.slice(0, 4), 1.03], `${o.bg || ''}<div id="${id}O" style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(20,4,4,.8),rgba(5,5,5,.95) 70%)"></div>
+    <div id="${id}T" class="cbig" style="position:absolute;left:${x0}px;top:${top}px;font-size:110px;opacity:0">${o.mes}</div>
+    ${['LUN', 'MAR', 'MIÉ', 'JUE', 'VIE', 'SÁB', 'DOM'].map((d, i) => `<div class="osw" id="${id}w${i}" style="position:absolute;left:${x0 + i * c + 12}px;top:${y0}px;font-size:24px;letter-spacing:.2em;color:#ff5050;opacity:0">${d}</div>`).join('')}
+    ${cel}${marcas}${o.inner || ''}`);
+  RENDER.push(t => {
+    if (!on(id)) return; const a = o.t0 ?? w[0] + .1;
+    $(id + 'O').style.opacity = lerp(.45, 1, P(t, a - .3, a + .3)); $(id + 'T').style.opacity = P(t, a, a + .3); for (let i = 0; i < 7; i++) $(id + 'w' + i).style.opacity = P(t, a + .1, a + .4);
+    for (let i = 1; i <= n; i++) $(id + 'd' + i).style.opacity = P(t, a + i * .015, a + .25 + i * .015);
+    (o.marcas || []).forEach((m, j) => { const q = P(t, m.t - .1, m.t + .2), e = $(id + 'm' + j); e.style.opacity = q; e.style.transform = `scale(${lerp(1.6, 1, eo(q)).toFixed(3)})`; });
+  });
+}
+
+// guante de cuero dibujado (caso O. J. Simpson); devuelve el <g> para moverlo o escalarlo
+function guante(parent, x, y, s = 1, o = {}) {
+  const g = el('g', { transform: `translate(${x} ${y}) scale(${s})` }, parent), f = o.fill || '#3b2416', st = o.stroke || '#7a5232';
+  const r = (a) => el('rect', { ...a, fill: f, stroke: st, 'stroke-width': 3 }, g);
+  [[32, 18], [66, 0], [100, 6], [134, 26]].forEach(([fx, fy]) => r({ x: fx, y: fy, width: 32, height: 130, rx: 16 }));
+  el('rect', { x: 150, y: 100, width: 36, height: 96, rx: 18, fill: f, stroke: st, 'stroke-width': 3, transform: 'rotate(-38 168 148)' }, g);
+  r({ x: 28, y: 92, width: 146, height: 130, rx: 34 }); r({ x: 42, y: 206, width: 118, height: 60, rx: 8 });
+  [60, 100, 140].forEach(px => el('line', { x1: px - 14, y1: 120, x2: px + 4, y2: 190, stroke: st, 'stroke-width': 2, opacity: .7 }, g));
+  return g;
+}

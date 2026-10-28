@@ -1,0 +1,79 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "El diecisiete de junio de mil novecientos noventa y cuatro, noventa y cinco millones de personas miraban lo mismo por televisión.",
+  "pause": 0.4
+ },
+ {
+  "id": "h2",
+  "text": "Una camioneta blanca, a sesenta kilómetros por hora, perseguida por una fila de patrulleros.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Adentro iba O. J. Simpson, una de las estrellas de fútbol americano más famosas del país.",
+  "pause": 0.4,
+  "say": "Adentro iba Óu Yei Símpson, una de las estrellas de fútbol americano más famosas del país."
+ },
+ {
+  "id": "c2",
+  "text": "Cinco días antes habían encontrado asesinados a su exesposa, Nicole Brown Simpson, y a un amigo de ella, Ron Goldman.",
+  "pause": 0.5,
+  "say": "Cinco días antes habían encontrado asesinados a su exesposa, Nicól Bráun Símpson, y a un amigo de ella, Ron Góldman."
+ },
+ {
+  "id": "c3",
+  "text": "Simpson había sido el primer jugador en correr más de dos mil yardas en una temporada. Después fue actor y comentarista.",
+  "pause": 0.45,
+  "say": "Símpson había sido el primer jugador en correr más de dos mil yardas en una temporada. Después fue actor y comentarista."
+ },
+ {
+  "id": "c4",
+  "text": "Pero en mil novecientos ochenta y nueve no había impugnado un cargo de violencia doméstica contra Nicole.",
+  "pause": 0.5,
+  "say": "Pero en mil novecientos ochenta y nueve no había impugnado un cargo de violencia doméstica contra Nicól."
+ },
+ {
+  "id": "c5",
+  "text": "Esa mañana tenía que entregarse. No apareció.",
+  "pause": 0.45
+ },
+ {
+  "id": "c6",
+  "text": "En la camioneta llevaba un arma, su pasaporte y miles de dólares en efectivo.",
+  "pause": 0.45
+ },
+ {
+  "id": "c7",
+  "text": "Después de horas, se entregó en su casa.",
+  "pause": 0.5
+ },
+ {
+  "id": "c8",
+  "text": "La policía tenía sangre, huellas y un par de guantes de cuero: uno en la escena del crimen, y el otro en su casa.",
+  "pause": 0.5
+ },
+ {
+  "id": "c9",
+  "text": "Parecía el caso más fácil de la historia.",
+  "pause": 0.45
+ },
+ {
+  "id": "c10",
+  "text": "Se convirtió en el juicio del siglo.",
+  "pause": 0.5
+ },
+ {
+  "id": "c11",
+  "text": "En la parte dos: el guante que debía condenarlo, y terminó salvándolo.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

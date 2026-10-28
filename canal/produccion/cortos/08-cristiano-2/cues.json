@@ -1,0 +1,81 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "Le preguntaron si era el mejor jugador de la historia. Respondió que sí, sin dudar.",
+  "pause": 0.4
+ },
+ {
+  "id": "h2",
+  "text": "Para muchos, eso era arrogancia. Para él, era trabajo.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "En dos mil nueve, el Real Madrid pagó por él noventa y cuatro millones de euros, el fichaje más caro de la historia hasta ese momento.",
+  "pause": 0.45
+ },
+ {
+  "id": "c2",
+  "text": "En nueve temporadas hizo cuatrocientos cincuenta goles. Más goles que partidos jugados.",
+  "pause": 0.45
+ },
+ {
+  "id": "c3",
+  "text": "Ganó cinco Champions League y cinco Balones de Oro.",
+  "pause": 0.45,
+  "say": "Ganó cinco Chámpions Lig y cinco Balones de Oro."
+ },
+ {
+  "id": "c4",
+  "text": "Sus compañeros contaban que era el primero en llegar a entrenar y el último en irse.",
+  "pause": 0.5
+ },
+ {
+  "id": "c5",
+  "text": "En la final de la Eurocopa de dos mil dieciséis se lesionó y salió llorando.",
+  "pause": 0.4
+ },
+ {
+  "id": "c6",
+  "text": "Desde el costado gritó indicaciones como un entrenador más. Portugal ganó el primer gran título de su historia.",
+  "pause": 0.55
+ },
+ {
+  "id": "c7",
+  "text": "No tiene tatuajes. Contó que es para poder donar sangre.",
+  "pause": 0.5
+ },
+ {
+  "id": "c8",
+  "text": "En el Mundial de dos mil veintidós, a los treinta y siete años, lo dejaron en el banco. Muchos dijeron que estaba terminado.",
+  "pause": 0.45
+ },
+ {
+  "id": "c9",
+  "text": "Se fue a jugar a Arabia Saudita. Y siguió haciendo goles.",
+  "pause": 0.45
+ },
+ {
+  "id": "c10",
+  "text": "En dos mil veinticuatro llegó a novecientos goles oficiales. Nadie en la historia había hecho tantos.",
+  "pause": 0.5
+ },
+ {
+  "id": "c11",
+  "text": "El chico al que le decían llorón se convirtió en el máximo goleador de la historia del fútbol.",
+  "pause": 0.5
+ },
+ {
+  "id": "c12",
+  "text": "¿Arrogante, o simplemente sabía lo que valía? Te leo en los comentarios.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

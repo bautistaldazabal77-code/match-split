@@ -1,0 +1,20 @@
+"""Música, efectos y mezcla de "Pasó de verdad" · O. J. Simpson, parte 1. Los momentos salen de timeline.json con las mismas cuentas que web/escenas.js."""
+import sys; sys.path.insert(0, '../comun')
+from sonido_reel import *
+R = Reel([(0, 'D'), ('c2', 'Bb'), ('c3', 'G'), ('c4', 'A'), ('c8', 'D'), ('c10', 'C'), ('c11', 'Dfin')]); S, AT, E = R.S, R.AT, R.E
+R.golpe(.05, .9)
+nv = AT('h1', 'noventa y cinco')
+for i in range(14): R.tic(max(nv - .2, 2.8) + i * .1, .22)
+R.foto(S('h2') - .1); R.zumbido(S('h2'), E('h2') - S('h2'), 45, .14)
+for i in range(6): place(R.sfx, beep(760 if i % 2 else 600, .18, .07), S('h2') + .3 + i * .45)
+R.foto(S('c1') - .1); R.golpe(AT('c1', 'O. J.'), .6)
+R.golpe(AT('c2', 'asesinados'), .8); R.latido(S('c2'), E('c2'), 60, .7)
+R.foto(S('c3') - .1); R.flash(AT('c3', 'dos mil')); R.foto(AT('c3', 'Después') - .1)
+R.golpe(AT('c4', 'violencia'), .6); R.sello(AT('c5', 'apareció'))
+for f in ['arma', 'pasaporte', 'miles']: R.sello(AT('c6', f))
+R.foto(S('c7') - .1); R.flash(AT('c7', 'entregó'))
+for f in ['sangre', 'huellas', 'guantes']: R.tic(AT('c8', f), .5)
+R.golpe(AT('c8', 'uno en'), .5); R.golpe(AT('c8', 'el otro'), .6)
+R.foto(S('c9') - .1); R.foto(S('c10') - .1); R.golpe(AT('c10', 'siglo'), .9)
+R.golpe(S('c11') + .2, 1.0); R.sello(S('outro') + .3)
+R.mezclar()

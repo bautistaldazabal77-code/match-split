@@ -1,0 +1,1 @@
+window.CRED={"biblioteca.jpg": "Foto: Menazk · CC BY-SA 4.0", "cu.jpg": "Foto: Arne Müseler / arne-mueseler.com · CC BY-SA 3.0 DE", "medicina.jpg": "Foto: Daniel Case · CC BY-SA 3.0", "mural.jpg": "Foto: Naomi Ibuki · CC BY 2.0"};

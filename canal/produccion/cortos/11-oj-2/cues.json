@@ -1,0 +1,85 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "El quince de junio de mil novecientos noventa y cinco, la fiscalía le pidió a O. J. Simpson que se probara el guante.",
+  "pause": 0.4,
+  "say": "El quince de junio de mil novecientos noventa y cinco, la fiscalía le pidió a Óu Yei Símpson que se probara el guante."
+ },
+ {
+  "id": "h2",
+  "text": "No le entraba.",
+  "pause": 0.7
+ },
+ {
+  "id": "c1",
+  "text": "El cuero se había mojado y secado varias veces, y él tenía puestos guantes de látex debajo. Pero la imagen ya estaba en todas las pantallas.",
+  "pause": 0.45
+ },
+ {
+  "id": "c2",
+  "text": "Su abogado, Johnnie Cochran, lo convirtió en una frase: si no le entra, tienen que absolverlo.",
+  "pause": 0.5,
+  "say": "Su abogado, Yóni Cócran, lo convirtió en una frase: si no le entra, tienen que absolverlo."
+ },
+ {
+  "id": "c3",
+  "text": "La defensa también mostró que uno de los detectives, Mark Fuhrman, había usado insultos racistas, y que había mentido sobre eso en el juicio.",
+  "pause": 0.45,
+  "say": "La defensa también mostró que uno de los detectives, Mark Fúrman, había usado insultos racistas, y que había mentido sobre eso en el juicio."
+ },
+ {
+  "id": "c4",
+  "text": "Y sembró la duda: ¿y si la policía había plantado pruebas?",
+  "pause": 0.55
+ },
+ {
+  "id": "c5",
+  "text": "El tres de octubre de mil novecientos noventa y cinco, después de menos de cuatro horas de deliberación, llegó el veredicto.",
+  "pause": 0.4
+ },
+ {
+  "id": "c6",
+  "text": "Unos ciento cincuenta millones de personas lo vieron: no culpable.",
+  "pause": 0.6
+ },
+ {
+  "id": "c7",
+  "text": "Dos años después, en un juicio civil, otro jurado lo declaró responsable de las dos muertes, y lo condenó a pagar treinta y tres millones y medio de dólares.",
+  "pause": 0.5
+ },
+ {
+  "id": "c8",
+  "text": "Años más tarde apareció un libro suyo con un título difícil de olvidar: Si yo lo hubiera hecho.",
+  "pause": 0.5
+ },
+ {
+  "id": "c9",
+  "text": "En dos mil siete, en Las Vegas, entró con hombres armados a una habitación de hotel para recuperar recuerdos deportivos.",
+  "pause": 0.45,
+  "say": "En dos mil siete, en Las Végas, entró con hombres armados a una habitación de hotel para recuperar recuerdos deportivos."
+ },
+ {
+  "id": "c10",
+  "text": "Esta vez sí lo condenaron: hasta treinta y tres años de prisión. Salió en libertad condicional en dos mil diecisiete.",
+  "pause": 0.5
+ },
+ {
+  "id": "c11",
+  "text": "Murió en abril de dos mil veinticuatro, de cáncer. Siempre negó haber matado a Nicole y a Ron.",
+  "pause": 0.5,
+  "say": "Murió en abril de dos mil veinticuatro, de cáncer. Siempre negó haber matado a Nicól y a Ron."
+ },
+ {
+  "id": "c12",
+  "text": "¿Lo salvó el guante, o todo lo demás? Te leo en los comentarios.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]
