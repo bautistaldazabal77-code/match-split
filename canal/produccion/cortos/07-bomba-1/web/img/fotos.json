@@ -1,10 +1,4 @@
 {
- "hahn-meitner.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Hahn_and_Meitner_in_1912.jpg",
-  "corto": "Foto: Wikimedia Commons · Dominio público",
-  "autor": "Wikimedia Commons",
-  "licencia": "Dominio público"
- },
  "mesa-fision.jpg": {
   "archivo": "https://commons.wikimedia.org/wiki/File:Versuchsaufbau_Hahn_Deutsches_Museum-2.jpg",
   "corto": "Foto: Luidger · CC BY-SA 3.0",
@@ -23,28 +17,10 @@
   "autor": "Albert Einstein (1939)",
   "licencia": "Dominio público"
  },
- "einstein-oppenheimer.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Einstein_oppenheimer.jpg",
-  "corto": "Foto: Gobierno de EE. UU. · Dominio público",
-  "autor": "Gobierno de EE. UU.",
-  "licencia": "Dominio público"
- },
  "einstein.jpg": {
   "archivo": "https://commons.wikimedia.org/wiki/File:Albert_Einstein_Head.jpg",
   "corto": "Foto: Orren Jack Turner · Dominio público",
   "autor": "Orren Jack Turner",
-  "licencia": "Dominio público"
- },
- "roosevelt.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:FDR_1944_Color_Portrait.jpg",
-  "corto": "Foto: Biblioteca y Museo Presidencial FDR · CC BY 2.0",
-  "autor": "Biblioteca y Museo Presidencial FDR",
-  "licencia": "CC BY 2.0"
- },
- "groves.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:LTG_Leslie_R._Groves_%28cropped%29.jpg",
-  "corto": "Foto: Ejército de EE. UU. · Dominio público",
-  "autor": "Ejército de EE. UU.",
   "licencia": "Dominio público"
  },
  "oppenheimer.jpg": {
@@ -65,12 +41,6 @@
   "autor": "James E. Westcott",
   "licencia": "Dominio público"
  },
- "obreros.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Y-12_Shift_Change.jpg",
-  "corto": "Foto: Ed Westcott, Ejército de EE. UU. · Dominio público",
-  "autor": "Ed Westcott, Ejército de EE. UU.",
-  "licencia": "Dominio público"
- },
  "credencial.jpg": {
   "archivo": "https://commons.wikimedia.org/wiki/File:Oppenheimer-j_r.jpg",
   "corto": "Foto: Laboratorio Nacional de Los Álamos · Dominio público",
@@ -81,12 +51,6 @@
   "archivo": "https://commons.wikimedia.org/wiki/File:Trinity_tower.jpg",
   "corto": "Foto: Gobierno de EE. UU. · Dominio público",
   "autor": "Gobierno de EE. UU.",
-  "licencia": "Dominio público"
- },
- "trinity.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Trinity_Detonation_T%26B.jpg",
-  "corto": "Foto: Departamento de Energía de EE. UU. · Dominio público",
-  "autor": "Departamento de Energía de EE. UU.",
   "licencia": "Dominio público"
  },
  "trinity-color.jpg": {
@@ -109,12 +73,6 @@
  },
  "alemania.jpg": {
   "archivo": "https://commons.wikimedia.org/wiki/File:German_Experimental_Pile_-_Haigerloch_-_April_1945.jpg",
-  "corto": "Foto: Ejército de EE. UU. · Dominio público",
-  "autor": "Ejército de EE. UU.",
-  "licencia": "Dominio público"
- },
- "zona-cero.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Trinity_Ground_Zero.jpg",
   "corto": "Foto: Ejército de EE. UU. · Dominio público",
   "autor": "Ejército de EE. UU.",
   "licencia": "Dominio público"
@@ -155,12 +113,6 @@
   "autor": "Mr.98",
   "licencia": "Dominio público"
  },
- "bockscar.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Nagasaki_mission_crew.jpg",
-  "corto": "Foto: Ejército de EE. UU. · Dominio público",
-  "autor": "Ejército de EE. UU.",
-  "licencia": "Dominio público"
- },
  "nagasaki-nube.jpg": {
   "archivo": "https://commons.wikimedia.org/wiki/File:Nagasakibomb.jpg",
   "corto": "Foto: Charles Levy · Dominio público",
@@ -173,12 +125,6 @@
   "autor": "Ejército de EE. UU.",
   "licencia": "Dominio público"
  },
- "hirohito.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Hirohito_in_dress_uniform.jpg",
-  "corto": "Foto: Casa Imperial de Japón · Dominio público",
-  "autor": "Casa Imperial de Japón",
-  "licencia": "Dominio público"
- },
  "truman.jpg": {
   "archivo": "https://commons.wikimedia.org/wiki/File:TRUMAN_58-766-06_%28cropped%29.jpg",
   "corto": "Foto: Archivos Nacionales de EE. UU. · Dominio público",
@@ -189,12 +135,6 @@
   "archivo": "https://commons.wikimedia.org/wiki/File:J._Robert_Oppenheimer_at_the_Guest_Lodge%2C_Oak_Ridge%2C_in_1946_4.jpg",
   "corto": "Foto: Ed Westcott · Dominio público",
   "autor": "Ed Westcott",
-  "licencia": "Dominio público"
- },
- "tibbets.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Tibbets-wave.jpg",
-  "corto": "Foto: Ejército de EE. UU. · Dominio público",
-  "autor": "Ejército de EE. UU.",
   "licencia": "Dominio público"
  },
  "sombra.jpg": {

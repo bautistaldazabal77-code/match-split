@@ -65,12 +65,6 @@
   "autor": "Policía de Dallas",
   "licencia": "Dominio público"
  },
- "lbj.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Lyndon_B._Johnson_taking_the_oath_of_office%2C_November_1963.jpg",
-  "corto": "Foto: Cecil W. Stoughton · Dominio público",
-  "autor": "Cecil W. Stoughton",
-  "licencia": "Dominio público"
- },
  "ruby-dispara.jpg": {
   "archivo": "https://commons.wikimedia.org/wiki/File:Ruby_shoots_Oswald.jpg",
   "corto": "Foto: Robert H. Jackson · Dominio público",
@@ -89,12 +83,6 @@
   "autor": "Cecil Stoughton, Casa Blanca",
   "licencia": "Dominio público"
  },
- "informe.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Warren_commission_cover.jpg",
-  "corto": "Foto: Comisión Warren · Dominio público",
-  "autor": "Comisión Warren",
-  "licencia": "Dominio público"
- },
  "bala.jpg": {
   "archivo": "https://commons.wikimedia.org/wiki/File:WC_Vol18_CE903_SBT_alignement.jpg",
   "corto": "Foto: Comisión Warren · Dominio público",
@@ -106,17 +94,5 @@
   "corto": "Foto: Mchristo19 · CC BY-SA 4.0",
   "autor": "Mchristo19",
   "licencia": "CC BY-SA 4.0"
- },
- "minsk.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:OSWALD%27S_APARTMENT_BUILDING_-_MINSK_-_BELARUS.jpg",
-  "corto": "Foto: Jerrye y Roy Klotz · CC BY-SA 3.0",
-  "autor": "Jerrye y Roy Klotz",
-  "licencia": "CC BY-SA 3.0"
- },
- "newman.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Newman_Family.jpg",
-  "corto": "Foto: Cecil W. Stoughton · Dominio público",
-  "autor": "Cecil W. Stoughton",
-  "licencia": "Dominio público"
  }
 }

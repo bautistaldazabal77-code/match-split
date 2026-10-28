@@ -17,12 +17,6 @@
   "autor": "Bernie Ilson Inc.",
   "licencia": "Dominio público"
  },
- "j5-1972.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:The_Jackson_5_1972.JPG",
-  "corto": "Foto: CBS Television · Dominio público",
-  "autor": "CBS Television",
-  "licencia": "Dominio público"
- },
  "joe.jpg": {
   "archivo": "https://commons.wikimedia.org/wiki/File:JosephJackson2007%28cropped%29.jpg",
   "corto": "Foto: Reflexivity Capital Group · CC BY-SA 3.0",
@@ -33,18 +27,6 @@
   "archivo": "https://commons.wikimedia.org/wiki/File:Michael_Jackson_with_Grammy_Awards_in_1984.jpg",
   "corto": "Foto: United Press International · Dominio público",
   "autor": "United Press International",
-  "licencia": "Dominio público"
- },
- "reagan.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:President_Ronald_Reagan_and_Nancy_Reagan_with_Michael_Jackson_at_The_Diplomatic_Entrance_During_Ceremony_to_Present_a_Plaque_to_Michael_Jackson_in_Recognition_of_His_Lifetime_of_Ach_-_DPLA_-_a413ebe778f9d0d95384ce2418eeb0e1.jpg",
-  "corto": "Foto: Casa Blanca (1984) · Dominio público",
-  "autor": "Casa Blanca (1984)",
-  "licencia": "Dominio público"
- },
- "licencia.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Michael_Jackson_2005_California_Driver%27s_License_photo.jpg",
-  "corto": "Foto: Departamento de Vehículos de California · Dominio público",
-  "autor": "Departamento de Vehículos de California",
   "licencia": "Dominio público"
  },
  "neverland.jpg": {
@@ -58,12 +40,6 @@
   "corto": "Foto: Shazari · CC BY 2.0",
   "autor": "Shazari",
   "licencia": "CC BY 2.0"
- },
- "neverland-vacio.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:NeverlandRidesGone.jpg",
-  "corto": "Foto: John Wiley · CC BY 3.0",
-  "autor": "John Wiley",
-  "licencia": "CC BY 3.0"
  },
  "gira1988.jpg": {
   "archivo": "https://commons.wikimedia.org/wiki/File:Michael_Jackson1_1988.jpg",
@@ -118,11 +94,5 @@
   "corto": "Foto: Daniele Dalledonne · CC BY-SA 2.0",
   "autor": "Daniele Dalledonne",
   "licencia": "CC BY-SA 2.0"
- },
- "cannes1997.jpg": {
-  "archivo": "https://commons.wikimedia.org/wiki/File:Michael_Jackson_Cannes.jpg",
-  "corto": "Foto: Georges Biard · CC BY-SA 3.0",
-  "autor": "Georges Biard",
-  "licencia": "CC BY-SA 3.0"
  }
 }
