@@ -1,0 +1,106 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "El Mossad fue a ver la casa de Olivos y descartó la pista: era demasiado pobre para un alto jefe nazi.",
+  "pause": 0.4,
+  "say": "El Mosád fue a ver la casa de Olivos y descartó la pista: era demasiado pobre para un alto jefe nazi."
+ },
+ {
+  "id": "h2",
+  "text": "Pero a fines de mil novecientos cincuenta y nueve, el dato volvió.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "La familia se había mudado a la calle Garibaldi, en San Fernando, a una casa a nombre de Verónica Liebl de Fichmann. Una letra de diferencia.",
+  "pause": 0.5,
+  "say": "La familia se había mudado a la calle Garibaldi, en San Fernando, a una casa a nombre de Verónica Líbel de Fíjman. Una letra de diferencia."
+ },
+ {
+  "id": "c2",
+  "text": "A fines de febrero de mil novecientos sesenta llegó Zvi Aharoni, un investigador israelí, a vigilarlo.",
+  "pause": 0.45,
+  "say": "A fines de febrero de mil novecientos sesenta llegó Sví Ajaróni, un investigador israelí, a vigilarlo."
+ },
+ {
+  "id": "c3",
+  "text": "El veintiuno de marzo hubo un festejo en la casa: las bodas de plata de Adolf y Vera Eichmann. La fecha coincidía. Era él.",
+  "pause": 0.5,
+  "say": "El veintiuno de marzo hubo un festejo en la casa: las bodas de plata de Adolf y Vera Áijman. La fecha coincidía. Era él."
+ },
+ {
+  "id": "c4",
+  "text": "El jefe del Mossad, Isser Harel, viajó en persona. Mandaron radios, binoculares, patentes falsas, esposas y maquillaje.",
+  "pause": 0.45,
+  "say": "El jefe del Mosád, Íser Jarél, viajó en persona. Mandaron radios, binoculares, patentes falsas, esposas y maquillaje."
+ },
+ {
+  "id": "c5",
+  "text": "Once de mayo. Dos autos esperan en la calle Garibaldi. Uno, con el capó abierto, como si estuviera roto.",
+  "pause": 0.45
+ },
+ {
+  "id": "c6",
+  "text": "Eichmann siempre llegaba en el colectivo de las siete y cuarenta. Ese día no bajó. Casi suspenden todo.",
+  "pause": 0.5,
+  "say": "Áijman siempre llegaba en el colectivo de las siete y cuarenta. Ese día no bajó. Casi suspenden todo."
+ },
+ {
+  "id": "c7",
+  "text": "A las ocho y cinco llegó el siguiente. Y bajó él.",
+  "pause": 0.5
+ },
+ {
+  "id": "c8",
+  "text": "El agente Peter Malkin le dijo: un momentito, señor. En veinte segundos estaba adentro del auto.",
+  "pause": 0.45,
+  "say": "El agente Píter Málkin le dijo: un momentito, señor. En veinte segundos estaba adentro del auto."
+ },
+ {
+  "id": "c9",
+  "text": "Ahí le buscaron las cicatrices que figuraban en su ficha. Era él.",
+  "pause": 0.5
+ },
+ {
+  "id": "c10",
+  "text": "Lo escondieron nueve días en una casa alquilada. Dijo sus números de las SS, y firmó que aceptaba ser juzgado en Israel.",
+  "pause": 0.45,
+  "say": "Lo escondieron nueve días en una casa alquilada. Dijo sus números de las ese ese, y firmó que aceptaba ser juzgado en Israel."
+ },
+ {
+  "id": "c11",
+  "text": "Para sacarlo usaron una excusa perfecta: la Argentina festejaba ciento cincuenta años de la Revolución de Mayo, e Israel mandó una delegación en un avión de El Al.",
+  "pause": 0.45,
+  "say": "Para sacarlo usaron una excusa perfecta: la Argentina festejaba ciento cincuenta años de la Revolución de Mayo, e Israel mandó una delegación en un avión de El Ál."
+ },
+ {
+  "id": "c12",
+  "text": "El veinte de mayo lo drogaron, lo vistieron de tripulante y lo pasaron por Ezeiza como un empleado de la aerolínea que se había sentido mal.",
+  "pause": 0.45
+ },
+ {
+  "id": "c13",
+  "text": "A la medianoche despegaron. Escala en Dakar. El veintidós de mayo, Israel.",
+  "pause": 0.5,
+  "say": "A la medianoche despegaron. Escala en Dakár. El veintidós de mayo, Israel."
+ },
+ {
+  "id": "c14",
+  "text": "Al día siguiente, Ben-Gurion lo anunció en el Parlamento: Eichmann estaba en Israel.",
+  "pause": 0.5,
+  "say": "Al día siguiente, Ben Gurión lo anunció en el Parlamento: Áijman estaba en Israel."
+ },
+ {
+  "id": "c15",
+  "text": "En la parte tres: la furia de la Argentina, el juicio, y sus últimas palabras.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

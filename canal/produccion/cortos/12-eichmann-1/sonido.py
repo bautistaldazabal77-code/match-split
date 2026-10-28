@@ -1,0 +1,26 @@
+"""Música, efectos y mezcla de "Pasó de verdad" · Adolf Eichmann, parte 1. Los momentos salen de timeline.json con las mismas cuentas que web/escenas.js."""
+import sys; sys.path.insert(0, '../comun')
+from sonido_reel import *
+R = Reel([(0, 'D'), ('c1', 'Bb'), ('c4', 'A'), ('c5', 'D'), ('c7', 'G'), ('c10', 'A'), ('c12', 'Bb'), ('c13', 'Dfin')]); S, AT, E = R.S, R.AT, R.E
+AF = lambda c, f: AT(c, f) - .15
+R.golpe(.05, .9); R.estatica(0, .4, .2)
+R.teclas(AF('h1', 'Ricardo'), AF('h1', 'Ricardo') + .8, .14)
+for f in ['fábrica', 'cuatro hijos', 'colectivo']: R.tic(AF('h2', f), .45)
+R.sello(AF('h2', 'nombre'))
+R.flash(S('c1') - .05); R.golpe(S('c1'), 1.0)
+R.foto(S('c2') - .1); R.zumbido(AF('c2', 'trenes'), E('c2') - AF('c2', 'trenes'), 45, .14)
+R.foto(S('c3') - .1); R.foto(AF('c3', 'solución') - .1); R.sello(AF('c3', 'acta'))
+R.latido(S('c4'), E('c4'), 70, .7)
+for i in range(4): R.tic(AF('c4', 'cuatro trenes') + i * .35, .35)
+for i in range(16): R.tic(AF('c4', 'En menos') + .1 + i * .1, .2)
+R.golpe(S('c5'), .6); R.teclas(AF('c5', 'Otto'), AF('c5', 'Otto') + .7, .14); R.sello(E('c5') - .2)
+R.foto(S('c6') - .1); R.zumbido(AF('c6', 'cuatro años'), 2.5, 50, .12)
+R.foto(S('c7') - .1); R.foto(AF('c7', 'pasaporte') - .1); R.sello(AF('c7', 'Ricardo') + .5)
+R.foto(S('c8') - .1); R.tic(AF('c8', 'Tucumán'), .4); R.tic(AF('c8', 'Mercedes-Benz'), .4)
+R.foto(S('c9') - .1)
+R.estatica(S('c10') - .05, .4, .3); R.golpe(S('c10'), .8)
+for f in ['hijos', 'hija', 'Lothar']: R.tic(AF('c11', f), .45)
+R.golpe(AF('c11', 'apellido'), .7)
+R.foto(S('c12') - .1); R.foto(AF('c12', 'Bauer no') - .1); R.sello(AF('c12', 'secreto'))
+R.golpe(S('c13') + .2, 1.0); R.sello(S('outro') + .3)
+R.mezclar()

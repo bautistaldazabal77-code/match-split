@@ -1,0 +1,96 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "En mil novecientos sesenta, en San Fernando, en el conurbano de Buenos Aires, vivía un hombre llamado Ricardo Klement.",
+  "pause": 0.4,
+  "say": "En mil novecientos sesenta, en San Fernando, en el conurbano de Buenos Aires, vivía un hombre llamado Ricardo Klément."
+ },
+ {
+  "id": "h2",
+  "text": "Trabajaba en una fábrica, tenía cuatro hijos y tomaba el colectivo todos los días. Pero ese no era su nombre.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Era Adolf Eichmann, uno de los organizadores del Holocausto.",
+  "pause": 0.5,
+  "say": "Era Adolf Áijman, uno de los organizadores del Holocausto."
+ },
+ {
+  "id": "c2",
+  "text": "Desde una oficina de la Gestapo coordinó los trenes que llevaron a millones de judíos a los campos de exterminio.",
+  "pause": 0.45,
+  "say": "Desde una oficina de la Guestápo coordinó los trenes que llevaron a millones de judíos a los campos de exterminio."
+ },
+ {
+  "id": "c3",
+  "text": "En mil novecientos cuarenta y dos estuvo en la Conferencia de Wannsee, donde se coordinó la llamada solución final. Él preparó el acta.",
+  "pause": 0.45,
+  "say": "En mil novecientos cuarenta y dos estuvo en la Conferencia de Vánsei, donde se coordinó la llamada solución final. Él preparó el acta."
+ },
+ {
+  "id": "c4",
+  "text": "En Hungría, en mil novecientos cuarenta y cuatro, organizó cuatro trenes por día hacia Auschwitz. En menos de dos meses deportaron a más de cuatrocientos treinta mil judíos.",
+  "pause": 0.5,
+  "say": "En Hungría, en mil novecientos cuarenta y cuatro, organizó cuatro trenes por día hacia Áushvits. En menos de dos meses deportaron a más de cuatrocientos treinta mil judíos."
+ },
+ {
+  "id": "c5",
+  "text": "Cuando Alemania se rindió, los estadounidenses lo capturaron sin saber quién era: dijo llamarse Otto Eckmann.",
+  "pause": 0.45,
+  "say": "Cuando Alemania se rindió, los estadounidenses lo capturaron sin saber quién era: dijo llamarse Oto Ékman."
+ },
+ {
+  "id": "c6",
+  "text": "Se escapó, y vivió cuatro años escondido en el norte de Alemania, trabajando en un bosque.",
+  "pause": 0.45
+ },
+ {
+  "id": "c7",
+  "text": "En mil novecientos cincuenta, una red ligada a un obispo en Roma le dio papeles falsos. Con ellos sacó un pasaporte de la Cruz Roja: Ricardo Klement.",
+  "pause": 0.45,
+  "say": "En mil novecientos cincuenta, una red ligada a un obispo en Roma le dio papeles falsos. Con ellos sacó un pasaporte de la Cruz Roja: Ricardo Klément."
+ },
+ {
+  "id": "c8",
+  "text": "En julio llegó en barco a Buenos Aires. Trabajó en Tucumán, y después en Mercedes-Benz, donde llegó a jefe.",
+  "pause": 0.45,
+  "say": "En julio llegó en barco a Buenos Aires. Trabajó en Tucumán, y después en Mercedes Benz, donde llegó a jefe."
+ },
+ {
+  "id": "c9",
+  "text": "En mil novecientos cincuenta y dos llegaron su esposa y sus tres hijos.",
+  "pause": 0.5
+ },
+ {
+  "id": "c10",
+  "text": "Lo delató un noviazgo.",
+  "pause": 0.5
+ },
+ {
+  "id": "c11",
+  "text": "Uno de sus hijos salía con la hija de Lothar Hermann, un judío alemán ciego. El chico usaba el apellido real, y hablaba de lo que su padre había hecho en la guerra.",
+  "pause": 0.45,
+  "say": "Uno de sus hijos salía con la hija de Lótar Hérman, un judío alemán ciego. El chico usaba el apellido real, y hablaba de lo que su padre había hecho en la guerra."
+ },
+ {
+  "id": "c12",
+  "text": "Hermann le escribió a Fritz Bauer, un fiscal alemán. Bauer no confiaba en la justicia de su país, llena de exnazis, y le pasó el dato en secreto a Israel.",
+  "pause": 0.5,
+  "say": "Hérman le escribió a Frits Báuer, un fiscal alemán. Báuer no confiaba en la justicia de su país, llena de exnazis, y le pasó el dato en secreto a Israel."
+ },
+ {
+  "id": "c13",
+  "text": "En la parte dos: el Mossad, la casa de la calle Garibaldi, y el colectivo de las siete y cuarenta.",
+  "pause": 0.3,
+  "say": "En la parte dos: el Mosád, la casa de la calle Garibaldi, y el colectivo de las siete y cuarenta."
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

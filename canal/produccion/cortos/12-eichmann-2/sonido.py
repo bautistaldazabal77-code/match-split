@@ -1,0 +1,27 @@
+"""Música, efectos y mezcla de "Pasó de verdad" · Adolf Eichmann, parte 2. Los momentos salen de timeline.json con las mismas cuentas que web/escenas.js."""
+import sys; sys.path.insert(0, '../comun')
+from sonido_reel import *
+R = Reel([(0, 'D'), ('c2', 'A'), ('c4', 'G'), ('c5', 'D'), ('c8', 'Bb'), ('c11', 'G'), ('c13', 'C'), ('c15', 'Dfin')]); S, AT, E = R.S, R.AT, R.E
+AF = lambda c, f: AT(c, f) - .15
+R.golpe(.05, .9); R.sello(AF('h1', 'pobre'))
+R.estatica(S('h2') - .05, .4, .3); R.golpe(AF('h2', 'dato'), .7)
+R.zumbido(S('c1'), E('c1') - S('c1'), 50, .12); R.golpe(AF('c1', 'Una letra'), .6)
+R.teclas(S('c2') + .3, E('c2') - .3, .12)
+for i in range(31): R.tic(S('c3') + .05 + i * .015, .08)
+R.golpe(AF('c3', 'festejo'), .5); R.sello(AF('c3', 'Era él'))
+R.foto(S('c4') - .1)
+for f in ['radios', 'binoculares', 'patentes', 'esposas', 'maquillaje']: R.tic(AF('c4', f), .5)
+R.golpe(S('c5'), .8); R.latido(S('c5'), E('c9'), 92, .9)
+R.zumbido(AF('c6', 'Ese día'), 2.2, 40, .2)
+R.golpe(AF('c7', 'Y bajó'), .7)
+R.foto(S('c8') - .1); R.golpe(AF('c8', 'un momentito'), .9)
+for i in range(20): R.tic(AF('c8', 'En veinte') + i * .09, .25)
+R.sello(AF('c9', 'Era él'))
+for i in range(10): R.tic(AF('c10', 'nueve') + i * .12, .2)
+R.teclas(AF('c10', 'Dijo'), AF('c10', 'firmó'), .14); R.teclas(AF('c10', 'firmó'), E('c10'), .1)
+R.golpe(S('c11'), .6); R.foto(AF('c11', 'e Israel') - .1)
+R.golpe(AF('c12', 'drogaron'), .6); R.sello(AF('c12', 'tripulante') + .4); R.foto(AF('c12', 'Ezeiza') - .1)
+R.zumbido(S('c13'), E('c13') - S('c13') + .3, 70, .16); R.tic(AF('c13', 'Dakar'), .5); R.golpe(AF('c13', 'Israel'), .8)
+R.teclas(S('c14'), AF('c14', 'Parlamento'), .12); R.foto(AF('c14', 'Parlamento') - .1)
+R.golpe(S('c15') + .2, 1.0); R.sello(S('outro') + .3)
+R.mezclar()

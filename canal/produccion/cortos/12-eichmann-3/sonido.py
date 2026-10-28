@@ -1,0 +1,26 @@
+"""Música, efectos y mezcla de "Pasó de verdad" · Adolf Eichmann, parte 3. Los momentos salen de timeline.json con las mismas cuentas que web/escenas.js."""
+import sys; sys.path.insert(0, '../comun')
+from sonido_reel import *
+R = Reel([(0, 'D'), ('c1', 'Bb'), ('c5', 'A'), ('c9', 'E'), ('c10', 'D'), ('c12', 'A'), ('c14', 'Bb'), ('c16', 'Dfin')]); S, AT, E = R.S, R.AT, R.E
+AF = lambda c, f: AT(c, f) - .15
+R.golpe(.05, .9)
+for i in range(3): R.foto(2.7 + i * .35)
+R.foto(AF('h1', 'Adolf') - .1); R.golpe(AF('h2', 'estalló'), 1.0); R.estatica(AF('h2', 'estalló'), .4, .3)
+R.sello(AF('c1', 'soberanía')); R.zumbido(AF('c1', 'habían secuestrado'), 3, 50, .14)
+R.teclas(S('c2'), AF('c2', 'La Argentina'), .12); R.golpe(AF('c2', 'ONU'), .6)
+for i in range(10): R.tic(S('c3') + .4 + i * .12, .3)
+R.sello(AF('c4', 'expulsó')); R.golpe(AF('c4', 'En agosto'), .5)
+R.foto(S('c5') - .1); R.foto(AF('c5', 'Eichmann declaró') - .1)
+R.golpe(AF('c6', 'seis millones'), .8); R.latido(AF('c6', 'seis millones'), E('c7'), 64, .7)
+for i in range(14): R.tic(S('c7') + .1 + i * .1, .18)
+R.foto(AF('c7', 'Uno de ellos') - .1); R.golpe(AF('c7', 'desmayó'), .6)
+R.foto(S('c8') - .1); R.foto(S('c9') - .1); R.golpe(AF('c9', 'banalidad'), .7)
+R.sello(AF('c10', 'muerte')); R.golpe(AF('c10', 'Es la única'), .6)
+for i in range(6): R.tic(S('c11') + .3 + i * 1.0, .35)
+R.zumbido(S('c12'), E('c12') - S('c12'), 40, .18)
+for f in ['viva Alemania', 'viva Argentina', 'viva Austria']: R.golpe(AF('c12', f), .5)
+R.zumbido(S('c13'), E('c13') - S('c13'), 55, .1); R.golpe(AF('c13', 'No tiene'), .8)
+R.foto(S('c14') - .1); R.sello(AF('c14', 'No lo'))
+R.tic(AF('c15', 'Paraguay'), .4); R.tic(AF('c15', 'Brasil'), .4); R.sello(AF('c15', 'juzgado'))
+R.golpe(S('c16'), .6); R.sello(S('outro') + .3)
+R.mezclar()

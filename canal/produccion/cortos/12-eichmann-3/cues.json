@@ -1,0 +1,109 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "El veintitrés de mayo de mil novecientos sesenta, el mundo se enteró: Adolf Eichmann estaba preso en Israel.",
+  "pause": 0.4,
+  "say": "El veintitrés de mayo de mil novecientos sesenta, el mundo se enteró: Adolf Áijman estaba preso en Israel."
+ },
+ {
+  "id": "h2",
+  "text": "Y la Argentina estalló.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Dijo que Israel había violado su soberanía: habían secuestrado a un hombre en territorio argentino.",
+  "pause": 0.45
+ },
+ {
+  "id": "c2",
+  "text": "Israel habló de voluntarios y expresó su pesar. La Argentina llevó el caso a la ONU.",
+  "pause": 0.45,
+  "say": "Israel habló de voluntarios y expresó su pesar. La Argentina llevó el caso a la ónu."
+ },
+ {
+  "id": "c3",
+  "text": "El veintitrés de junio, el Consejo de Seguridad le pidió a Israel una reparación adecuada.",
+  "pause": 0.45
+ },
+ {
+  "id": "c4",
+  "text": "En julio, la Argentina expulsó al embajador israelí. En agosto, los dos gobiernos dieron el conflicto por terminado.",
+  "pause": 0.5
+ },
+ {
+  "id": "c5",
+  "text": "El once de abril de mil novecientos sesenta y uno empezó el juicio, en Jerusalén. Eichmann declaró dentro de una cabina de vidrio blindado.",
+  "pause": 0.45,
+  "say": "El once de abril de mil novecientos sesenta y uno empezó el juicio, en Jerusalén. Áijman declaró dentro de una cabina de vidrio blindado."
+ },
+ {
+  "id": "c6",
+  "text": "El fiscal dijo que no estaba solo: a su lado había seis millones de acusadores.",
+  "pause": 0.5
+ },
+ {
+  "id": "c7",
+  "text": "Declararon ciento doce testigos. Uno de ellos, sobreviviente de Auschwitz, se desmayó frente al tribunal.",
+  "pause": 0.5,
+  "say": "Declararon ciento doce testigos. Uno de ellos, sobreviviente de Áushvits, se desmayó frente al tribunal."
+ },
+ {
+  "id": "c8",
+  "text": "Eichmann se defendió siempre igual: dijo que solo cumplía órdenes.",
+  "pause": 0.5,
+  "say": "Áijman se defendió siempre igual: dijo que solo cumplía órdenes."
+ },
+ {
+  "id": "c9",
+  "text": "La filósofa Hannah Arendt, que cubrió el juicio, lo vio como un burócrata común. De ahí salió su idea más famosa: la banalidad del mal.",
+  "pause": 0.5,
+  "say": "La filósofa Jána Árendt, que cubrió el juicio, lo vio como un burócrata común. De ahí salió su idea más famosa: la banalidad del mal."
+ },
+ {
+  "id": "c10",
+  "text": "El quince de diciembre lo condenaron a muerte. Es la única ejecución ordenada por un tribunal civil en la historia de Israel.",
+  "pause": 0.45
+ },
+ {
+  "id": "c11",
+  "text": "Lo ahorcaron en la cárcel de Ramla, pasada la medianoche del primero de junio de mil novecientos sesenta y dos.",
+  "pause": 0.45,
+  "say": "Lo ahorcaron en la cárcel de Rámla, pasada la medianoche del primero de junio de mil novecientos sesenta y dos."
+ },
+ {
+  "id": "c12",
+  "text": "Entre sus últimas palabras dijo: viva Alemania, viva Argentina, viva Austria.",
+  "pause": 0.6
+ },
+ {
+  "id": "c13",
+  "text": "Cremaron su cuerpo y tiraron las cenizas al mar, fuera de las aguas de Israel. No tiene tumba.",
+  "pause": 0.6
+ },
+ {
+  "id": "c14",
+  "text": "En esos mismos días, el Mossad también buscó en Buenos Aires a Josef Mengele, el médico de Auschwitz. No lo atraparon.",
+  "pause": 0.45,
+  "say": "En esos mismos días, el Mosád también buscó en Buenos Aires a Yósef Ménguele, el médico de Áushvits. No lo atraparon."
+ },
+ {
+  "id": "c15",
+  "text": "Mengele escapó a Paraguay y a Brasil, y murió en mil novecientos setenta y nueve, sin ser juzgado.",
+  "pause": 0.5,
+  "say": "Ménguele escapó a Paraguay y a Brasil, y murió en mil novecientos setenta y nueve, sin ser juzgado."
+ },
+ {
+  "id": "c16",
+  "text": "¿La Argentina tenía razón en reclamar, o Israel hizo justicia? Te leo en los comentarios.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]
