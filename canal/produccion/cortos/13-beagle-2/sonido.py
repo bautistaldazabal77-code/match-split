@@ -1,0 +1,26 @@
+"""Música, efectos y mezcla de "Pasó de verdad" · Beagle 1978, parte 2. Los momentos salen de timeline.json con las mismas cuentas que web/escenas.js."""
+import sys; sys.path.insert(0, '../comun')
+from sonido_reel import *
+R = Reel([(0, 'D'), ('c1', 'Bb'), ('c3', 'A'), ('c5', 'D'), ('c6', 'G'), ('c8', 'Bb'), ('c10', 'A'), ('c11', 'F'), ('c13', 'C'), ('c15', 'Dfin')]); S, AT, E = R.S, R.AT, R.E
+AF = lambda c, f: AT(c, f) - .15
+R.golpe(.05, .9); R.latido(.6, S('c1'), 76, .6)
+for i in range(5): R.tic(S('h1') + .4 + i * .35, .3)
+R.foto(S('h2') - .1)
+R.golpe(AF('c1', 'ocho'), .8); R.zumbido(S('c1'), E('c1') - S('c1'), 55, .12)
+R.golpe(AF('c2', 'diez'), 1.0); R.latido(S('c2'), E('c4'), 92, .8)
+for f in ['Picton', 'Nueva', 'Lennox']: R.tic(AF('c2', f), .5)
+R.golpe(AF('c3', 'medianoche'), .8); R.zumbido(S('c3'), E('c3') - S('c3'), 45, .14)
+R.golpe(AF('c4', 'seis'), .8)
+for i in range(6): place(R.sfx, beep(1100, .07, .1), AF('c4', 'atacar') + i * .4)
+R.foto(S('c5') - .1); R.sello(AF('c5', 'tres pasos'))
+R.zumbido(S('c5'), E('c5') - S('c5'), 50, .1)
+R.foto(S('c6') - .1); R.golpe(AF('c6', 'minado'), .6); R.golpe(AF('c6', 'volado'), .6)
+R.estatica(S('c7'), E('c7') - S('c7'), .12)
+R.golpe(AF('c8', 'doscientos'), .9); R.latido(S('c8'), E('c10'), 84, .7)
+R.sello(AF('c9', 'treinta')); R.sello(AF('c9', 'cincuenta'))
+for f in ['Perú', 'Bolivia', 'Brasil']: R.tic(AF('c10', f), .5)
+R.foto(S('c11') - .1); R.golpe(S('c11') + .1, .5)
+R.sello(AF('c12', 'ochenta'))
+R.foto(S('c13') - .1); R.foto(S('c14') - .1); R.sello(AF('c14', 'Samoré'))
+R.golpe(S('c15') + .2, 1.0); R.sello(S('outro') + .3)
+R.mezclar()

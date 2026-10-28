@@ -1,0 +1,68 @@
+{
+ "beagle.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:Beagle-canal-panorama.jpg",
+  "corto": "Foto: Maelcum · CC BY-SA 3.0",
+  "autor": "Maelcum",
+  "licencia": "CC BY-SA 3.0"
+ },
+ "beagleaereo.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:090111-6_Above_%E3%83%93%E3%83%BC%E3%82%B0%E3%83%AB%E6%B0%B4%E9%81%93.jpg",
+  "corto": "Foto: Ted Wakabayashi · CC BY-SA 3.0",
+  "autor": "Ted Wakabayashi",
+  "licencia": "CC BY-SA 3.0"
+ },
+ "tormenta.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:Unidentified_tall_ship_near_Cape_Horn_-_Nla.pic-vn3299637-v.jpg",
+  "corto": "Foto: Biblioteca Nacional de Australia · Dominio público",
+  "autor": "Biblioteca Nacional de Australia",
+  "licencia": "Dominio público"
+ },
+ "minas.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:LandmineWarningChileTierraDelFuego.jpg",
+  "corto": "Foto: Heretiq · CC BY-SA 2.5",
+  "autor": "Heretiq",
+  "licencia": "CC BY-SA 2.5"
+ },
+ "portaaviones.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:PALVdeMayoV-2.jpg",
+  "corto": "Foto: Ennio Chiecchio · Dominio público",
+  "autor": "Ennio Chiecchio",
+  "licencia": "Dominio público"
+ },
+ "belgrano.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:ARA_General_Belgrano_underway.jpg",
+  "corto": "Foto: Autor desconocido · Dominio público (Argentina)",
+  "autor": "Autor desconocido",
+  "licencia": "Dominio público (Argentina)"
+ },
+ "videla.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:Jorge_Rafael_Videla_%28cropped%29.png",
+  "corto": "Foto: Gobierno argentino · Dominio público",
+  "autor": "Gobierno argentino",
+  "licencia": "Dominio público"
+ },
+ "mundial.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:Saludo_tarantini_videla.jpg",
+  "corto": "Foto: El Gráfico, 1978 · Dominio público (Argentina)",
+  "autor": "El Gráfico, 1978",
+  "licencia": "Dominio público (Argentina)"
+ },
+ "pinochet.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:Pinochet_crop.jpg",
+  "corto": "Foto: Emilio Kopaitic · Dominio público",
+  "autor": "Emilio Kopaitic",
+  "licencia": "Dominio público"
+ },
+ "papa.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:JohannesPaul2-portrait.jpg",
+  "corto": "Foto: Bob McNeely (Casa Blanca) · Dominio público",
+  "autor": "Bob McNeely (Casa Blanca)",
+  "licencia": "Dominio público"
+ },
+ "puyehue.jpg": {
+  "archivo": "https://commons.wikimedia.org/wiki/File:Paso_Puyehue.JPG",
+  "corto": "Foto: Dentren · GFDL",
+  "autor": "Dentren",
+  "licencia": "GFDL"
+ }
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../comun/web/fonts/local.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#050505;color:#ece8e1;font-family:Inter,sans-serif}
+#stage{position:absolute;inset:0}
+.scene{position:absolute;inset:0;opacity:0;overflow:hidden}
+.cam{position:absolute;inset:0;transform-origin:50% 40%}
+.mono{font-family:'IBM Plex Mono',monospace}
+svg.full{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+/* el estilo caso.js, acomodado al formato vertical (zona libre de 330 a 1150; subtítulos debajo) */
+body .clbl{left:64px;top:330px;font-size:24px}
+body .cev{left:64px;bottom:auto;top:1070px}
+body .ccred{right:auto;left:64px;bottom:auto;top:1500px;font-size:16px}
+body #cHUD{right:64px;top:140px}
+body #cHUD .n{font-size:96px}
+/* subtítulos */
+#caps{position:absolute;left:70px;width:940px;top:1170px;height:220px;display:flex;align-items:center;justify-content:center;z-index:85}
+.cg{font:400 112px/.95 'Bebas Neue';text-align:center;color:#fff;letter-spacing:.01em;text-shadow:0 0 3px rgba(0,0,0,.95),0 6px 0 rgba(0,0,0,.6),0 0 30px rgba(0,0,0,.8)}
+.cg span{display:inline-block;transform-origin:50% 80%}
+.cg .r{color:#ff2a2a}.cg .a{color:#ffd9a8}
+/* interfaz fija */
+#hud{position:absolute;inset:0;z-index:80}
+#serie{position:absolute;left:64px;top:148px;font:500 26px Oswald;letter-spacing:.24em;color:#ff2a2a}
+#aviso{position:absolute;left:64px;top:188px;font:400 19px Oswald;letter-spacing:.2em;color:rgba(236,232,225,.55)}
+#reloj{position:absolute;left:64px;top:234px;display:flex;align-items:center;gap:14px;padding:8px 18px;background:rgba(10,10,10,.8);border:1px solid rgba(255,255,255,.16);font:400 40px 'Bebas Neue';letter-spacing:.06em;transform-origin:0 50%}
+#reloj i{width:12px;height:12px;background:#ff2a2a}
+#reloj .d{font:500 18px Oswald;letter-spacing:.24em;color:#8a8a8a}
+#reloj.rojo{border-color:#ff2a2a;background:rgba(60,4,4,.85)}
+#reloj.rojo .h{color:#ff5a5a}
+</style>
+</head><body>
+<div id="stage"></div>
+<script src="../../comun/web/d3.min.js"></script>
+<script src="../../comun/web/topojson.min.js"></script>
+<script src="timeline.js"></script>
+<script src="../../13-beagle-1/web/fotos.js"></script>
+<script src="../../comun/web/motor.js"></script>
+<script src="../../comun/web/dibujos.js"></script>
+<script src="../../comun/web/mapas.js"></script>
+<script src="../../comun/web/ciencia.js"></script>
+<script src="../../comun/web/caso.js"></script>
+<script src="../../comun/web/reel.js"></script>
+<script src="../../13-beagle-1/web/fuego.js"></script>
+<script src="../../comun/web/tactico.js"></script>
+<script src="escenas.js"></script>
+<script>start();</script>
+</body></html>

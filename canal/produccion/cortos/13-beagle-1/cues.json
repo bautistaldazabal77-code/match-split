@@ -1,0 +1,87 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "Seis meses después del Mundial setenta y ocho, la Argentina y Chile estuvieron a horas de una guerra.",
+  "pause": 0.4
+ },
+ {
+  "id": "h2",
+  "text": "El plan tenía fecha y hora: veintidós de diciembre, a las diez de la noche.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "La pelea era por tres islas en la boca del canal de Beagle, en el fin del mundo: Picton, Nueva y Lennox.",
+  "pause": 0.45,
+  "say": "La pelea era por tres islas en la boca del canal de Bígol, en el fin del mundo: Píkton, Nueva y Lénox."
+ },
+ {
+  "id": "c2",
+  "text": "Parecen chicas, pero quien las tuviera podía reclamar una enorme porción de mar, camino a la Antártida.",
+  "pause": 0.5
+ },
+ {
+  "id": "c3",
+  "text": "Los dos países le pidieron a la Corona británica que decidiera. En mayo de mil novecientos setenta y siete, el fallo le dio las tres islas a Chile.",
+  "pause": 0.45
+ },
+ {
+  "id": "c4",
+  "text": "En enero de mil novecientos setenta y ocho, la dictadura argentina lo declaró nulo.",
+  "pause": 0.5
+ },
+ {
+  "id": "c5",
+  "text": "Del otro lado gobernaba Pinochet. Chile minó sus fronteras y preparó su escuadra.",
+  "pause": 0.5,
+  "say": "Del otro lado gobernaba Pinoché. Chile minó sus fronteras y preparó su escuadra."
+ },
+ {
+  "id": "c6",
+  "text": "En diciembre, Videla firmó la orden. Se llamó Operativo Soberanía.",
+  "pause": 0.5
+ },
+ {
+  "id": "c7",
+  "text": "La flota argentina zarpó hacia el sur: el portaaviones Veinticinco de Mayo, el crucero General Belgrano, destructores y buques de desembarco con infantes de marina.",
+  "pause": 0.45
+ },
+ {
+  "id": "c8",
+  "text": "La escuadra chilena la esperaba entre las islas. Según fuentes chilenas, un avión ya la había ubicado.",
+  "pause": 0.5
+ },
+ {
+  "id": "c9",
+  "text": "Entonces llegó un temporal, con vientos huracanados y olas de más de doce metros.",
+  "pause": 0.5
+ },
+ {
+  "id": "c10",
+  "text": "Y esa misma mañana, el papa Juan Pablo Segundo se comunicó con los dos gobiernos: iba a mandar un enviado personal.",
+  "pause": 0.5
+ },
+ {
+  "id": "c11",
+  "text": "La junta militar discutió una hora. Y aceptó.",
+  "pause": 0.6
+ },
+ {
+  "id": "c12",
+  "text": "A la tarde, horas antes del desembarco, la flota argentina dio la vuelta.",
+  "pause": 0.5
+ },
+ {
+  "id": "c13",
+  "text": "Nadie disparó. Pero el plan no terminaba en las islas. En la parte dos: qué iba a pasar si nadie llamaba.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

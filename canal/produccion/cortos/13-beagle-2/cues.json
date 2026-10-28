@@ -1,0 +1,96 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "El plan del veintidós de diciembre de mil novecientos setenta y ocho tenía horarios exactos.",
+  "pause": 0.4
+ },
+ {
+  "id": "h2",
+  "text": "Así lo reconstruyeron después libros y diarios de los dos países.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "A las ocho de la noche, infantes de marina iban a ocupar las islas del cabo de Hornos.",
+  "pause": 0.45
+ },
+ {
+  "id": "c2",
+  "text": "A las diez, la hora H, Picton, Nueva y Lennox, y el canal de Beagle.",
+  "pause": 0.5,
+  "say": "A las diez, la hora H, Píkton, Nueva y Lénox, y el canal de Bígol."
+ },
+ {
+  "id": "c3",
+  "text": "A medianoche, el Quinto Cuerpo de Ejército iba a avanzar desde Santa Cruz hacia Punta Arenas y Puerto Natales.",
+  "pause": 0.45
+ },
+ {
+  "id": "c4",
+  "text": "A las seis de la mañana, la Fuerza Aérea iba a atacar a los aviones chilenos en tierra.",
+  "pause": 0.5
+ },
+ {
+  "id": "c5",
+  "text": "Y desde Mendoza, el Tercer Cuerpo de Luciano Benjamín Menéndez iba a cruzar la cordillera por tres pasos, hacia Santiago y, si podía, Valparaíso.",
+  "pause": 0.5
+ },
+ {
+  "id": "c6",
+  "text": "Chile lo esperaba. Había minado sus fronteras, volado pasos de montaña y preparado una línea de defensa para frenar el avance sobre Punta Arenas.",
+  "pause": 0.45
+ },
+ {
+  "id": "c7",
+  "text": "Su escuadra, al mando del almirante Raúl López, salió de los fiordos a buscar a la flota argentina.",
+  "pause": 0.5
+ },
+ {
+  "id": "c8",
+  "text": "Entre los dos países iban a pelear unos doscientos mil hombres.",
+  "pause": 0.45
+ },
+ {
+  "id": "c9",
+  "text": "Las estimaciones de muertos iban de treinta mil a cincuenta mil.",
+  "pause": 0.6
+ },
+ {
+  "id": "c10",
+  "text": "Y había otro miedo: que entraran Perú, Bolivia o Brasil, y que la guerra se extendiera por toda la región.",
+  "pause": 0.5
+ },
+ {
+  "id": "c11",
+  "text": "Nada de eso pasó. En enero de mil novecientos setenta y nueve, los dos países aceptaron la mediación del Papa.",
+  "pause": 0.45
+ },
+ {
+  "id": "c12",
+  "text": "Tardaron seis años. En mil novecientos ochenta y cuatro, ya en democracia, el ochenta y dos por ciento de los argentinos votó a favor del acuerdo.",
+  "pause": 0.5
+ },
+ {
+  "id": "c13",
+  "text": "Las islas quedaron para Chile, y la Argentina se quedó con la mayor parte del mar.",
+  "pause": 0.5
+ },
+ {
+  "id": "c14",
+  "text": "Y uno de los pasos por donde iba a cruzar el ejército hoy se llama Paso Cardenal Samoré, por el enviado del Papa.",
+  "pause": 0.5
+ },
+ {
+  "id": "c15",
+  "text": "¿Qué habría pasado si nadie llamaba? Te leo en los comentarios.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 2.5
+ }
+]

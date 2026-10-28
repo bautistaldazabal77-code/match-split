@@ -100,3 +100,18 @@ function icono(parent, tipo, x, y, s = 1, col = '#ece8e1') {
   return g;
 }
 const mostrar = (n, q, dy = 18) => { n.setAttribute('opacity', q); const tr = n.getAttribute('data-tr') || n.getAttribute('transform') || ''; if (!n.getAttribute('data-tr')) n.setAttribute('data-tr', tr); n.setAttribute('transform', `${tr} translate(0 ${(lerp(dy, 0, eo(q))).toFixed(1)})`); };
+
+// carta táctica de cualquier zona recortada con mapas/recorte.py (D = {land, islas, limites}); o = {centro, ancho, caja, titulo, km, paso}
+function mapaZona(svg, D, o = {}) {
+  const caja = o.caja || [40, 330, 1040, 1150], [cx, cy] = o.centro, a = o.ancho, h = a * (caja[3] - caja[1]) / (caja[2] - caja[0]) * Math.cos(cy * Math.PI / 180);
+  const proj = d3.geoMercator().fitExtent([[caja[0], caja[1]], [caja[2], caja[3]]], { type: 'MultiPoint', coordinates: [[cx - a / 2, cy - h / 2], [cx + a / 2, cy + h / 2]] }), path = d3.geoPath(proj);
+  const id = 'clp' + Math.random().toString(36).slice(2, 7), defs = el('defs', {}, svg), cp = el('clipPath', { id }, defs);
+  el('rect', { x: caja[0], y: caja[1], width: caja[2] - caja[0], height: caja[3] - caja[1] }, cp);
+  const base = el('g', { 'clip-path': `url(#${id})` }, svg), g = el('g', {}, base);
+  el('rect', { x: -4000, y: -4000, width: 9000, height: 9000, fill: TAC.agua }, g);
+  for (let i = 1; i <= 3; i++) [...(D.land.features || []), ...((D.islas || {}).features || [])].forEach(f => el('path', { d: path(f), fill: 'none', stroke: '#0c1822', 'stroke-width': 10 * i, 'stroke-linejoin': 'round', opacity: .5 }, g));
+  [...(D.land.features || []), ...((D.islas || {}).features || [])].forEach(f => el('path', { d: path(f), fill: TAC.tierra, stroke: TAC.borde, 'stroke-width': 1.6 }, g));
+  ((D.limites || {}).features || []).forEach(f => el('path', { d: path(f), fill: 'none', stroke: '#8a6a6a', 'stroke-width': 2.5, 'stroke-dasharray': '10 6' }, g));
+  const marco = marcoTac(svg, proj, { caja, titulo: o.titulo, fuente: o.fuente ?? 'MAPA: NATURAL EARTH', km: o.km || 20, paso: o.paso || .5 });
+  return { proj, path, g, base, marco, caja };
+}

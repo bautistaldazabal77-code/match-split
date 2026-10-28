@@ -1,0 +1,25 @@
+"""Música, efectos y mezcla de "Pasó de verdad" · Beagle 1978, parte 1. Los momentos salen de timeline.json con las mismas cuentas que web/escenas.js."""
+import sys; sys.path.insert(0, '../comun')
+from sonido_reel import *
+R = Reel([(0, 'D'), ('c1', 'A'), ('c3', 'G'), ('c5', 'D'), ('c7', 'Bb'), ('c9', 'A'), ('c10', 'E'), ('c12', 'G'), ('c13', 'Dfin')]); S, AT, E = R.S, R.AT, R.E
+AF = lambda c, f: AT(c, f) - .15
+R.golpe(.05, .9); R.foto(3.2)
+R.golpe(AF('h1', 'a horas'), .7)
+R.golpe(AF('h2', 'diez'), .9); R.latido(S('h2'), E('h2'), 80, .7)
+R.foto(S('c1') - .1)
+for f in ['Picton', 'Nueva', 'Lennox']: R.tic(AF('c1', f), .5)
+R.zumbido(S('c2'), E('c2') - S('c2'), 50, .12)
+R.tic(S('c3') + .2, .3); R.sello(AF('c3', 'Chile'))
+R.sello(AF('c4', 'nulo')); R.golpe(AF('c4', 'nulo'), .5)
+R.foto(S('c5') - .1); R.foto(AF('c5', 'Chile minó') - .1)
+R.foto(S('c6') - .1); R.sello(AF('c6', 'Soberanía') + .2)
+R.foto(S('c7') - .1); R.foto(AF('c7', 'el crucero') - .1); R.latido(AF('c7', 'destructores'), E('c8'), 92, .8)
+R.zumbido(S('c8'), E('c8') - S('c8'), 70, .12)
+for i in range(6): place(R.sfx, beep(1100, .07, .1), AF('c8', 'Según') + i * .5)
+R.estatica(S('c9'), E('c9') - S('c9'), .18); R.golpe(AF('c9', 'olas'), .7)
+R.foto(S('c10') - .1); R.golpe(AF('c10', 'iba a mandar'), .6)
+for i in range(12): R.tic(S('c11') + i * .22, .2)
+R.sello(AF('c11', 'aceptó'))
+R.zumbido(S('c12'), E('c12') - S('c12'), 45, .14)
+R.golpe(S('c13') + .2, 1.0); R.sello(S('outro') + .3)
+R.mezclar()
