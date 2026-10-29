@@ -4,6 +4,11 @@
   "silence": 0.3
  },
  {
+  "id": "h0",
+  "text": "¿Qué pasaría si El Niño rompe el récord, y el Paraná pasa los seis metros en Rosario?",
+  "pause": 0.5
+ },
+ {
   "id": "h1",
   "text": "Diciembre de dos mil veintiséis. El Pacífico está tres coma ocho grados más caliente que lo normal. Nunca había pasado. ¿Qué le pasa a Rosario?",
   "pause": 0.45

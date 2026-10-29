@@ -5,9 +5,13 @@ R = Reel([(0, 'D'), ('h2', 'Bb'), ('c1', 'F'), ('c4', 'D'), ('c5', 'G'), ('c7', 
 AF = lambda c, f: AT(c, f) - .15
 def lluvia(d, g=.12): T = tt(d); return (bp(noise(d), 700, 6000) * env(T, [(0, 0), (.6, 1), (d - .6, 1), (d, 0)]) * g).astype(F32)
 def corriente(d, g=.2): T = tt(d); return (lp(noise(d), 380) * env(T, [(0, 0), (.5, 1), (d - .5, 1), (d, 0)]) * g * 4).astype(F32)
-# gancho: el Pacífico se calienta
-R.golpe(.05, .9); place(R.sfx, rumble(AT('h1', 'tres') + .5, .35), 0)
-for i in range(8): R.tic(.3 + i * (AT('h1', 'ocho') - .3) / 8, .25)
+# gancho grande: la pregunta
+R.golpe(.05, 1.0); R.latido(.1, S('h1'), 104, .8)
+for w in ['El Niño', 'rompe', 'y el Paraná', 'en Rosario']: R.golpe(AF('h0', w) + .1, .6)
+R.golpe(AF('h0', 'seis') + .1, 1.0); R.sello(AF('h0', 'seis') + .1)
+# el Pacífico se calienta
+R.foto(S('h1') - .1); place(R.sfx, rumble(AT('h1', 'tres') - S('h1') + .5, .35), S('h1'))
+for i in range(8): R.tic(S('h1') + .3 + i * (AT('h1', 'ocho') - S('h1') - .3) / 8, .25)
 R.golpe(AF('h1', 'Nunca'), .9); R.foto(AF('h1', 'Qué')); bips(R.sfx, AF('h1', 'Rosario'), 3, 1600, .16)
 R.golpe(S('h2') - .05, .7); R.sello(AF('h2', 'Ficción'))
 # la OMM, Saulo y el récord

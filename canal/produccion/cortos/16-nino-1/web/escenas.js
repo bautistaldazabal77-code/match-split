@@ -15,7 +15,7 @@ captions([
 ], { max: 3, chars: 15 });
 hud({ serie: '¿Y SI…? · PARTE 1', aviso: 'FICCIÓN · ESCENARIO HIPOTÉTICO', dia: 'DÍA', hide: S('outro') + .2,
   horas: [[S('c5') - .1, '1'], [S('c7') - .1, '9'], [S('c9') - .1, '14'], [AT('c9', 'dieciséis') - .1, '16', true]] });
-CAPS_OFF(S('outro'), TL.duration + 1);
+CAPS_OFF(S('outro'), TL.duration + 1); CAPS_OFF(-1, S('h1') - .05);
 
 const real = (id, top = 330) => pill(id, 'DATO REAL', top, '#2f8f5b');
 const fic = (id, top = 330, txt = 'FICCIÓN') => pill(id, txt, top, 'rgba(9,12,17,.85)', 'border:1px solid #ffc142;color:#ffc142;font-size:26px');
@@ -23,21 +23,42 @@ const fondo = (c = '#0d141b') => `<div style="position:absolute;inset:0;backgrou
 const entra = (id, t, a, dy = 30) => { const q = P(t, a - .1, a + .25); $(id).style.opacity = q; $(id).style.transform = `translateY(${lerp(dy, 0, eo(q))}px)`; return q; };
 const golpeT = (id, t, a, s0 = 1.4) => { const q = P(t, a - .1, a + .2); $(id).style.opacity = q; $(id).style.transform = `scale(${lerp(s0, 1, eo(q))})`; $(id).style.transformOrigin = '0 50%'; };
 SETUP.push(() => {
+// ---------- 0 · Gancho: ¿qué pasaría si El Niño rompe el récord y el Paraná pasa los seis metros? ----------
+{
+  const w = f => AT('h0', f), yp = w('y el Paraná');
+  scene('sGan', [-1, S('h1') - .1, .01, .15, 1.08], `<div id="gaF" style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#5a120e,#08090c 70%)"></div>
+    <div id="gaA" style="position:absolute;left:64px;top:470px;width:960px">
+      <div id="ga1" style="font:900 96px/1 'Inter Var';letter-spacing:-.02em;opacity:0">¿QUÉ PASARÍA SI</div>
+      <div id="ga2" style="font:900 230px/.95 'Inter Var';letter-spacing:-.045em;color:#ff5148;margin-top:14px;opacity:0">EL NIÑO</div>
+      <div id="ga3" style="font:900 116px/1 'Inter Var';letter-spacing:-.025em;margin-top:18px;opacity:0">ROMPE EL <span style="color:#ffc142">RÉCORD</span></div></div>
+    <div id="gaB" style="position:absolute;left:64px;top:430px;width:960px;opacity:0">
+      <div id="ga4" style="font:900 104px/1 'Inter Var';letter-spacing:-.02em">Y EL <span style="color:#3fa3e6">PARANÁ</span> PASA</div>
+      <div id="ga5" style="font:900 400px/.9 'Inter Var';letter-spacing:-.05em;color:#ff5148;margin-top:10px;opacity:0">6 M</div>
+      <div id="ga6" style="font:900 96px/1 'Inter Var';letter-spacing:-.02em;margin-top:6px;opacity:0">EN <span style="color:#ffc142">ROSARIO?</span></div></div>
+    <div id="gaK" class="lbl" style="left:64px;top:1500px;font-size:24px;color:#ffc142">ficción · con datos reales</div>`);
+  RENDER.push(t => {
+    if (!on('sGan')) return;
+    golpeT('ga1', t, w('Qué'), 1.25); golpeT('ga2', t, w('El Niño'), 1.5); golpeT('ga3', t, w('rompe'), 1.3);
+    $('gaA').style.opacity = 1 - P(t, yp - .15, yp); $('gaB').style.opacity = P(t, yp - .15, yp); golpeT('ga5', t, w('seis'), 1.6); golpeT('ga6', t, w('en Rosario'), 1.25);
+    $('gaF').style.filter = `brightness(${(1 + .35 * Math.max(0, Math.sin(t * 7.5))).toFixed(3)})`;
+    const [sx, sy] = t > w('seis') && t < w('seis') + .4 ? shake(t, 10) : [0, 0]; $('gaB').style.translate = `${sx.toFixed(1)}px ${sy.toFixed(1)}px`;
+  });
+}
 // ---------- 1 · Gancho: el Pacífico, +3,8 °C ----------
 {
-  const a = 0, tr = AT('h1', 'tres'), nu = AT('h1', 'Nunca');
-  scene('sAbre', [-1, nu - .1, .01, .1, 0], `<svg class="full" id="vAb" viewBox="0 0 1080 1920"></svg>
+  const a = S('h1'), tr = AT('h1', 'tres'), nu = AT('h1', 'Nunca');
+  scene('sAbre', [a - .1, nu - .1, .1, .1, 0], `<svg class="full" id="vAb" viewBox="0 0 1080 1920"></svg>
     <div id="abD" class="lbl" style="left:64px;top:330px;color:#cfd3d8;font-size:30px">DICIEMBRE 2026 · PACÍFICO ECUATORIAL</div>
     <div id="abN" style="position:absolute;left:64px;top:380px;font:900 210px/1 'Inter Var';letter-spacing:-.04em;color:#ff5148">+0,0°</div>`);
   const svg = $('vAb'), G = globo(svg, { r: 560, cy: 1000, paises: { '032': '#3d6f9e' } }), bl = filtroBlur(svg, 'abBl', 18);
   const an = el('path', { fill: '#ff3b2f', opacity: .75, filter: bl }, G.top), nu2 = el('path', { fill: '#ffb03b', opacity: .6, filter: bl }, G.top);
   RENDER.push(t => {
     if (!on('sAbre')) return;
-    G.update([lerp(118, 100, P(t, 0, nu)), 6, 0]);
+    G.update([lerp(118, 100, P(t, a, nu)), 6, 0]);
     const s = eo(P(t, a + .1, tr + .4)); an.setAttribute('d', G.path(anomaliaGeo(s)) || ''); nu2.setAttribute('d', G.path(anomaliaGeo(s * .45)) || '');
     an.setAttribute('opacity', .55 + .2 * Math.sin(t * 3));
     $('abN').textContent = '+' + (3.8 * s).toFixed(1).replace('.', ',') + '°';
-    $('abD').style.opacity = P(t, 0, .4);
+    $('abD').style.opacity = P(t, a, a + .4);
   });
 }
 // ---------- 2 · Nunca había pasado ----------

@@ -1,6 +1,6 @@
 # Corto · "¿Y si…? El Niño llega a su pico" (parte 1 de 2)
 
-Ficción con datos reales, 1:43, vertical (1080x1920, 30 cuadros por segundo, -14 LUFS), en el formato de "¿Y si…? La crisis del Mar de Scotia": todo animado, sin fotos, con las etiquetas DATO REAL y FICCIÓN en pantalla. Mapas: Natural Earth (dominio público).
+Ficción con datos reales, 1:48, vertical (1080x1920, 30 cuadros por segundo, -14 LUFS), en el formato de "¿Y si…? La crisis del Mar de Scotia": todo animado, sin fotos, con las etiquetas DATO REAL y FICCIÓN en pantalla. Mapas: Natural Earth (dominio público).
 
 ## Texto para la publicación
 

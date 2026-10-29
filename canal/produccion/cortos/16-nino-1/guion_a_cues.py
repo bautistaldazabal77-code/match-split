@@ -3,6 +3,7 @@ Cada línea es un cue (id, texto, pausa). SAY tiene la escritura fonética de la
 import json
 SAY = {"Saulo": "Sáulo"}
 G = [
+ ('h0', '¿Qué pasaría si El Niño rompe el récord, y el Paraná pasa los seis metros en Rosario?', 0.5),
  ('h1', 'Diciembre de dos mil veintiséis. El Pacífico está tres coma ocho grados más caliente que lo normal. Nunca había pasado. ¿Qué le pasa a Rosario?', 0.45),
  ('h2', '¿Y si El Niño llega a su pico? Ficción, con datos reales.', 0.6),
  ('c1', 'Primero, lo real. En octubre, la Organización Meteorológica Mundial avisó que El Niño podría llegar a tres coma ocho grados entre noviembre y enero.', 0.45),
