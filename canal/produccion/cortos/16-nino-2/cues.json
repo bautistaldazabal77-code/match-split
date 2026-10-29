@@ -1,0 +1,80 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "El Paraná podría pasar los seis metros en Rosario, y Elsa no se quiere ir de su isla. ¿Cómo termina?",
+  "pause": 0.45
+ },
+ {
+  "id": "h2",
+  "text": "Parte dos. Ficción, con datos reales.",
+  "pause": 0.6
+ },
+ {
+  "id": "c1",
+  "text": "Día diecisiete. Prefectura saca a las familias de las islas en lancha. Elsa sube a la última, con el perro y una bolsa con sus papeles.",
+  "pause": 0.5
+ },
+ {
+  "id": "c2",
+  "text": "Dato real: gran parte de Rosario está arriba de una barranca, varios metros sobre el río. Lo primero que se inunda son las islas y la costa baja.",
+  "pause": 0.45
+ },
+ {
+  "id": "c3",
+  "text": "Por eso el golpe más grande no es en la ciudad. Es en el río.",
+  "pause": 0.5
+ },
+ {
+  "id": "c4",
+  "text": "Dato real: por los puertos del Gran Rosario sale cerca del setenta y cinco por ciento de los granos, harinas y aceites que exporta la Argentina.",
+  "pause": 0.5
+ },
+ {
+  "id": "c5",
+  "text": "Día veinte. Con el río así, los barcos cargan más lento, y la terminal de Bruno trabaja a media máquina.",
+  "pause": 0.45
+ },
+ {
+  "id": "c6",
+  "text": "Día veintidós. En el tramo de islas, el agua llega al borde de la ruta que une Rosario con Victoria. La cortan por precaución.",
+  "pause": 0.5
+ },
+ {
+  "id": "c7",
+  "text": "Día veinticuatro. El río marca seis metros con diez. Es el pico. Todo el Litoral mira el mismo número.",
+  "pause": 0.55
+ },
+ {
+  "id": "c8",
+  "text": "Y entonces, por primera vez en un mes, el número baja. Seis metros. Cinco con ochenta. Cinco con cincuenta.",
+  "pause": 0.5
+ },
+ {
+  "id": "c9",
+  "text": "Día cincuenta. El río vuelve a estar por debajo de la alerta. Elsa vuelve a su casa. Hay barro hasta las rodillas, pero la casa sigue en pie.",
+  "pause": 0.5
+ },
+ {
+  "id": "c10",
+  "text": "En el poste de la entrada hay una marca vieja: la del ochenta y tres. Elsa hace una nueva, al lado, y escribe: dos mil veintisiete.",
+  "pause": 0.6
+ },
+ {
+  "id": "c11",
+  "text": "Esta historia es ficción. El tres coma ocho del pronóstico, no.",
+  "pause": 0.5
+ },
+ {
+  "id": "c12",
+  "text": "Si vivís cerca del río, seguí los avisos oficiales. Y contame: ¿vos te ibas o te quedabas?",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 3.0
+ }
+]
