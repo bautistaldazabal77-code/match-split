@@ -42,4 +42,6 @@ Una sola marca con una sección por profesión. Primero se valida con una web co
 - **Borrador de escritura a partir de los documentos:** con los DNI, el boleto y el informe de dominio llena el borrador de la escritura sin errores de tipeo. Afuera: Qualia.
 
 ## Contadores
-- Por definir.
+- **Carga automática de comprobantes:** lee las fotos y los PDF que mandan los clientes (CUIT, tipo de factura, IVA, importes), los ordena por cliente y por mes y los deja listos para cargar. Afuera: Dext, Docyt.
+- **Recolección de documentación:** le escribe a cada cliente por WhatsApp pidiendo lo que falta, insiste solo y le muestra al contador quién cumplió. Afuera: TaxDome, Karbon.
+- **Agregado anual, papeles de trabajo de Ganancias y Bienes Personales:** lee resúmenes de bancos y brokers, plazos fijos y cotizaciones al 31/12 y arma el papel de trabajo de cada cliente. Se cobra aparte, por temporada.
