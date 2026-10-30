@@ -1,5 +1,7 @@
 # Pedido para el asistente de VS Code: ACE Al Día
 
+> **Nota:** la web final ya quedó hecha en `web/` (landing y herramientas). Este pedido sirve solo si querés que el asistente de VS Code la rehaga o la mejore. En ese caso, las herramientas ahora están en `web/herramientas/js/` y las pruebas se corren con `node web/herramientas/js/pruebas.js`.
+
 Copiá desde "Contexto" hasta el final y pegalo en el chat del asistente de VS Code, con la carpeta `ace-al-dia/` del repositorio abierta.
 
 ---
