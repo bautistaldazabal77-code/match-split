@@ -1,0 +1,60 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "Si una tormenta te deja atrapado a casi seis mil metros en el Aconcagua, vas a tener que elegir a quién creerle. Y si elegís mal, no bajás.",
+  "pause": 0.45
+ },
+ {
+  "id": "c1",
+  "text": "Refugio Berlín. Treinta y dos grados bajo cero. Vos y Lucas, tu compañero de cordada, esperan que pase el viento blanco.",
+  "pause": 0.4
+ },
+ {
+  "id": "c2",
+  "text": "A las nueve de la noche, habla la radio: \"Refugio Berlín, acá Plaza de Mulas. La patrulla que subió esta tarde no responde. Hasta que pase la tormenta, tres reglas.\"",
+  "pause": 0.45
+ },
+ {
+  "id": "c3",
+  "text": "Regla uno: nadie sube de noche con viento blanco. Si alguien golpea la puerta, no es la patrulla.",
+  "pause": 0.35
+ },
+ {
+  "id": "c4",
+  "text": "Regla dos: que no se apague el calentador.",
+  "pause": 0.35
+ },
+ {
+  "id": "c5",
+  "text": "Regla tres: si escuchan su nombre desde afuera, no contesten.",
+  "pause": 0.45
+ },
+ {
+  "id": "c6",
+  "text": "Medianoche. La batería de la radio se muere y la pantalla queda negra. Lucas se duerme. Vos no.",
+  "pause": 0.5
+ },
+ {
+  "id": "c7",
+  "text": "Tres y catorce de la mañana. La radio vuelve a hablar: \"Refugio Berlín, nunca mandamos ningún mensaje. Las reglas son falsas. La patrulla está en su puerta. Ábranles ya.\"",
+  "pause": 0.4
+ },
+ {
+  "id": "c8",
+  "text": "Y golpean. \"¡Patrulla de rescate! ¡Abran, que se viene un alud!\" Y escuchás tu nombre.",
+  "pause": 0.45
+ },
+ {
+  "id": "c9",
+  "text": "¿Seguís las reglas o abrís la puerta? Hay una pista que casi nadie vio. Contámela en los comentarios. La parte dos, en mi perfil.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 3.0
+ }
+]

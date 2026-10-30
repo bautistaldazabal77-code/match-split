@@ -16,7 +16,7 @@ class Reel:
         ts = [self.S(a) if isinstance(a, str) else a for a, _ in tramos] + [self.D]
         self.music = secciones(self.N, [(ts[i], ts[i + 1], ACORDES[n], brillo, 1.0) for i, (_, n) in enumerate(tramos)], XF=2.0)
         o = self.S('outro')
-        self.music *= env(self.T, [(0, .9), (self.S('h2'), .65), (o - .3, .6), (o + .1, 1.0), (self.D - .8, .6), (self.D, 0)])
+        self.music *= env(self.T, [(0, .9), (self.S('h2') if 'h2' in self.L.C else self.S('c1'), .65), (o - .3, .6), (o + .1, 1.0), (self.D - .8, .6), (self.D, 0)])
         self.pulse = np.zeros(self.N, F32); self.sfx = np.zeros(self.N, F32)
     def t(self, x): return self.S(x) if isinstance(x, str) else x
     def foto(self, t): place(self.sfx, click(.35), t); place(self.sfx, whoosh(.5, .14), t - .2)

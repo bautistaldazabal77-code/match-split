@@ -1,0 +1,60 @@
+[
+ {
+  "id": "lead",
+  "silence": 0.3
+ },
+ {
+  "id": "h1",
+  "text": "Tres y catorce de la mañana, a casi seis mil metros. Una radio te dice que abras. Las reglas, que no. ¿Quién miente?",
+  "pause": 0.45
+ },
+ {
+  "id": "c1",
+  "text": "La pista estaba en la parte uno: a medianoche, la batería de la radio se murió. La pantalla sigue negra.",
+  "pause": 0.4
+ },
+ {
+  "id": "c2",
+  "text": "Una radio sin batería no puede recibir nada. Esa voz no salió de la radio.",
+  "pause": 0.45
+ },
+ {
+  "id": "c3",
+  "text": "Te acercás despacio. La voz no viene del aparato. Viene de la rendija de abajo de la puerta.",
+  "pause": 0.45
+ },
+ {
+  "id": "c4",
+  "text": "Despertás a Lucas. Ninguno de los dos contesta. Afuera siguen los golpes. Después, rasguños. Después, tu nombre, con la voz de tu mamá.",
+  "pause": 0.5
+ },
+ {
+  "id": "c5",
+  "text": "Regla dos. Lucas le echa al calentador el último combustible. La llama tiembla, pero no se apaga.",
+  "pause": 0.45
+ },
+ {
+  "id": "c6",
+  "text": "A las cinco y media, silencio. A las siete, sale el sol.",
+  "pause": 0.45
+ },
+ {
+  "id": "c7",
+  "text": "A las nueve llega la patrulla de verdad, desde abajo. Habían pasado la noche en una cueva de nieve. Estaban todos bien.",
+  "pause": 0.45
+ },
+ {
+  "id": "c8",
+  "text": "Al lado de la puerta del refugio hay huellas. Pero no bajan hacia Plaza de Mulas. Suben, hacia la cumbre.",
+  "pause": 0.55
+ },
+ {
+  "id": "c9",
+  "text": "Si hubieras abierto, ¿qué había del otro lado? Te leo en los comentarios.",
+  "pause": 0.3
+ },
+ {
+  "id": "outro",
+  "silence": 3.0
+ }
+]
