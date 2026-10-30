@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ACE Al Día · Herramientas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Mesa de trabajo en blanco y negro; el color solo marca la profesión (A amarillo, C verde, E rosa) y el estado (urgente, ok). */
+:root { --bg:#fafafa; --sheet:#fff; --ink:#111; --ink-2:#5b5b5b; --line:#dcdcdc; --rule:#ededed; --hl-a:#f6e45c; --hl-c:#8fe0a8; --hl-e:#f5a9c8; --alert:#c4321f; --ok:#1f7a45;
+  --f-d:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif; --f-b:"IBM Plex Sans",system-ui,sans-serif; --f-m:"IBM Plex Mono",ui-monospace,Menlo,monospace; color-scheme:light }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0e0e0e; --sheet:#171717; --ink:#f2f2f2; --ink-2:#a3a3a3; --line:#2e2e2e; --rule:#222; --hl-a:#d9c83f; --hl-c:#5fc283; --hl-e:#df86ab; --alert:#ff7a66; --ok:#6fd69a; color-scheme:dark } }
+:root[data-theme="dark"] { --bg:#0e0e0e; --sheet:#171717; --ink:#f2f2f2; --ink-2:#a3a3a3; --line:#2e2e2e; --rule:#222; --hl-a:#d9c83f; --hl-c:#5fc283; --hl-e:#df86ab; --alert:#ff7a66; --ok:#6fd69a; color-scheme:dark }
+* { box-sizing:border-box } body { margin:0; background:var(--bg); color:var(--ink); font:400 15.5px/1.5 var(--f-b) }
+.wrap { max-width:1180px; margin:0 auto; padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px)) }
+h1,h2,h3 { font-family:var(--f-d); margin:0; letter-spacing:-.02em; line-height:1.1 } p { margin:0 }
+.mono { font-family:var(--f-m); font-variant-numeric:tabular-nums }
+.a{--hl:var(--hl-a)} .c{--hl:var(--hl-c)} .e{--hl:var(--hl-e)}
+header { border-bottom:1px solid var(--line); background:var(--sheet) } header .wrap { display:flex; align-items:center; gap:14px; padding-block:14px; flex-wrap:wrap }
+.logo { font:800 20px/1 var(--f-d); display:flex; gap:4px; align-items:center } .logo i { font-style:normal; width:22px; height:22px; display:inline-grid; place-items:center; border-radius:4px; background:var(--hl); color:#111; font-size:13px }
+.beta { font:500 11px/1 var(--f-m); letter-spacing:.12em; text-transform:uppercase; border:1px solid var(--ink); padding:5px 7px; border-radius:4px }
+header small { color:var(--ink-2); margin-left:auto; font-size:13px }
+nav.tabs { display:flex; gap:6px; overflow-x:auto; padding-block:14px 0; scrollbar-width:none }
+nav.tabs button { flex:none; appearance:none; border:1px solid var(--line); background:var(--sheet); color:var(--ink); padding:9px 14px; border-radius:999px; font:500 14px/1 var(--f-b); cursor:pointer; display:flex; gap:8px; align-items:center }
+nav.tabs button b { width:9px; height:9px; border-radius:50%; background:var(--hl) }
+nav.tabs button[aria-selected="true"] { background:var(--ink); color:var(--bg); border-color:var(--ink) }
+main { padding-block:20px 60px } section[hidden] { display:none }
+.cab { display:flex; justify-content:space-between; align-items:end; gap:16px; flex-wrap:wrap; margin-block:8px 18px }
+.cab h2 { font-size:clamp(28px,4vw,40px) } .cab p { color:var(--ink-2); max-width:62ch; margin-top:6px }
+.cab .marca { font:500 12px/1 var(--f-m); letter-spacing:.1em; text-transform:uppercase; background:var(--hl); color:#111; padding:6px 8px; border-radius:4px }
+.grid2 { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:18px; align-items:start }
+.panel { background:var(--sheet); border:1px solid var(--line); border-radius:10px; padding:18px; min-width:0; display:grid; gap:14px }
+.panel h3 { font-size:19px } .nota { font-size:13px; color:var(--ink-2) }
+label.f { display:grid; gap:5px; font:500 13px/1.2 var(--f-b); min-width:0 }
+input,select,textarea { font:400 15px/1.35 var(--f-b); padding:9px 10px; border:1px solid var(--line); border-radius:7px; background:var(--bg); color:var(--ink); width:100%; min-width:0 }
+textarea { font:400 13.5px/1.55 var(--f-m); min-height:220px; resize:vertical }
+.fila { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px }
+.btn { appearance:none; border:1px solid var(--ink); background:var(--ink); color:var(--bg); border-radius:7px; padding:9px 14px; font:600 14px/1 var(--f-b); cursor:pointer; text-decoration:none; display:inline-flex; gap:6px; align-items:center }
+.btn.sec { background:transparent; color:var(--ink); border-color:var(--line) } .btn.hl { background:var(--hl); color:#111; border-color:transparent } .btn.mini { padding:6px 9px; font-size:12.5px }
+.acciones { display:flex; gap:8px; flex-wrap:wrap; align-items:center }
+.tabla { overflow-x:auto; border:1px solid var(--rule); border-radius:8px }
+table { width:100%; border-collapse:collapse; font-size:14px } th { text-align:left; font:500 11.5px/1.2 var(--f-m); letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2); background:var(--bg) }
+th,td { padding:9px 10px; border-bottom:1px solid var(--rule); vertical-align:top } tr:last-child td { border-bottom:0 } td.num { text-align:right; font-family:var(--f-m); white-space:nowrap }
+.pill { display:inline-block; font:500 11.5px/1 var(--f-m); padding:5px 7px; border-radius:4px; white-space:nowrap; border:1px solid var(--line) }
+.pill.urg { background:var(--alert); color:#fff; border-color:transparent } .pill.ok { color:var(--ok); border-color:currentColor } .pill.warn { background:var(--hl-a); color:#111; border-color:transparent }
+.err { color:var(--alert); font-size:14px } .obs { display:grid; gap:8px; margin:0; padding:0; list-style:none }
+.obs li { padding:10px 12px; border-radius:7px; border:1px solid var(--line); font-size:14px } .obs li.alta { border-color:var(--alert); color:var(--alert) } .obs li.media { background:color-mix(in srgb,var(--hl-a) 35%,transparent) }
+.drop { border:2px dashed var(--line); border-radius:10px; padding:22px; text-align:center; color:var(--ink-2); cursor:pointer } .drop.sobre { border-color:var(--ink); color:var(--ink) }
+.cadena { list-style:none; margin:0; padding:0 } .cadena li { display:grid; grid-template-columns:62px 1fr; gap:10px; padding:8px 0; border-bottom:1px dotted var(--line); font-size:14px }
+.borr { font:400 14.5px/1.75 Georgia,"Times New Roman",serif; white-space:pre-wrap; background:var(--bg); border:1px solid var(--rule); border-radius:8px; padding:14px }
+.borr mark { background:var(--hl-e); color:#111; padding:0 2px; border-radius:2px; font-family:var(--f-m); font-size:13px } .borr mark.falta { background:var(--alert); color:#fff }
+.chips { display:flex; gap:6px; flex-wrap:wrap } .chips label { display:flex; gap:6px; align-items:center; font-size:13.5px; border:1px solid var(--line); border-radius:999px; padding:5px 10px }
+.chips input { width:auto }
+.kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px } .kpi { border:1px solid var(--rule); border-radius:8px; padding:10px } .kpi b { display:block; font:800 26px/1 var(--f-d) } .kpi span { font-size:12.5px; color:var(--ink-2) }
+.msg { background:var(--hl-c); color:#111; border-radius:10px 10px 3px 10px; padding:10px 12px; font-size:14px; justify-self:end; max-width:95% }
+footer { border-top:1px solid var(--line); padding-block:20px 40px; color:var(--ink-2); font-size:13px }
+:focus-visible { outline:3px solid var(--ink); outline-offset:2px }
+@media (max-width:860px) { .grid2 { grid-template-columns:1fr } .kpis { grid-template-columns:repeat(2,1fr) } }
+</style></head><body>
+<header><div class="wrap">
+  <span class="logo"><i class="a" style="background:var(--hl-a)">A</i><i class="c" style="background:var(--hl-c)">C</i><i class="e" style="background:var(--hl-e)">E</i>&nbsp;Al Día</span><span class="beta">Herramientas · beta</span>
+  <small>Todo se calcula en tu navegador: los datos no salen de tu computadora.</small>
+  <nav class="tabs wrap" role="tablist" aria-label="Herramientas" style="width:100%;padding-left:0;padding-right:0">
+    <button role="tab" class="a" data-t="venc"><b></b>Vencimientos</button><button role="tab" class="a" data-t="liq"><b></b>Liquidador</button>
+    <button role="tab" class="c" data-t="comp"><b></b>Comprobantes</button><button role="tab" class="c" data-t="rec"><b></b>Recolección</button>
+    <button role="tab" class="e" data-t="tit"><b></b>Estudio de títulos</button><button role="tab" class="e" data-t="esc"><b></b>Borrador de escritura</button>
+  </nav>
+</div></header>
+
+<main class="wrap">
+<!-- ============ VENCIMIENTOS ============ -->
+<section id="venc" class="a" role="tabpanel">
+  <div class="cab"><div><h2>Vencimientos</h2><p>Cargá la providencia y la fecha de notificación: calcula el vencimiento en días hábiles judiciales, con feriados 2026–2027 y ferias.</p></div><span class="marca">Abogados</span></div>
+  <div class="grid2">
+    <form class="panel" id="v-form">
+      <h3>Nueva causa</h3>
+      <div class="fila"><label class="f">Expediente<input id="v-exp" placeholder="23.418/2025" required></label><label class="f">Juzgado<input id="v-juz" placeholder="Juzg. Civil 45"></label></div>
+      <label class="f">Providencia<input id="v-pro" placeholder="Traslado de la demanda" required></label>
+      <div class="fila"><label class="f">Notificado el<input id="v-not" type="date" required></label><label class="f">Plazo (días hábiles)<input id="v-dias" type="number" min="1" value="5" required></label>
+        <label class="f">Fuero<select id="v-amb"><option value="nacion">Nación y federal</option><option value="pba">Provincia de Buenos Aires</option><option value="ninguna">Sin ferias</option></select></label></div>
+      <label class="f" style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="v-nl" checked style="width:auto"> Contar los días no laborables (turísticos y Jueves Santo) como inhábiles</label>
+      <p class="err" id="v-err" hidden></p>
+      <div class="acciones"><button class="btn">Calcular y agregar</button><span class="nota">Se cuenta desde el día hábil siguiente a la notificación.</span></div>
+    </form>
+    <div class="panel"><h3>Próximos vencimientos</h3><div class="tabla"><table><thead><tr><th>Causa</th><th>Vence</th><th>Faltan</th><th></th></tr></thead><tbody id="v-lista"></tbody></table></div>
+      <div class="acciones"><button class="btn sec" type="button" id="v-ics">Descargar al calendario (.ics)</button><button class="btn sec" type="button" id="v-ej">Cargar ejemplos</button><button class="btn sec" type="button" id="v-borrar">Vaciar</button></div>
+      <p class="nota">Revisá siempre las acordadas de tu jurisdicción: pueden declarar días inhábiles extra. El plazo de gracia son las dos primeras horas del día hábil siguiente al vencimiento.</p></div>
+  </div>
+</section>
+
+<!-- ============ LIQUIDADOR ============ -->
+<section id="liq" class="a" role="tabpanel" hidden>
+  <div class="cab"><div><h2>Liquidador de juicios</h2><p>Capital e intereses por tramos de tasa (interés simple, días corridos sobre 365), pagos a cuenta y el escrito listo para presentar.</p></div><span class="marca">Abogados</span></div>
+  <div class="grid2">
+    <form class="panel" id="l-form">
+      <div class="fila"><label class="f">Capital de condena ($)<input id="l-cap" type="number" step="0.01" min="0" required></label><label class="f">Intereses desde<input id="l-des" type="date" required></label><label class="f">Hasta<input id="l-has" type="date" required></label></div>
+      <label class="f">Tramos de tasa (uno por línea: fecha desde; tasa anual %)<textarea id="l-tra" style="min-height:90px" placeholder="2025-03-01; 42,5"></textarea></label>
+      <label class="f">Pagos a cuenta (uno por línea: fecha; monto)<textarea id="l-pag" style="min-height:60px" placeholder="2026-06-10; 1500000"></textarea></label>
+      <div class="fila"><label class="f">Carátula<input id="l-car"></label><label class="f">Expediente<input id="l-exp"></label></div>
+      <div class="fila"><label class="f">Juzgado<input id="l-juz"></label><label class="f">Letrado/a<input id="l-let"></label><label class="f">Tasa (texto)<input id="l-tas" value="tasa activa del Banco de la Nación Argentina"></label></div>
+      <p class="err" id="l-err" hidden></p>
+      <div class="acciones"><button class="btn">Liquidar</button><button class="btn sec" type="button" id="l-ej">Cargar ejemplo</button></div>
+      <p class="nota">Las tasas las cargás vos según la sentencia (por ejemplo, la tasa activa del BNA de cada período).</p>
+    </form>
+    <div class="panel"><h3>Resultado</h3><div class="tabla"><table><thead><tr><th>Período</th><th>Días</th><th>Tasa</th><th class="num">Interés</th></tr></thead><tbody id="l-tabla"></tbody></table></div>
+      <div class="kpis" id="l-kpis"></div>
+      <label class="f">Escrito<textarea id="l-esc" readonly></textarea></label><div class="acciones"><button class="btn sec" type="button" data-copiar="l-esc">Copiar escrito</button></div></div>
+  </div>
+</section>
+
+<!-- ============ COMPROBANTES ============ -->
+<section id="comp" class="c" role="tabpanel" hidden>
+  <div class="cab"><div><h2>Carga de comprobantes</h2><p>Subí fotos o PDF de facturas electrónicas: lee el código QR de ARCA, valida el CUIT y ordena todo por cliente y por mes.</p></div><span class="marca">Contadores</span></div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Clientes del estudio</h3>
+      <label class="f">Uno por línea: nombre; CUIT<textarea id="c-cli" style="min-height:80px"></textarea></label>
+      <label class="drop" id="c-drop" for="c-files"><b>Soltá acá las facturas</b><br>o tocá para elegir fotos o PDF<input id="c-files" type="file" accept="image/*,application/pdf" multiple hidden></label>
+      <div class="acciones"><button class="btn sec" type="button" id="c-ej">Probar con una factura de ejemplo</button><button class="btn sec" type="button" id="c-borrar">Vaciar</button></div>
+      <ul class="obs" id="c-err"></ul>
+      <p class="nota">El QR trae el total del comprobante, no el desglose de neto e IVA: ese dato queda para la lectura con IA de la próxima etapa.</p>
+    </div>
+    <div class="panel"><h3>Comprobantes leídos</h3>
+      <div class="tabla"><table><thead><tr><th>Cliente</th><th>Comprobante</th><th>Fecha</th><th class="num">Importe</th></tr></thead><tbody id="c-lista"></tbody></table></div>
+      <h3>Resumen por cliente y mes</h3><div class="tabla"><table><thead><tr><th>Cliente</th><th>Período</th><th>Operación</th><th class="num">Cant.</th><th class="num">Total</th></tr></thead><tbody id="c-res"></tbody></table></div>
+      <div class="acciones"><button class="btn sec" type="button" id="c-csv">Descargar planilla (CSV)</button></div></div>
+  </div>
+</section>
+
+<!-- ============ RECOLECCIÓN ============ -->
+<section id="rec" class="c" role="tabpanel" hidden>
+  <div class="cab"><div><h2>Recolección de documentación</h2><p>Marcá qué mandó cada cliente: arma el mensaje que corresponde (sube de tono en cada aviso) y lo abrís en WhatsApp con un toque.</p></div><span class="marca">Contadores</span></div>
+  <div class="panel" style="margin-bottom:18px"><div class="fila"><label class="f">Período<input id="r-per" type="month"></label><label class="f">Nombre del estudio<input id="r-est" value="Estudio Contable Ejemplo"></label><label class="f">Fecha límite<input id="r-ven" type="date"></label><label class="f">Volver a escribir cada (días)<input id="r-cada" type="number" min="1" value="3"></label></div>
+    <div class="kpis" id="r-kpis"></div></div>
+  <div class="panel"><div class="tabla"><table><thead><tr><th>Cliente</th><th>Documentación del mes</th><th>Estado</th><th>Mensaje</th></tr></thead><tbody id="r-lista"></tbody></table></div>
+    <div class="acciones"><button class="btn sec" type="button" id="r-ej">Cargar ejemplos</button><span class="nota">El envío automático necesita la API de WhatsApp Business (próxima etapa). Hoy: un toque por mensaje.</span></div></div>
+</section>
+
+<!-- ============ TÍTULOS ============ -->
+<section id="tit" class="e" role="tabpanel" hidden>
+  <div class="cab"><div><h2>Estudio de títulos</h2><p>Cargá los antecedentes: arma la cadena de dominio y marca quiebres, nombres que no coinciden, faltas de inscripción y años sin cubrir.</p></div><span class="marca">Escribanos</span></div>
+  <div class="grid2">
+    <form class="panel" id="t-form">
+      <label class="f">Antecedentes (uno por línea: fecha; acto; transmitentes separados por /; adquirentes separados por /; matrícula o vacío si no está inscripto)
+        <textarea id="t-ant" style="min-height:170px"></textarea></label>
+      <div class="fila"><label class="f">Vendedor actual<input id="t-tit"></label><label class="f">Años a cubrir<input id="t-anios" type="number" value="20" min="1"></label></div>
+      <p class="err" id="t-err" hidden></p>
+      <div class="acciones"><button class="btn">Estudiar</button><button class="btn sec" type="button" id="t-ej">Cargar ejemplo</button></div>
+      <p class="nota">Son alertas para revisar, no un dictamen. La lectura automática de escrituras escaneadas llega con la IA en la próxima etapa.</p>
+    </form>
+    <div class="panel"><h3 id="t-res">Resultado</h3><ol class="cadena" id="t-cad"></ol><h3>Observaciones</h3><ul class="obs" id="t-obs"></ul></div>
+  </div>
+</section>
+
+<!-- ============ ESCRITURA ============ -->
+<section id="esc" class="e" role="tabpanel" hidden>
+  <div class="cab"><div><h2>Borrador de escritura</h2><p>Escaneá el código del DNI de cada parte o cargá los datos: arma el borrador de compraventa, pasa el precio a letras y marca lo que falta.</p></div><span class="marca">Escribanos</span></div>
+  <div class="grid2">
+    <form class="panel" id="e-form">
+      <h3>Partes</h3>
+      <div id="e-partes"></div>
+      <h3>Inmueble y título</h3>
+      <div class="fila"><label class="f">Calle<input id="e-calle"></label><label class="f">Número<input id="e-num"></label><label class="f">Unidad<input id="e-uf"></label></div>
+      <div class="fila"><label class="f">Localidad<input id="e-loc"></label><label class="f">Matrícula<input id="e-mat"></label><label class="f">Nomenclatura<input id="e-nom"></label><label class="f">Superficie<input id="e-sup"></label></div>
+      <div class="fila"><label class="f">Título: acto<input id="e-tacto"></label><label class="f">Fecha<input id="e-tfec" type="date"></label><label class="f">Escribano/a<input id="e-tesc"></label><label class="f">Registro<input id="e-treg"></label></div>
+      <h3>Escritura</h3>
+      <div class="fila"><label class="f">Lugar<input id="e-lug"></label><label class="f">Fecha<input id="e-fec" type="date"></label><label class="f">Escribano/a<input id="e-esc"></label><label class="f">Registro<input id="e-reg"></label></div>
+      <div class="fila"><label class="f">Precio<input id="e-pre" type="number" min="0"></label><label class="f">Moneda<select id="e-mon"><option>dólares estadounidenses</option><option>pesos</option></select></label></div>
+      <div class="acciones"><button class="btn">Armar borrador</button><button class="btn sec" type="button" id="e-ej">Cargar ejemplo</button></div>
+    </form>
+    <div class="panel"><h3>Borrador</h3><ul class="obs" id="e-faltan"></ul><div class="borr" id="e-borr"></div><div class="acciones"><button class="btn sec" type="button" id="e-copiar">Copiar texto</button></div></div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">ACE Al Día · versión de prueba. Las herramientas proponen; el profesional revisa y firma. Datos de ejemplo inventados.</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<script src="https://unpkg.com/@zxing/library@0.21.3/umd/index.min.js"></script>
+<script src="calendario.js"></script><script src="liquidador.js"></script><script src="comprobantes.js"></script>
+<script src="recoleccion.js"></script><script src="titulos.js"></script><script src="escritura.js"></script>
+<script>
+const $ = id => document.getElementById(id), esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const guardar = (k, v) => { try { localStorage.setItem('ace-' + k, JSON.stringify(v)); } catch (e) {} }, leer = (k, d) => { try { const v = JSON.parse(localStorage.getItem('ace-' + k)); return v ?? d; } catch (e) { return d; } };
+const HOY = Calendario.iso(new Date()), pesos = n => Liquidador.pesos(n);
+const error = (id, m) => { $(id).textContent = m || ''; $(id).hidden = !m; };
+// descarga: dentro de claude.ai pasa por el permiso de descargas; en la web publicada, un enlace común
+async function bajar(nombre, texto, tipo, btn) {
+  const dl = window.claude && window.claude.use ? await window.claude.use('downloads').catch(() => null) : null;
+  if (dl) { try { await dl.save({ filename: nombre, data: new Blob([texto], { type: tipo }) }); } catch (e) { if (btn && e && e.code !== 'declined') { const t = btn.textContent; btn.textContent = e.code === 'rejected_extension' ? 'Este formato se descarga en la web publicada' : 'No se pudo descargar'; setTimeout(() => btn.textContent = t, 2500); } } return; }
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([texto], { type: tipo })); a.download = nombre; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+async function copiar(texto, btn) { try { await navigator.clipboard.writeText(texto); const t = btn.textContent; btn.textContent = 'Copiado ✓'; setTimeout(() => btn.textContent = t, 1500); } catch (e) { btn.textContent = 'Seleccioná y copiá a mano'; } }
+document.querySelectorAll('[data-copiar]').forEach(b => b.addEventListener('click', () => copiar($(b.dataset.copiar).value, b)));
+
+// pestañas (la elegida queda en el #)
+const tabs = [...document.querySelectorAll('nav.tabs button')];
+function abrir(t) { tabs.forEach(b => b.setAttribute('aria-selected', b.dataset.t === t)); document.querySelectorAll('main section').forEach(s => s.hidden = s.id !== t); }
+tabs.forEach(b => b.addEventListener('click', () => { abrir(b.dataset.t); history.replaceState(null, '', '#' + b.dataset.t); }));
+abrir(tabs.some(b => '#' + b.dataset.t === location.hash) ? location.hash.slice(1) : 'venc');
+
+// ---------------- vencimientos ----------------
+let causas = leer('causas', []);
+function pintarCausas() {
+  causas.sort((a, b) => a.vence < b.vence ? -1 : 1); guardar('causas', causas);
+  $('v-lista').innerHTML = causas.length ? causas.map((c, i) => { const f = Calendario.habilesHasta(HOY, c.vence, c.opts);
+    const p = f < 0 ? `<span class="pill">vencido</span>` : f <= 2 ? `<span class="pill urg">${f === 0 ? 'vence hoy' : f + ' hábil' + (f > 1 ? 'es' : '')}</span>` : f <= 5 ? `<span class="pill warn">${f} hábiles</span>` : `<span class="pill">${f} hábiles</span>`;
+    return `<tr><td><b class="mono">${esc(c.exp)}</b> ${esc(c.juz)}<br>${esc(c.pro)} · ${c.dias} días<br><span class="nota">${c.salteados.map(s => esc(s.motivo)).join(' · ') || 'sin feriados en el medio'}</span></td><td class="mono">${esc(c.venceTexto)}<br><span class="nota">gracia: ${c.gracia.split('-').reverse().join('/')}</span></td><td>${p}</td><td><button class="btn mini sec" data-q="${i}" aria-label="Quitar">✕</button></td></tr>`; }).join('')
+    : `<tr><td colspan="4" class="nota">Todavía no cargaste causas. Probá con «Cargar ejemplos».</td></tr>`;
+  $('v-lista').querySelectorAll('[data-q]').forEach(b => b.onclick = () => { causas.splice(+b.dataset.q, 1); pintarCausas(); });
+}
+function agregarCausa(c) { const opts = { ambito: c.amb, noLaborablesInhabiles: c.nl }; const v = Calendario.vencimiento(c.not, c.dias, opts); causas.push({ ...c, ...v, opts }); }
+$('v-form').addEventListener('submit', e => { e.preventDefault(); error('v-err');
+  try { agregarCausa({ exp: $('v-exp').value.trim(), juz: $('v-juz').value.trim(), pro: $('v-pro').value.trim(), not: $('v-not').value, dias: +$('v-dias').value, amb: $('v-amb').value, nl: $('v-nl').checked }); pintarCausas(); $('v-form').reset(); $('v-not').value = HOY; }
+  catch (x) { error('v-err', x.message); } });
+$('v-ej').onclick = () => { [['23.418/2025', 'Juzg. Civil 45', 'Traslado de la demanda', 15, -3], ['8.902/2026', 'Juzg. Laboral 12', 'Intimación a acompañar documental', 5, -2], ['1.177/2024', 'Cám. Com. Sala B', 'Expresión de agravios', 10, -9], ['4.556/2026', 'Juzg. Civ. y Com. 3 (La Plata)', 'Contestación de excepciones', 5, -1, 'pba']]
+  .forEach(([exp, juz, pro, dias, off, amb]) => { const d = new Date(); d.setDate(d.getDate() + off); agregarCausa({ exp, juz, pro, dias, not: Calendario.iso(d), amb: amb || 'nacion', nl: true }); }); pintarCausas(); };
+$('v-borrar').onclick = () => { causas = []; pintarCausas(); };
+$('v-ics').onclick = e => causas.length && bajar('vencimientos.ics', Calendario.ics(causas.map(c => ({ fecha: c.vence, titulo: `Vence: ${c.pro} · Expte. ${c.exp}`, detalle: `${c.juz}. Plazo de ${c.dias} días hábiles. Gracia: ${c.gracia}` }))), 'text/calendar', e.currentTarget);
+$('v-not').value = HOY; pintarCausas();
+
+// ---------------- liquidador ----------------
+const lineas = (s, f) => s.split('\n').map(l => l.trim()).filter(Boolean).map(l => { const [a, b] = l.split(';').map(x => x.trim()); return f(a, +String(b).replace(/\./g, '').replace(',', '.')); });
+$('l-form').addEventListener('submit', e => { e.preventDefault(); error('l-err');
+  try {
+    const L = Liquidador.liquidar({ capital: +$('l-cap').value, desde: $('l-des').value, hasta: $('l-has').value, tramos: lineas($('l-tra').value, (desde, tasaAnual) => ({ desde, tasaAnual })), pagos: lineas($('l-pag').value, (fecha, monto) => ({ fecha, monto })) });
+    $('l-tabla').innerHTML = L.filas.map(f => f.pago ? `<tr><td colspan="3">Pago a cuenta ${Liquidador.dmy(f.fecha)}<br><span class="nota">a intereses ${pesos(f.aIntereses)} · a capital ${pesos(f.aCapital)}</span></td><td class="num">−${pesos(f.monto)}</td></tr>`
+      : `<tr><td class="mono">${Liquidador.dmy(f.desde)} → ${Liquidador.dmy(f.hasta)}</td><td class="num">${f.dias}</td><td class="num">${f.tasaAnual.toLocaleString('es-AR')} %</td><td class="num">${pesos(f.interes)}</td></tr>`).join('');
+    $('l-kpis').innerHTML = [['Capital', L.capital], ['Intereses', L.intereses], ['Total', L.total]].map(([n, v]) => `<div class="kpi"><b class="mono" style="font-size:18px">${pesos(v)}</b><span>${n}</span></div>`).join('');
+    $('l-esc').value = Liquidador.escrito(L, { caratula: $('l-car').value, expediente: $('l-exp').value, juzgado: $('l-juz').value, letrado: $('l-let').value, tasaDescripcion: $('l-tas').value });
+  } catch (x) { error('l-err', x.message); } });
+$('l-ej').onclick = () => { $('l-cap').value = 4850000; $('l-des').value = '2025-03-01'; $('l-has').value = '2026-11-30'; $('l-tra').value = '2025-03-01; 48\n2025-09-01; 41,5\n2026-03-01; 37'; $('l-pag').value = '2026-06-10; 1500000';
+  $('l-car').value = 'Pérez, Juan c/ Transportes del Sur S.A. s/ daños y perjuicios (ejemplo)'; $('l-exp').value = '23.418/2025'; $('l-juz').value = 'el Juzgado Nacional en lo Civil N.º 45'; $('l-let').value = 'Dra. Ana Torres (ejemplo)'; $('l-form').requestSubmit(); };
+
+// ---------------- comprobantes ----------------
+let comps = leer('comps', []);
+$('c-cli').value = leer('clientes', 'Marina Rodríguez; 27-33445566-7\nDistribuidora Ejemplo S.A.; 30-71234567-1');
+const clientes = () => $('c-cli').value.split('\n').map(l => l.split(';').map(x => x.trim())).filter(x => x[0] && x[1]).map(([nombre, cuit]) => ({ nombre, cuit }));
+$('c-cli').addEventListener('change', () => { guardar('clientes', $('c-cli').value); comps = comps.map(c => Comprobantes.asignar(c, clientes())); pintarComps(); });
+function pintarComps() {
+  guardar('comps', comps);
+  $('c-lista').innerHTML = comps.length ? comps.map(c => `<tr><td>${esc(c.cliente || '—')}<br><span class="nota">${c.operacion}</span></td><td>${esc(c.tipo)}<br><span class="mono nota">${c.comprobante} · CUIT ${c.cuitEmisor}</span>${c.alertas.length ? `<br><span class="pill urg">${esc(c.alertas[0])}</span>` : ''}</td><td class="mono">${c.fecha.split('-').reverse().join('/')}</td><td class="num">${c.esNotaCredito ? '−' : ''}${pesos(c.importePesos)}${c.moneda !== 'Pesos' ? `<br><span class="nota">${c.importe} ${esc(c.moneda)}</span>` : ''}</td></tr>`).join('')
+    : `<tr><td colspan="4" class="nota">Subí facturas o probá con la de ejemplo.</td></tr>`;
+  $('c-res').innerHTML = Comprobantes.resumen(comps).map(r => `<tr><td>${esc(r.cliente)}</td><td class="mono">${r.periodo}</td><td>${r.operacion}</td><td class="num">${r.cantidad}</td><td class="num">${pesos(r.total)}</td></tr>`).join('');
+}
+async function procesar(files) {
+  $('c-err').innerHTML = '';
+  for (const f of files) { try { const c = Comprobantes.asignar(await Comprobantes.leerArchivo(f), clientes());
+      if (comps.some(x => x.cuitEmisor === c.cuitEmisor && x.comprobante === c.comprobante && x.tipoCodigo === c.tipoCodigo)) throw new Error('ya estaba cargado'); comps.push(c); }
+    catch (x) { $('c-err').insertAdjacentHTML('beforeend', `<li class="alta">${esc(f.name)}: ${esc(x.message)}</li>`); } }
+  pintarComps();
+}
+$('c-files').addEventListener('change', e => { procesar([...e.target.files]); e.target.value = ''; });
+const drop = $('c-drop'); ['dragover', 'dragenter'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('sobre'); }));
+['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, () => drop.classList.remove('sobre'))); drop.addEventListener('drop', e => { e.preventDefault(); procesar([...e.dataTransfer.files]); });
+$('c-ej').onclick = () => { const j = { ver: 1, fecha: '2026-10-14', cuit: 30712345671, ptoVta: 4, tipoCmp: 1, nroCmp: 12873 + comps.length, importe: 220704, moneda: 'PES', ctz: 1, tipoDocRec: 80, nroDocRec: 27334455667, tipoCodAut: 'E', codAut: 76123456789012 };
+  comps.push(Comprobantes.asignar(Comprobantes.desdeQR('https://www.afip.gob.ar/fe/qr/?p=' + btoa(JSON.stringify(j))), clientes())); pintarComps(); };
+$('c-borrar').onclick = () => { comps = []; pintarComps(); };
+$('c-csv').onclick = e => comps.length && bajar('comprobantes.csv', Comprobantes.csv(comps), 'text/csv;charset=utf-8', e.currentTarget);
+pintarComps();
+
+// ---------------- recolección ----------------
+const DOCS = ['Facturas de venta', 'Facturas de compra', 'Resumen del banco', 'Recibos de sueldo'];
+let recCli = leer('rec', []);
+const mesActual = () => { const d = new Date(); d.setMonth(d.getMonth() - 1); return Calendario.iso(d).slice(0, 7); };
+$('r-per').value = leer('rec-per', mesActual()); $('r-ven').value = leer('rec-ven', '');
+function pintarRec() {
+  guardar('rec', recCli); guardar('rec-per', $('r-per').value); guardar('rec-ven', $('r-ven').value);
+  const t = Recoleccion.tablero(recCli), hoyToca = Recoleccion.aEscribirHoy(recCli, HOY, +$('r-cada').value || 3);
+  $('r-kpis').innerHTML = [[t.completo, 'Completos'], [t.parcial, 'Mandaron una parte'], [t.pendiente, 'No mandaron nada'], [hoyToca.length, 'Toca escribir hoy']].map(([n, l]) => `<div class="kpi"><b>${n}</b><span>${l}</span></div>`).join('');
+  $('r-lista').innerHTML = recCli.length ? recCli.map((c, i) => { const st = Recoleccion.estado(c), m = Recoleccion.mensaje(c, $('r-per').value || mesActual(), { estudio: $('r-est').value, vence: $('r-ven').value }), toca = hoyToca.includes(c);
+    return `<tr><td><b>${esc(c.nombre)}</b><br><span class="mono nota">${esc(c.telefono)}</span></td><td><div class="chips">${Object.entries(c.pedidos).map(([d, ok]) => `<label><input type="checkbox" data-c="${i}" data-d="${esc(d)}" ${ok ? 'checked' : ''}>${esc(d)}</label>`).join('')}</div></td>
+      <td><span class="pill ${st.clave === 'completo' ? 'ok' : st.clave === 'pendiente' ? 'urg' : 'warn'}">${st.texto}</span><br><span class="nota">${c.avisos || 0} aviso${(c.avisos || 0) === 1 ? '' : 's'}${c.ultimoAviso ? ' · último ' + c.ultimoAviso.split('-').reverse().slice(0, 2).join('/') : ''}</span></td>
+      <td style="min-width:240px">${m ? `<div class="msg">${esc(m)}</div><div class="acciones" style="margin-top:8px"><a class="btn mini ${toca ? 'hl' : 'sec'}" target="_blank" rel="noopener" href="${Recoleccion.enlace(c, m)}" data-env="${i}">Abrir en WhatsApp</a></div>` : '<span class="nota">Nada pendiente 🎉</span>'}</td></tr>`; }).join('')
+    : `<tr><td colspan="4" class="nota">Cargá los ejemplos para ver cómo funciona.</td></tr>`;
+  $('r-lista').querySelectorAll('input[data-c]').forEach(x => x.onchange = () => { recCli[+x.dataset.c].pedidos[x.dataset.d] = x.checked; pintarRec(); });
+  $('r-lista').querySelectorAll('[data-env]').forEach(a => a.addEventListener('click', () => { recCli[+a.dataset.env] = Recoleccion.registrarAviso(recCli[+a.dataset.env], HOY); setTimeout(pintarRec, 50); }));
+}
+['r-per', 'r-est', 'r-ven', 'r-cada'].forEach(id => $(id).addEventListener('change', pintarRec));
+$('r-ej').onclick = () => { const p = (...ok) => Object.fromEntries(DOCS.map((d, i) => [d.toLowerCase(), !!ok[i]]));
+  recCli = [{ nombre: 'Marina Rodríguez', telefono: '11 5555-1234', pedidos: p(1, 0, 0, 1) }, { nombre: 'Jorge Benítez (Taller Los Andes)', telefono: '341 555-9876', pedidos: p(0, 0, 0, 0), avisos: 2, ultimoAviso: '2026-10-20' },
+    { nombre: 'Lucía Fernández', telefono: '351 555-4433', pedidos: p(1, 1, 1, 1), avisos: 1, ultimoAviso: '2026-10-25' }, { nombre: 'Panadería La Espiga', telefono: '11 5555-7788', pedidos: p(1, 1, 0, 0), avisos: 1, ultimoAviso: HOY }]; pintarRec(); };
+pintarRec();
+
+// ---------------- estudio de títulos ----------------
+$('t-form').addEventListener('submit', e => { e.preventDefault(); error('t-err');
+  try {
+    const ant = $('t-ant').value.split('\n').map(l => l.trim()).filter(Boolean).map((l, n) => { const p = l.split(';').map(x => x.trim()); if (p.length < 4) throw new Error(`La línea ${n + 1} está incompleta: fecha; acto; transmitentes; adquirentes; matrícula.`);
+      return { fecha: p[0], acto: p[1], transmitentes: p[2].split('/').map(s => s.trim()).filter(Boolean), adquirentes: p[3].split('/').map(s => s.trim()).filter(Boolean), inscripcion: p[4] ? { matricula: p[4] } : null }; });
+    const r = Titulos.estudiar(ant, { hoy: HOY, aniosRevisar: +$('t-anios').value || 20, titularActual: $('t-tit').value.trim() || undefined });
+    $('t-res').innerHTML = `Resultado: <span class="pill ${/importantes/.test(r.resultado) ? 'urg' : /menores/.test(r.resultado) ? 'warn' : 'ok'}">${r.resultado}</span>`;
+    $('t-cad').innerHTML = r.cadena.map(a => `<li><span class="mono">${a.fecha.slice(0, 4)}</span><span><b>${esc(a.acto)}</b> · ${esc(a.transmitentes.join(', ') || '—')} → ${esc(a.adquirentes.join(', '))}<br><span class="nota">${a.inscripcion ? 'Inscripto · ' + esc(a.inscripcion.matricula) : 'Sin inscripción cargada'}</span></span></li>`).join('');
+    $('t-obs').innerHTML = r.observaciones.map(o => `<li class="${o.nivel}">${esc(o.texto)}</li>`).join('') || '<li>Sin observaciones.</li>';
+  } catch (x) { error('t-err', x.message); } });
+$('t-ej').onclick = () => { $('t-ant').value = '1994-05-12; Compraventa; Roberto Pérez; Carlos Alberto Gómez; FR 45-1234\n2009-03-20; Donación; Carlos Alberto Gomes; Laura Beatriz Gómez; FR 45-1234\n2018-09-03; Adjudicación por sucesión; Laura Beatriz Gómez; Laura Beatriz Gómez / Pedro Gómez;';
+  $('t-tit').value = 'Laura B. Gómez'; $('t-form').requestSubmit(); };
+
+// ---------------- borrador de escritura ----------------
+const CAMPOS = [['nombre', 'Nombres'], ['apellido', 'Apellido'], ['dni', 'DNI'], ['cuit', 'CUIT/CUIL'], ['nacimiento', 'Nacimiento', 'date'], ['estadoCivil', 'Estado civil'], ['conyuge', 'Cónyuge'], ['domicilio', 'Domicilio']];
+function bloqueParte(rol, i) { return `<fieldset class="panel" style="padding:12px;gap:10px" data-rol="${rol}"><div class="acciones" style="justify-content:space-between"><b>${rol === 'v' ? 'Vendedor/a' : 'Comprador/a'}</b>
+  <label class="btn mini sec" style="cursor:pointer">Escanear DNI<input type="file" accept="image/*" hidden data-dni="${rol}"></label></div><div class="fila">${CAMPOS.map(([k, l, t]) => `<label class="f">${l}<input data-k="${k}" ${t ? `type="${t}"` : ''}></label>`).join('')}</div><p class="nota" data-fuente></p></fieldset>`; }
+$('e-partes').innerHTML = bloqueParte('v') + bloqueParte('c');
+const parte = rol => { const fs = document.querySelector(`fieldset[data-rol="${rol}"]`), o = {}; fs.querySelectorAll('[data-k]').forEach(i => { if (i.value.trim()) o[i.dataset.k] = i.value.trim(); }); if (fs.dataset.fuente) o.fuente = fs.dataset.fuente; return o; };
+function leerDNIimagen(file) { return new Promise((ok, mal) => { if (!window.ZXing) return mal(new Error('No se pudo cargar el lector del DNI.')); const url = URL.createObjectURL(file), img = new Image();
+  img.onload = () => { try { const cv = document.createElement('canvas'), k = Math.min(1, 2200 / img.width); cv.width = img.width * k; cv.height = img.height * k; cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+      const h = new Map([[ZXing.DecodeHintType.POSSIBLE_FORMATS, [ZXing.BarcodeFormat.PDF_417]], [ZXing.DecodeHintType.TRY_HARDER, true]]), r = new ZXing.MultiFormatReader(); r.setHints(h);
+      ok(Escritura.leerDNI(r.decode(new ZXing.BinaryBitmap(new ZXing.HybridBinarizer(new ZXing.HTMLCanvasElementLuminanceSource(cv)))).getText())); }
+    catch (x) { mal(new Error(/formato/.test(x.message) ? x.message : 'No encontré el código del DNI. Sacá la foto del frente, derecha y con buena luz.')); } finally { URL.revokeObjectURL(url); } };
+  img.onerror = () => mal(new Error('No se pudo abrir la imagen.')); img.src = url; }); }
+document.querySelectorAll('[data-dni]').forEach(inp => inp.addEventListener('change', async () => { const fs = inp.closest('fieldset'), nota = fs.querySelector('[data-fuente]');
+  try { const p = await leerDNIimagen(inp.files[0]); const t = s => s.toLowerCase().replace(/(^|\s)\S/g, x => x.toUpperCase());
+    Object.entries({ nombre: t(p.nombre), apellido: t(p.apellido), dni: p.dni, nacimiento: p.nacimiento }).forEach(([k, v]) => fs.querySelector(`[data-k="${k}"]`).value = v);
+    fs.dataset.fuente = p.fuente; nota.textContent = `✓ Datos tomados del ${p.fuente}. Revisalos.`; nota.style.color = 'var(--ok)'; }
+  catch (x) { nota.textContent = x.message; nota.style.color = 'var(--alert)'; } inp.value = ''; }));
+$('e-form').addEventListener('submit', e => { e.preventDefault();
+  const b = Escritura.borrador({ lugar: $('e-lug').value, fecha: $('e-fec').value, escribano: $('e-esc').value, registro: $('e-reg').value, vendedores: [parte('v')], compradores: [parte('c')],
+    inmueble: { calle: $('e-calle').value, numero: $('e-num').value, unidad: $('e-uf').value, localidad: $('e-loc').value, matricula: $('e-mat').value, nomenclatura: $('e-nom').value, superficie: $('e-sup').value },
+    titulo: { acto: $('e-tacto').value, fecha: $('e-tfec').value, escribano: $('e-tesc').value, registro: $('e-treg').value }, precio: +$('e-pre').value, moneda: $('e-mon').value });
+  const h = esc(b.crudo).replace(/\u0002(\d+)\u0003([^\u0004]*)\u0004/g, (_, i, v) => { const m = b.marcas[+i]; return `<mark class="${m.valor ? '' : 'falta'}" title="${esc(m.dato + (m.fuente ? ' · ' + m.fuente : ''))}">${v}</mark>`; });
+  $('e-borr').innerHTML = h; $('e-borr').dataset.texto = b.texto;
+  $('e-faltan').innerHTML = b.faltan.length ? b.faltan.map(f => `<li class="media">Falta: ${esc(f)}</li>`).join('') : '<li>Están todos los datos principales.</li>'; });
+$('e-copiar').onclick = e => copiar($('e-borr').dataset.texto || '', e.target);
+$('e-ej').onclick = () => { const set = (rol, o) => Object.entries(o).forEach(([k, v]) => document.querySelector(`fieldset[data-rol="${rol}"] [data-k="${k}"]`).value = v);
+  set('v', { nombre: 'Laura Beatriz', apellido: 'Gómez', dni: '28456112', cuit: '27-28456112-6', nacimiento: '1981-02-14', estadoCivil: 'soltera', domicilio: 'Av. Pellegrini 1500, Rosario' });
+  set('c', { nombre: 'Martín Alejandro', apellido: 'Ríos', dni: '31902774', cuit: '20-31902774-3', nacimiento: '1985-07-30', estadoCivil: 'casado', conyuge: '', domicilio: 'Mendoza 900, Rosario' });
+  Object.entries({ 'e-calle': 'Corrientes', 'e-num': '1234', 'e-uf': '3 B', 'e-loc': 'Rosario', 'e-mat': '16-12345/3', 'e-nom': 'Secc. 1 Manz. 45 Gráf. 12', 'e-sup': '68 m²', 'e-tacto': 'adjudicación por sucesión', 'e-tfec': '2018-09-03', 'e-tesc': 'Juan Paz', 'e-treg': '15',
+    'e-lug': 'ciudad de Rosario, provincia de Santa Fe', 'e-fec': '2026-11-20', 'e-esc': 'Sofía Martínez', 'e-reg': '210', 'e-pre': '95000' }).forEach(([id, v]) => $(id).value = v); $('e-form').requestSubmit(); };
+</script>
+</body></html>
