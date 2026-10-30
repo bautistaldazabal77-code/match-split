@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>ACE Al Día</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Herramientas con IA para abogados, contadores y escribanos: vencimientos, liquidaciones, comprobantes, documentación de clientes, estudio de títulos y borradores de escritura.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: papel de estudio con tres resaltadores; cada profesión se marca con su color (A amarillo, C verde, E rosa). */
+:root {
+  --paper: #f6f7f9; --sheet: #ffffff; --ink: #142340; --ink-2: #4a5873; --line: #d9dee7; --rule: #e9ecf2;
+  --hl-a: #f6e45c; --hl-c: #8fe0a8; --hl-e: #f5a9c8; --hl-a-ink: #5c4d00; --hl-c-ink: #0d5a2a; --hl-e-ink: #7a1846;
+  --alert: #c4321f; --ok: #1f7a45;
+  --f-display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #0d1422; --sheet: #141d2e; --ink: #e8ecf4; --ink-2: #a3aec2; --line: #2a3650; --rule: #1d2840;
+  --hl-a: #d9c83f; --hl-c: #5fc283; --hl-e: #df86ab; --hl-a-ink: #1a1500; --hl-c-ink: #04210f; --hl-e-ink: #2b0716;
+  --alert: #ff7a66; --ok: #6fd69a; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #0d1422; --sheet: #141d2e; --ink: #e8ecf4; --ink-2: #a3aec2; --line: #2a3650; --rule: #1d2840;
+  --hl-a: #d9c83f; --hl-c: #5fc283; --hl-e: #df86ab; --hl-a-ink: #1a1500; --hl-c-ink: #04210f; --hl-e-ink: #2b0716;
+  --alert: #ff7a66; --ok: #6fd69a; color-scheme: dark }
+
+* { box-sizing: border-box }
+body { background: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--f-body); margin: 0; -webkit-font-smoothing: antialiased }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.05; text-wrap: balance; margin: 0; letter-spacing: -.02em }
+p { margin: 0 }
+a { color: inherit }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums }
+.eyebrow { font: 500 12.5px/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2) }
+mark { color: inherit; padding: 0 .12em; border-radius: 2px; background: linear-gradient(transparent 12%, var(--hl) 12%, var(--hl) 88%, transparent 88%) }
+.a { --hl: var(--hl-a); --hl-ink: var(--hl-a-ink) } .c { --hl: var(--hl-c); --hl-ink: var(--hl-c-ink) } .e { --hl: var(--hl-e); --hl-ink: var(--hl-e-ink) }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 4px }
+
+/* encabezado */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule) }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 21; background: var(--paper) }
+.top .wrap { display: flex; align-items: center; gap: 20px; padding-block: 12px }
+.logo { display: flex; align-items: baseline; gap: 8px; text-decoration: none; font: 800 22px/1 var(--f-display); letter-spacing: -.02em }
+.logo .l { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 4px; background: var(--hl); color: var(--hl-ink); font-size: 16px; transform: rotate(-3deg) }
+.logo .l + .l { margin-left: -4px } .logo span.t { margin-left: 4px }
+nav.sec { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap }
+nav.sec a { text-decoration: none; font: 500 14px/1 var(--f-body); padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line) }
+nav.sec a:hover { background: var(--hl); color: var(--hl-ink); border-color: transparent }
+.btn { appearance: none; border: 0; cursor: pointer; font: 600 15px/1 var(--f-body); padding: 13px 18px; border-radius: 8px; background: var(--ink); color: var(--paper); text-decoration: none; display: inline-flex; align-items: center; gap: 8px }
+.btn:hover { filter: brightness(1.15) }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line) }
+.btn.hl { background: var(--hl); color: var(--hl-ink) }
+
+/* portada */
+.hero { padding-block: 64px 40px }
+.hero .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center }
+.hero h1 { font-size: clamp(44px, 7vw, 84px); font-weight: 800 }
+.hero .lead { margin-top: 22px; font-size: 19px; color: var(--ink-2); max-width: 34em }
+.hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px }
+.hero .who { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 30px }
+.chip { font: 500 13px/1 var(--f-mono); padding: 8px 10px; border-radius: 6px; background: var(--hl); color: var(--hl-ink) }
+
+/* tarjeta de expediente (demo de portada) */
+.expte { background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 1px 0 var(--rule), 0 24px 48px -28px rgba(20,35,64,.35); overflow: hidden; min-width: 0 }
+.expte .bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--rule) }
+.expte .bar .eyebrow { font-size: 11px }
+.tag-ej { font: 500 11px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; padding: 5px 7px; border-radius: 4px; border: 1px dashed var(--ink-2); color: var(--ink-2) }
+.feed { list-style: none; margin: 0; padding: 0 }
+.feed li { display: grid; grid-template-columns: 1fr auto; gap: 4px 14px; padding: 14px 16px; border-bottom: 1px solid var(--rule); min-width: 0 }
+.feed li:last-child { border-bottom: 0 }
+.feed .cau { font: 500 12.5px/1.3 var(--f-mono); color: var(--ink-2) }
+.feed .pro { grid-column: 1; font-size: 15px; line-height: 1.4 }
+.feed .ven { grid-row: 1 / span 2; grid-column: 2; text-align: right; align-self: center }
+.feed .ven b { display: block; font: 700 22px/1 var(--f-display) }
+.feed .ven small { font: 500 11.5px/1.2 var(--f-mono); color: var(--ink-2) }
+.feed .ven.urg b { color: var(--alert) }
+.feed li.nuevo { animation: entra .6s ease-out both }
+@keyframes entra { from { background: var(--hl) } to { background: transparent } }
+
+/* principio */
+.firma { border-block: 1px solid var(--rule); background: var(--sheet) }
+.firma .wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; padding-block: 0 }
+.paso { padding: 28px 24px 28px 0; display: grid; gap: 8px; align-content: start; min-width: 0 }
+.paso + .paso { padding-left: 24px; border-left: 1px solid var(--rule) }
+.paso .n { font: 500 12px/1 var(--f-mono); color: var(--ink-2) }
+.paso h3 { font-size: 22px }
+.paso p { color: var(--ink-2); font-size: 15.5px }
+
+/* secciones por profesión */
+section.prof { padding-block: 72px 24px; scroll-margin-top: 80px }
+.prof-head { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: end; margin-bottom: 30px }
+.letra { font: 800 120px/.8 var(--f-display); color: var(--hl-ink); background: var(--hl); padding: 10px 18px 2px; border-radius: 8px; transform: rotate(-2deg) }
+.prof-head h2 { font-size: clamp(34px, 5vw, 54px) }
+.prof-head p { margin-top: 10px; color: var(--ink-2); max-width: 40em }
+.tools { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px }
+.tool { background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; padding: 24px; display: grid; gap: 14px; grid-template-rows: auto auto auto 1fr auto; min-width: 0 }
+.tool.extra { border-style: dashed }
+.tool .k { display: flex; justify-content: space-between; align-items: center; gap: 10px }
+.tool h3 { font-size: 26px }
+.tool .dolor { font-size: 15.5px; color: var(--ink-2) }
+.tool .dolor strong { color: var(--ink); font-weight: 600 }
+.badge { font: 500 11.5px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; padding: 6px 8px; border-radius: 4px; background: var(--hl); color: var(--hl-ink); white-space: nowrap }
+.badge.out { background: transparent; border: 1px solid var(--line); color: var(--ink-2) }
+.demo { border: 1px solid var(--rule); border-radius: 8px; background: var(--paper); padding: 14px; font-size: 14px; min-width: 0; overflow-x: auto }
+.demo .eyebrow { font-size: 10.5px; margin-bottom: 10px; display: flex; justify-content: space-between; gap: 8px }
+.tool .act { display: flex; gap: 10px; align-items: center; flex-wrap: wrap }
+.tool .act small { color: var(--ink-2); font-size: 13px }
+
+/* mini demos */
+table.liq { width: 100%; border-collapse: collapse; font: 400 13.5px/1.3 var(--f-mono); font-variant-numeric: tabular-nums }
+table.liq td { padding: 6px 0; border-bottom: 1px dotted var(--line) } table.liq td:last-child { text-align: right }
+table.liq tr.tot td { border-bottom: 0; font-weight: 600; padding-top: 10px } table.liq tr.tot td:last-child mark { --hl: var(--hl-a) }
+.cmp { display: grid; grid-template-columns: 70px 1fr; gap: 12px; align-items: center }
+.ticket { height: 86px; border-radius: 4px; background: repeating-linear-gradient(var(--sheet) 0 9px, var(--rule) 9px 10px); border: 1px solid var(--line); transform: rotate(-4deg); position: relative }
+.ticket::after { content: "FOTO"; position: absolute; inset: auto 0 6px; text-align: center; font: 500 9px/1 var(--f-mono); color: var(--ink-2) }
+.campos { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font: 400 13px/1.35 var(--f-mono); min-width: 0 }
+.campos dt { color: var(--ink-2) } .campos dd { margin: 0; overflow-wrap: anywhere }
+.chat { display: grid; gap: 8px }
+.msg { max-width: 85%; padding: 8px 11px; border-radius: 10px; font-size: 13.5px; line-height: 1.35 }
+.msg.out { justify-self: end; background: var(--hl); color: var(--hl-ink); border-bottom-right-radius: 3px }
+.msg.in { justify-self: start; background: var(--sheet); border: 1px solid var(--line); border-bottom-left-radius: 3px }
+.msg time { display: block; font: 400 10.5px/1 var(--f-mono); opacity: .7; margin-top: 4px }
+.cadena { list-style: none; margin: 0; padding: 0; display: grid; gap: 0 }
+.cadena li { display: grid; grid-template-columns: 54px 1fr; gap: 10px; padding: 7px 0; position: relative; font-size: 13.5px }
+.cadena li .y { font: 500 12.5px/1.35 var(--f-mono); color: var(--ink-2) }
+.cadena li.obs { color: var(--alert) } .cadena li.obs .y { color: var(--alert) }
+.borrador { font: 400 13.5px/1.7 Georgia, "Times New Roman", serif; background: var(--sheet); border: 1px solid var(--line); padding: 12px 14px; border-radius: 4px }
+.borrador mark { font-family: var(--f-mono); font-size: 12.5px }
+.semaforo { display: grid; gap: 6px }
+.semaforo div { display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px }
+.semaforo .s { font: 500 11.5px/1.6 var(--f-mono) } .semaforo .ok { color: var(--ok) } .semaforo .no { color: var(--alert) }
+
+/* preguntas y cierre */
+section.faq { padding-block: 72px 32px }
+.faq .grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px }
+.faq h2 { font-size: clamp(32px, 4.5vw, 48px) }
+details { border-bottom: 1px solid var(--line); padding-block: 16px }
+details summary { cursor: pointer; font: 600 17px/1.35 var(--f-body); list-style: none; display: flex; justify-content: space-between; gap: 16px }
+details summary::after { content: "+"; font: 500 20px/1 var(--f-mono); color: var(--ink-2) }
+details[open] summary::after { content: "–" }
+details p { margin-top: 10px; color: var(--ink-2); max-width: 60ch }
+.cierre { margin-block: 40px 80px; background: var(--ink); color: var(--paper); border-radius: 14px; padding: 44px clamp(20px, 5vw, 56px); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center }
+.cierre h2 { font-size: clamp(30px, 4.5vw, 46px) }
+.cierre p { margin-top: 10px; opacity: .8 }
+.cierre .btn { background: var(--hl-a); color: var(--hl-a-ink) }
+footer { border-top: 1px solid var(--rule); padding-block: 28px 40px; color: var(--ink-2); font-size: 14px }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap }
+
+/* formulario */
+dialog { border: 0; padding: 0; border-radius: 14px; width: min(560px, calc(100vw - 32px)); background: var(--sheet); color: var(--ink); box-shadow: 0 40px 80px -20px rgba(0,0,0,.5) }
+dialog::backdrop { background: rgba(10,16,30,.55) }
+form.alta { padding: 28px; display: grid; gap: 16px }
+form.alta h3 { font-size: 28px }
+form.alta .sub { color: var(--ink-2); font-size: 15px; margin-top: -6px }
+.fila { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+label.f { display: grid; gap: 6px; font: 500 13.5px/1.2 var(--f-body); min-width: 0 }
+label.f input, label.f select { font: 400 16px/1.3 var(--f-body); padding: 11px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); width: 100% }
+fieldset { border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px 12px; margin: 0; min-width: 0 }
+fieldset legend { font: 500 13.5px/1 var(--f-body); padding: 0 6px }
+.checks { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px }
+.checks label { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; line-height: 1.3 }
+.checks input { margin-top: 2px; accent-color: var(--ink) }
+.form-pie { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap }
+.form-pie small { color: var(--ink-2); font-size: 12.5px; max-width: 30em }
+.err { color: var(--alert); font-size: 14px }
+.gracias { padding: 36px 28px; display: grid; gap: 14px; text-align: left }
+.gracias h3 { font-size: 30px }
+
+@media (max-width: 880px) {
+  .hero .grid, .faq .grid, .cierre { grid-template-columns: 1fr }
+  .tools { grid-template-columns: 1fr }
+  .firma .wrap { grid-template-columns: 1fr }
+  .paso { padding: 22px 0 } .paso + .paso { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule) }
+  .letra { font-size: 84px }
+}
+@media (max-width: 560px) {
+  nav.sec { display: none }
+  .fila, .checks { grid-template-columns: 1fr }
+  .hero { padding-block: 40px 24px }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="ACE Al Día, inicio"><span class="l a">A</span><span class="l c">C</span><span class="l e">E</span><span class="t">Al Día</span></a>
+    <nav class="sec" aria-label="Secciones">
+      <a class="a" href="#abogados">Abogados</a><a class="c" href="#contadores">Contadores</a><a class="e" href="#escribanos">Escribanos</a>
+    </nav>
+    <button class="btn" type="button" data-alta="">Anotarme</button>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <p class="eyebrow">Herramientas para Abogados, Contadores y Escribanos</p>
+        <h1 style="margin-top:18px">Que en el estudio <mark class="a">nada se te pase</mark>.</h1>
+        <p class="lead">Vencimientos que se calculan solos, comprobantes que se cargan solos, títulos que se estudian solos. La inteligencia artificial hace el trabajo de escritorio y vos revisás y firmás.</p>
+        <div class="ctas">
+          <button class="btn" type="button" data-alta="">Quiero probarlo primero</button>
+          <a class="btn ghost" href="#abogados">Ver las herramientas</a>
+        </div>
+        <div class="who"><span class="chip a">7 herramientas</span><span class="chip c">3 profesiones</span><span class="chip e">Hecho para la Argentina</span></div>
+      </div>
+      <div class="expte" aria-label="Ejemplo del vigilante de expedientes">
+        <div class="bar"><span class="eyebrow">Vigilante de expedientes · hoy, 8:00</span><span class="tag-ej">Ejemplo</span></div>
+        <ul class="feed" id="feed">
+          <li><span class="cau">Expte. 23.418/2025 · Juzg. Civil 45</span><span class="pro">Nueva providencia: «Córrase traslado de la demanda por quince días».</span><span class="ven"><b>15 días</b><small>hábiles · vence 24/11</small></span></li>
+          <li><span class="cau">Expte. 8.902/2026 · Juzg. Laboral 12</span><span class="pro">Se fijó audiencia de conciliación.</span><span class="ven"><b>12/11</b><small>10:30 h · agendada</small></span></li>
+          <li><span class="cau">Expte. 1.177/2024 · Cám. Com. Sala B</span><span class="pro">Sin movimientos nuevos desde el 21/10.</span><span class="ven"><b>—</b><small>al día</small></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="firma" aria-label="Cómo funciona">
+    <div class="wrap">
+      <div class="paso"><span class="n">PASO 1</span><h3>Mandás lo de siempre</h3><p>Fotos, PDF, audios o el número de expediente. Por WhatsApp o desde la web, como ya trabajás.</p></div>
+      <div class="paso"><span class="n">PASO 2</span><h3>La IA hace el borrador</h3><p>Lee, ordena, calcula y arma el escrito, la carga o el estudio, con la fuente de cada dato.</p></div>
+      <div class="paso"><span class="n">PASO 3</span><h3>Vos revisás y firmás</h3><p>Nada sale sin tu control. La herramienta propone; la responsabilidad profesional sigue siendo tuya.</p></div>
+    </div>
+  </section>
+
+  <!-- ABOGADOS -->
+  <section class="prof a" id="abogados">
+    <div class="wrap">
+      <div class="prof-head"><span class="letra" aria-hidden="true">A</span><div><h2>Abogados</h2><p>Plazos procesales y liquidaciones: lo que más tiempo te come y lo que más caro sale cuando se escapa.</p></div></div>
+      <div class="tools">
+        <article class="tool">
+          <div class="k"><h3>Vigilante de expedientes</h3><span class="badge">Todos los días</span></div>
+          <p class="dolor"><strong>Hoy:</strong> entrás causa por causa a la consulta judicial y contás los días hábiles a mano, con feriados y ferias.</p>
+          <p>Revisa tus causas todas las mañanas, te avisa cada providencia nueva con un resumen de dos líneas y <mark>calcula el vencimiento del plazo</mark> en días hábiles judiciales.</p>
+          <div class="demo"><div class="eyebrow"><span>Aviso por WhatsApp</span><span>Ejemplo</span></div>
+            <div class="chat"><div class="msg in">⚖️ Expte. 23.418/2025: nueva providencia. Traslado de la demanda, 15 días. <b>Vence el lunes 24/11.</b><time>08:02</time></div></div></div>
+          <div class="act"><button class="btn hl" type="button" data-alta="vencimientos">Quiero probarla</button></div>
+        </article>
+        <article class="tool">
+          <div class="k"><h3>Liquidador de juicios</h3><span class="badge">Por causa</span></div>
+          <p class="dolor"><strong>Hoy:</strong> una planilla de Excel distinta para cada causa, con la tasa que fijó cada tribunal cargada a mano.</p>
+          <p>Calcula capital, intereses y actualización con la tasa que corresponda y lo entrega como <mark>escrito de liquidación listo para presentar</mark>.</p>
+          <div class="demo"><div class="eyebrow"><span>Liquidación</span><span>Ejemplo, cifras ficticias</span></div>
+            <table class="liq"><tr><td>Capital de condena</td><td>$ 4.850.000</td></tr><tr><td>Intereses (tasa activa BNA)</td><td>$ 2.317.640</td></tr><tr><td>Costas estimadas</td><td>$ 1.075.150</td></tr><tr class="tot"><td>Total al 30/11/2026</td><td><mark>$ 8.242.790</mark></td></tr></table></div>
+          <div class="act"><button class="btn hl" type="button" data-alta="liquidador">Quiero probarla</button></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTADORES -->
+  <section class="prof c" id="contadores">
+    <div class="wrap">
+      <div class="prof-head"><span class="letra" aria-hidden="true">C</span><div><h2>Contadores</h2><p>Dejá de perseguir clientes y de tipear facturas. Una herramienta junta los papeles y la otra los procesa.</p></div></div>
+      <div class="tools">
+        <article class="tool">
+          <div class="k"><h3>Recolección de documentación</h3><span class="badge">Todos los meses</span></div>
+          <p class="dolor"><strong>Hoy:</strong> le escribís a cada cliente tres veces para que te mande las facturas del mes.</p>
+          <p>Le pide a cada cliente por WhatsApp lo que falta, <mark>insiste sola con buen tono</mark> y te muestra quién cumplió y quién no.</p>
+          <div class="demo"><div class="eyebrow"><span>WhatsApp del estudio</span><span>Ejemplo</span></div>
+            <div class="chat"><div class="msg out">Hola Marina, para cerrar octubre nos faltan las facturas de compra y el resumen del banco. ¿Nos las mandás por acá?<time>lun 09:00</time></div>
+            <div class="msg in">Uh, me olvidé 🙈 ahí van<time>lun 11:47</time></div></div></div>
+          <div class="act"><button class="btn hl" type="button" data-alta="recoleccion">Quiero probarla</button></div>
+        </article>
+        <article class="tool">
+          <div class="k"><h3>Carga de comprobantes</h3><span class="badge">Todos los meses</span></div>
+          <p class="dolor"><strong>Hoy:</strong> fotos torcidas, PDF sueltos y horas copiando CUIT e importes.</p>
+          <p>Lee cada factura o ticket, saca los datos, <mark>los ordena por cliente y por mes</mark> y los deja listos para cargar o exportar.</p>
+          <div class="demo"><div class="eyebrow"><span>Comprobante leído</span><span>Ejemplo, datos ficticios</span></div>
+            <div class="cmp"><div class="ticket" aria-hidden="true"></div>
+              <dl class="campos"><dt>Tipo</dt><dd>Factura A 0004-00012873</dd><dt>CUIT</dt><dd>30-12345678-9</dd><dt>Neto</dt><dd>$ 182.400,00</dd><dt>IVA 21 %</dt><dd>$ 38.304,00</dd><dt>Cliente</dt><dd><mark>Marina R. · oct/26</mark></dd></dl></div></div>
+          <div class="act"><button class="btn hl" type="button" data-alta="comprobantes">Quiero probarla</button></div>
+        </article>
+        <article class="tool extra" style="grid-column:1/-1">
+          <div class="k"><h3>Papeles de Ganancias y Bienes Personales</h3><span class="badge out">Agregado de temporada</span></div>
+          <p class="dolor"><strong>Hoy:</strong> en junio juntás resúmenes de bancos y brokers, plazos fijos y cotizaciones al 31/12 de cada cliente.</p>
+          <p>Lee esos resúmenes y <mark>arma el papel de trabajo de cada persona</mark>. Se contrata aparte, solo para la temporada de vencimientos.</p>
+          <div class="act"><button class="btn hl" type="button" data-alta="ganancias">Me interesa para junio</button></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESCRIBANOS -->
+  <section class="prof e" id="escribanos">
+    <div class="wrap">
+      <div class="prof-head"><span class="letra" aria-hidden="true">E</span><div><h2>Escribanos</h2><p>El trabajo más largo de la escribanía, resuelto en minutos y con cada dato marcado para que lo controles.</p></div></div>
+      <div class="tools">
+        <article class="tool">
+          <div class="k"><h3>Estudio de títulos</h3><span class="badge">Por operación</span></div>
+          <p class="dolor"><strong>Hoy:</strong> leer escritura por escritura hacia atrás y armar la cadena a mano.</p>
+          <p>Subís las escrituras antecedentes escaneadas y <mark>arma la cadena de dominio</mark>, marcando lo que hay que mirar dos veces.</p>
+          <div class="demo"><div class="eyebrow"><span>Cadena de dominio</span><span>Ejemplo</span></div>
+            <ol class="cadena"><li><span class="y">1994</span><span>Compraventa · Pérez a Gómez · Esc. 211, Reg. 1520</span></li><li><span class="y">2009</span><span>Donación · Gómez a Gómez (hija) · Esc. 88, Reg. 433</span></li><li class="obs"><span class="y">2018</span><span>⚠ Adjudicación por sucesión: no figura la inscripción registral</span></li><li><span class="y">2026</span><span>Venta en curso · titular actual: Laura Gómez</span></li></ol></div>
+          <div class="act"><button class="btn hl" type="button" data-alta="titulos">Quiero probarla</button></div>
+        </article>
+        <article class="tool">
+          <div class="k"><h3>Borrador de escritura</h3><span class="badge">Por operación</span></div>
+          <p class="dolor"><strong>Hoy:</strong> copiar nombres, DNI y datos del inmueble de un papel a otro, con riesgo de error de tipeo.</p>
+          <p>Con los DNI, el boleto y el informe de dominio, <mark>llena el borrador</mark> y marca cada dato con el documento de donde salió.</p>
+          <div class="demo"><div class="eyebrow"><span>Borrador</span><span>Ejemplo, datos ficticios</span></div>
+            <p class="borrador">…comparecen <mark>LAURA BEATRIZ GÓMEZ</mark>, DNI <mark>28.456.112</mark>, y <mark>MARTÍN ALEJANDRO RÍOS</mark>, DNI <mark>31.902.774</mark>, quienes exponen que la primera VENDE al segundo el inmueble sito en <mark>calle Corrientes 1234, piso 3.º «B»</mark>…</p></div>
+          <div class="act"><button class="btn hl" type="button" data-alta="escritura">Quiero probarla</button></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap grid">
+      <div><p class="eyebrow">Preguntas</p><h2 style="margin-top:14px">Lo que nos preguntan los estudios</h2></div>
+      <div>
+        <details><summary>¿Ya está funcionando?</summary><p>Estamos armando las herramientas. Los estudios anotados ahora son los primeros en probarlas, gratis durante la prueba, y nos ayudan a decidir cuál sale primero.</p></details>
+        <details><summary>¿La IA firma o presenta algo por mí?</summary><p>No. Todo lo que hace es un borrador o un aviso. Vos revisás, corregís y decidís; la responsabilidad profesional es tuya y así queda escrito en cada documento.</p></details>
+        <details><summary>¿Qué pasa con los datos de mis clientes?</summary><p>Los datos se usan solo para hacer tu trabajo, no se comparten con terceros y podés borrarlos cuando quieras. Vamos a cumplir la Ley 25.326 de Protección de Datos Personales.</p></details>
+        <details><summary>¿Cuánto va a costar?</summary><p>Un abono mensual por profesional o por estudio, según la herramienta. Los anotados en esta etapa tienen precio de fundador.</p></details>
+        <details><summary>¿Sirve para cualquier provincia?</summary><p>Esa es la idea. Al anotarte, contanos dónde trabajás: así sabemos qué juzgados, registros y tasas incluir primero.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="cierre">
+      <div><h2>Probalo antes que nadie.</h2><p>Anotate en un minuto y elegí qué herramientas querés usar en tu estudio.</p></div>
+      <button class="btn" type="button" data-alta="">Anotarme</button>
+    </div>
+  </div>
+</main>
+
+<footer><div class="wrap"><span><b>ACE Al Día</b> · Herramientas para Abogados, Contadores y Escribanos</span><span>Proyecto en desarrollo · República Argentina</span></div></footer>
+
+<dialog id="alta" aria-labelledby="alta-t">
+  <form class="alta" id="form-alta" novalidate>
+    <h3 id="alta-t">Quiero probar ACE Al Día</h3>
+    <p class="sub">Te escribimos cuando la herramienta esté lista para probar.</p>
+    <div class="fila">
+      <label class="f" for="f-nombre">Nombre y apellido<input id="f-nombre" name="nombre" autocomplete="name" required></label>
+      <label class="f" for="f-prof">Profesión<select id="f-prof" name="profesion" required><option value="">Elegí…</option><option>Abogado/a</option><option>Contador/a</option><option>Escribano/a</option><option>Estudio mixto</option><option>Otra</option></select></label>
+    </div>
+    <div class="fila">
+      <label class="f" for="f-wa">WhatsApp<input id="f-wa" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="11 2345 6789"></label>
+      <label class="f" for="f-mail">Email<input id="f-mail" name="email" type="email" autocomplete="email" placeholder="vos@estudio.com.ar"></label>
+    </div>
+    <div class="fila">
+      <label class="f" for="f-prov">Provincia<select id="f-prov" name="provincia"><option value="">Elegí…</option></select></label>
+      <label class="f" for="f-tam">Tamaño del estudio<select id="f-tam" name="tamano"><option value="">Elegí…</option><option>Trabajo solo/a</option><option>2 a 5 personas</option><option>6 a 20 personas</option><option>Más de 20</option></select></label>
+    </div>
+    <fieldset><legend>¿Qué herramientas te interesan?</legend><div class="checks" id="checks"></div></fieldset>
+    <p class="err" id="f-err" hidden></p>
+    <div class="form-pie"><small>Usamos tus datos solo para avisarte sobre ACE Al Día. Podés pedir que los borremos cuando quieras.</small>
+      <div style="display:flex;gap:8px"><button class="btn ghost" type="button" id="f-cerrar">Cancelar</button><button class="btn" type="submit" id="f-enviar">Anotarme</button></div></div>
+  </form>
+  <div class="gracias" id="gracias" hidden>
+    <span class="chip a" style="justify-self:start">Anotado ✓</span>
+    <h3>¡Gracias! Ya estás en la lista.</h3>
+    <p id="gracias-txt" style="color:var(--ink-2)">Te vamos a escribir cuando la herramienta esté lista para probar.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" type="button" id="g-cerrar">Listo</button></div>
+  </div>
+</dialog>
+
+<script>
+/* Configuración para publicar la web:
+   ENVIO: URL que recibe el formulario por POST (JSON). Sirve un formulario de Formspree o un script de Google Apps Script que escriba en una planilla.
+   WHATSAPP: número del proyecto con código de país y sin signos (ej. 5491123456789), para el botón de contacto después de anotarse.
+   Si ENVIO está vacío (como en la vista previa), el formulario se valida pero no se manda a ningún lado. */
+const CONFIG = { ENVIO: "", WHATSAPP: "" };
+
+const HERR = [
+  ["vencimientos", "Vigilante de expedientes", "Abogado/a"], ["liquidador", "Liquidador de juicios", "Abogado/a"],
+  ["recoleccion", "Recolección de documentación", "Contador/a"], ["comprobantes", "Carga de comprobantes", "Contador/a"],
+  ["ganancias", "Ganancias y Bienes Personales", "Contador/a"], ["titulos", "Estudio de títulos", "Escribano/a"], ["escritura", "Borrador de escritura", "Escribano/a"]
+];
+const PROV = ["Buenos Aires", "CABA", "Catamarca", "Chaco", "Chubut", "Córdoba", "Corrientes", "Entre Ríos", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones", "Neuquén", "Río Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego", "Tucumán"];
+
+const $ = id => document.getElementById(id);
+const dlg = $("alta"), form = $("form-alta"), checks = $("checks");
+PROV.forEach(p => $("f-prov").insertAdjacentHTML("beforeend", `<option>${p}</option>`));
+HERR.forEach(([k, n]) => checks.insertAdjacentHTML("beforeend", `<label for="h-${k}"><input type="checkbox" id="h-${k}" name="herramientas" value="${k}"> ${n}</label>`));
+
+function abrir(k) {
+  form.hidden = false; $("gracias").hidden = true; $("f-err").hidden = true;
+  checks.querySelectorAll("input").forEach(i => { if (k && i.value === k) i.checked = true; });
+  const h = HERR.find(x => x[0] === k); if (h && !$("f-prof").value) $("f-prof").value = h[2];
+  if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+  setTimeout(() => $("f-nombre").focus(), 30);
+}
+const cerrar = () => { if (dlg.open) dlg.close(); };
+document.querySelectorAll("[data-alta]").forEach(b => b.addEventListener("click", () => abrir(b.dataset.alta)));
+$("f-cerrar").addEventListener("click", cerrar); $("g-cerrar").addEventListener("click", cerrar);
+dlg.addEventListener("click", e => { if (e.target === dlg) cerrar(); });
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  const fd = new FormData(form), d = Object.fromEntries(fd.entries()); d.herramientas = fd.getAll("herramientas");
+  const err = m => { $("f-err").textContent = m; $("f-err").hidden = false; };
+  if (!d.nombre.trim()) return err("Escribí tu nombre y apellido.");
+  if (!d.profesion) return err("Elegí tu profesión.");
+  if (!d.whatsapp.trim() && !d.email.trim()) return err("Dejanos un WhatsApp o un email para poder avisarte.");
+  if (d.email && !/^\S+@\S+\.\S+$/.test(d.email)) return err("Revisá el email: parece incompleto.");
+  if (!d.herramientas.length) return err("Marcá al menos una herramienta que te interese.");
+  d.fecha = new Date().toISOString(); d.origen = location.hash || "";
+  $("f-enviar").disabled = true; $("f-enviar").textContent = "Enviando…";
+  try {
+    if (CONFIG.ENVIO) {
+      const r = await fetch(CONFIG.ENVIO, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(d) });
+      if (!r.ok) throw new Error(r.status);
+      $("gracias-txt").textContent = "Te vamos a escribir cuando la herramienta esté lista para probar.";
+    } else {
+      $("gracias-txt").textContent = "Vista previa: el formulario funciona, pero todavía no está conectado a la planilla de anotados.";
+    }
+    form.hidden = true; $("gracias").hidden = false; form.reset();
+  } catch (x) {
+    err("No pudimos guardar tu inscripción. Probá de nuevo en un rato" + (CONFIG.WHATSAPP ? " o escribinos por WhatsApp al +" + CONFIG.WHATSAPP + "." : "."));
+  } finally { $("f-enviar").disabled = false; $("f-enviar").textContent = "Anotarme"; }
+});
+
+/* portada: cada tanto entra un aviso nuevo en el vigilante de ejemplo */
+const NUEVOS = [
+  ["Expte. 4.556/2026 · Juzg. Civil y Com. 3 (La Plata)", "Se ordenó la apertura a prueba por cuarenta días.", "40 días", "hábiles · vence 02/02", false],
+  ["Expte. 17.003/2025 · Juzg. Familia 8", "Intimación a acompañar documental bajo apercibimiento.", "5 días", "hábiles · vence 13/11", true]
+];
+let ni = 0;
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(() => {
+  const f = $("feed"), [c, p, v, s, u] = NUEVOS[ni++ % NUEVOS.length];
+  f.insertAdjacentHTML("afterbegin", `<li class="nuevo"><span class="cau">${c}</span><span class="pro">${p}</span><span class="ven${u ? " urg" : ""}"><b>${v}</b><small>${s}</small></span></li>`);
+  while (f.children.length > 3) f.lastElementChild.remove();
+}, 5200);
+</script>
+
+</body></html>
