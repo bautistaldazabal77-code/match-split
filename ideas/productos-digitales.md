@@ -28,3 +28,18 @@ Productos que ya funcionan afuera y casi no existen en la Argentina. Elegidas el
 - **Afuera:** Harvey y Spellbook redactan y revisan contratos y escritos.
 - **Versión argentina:** redacta cartas documento, contestaciones, contratos y escritos de mero trámite con modelos locales; resume expedientes largos.
 - **Cómo se cobra:** suscripción mensual por abogado o por estudio.
+
+# Web de herramientas para profesionales (en definición)
+
+Una sola marca con una sección por profesión. Primero se valida con una web con botones de "Quiero probarla" y después se construye la herramienta más pedida.
+
+## Abogados
+- **Vigilante de expedientes y vencimientos:** revisa todos los días las causas del estudio en los sistemas de consulta judicial, avisa cada providencia nueva con un resumen y calcula el vencimiento del plazo contando días hábiles judiciales, feriados y ferias. Afuera: Docket Alarm.
+- **Liquidador de juicios:** calcula capital, intereses con la tasa que fije cada tribunal y actualizaciones, y lo entrega como escrito listo para presentar.
+
+## Escribanos
+- **Estudio de títulos automático:** a partir de las escrituras antecedentes escaneadas arma la cadena de dominio y marca lo que hay que revisar (nombres mal escritos, poderes vencidos, sucesiones sin inscribir).
+- **Borrador de escritura a partir de los documentos:** con los DNI, el boleto y el informe de dominio llena el borrador de la escritura sin errores de tipeo. Afuera: Qualia.
+
+## Contadores
+- Por definir.
