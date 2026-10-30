@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8">
+<!-- Plantilla de las imágenes para anuncios. La usa generar.js con ?pieza=abogados&formato=feed (feed 1080x1350, story 1080x1920, og 1200x630). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../web/assets/estilos.css">
+<style>
+html, body { margin: 0; background: #fff; color: #0b0b0b; color-scheme: light }
+.p { position: relative; overflow: hidden; display: flex; flex-direction: column; background: #fff; padding: 84px 80px; gap: 40px }
+.feed { width: 1080px; height: 1350px } .story { width: 1080px; height: 1920px; padding: 240px 80px 300px } .og { width: 1200px; height: 630px; padding: 52px 72px; gap: 22px }
+.marca { display: flex; align-items: center; gap: 14px; font: 800 38px/1 var(--f-d); letter-spacing: -.03em }
+.marca .k { display: inline-flex; gap: 5px } .marca .k span { width: 40px; height: 40px; border-radius: 7px; display: grid; place-items: center; font: 700 21px/1 var(--f-m); color: #0b0b0b; background: var(--hl) }
+.marca .k span:nth-child(2) { transform: translateY(-5px) } .marca .k span:nth-child(3) { transform: translateY(4px) }
+.para { margin-left: auto; font: 500 22px/1 var(--f-m); letter-spacing: .14em; text-transform: uppercase; background: var(--hl); padding: 12px 16px; border-radius: 6px }
+h1 { font: 900 132px/.92 var(--f-d); letter-spacing: -.055em; margin: 0 } .og h1 { font-size: 78px } .story h1 { font-size: 150px }
+.sub { font: 400 40px/1.3 var(--f-b); color: #444; max-width: 24em } .og .sub { font-size: 25px }
+.tarjeta { border: 3px solid #0b0b0b; border-radius: 22px; padding: 34px 38px; display: grid; gap: 18px; background: #fff; box-shadow: 14px 14px 0 var(--hl) }
+.tarjeta .l { font: 500 24px/1.2 var(--f-m); letter-spacing: .1em; text-transform: uppercase; color: #555; display: flex; justify-content: space-between }
+.tarjeta .g { font: 800 66px/1 var(--f-d); letter-spacing: -.04em } .tarjeta .m { font: 400 30px/1.35 var(--f-b) } .tarjeta .r { color: #c4321f }
+.fila { display: grid; grid-template-columns: 120px 1fr; gap: 18px; font: 400 30px/1.3 var(--f-b); padding: 10px 0; border-bottom: 2px dotted #ccc } .fila:last-child { border: 0 } .fila b { font: 500 28px/1.3 var(--f-m); color: #555 }
+.cta { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 20px }
+.cta .btn { font: 700 38px/1 var(--f-b); padding: 30px 40px; border-radius: 14px } .og .cta .btn { font-size: 26px; padding: 20px 26px }
+.cta small { font: 500 24px/1.3 var(--f-m); color: #555; letter-spacing: .04em } .ej { font-size: 18px; padding: 6px 9px }
+.tres { display: flex; gap: 16px } .tres span { flex: 1; border-radius: 14px; padding: 26px; background: var(--hl); font: 800 40px/1 var(--f-d); letter-spacing: -.03em } .tres span small { display: block; font: 500 22px/1.3 var(--f-b); margin-top: 10px }
+.og .tres span { padding: 16px; font-size: 26px } .og .tres span small { font-size: 16px }
+</style></head><body><div id="p"></div>
+<script>
+const q = new URLSearchParams(location.search), pieza = q.get('pieza') || 'general', formato = q.get('formato') || 'feed';
+const marca = (c = '') => `<div class="marca"><span class="k"><span class="a">A</span><span class="c">C</span><span class="e">E</span></span>Al Día${c}</div>`;
+const cta = t => `<div class="cta"><span class="btn">${t} →</span><small>acealdia.com.ar</small></div>`;
+const P = {
+  general: () => `${marca()}<h1>Que en el estudio <span class="hl a">nada se te pase.</span></h1><p class="sub">Herramientas para abogados, contadores y escribanos. La IA hace el trabajo de escritorio; vos revisás y firmás.</p>
+    <div class="tres"><span class="a">Abogados<small>Vencimientos y liquidaciones</small></span><span class="c">Contadores<small>Facturas y documentación</small></span><span class="e">Escribanos<small>Títulos y escrituras</small></span></div>${cta('Probalo gratis')}`,
+  abogados: () => `${marca('<span class="para a">Abogados</span>')}<h1>¿Cuándo <span class="hl a">vence?</span></h1><p class="sub">Cargás la notificación y el plazo: calcula el vencimiento en días hábiles, con feriados y ferias.</p>
+    <div class="tarjeta a"><div class="l"><span>Expte. 23.418/2025</span><span class="ej">Ejemplo</span></div><div class="m">Traslado de la demanda · 5 días · notificado el jueves 19/11</div><div class="g">Vence el viernes 27/11</div><div class="m r">Se saltea el feriado del lunes 23/11</div></div>${cta('Calculalo gratis')}`,
+  contadores: () => `${marca('<span class="para c">Contadores</span>')}<h1>Basta de <span class="hl c">tipear facturas.</span></h1><p class="sub">Subís la foto o el PDF: ACE lee el QR de ARCA, verifica el CUIT y la ordena por cliente y por mes.</p>
+    <div class="tarjeta c"><div class="l"><span>Factura leída</span><span class="ej">Datos ficticios</span></div><div class="fila"><b>Tipo</b><span>Factura A 00004-00012873</span></div><div class="fila"><b>CUIT</b><span>30-71234567-1 ✓</span></div><div class="fila"><b>Total</b><span>$ 220.704,00</span></div><div class="fila"><b>Cliente</b><span class="hl c">Marina R. · compras oct/26</span></div></div>${cta('Probalo gratis')}`,
+  escribanos: () => `${marca('<span class="para e">Escribanos</span>')}<h1>El estudio de títulos, <span class="hl e">en minutos.</span></h1><p class="sub">Arma la cadena de dominio y marca lo que hay que mirar: nombres que no coinciden, sucesiones sin inscribir.</p>
+    <div class="tarjeta e"><div class="l"><span>Cadena de dominio</span><span class="ej">Ejemplo</span></div><div class="fila"><b>1994</b><span>Compraventa · inscripta</span></div><div class="fila"><b>2009</b><span>Donación · ¿«Gomes» o «Gómez»?</span></div><div class="fila"><b class="r">2018</b><span class="r">⚠ Sucesión sin inscripción registral</span></div></div>${cta('Probalo gratis')}`,
+};
+document.getElementById('p').className = 'p ' + formato + ' ' + ({ abogados: 'a', contadores: 'c', escribanos: 'e' }[pieza] || 'a');
+document.getElementById('p').innerHTML = P[pieza]();
+</script></body></html>

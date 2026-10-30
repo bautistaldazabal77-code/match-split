@@ -6,6 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/estilos.css">
+<script src="../assets/medicion.js" defer></script>
 <style>
 /* Mesa de trabajo: barra lateral con las seis herramientas (pestañas arriba en el celular) y la herramienta a la derecha. */
 body { background: var(--paper-2) }
@@ -192,6 +193,7 @@ td .mono, td.mono { white-space: nowrap }
 const $ = id => document.getElementById(id), esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const guardar = (k, v) => { try { localStorage.setItem('ace-' + k, JSON.stringify(v)); } catch (e) {} }, leer = (k, d) => { try { const v = JSON.parse(localStorage.getItem('ace-' + k)); return v ?? d; } catch (e) { return d; } };
 const HOY = Calendario.iso(new Date()), pesos = n => Liquidador.pesos(n);
+const uso = (herramienta, accion) => { try { window.ACE && ACE.evento('uso', { herramienta, elemento: accion }); } catch (e) {} };
 const error = (id, m) => { $(id).textContent = m || ''; $(id).hidden = !m; };
 // descarga: dentro de claude.ai pasa por el permiso de descargas; en la web publicada, un enlace común
 async function bajar(nombre, texto, tipo, btn) {
@@ -221,9 +223,9 @@ function pintarCausas() {
 }
 function agregarCausa(c) { const opts = { ambito: c.amb, noLaborablesInhabiles: c.nl }; const v = Calendario.vencimiento(c.not, c.dias, opts); causas.push({ ...c, ...v, opts }); }
 $('v-form').addEventListener('submit', e => { e.preventDefault(); error('v-err');
-  try { agregarCausa({ exp: $('v-exp').value.trim(), juz: $('v-juz').value.trim(), pro: $('v-pro').value.trim(), not: $('v-not').value, dias: +$('v-dias').value, amb: $('v-amb').value, nl: $('v-nl').checked }); pintarCausas(); $('v-form').reset(); $('v-not').value = HOY; }
+  uso('venc', 'calcular'); try { agregarCausa({ exp: $('v-exp').value.trim(), juz: $('v-juz').value.trim(), pro: $('v-pro').value.trim(), not: $('v-not').value, dias: +$('v-dias').value, amb: $('v-amb').value, nl: $('v-nl').checked }); pintarCausas(); $('v-form').reset(); $('v-not').value = HOY; }
   catch (x) { error('v-err', x.message); } });
-$('v-ej').onclick = () => { [['23.418/2025', 'Juzg. Civil 45', 'Traslado de la demanda', 15, -3], ['8.902/2026', 'Juzg. Laboral 12', 'Intimación a acompañar documental', 5, -2], ['1.177/2024', 'Cám. Com. Sala B', 'Expresión de agravios', 10, -9], ['4.556/2026', 'Juzg. Civ. y Com. 3 (La Plata)', 'Contestación de excepciones', 5, -1, 'pba']]
+$('v-ej').onclick = () => { uso('venc', 'ejemplos'); [['23.418/2025', 'Juzg. Civil 45', 'Traslado de la demanda', 15, -3], ['8.902/2026', 'Juzg. Laboral 12', 'Intimación a acompañar documental', 5, -2], ['1.177/2024', 'Cám. Com. Sala B', 'Expresión de agravios', 10, -9], ['4.556/2026', 'Juzg. Civ. y Com. 3 (La Plata)', 'Contestación de excepciones', 5, -1, 'pba']]
   .forEach(([exp, juz, pro, dias, off, amb]) => { const d = new Date(); d.setDate(d.getDate() + off); agregarCausa({ exp, juz, pro, dias, not: Calendario.iso(d), amb: amb || 'nacion', nl: true }); }); pintarCausas(); };
 $('v-borrar').onclick = () => { causas = []; pintarCausas(); };
 $('v-ics').onclick = e => causas.length && bajar('vencimientos.ics', Calendario.ics(causas.map(c => ({ fecha: c.vence, titulo: `Vence: ${c.pro} · Expte. ${c.exp}`, detalle: `${c.juz}. Plazo de ${c.dias} días hábiles. Gracia: ${c.gracia}` }))), 'text/calendar', e.currentTarget);
@@ -231,7 +233,7 @@ $('v-not').value = HOY; pintarCausas();
 
 // ---------------- liquidador ----------------
 const lineas = (s, f) => s.split('\n').map(l => l.trim()).filter(Boolean).map(l => { const [a, b] = l.split(';').map(x => x.trim()); return f(a, +String(b).replace(/\./g, '').replace(',', '.')); });
-$('l-form').addEventListener('submit', e => { e.preventDefault(); error('l-err');
+$('l-form').addEventListener('submit', e => { e.preventDefault(); error('l-err'); uso('liq', 'liquidar');
   try {
     const L = Liquidador.liquidar({ capital: +$('l-cap').value, desde: $('l-des').value, hasta: $('l-has').value, tramos: lineas($('l-tra').value, (desde, tasaAnual) => ({ desde, tasaAnual })), pagos: lineas($('l-pag').value, (fecha, monto) => ({ fecha, monto })) });
     $('l-tabla').innerHTML = L.filas.map(f => f.pago ? `<tr><td colspan="3">Pago a cuenta ${Liquidador.dmy(f.fecha)}<br><span class="nota">a intereses ${pesos(f.aIntereses)} · a capital ${pesos(f.aCapital)}</span></td><td class="num">−${pesos(f.monto)}</td></tr>`
@@ -253,7 +255,7 @@ function pintarComps() {
     : `<tr><td colspan="4" class="nota">Subí facturas o probá con la de ejemplo.</td></tr>`;
   $('c-res').innerHTML = Comprobantes.resumen(comps).map(r => `<tr><td>${esc(r.cliente)}</td><td class="mono">${r.periodo}</td><td>${r.operacion}</td><td class="num">${r.cantidad}</td><td class="num">${pesos(r.total)}</td></tr>`).join('');
 }
-async function procesar(files) {
+async function procesar(files) { uso('comp', 'subir ' + files.length);
   $('c-err').innerHTML = '';
   for (const f of files) { try { const c = Comprobantes.asignar(await Comprobantes.leerArchivo(f), clientes());
       if (comps.some(x => x.cuitEmisor === c.cuitEmisor && x.comprobante === c.comprobante && x.tipoCodigo === c.tipoCodigo)) throw new Error('ya estaba cargado'); comps.push(c); }
@@ -263,7 +265,7 @@ async function procesar(files) {
 $('c-files').addEventListener('change', e => { procesar([...e.target.files]); e.target.value = ''; });
 const drop = $('c-drop'); ['dragover', 'dragenter'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('sobre'); }));
 ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, () => drop.classList.remove('sobre'))); drop.addEventListener('drop', e => { e.preventDefault(); procesar([...e.dataTransfer.files]); });
-$('c-ej').onclick = () => { const j = { ver: 1, fecha: '2026-10-14', cuit: 30712345671, ptoVta: 4, tipoCmp: 1, nroCmp: 12873 + comps.length, importe: 220704, moneda: 'PES', ctz: 1, tipoDocRec: 80, nroDocRec: 27334455667, tipoCodAut: 'E', codAut: 76123456789012 };
+$('c-ej').onclick = () => { uso('comp', 'ejemplo'); const j = { ver: 1, fecha: '2026-10-14', cuit: 30712345671, ptoVta: 4, tipoCmp: 1, nroCmp: 12873 + comps.length, importe: 220704, moneda: 'PES', ctz: 1, tipoDocRec: 80, nroDocRec: 27334455667, tipoCodAut: 'E', codAut: 76123456789012 };
   comps.push(Comprobantes.asignar(Comprobantes.desdeQR('https://www.afip.gob.ar/fe/qr/?p=' + btoa(JSON.stringify(j))), clientes())); pintarComps(); };
 $('c-borrar').onclick = () => { comps = []; pintarComps(); };
 $('c-csv').onclick = e => comps.length && bajar('comprobantes.csv', Comprobantes.csv(comps), 'text/csv;charset=utf-8', e.currentTarget);
@@ -284,16 +286,16 @@ function pintarRec() {
       <td style="min-width:240px">${m ? `<div class="msg">${esc(m)}</div><div class="acciones" style="margin-top:8px"><a class="btn mini ${toca ? 'hl' : 'sec'}" target="_blank" rel="noopener" href="${Recoleccion.enlace(c, m)}" data-env="${i}">Abrir en WhatsApp</a></div>` : '<span class="nota">Nada pendiente 🎉</span>'}</td></tr>`; }).join('')
     : `<tr><td colspan="4" class="nota">Cargá los ejemplos para ver cómo funciona.</td></tr>`;
   $('r-lista').querySelectorAll('input[data-c]').forEach(x => x.onchange = () => { recCli[+x.dataset.c].pedidos[x.dataset.d] = x.checked; pintarRec(); });
-  $('r-lista').querySelectorAll('[data-env]').forEach(a => a.addEventListener('click', () => { recCli[+a.dataset.env] = Recoleccion.registrarAviso(recCli[+a.dataset.env], HOY); setTimeout(pintarRec, 50); }));
+  $('r-lista').querySelectorAll('[data-env]').forEach(a => a.addEventListener('click', () => { uso('rec', 'whatsapp'); recCli[+a.dataset.env] = Recoleccion.registrarAviso(recCli[+a.dataset.env], HOY); setTimeout(pintarRec, 50); }));
 }
 ['r-per', 'r-est', 'r-ven', 'r-cada'].forEach(id => $(id).addEventListener('change', pintarRec));
-$('r-ej').onclick = () => { const p = (...ok) => Object.fromEntries(DOCS.map((d, i) => [d.toLowerCase(), !!ok[i]]));
+$('r-ej').onclick = () => { uso('rec', 'ejemplos'); const p = (...ok) => Object.fromEntries(DOCS.map((d, i) => [d.toLowerCase(), !!ok[i]]));
   recCli = [{ nombre: 'Marina Rodríguez', telefono: '11 5555-1234', pedidos: p(1, 0, 0, 1) }, { nombre: 'Jorge Benítez (Taller Los Andes)', telefono: '341 555-9876', pedidos: p(0, 0, 0, 0), avisos: 2, ultimoAviso: '2026-10-20' },
     { nombre: 'Lucía Fernández', telefono: '351 555-4433', pedidos: p(1, 1, 1, 1), avisos: 1, ultimoAviso: '2026-10-25' }, { nombre: 'Panadería La Espiga', telefono: '11 5555-7788', pedidos: p(1, 1, 0, 0), avisos: 1, ultimoAviso: HOY }]; pintarRec(); };
 pintarRec();
 
 // ---------------- estudio de títulos ----------------
-$('t-form').addEventListener('submit', e => { e.preventDefault(); error('t-err');
+$('t-form').addEventListener('submit', e => { e.preventDefault(); error('t-err'); uso('tit', 'estudiar');
   try {
     const ant = $('t-ant').value.split('\n').map(l => l.trim()).filter(Boolean).map((l, n) => { const p = l.split(';').map(x => x.trim()); if (p.length < 4) throw new Error(`La línea ${n + 1} está incompleta: fecha; acto; transmitentes; adquirentes; matrícula.`);
       return { fecha: p[0], acto: p[1], transmitentes: p[2].split('/').map(s => s.trim()).filter(Boolean), adquirentes: p[3].split('/').map(s => s.trim()).filter(Boolean), inscripcion: p[4] ? { matricula: p[4] } : null }; });
@@ -318,11 +320,11 @@ function leerDNIimagen(file) { return new Promise((ok, mal) => { if (!window.ZXi
     catch (x) { mal(new Error(/formato/.test(x.message) ? x.message : 'No encontré el código del DNI. Sacá la foto del frente, derecha y con buena luz.')); } finally { URL.revokeObjectURL(url); } };
   img.onerror = () => mal(new Error('No se pudo abrir la imagen.')); img.src = url; }); }
 document.querySelectorAll('[data-dni]').forEach(inp => inp.addEventListener('change', async () => { const fs = inp.closest('fieldset'), nota = fs.querySelector('[data-fuente]');
-  try { const p = await leerDNIimagen(inp.files[0]); const t = s => s.toLowerCase().replace(/(^|\s)\S/g, x => x.toUpperCase());
+  uso('esc', 'dni'); try { const p = await leerDNIimagen(inp.files[0]); const t = s => s.toLowerCase().replace(/(^|\s)\S/g, x => x.toUpperCase());
     Object.entries({ nombre: t(p.nombre), apellido: t(p.apellido), dni: p.dni, nacimiento: p.nacimiento }).forEach(([k, v]) => fs.querySelector(`[data-k="${k}"]`).value = v);
     fs.dataset.fuente = p.fuente; nota.textContent = `✓ Datos tomados del ${p.fuente}. Revisalos.`; nota.style.color = 'var(--ok)'; }
   catch (x) { nota.textContent = x.message; nota.style.color = 'var(--alert)'; } inp.value = ''; }));
-$('e-form').addEventListener('submit', e => { e.preventDefault();
+$('e-form').addEventListener('submit', e => { e.preventDefault(); uso('esc', 'borrador');
   const b = Escritura.borrador({ lugar: $('e-lug').value, fecha: $('e-fec').value, escribano: $('e-esc').value, registro: $('e-reg').value, vendedores: [parte('v')], compradores: [parte('c')],
     inmueble: { calle: $('e-calle').value, numero: $('e-num').value, unidad: $('e-uf').value, localidad: $('e-loc').value, matricula: $('e-mat').value, nomenclatura: $('e-nom').value, superficie: $('e-sup').value },
     titulo: { acto: $('e-tacto').value, fecha: $('e-tfec').value, escribano: $('e-tesc').value, registro: $('e-treg').value }, precio: +$('e-pre').value, moneda: $('e-mon').value });

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel · ACE Al Día</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/estilos.css">
+<style>
+/* Panel privado: lo primero que se lee es qué herramienta pide más la gente y quiénes se anotaron. */
+body { background: var(--paper-2) }
+.top .wrap { min-height: 60px; flex-wrap: wrap } .top .acc { margin-left: auto; display: flex; gap: 8px; align-items: center; flex-wrap: wrap } .top .acc select { width: auto; padding: 7px 10px; font-size: 14px }
+main { padding-block: 28px 64px; display: grid; gap: 20px }
+.panel { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-2); padding: 20px; min-width: 0; display: grid; gap: 14px; align-content: start }
+.panel h2 { font-size: 22px; letter-spacing: -.02em } .panel .sub { color: var(--ink-2); font-size: 14px; margin-top: -8px }
+.kpis { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px }
+.kpi { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-2); padding: 16px; min-width: 0 }
+.kpi b { display: block; font: 800 34px/1 var(--f-d); letter-spacing: -.04em; font-variant-numeric: tabular-nums } .kpi span { font-size: 13px; color: var(--ink-2) }
+.kpi.dest { background: var(--ink); color: var(--paper); border-color: var(--ink) } .kpi.dest span { color: color-mix(in srgb, var(--paper) 70%, transparent) }
+.dos { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 20px; align-items: start }
+.barras { display: grid; gap: 10px }
+.barra { display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr) 54px; gap: 12px; align-items: center; font-size: 14px }
+.barra .n { font-weight: 600; min-width: 0 } .barra .n small { display: block; font: 400 12px/1.3 var(--f-b); color: var(--ink-2) }
+.barra .t { height: 26px; background: var(--paper-2); border-radius: 4px; overflow: hidden; display: flex }
+.barra .t i { display: block; height: 100% } .barra .v { text-align: right; font: 600 14px var(--f-m) }
+.ley { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink-2) } .ley span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; background: var(--k) }
+.embudo { display: grid; gap: 8px } .embudo div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; padding: 10px 12px; border-radius: var(--r); background: linear-gradient(90deg, color-mix(in srgb, var(--a) 55%, var(--paper)) var(--p), var(--paper-2) var(--p)); font-size: 14px }
+.embudo b { font-family: var(--f-m) }
+.tabla { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--r) }
+table { width: 100%; border-collapse: collapse; font-size: 14px } th { text-align: left; font: 500 11px/1.2 var(--f-m); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); background: var(--paper-2) }
+th, td { padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top } tr:last-child td { border-bottom: 0 } td.num, th.num { text-align: right; font-family: var(--f-m); white-space: nowrap }
+.chip { display: inline-block; font: 500 11.5px/1 var(--f-m); padding: 4px 7px; border-radius: 4px; background: var(--hl); color: var(--on-hl); margin: 2px 2px 0 0 }
+.filtros { display: flex; gap: 8px; flex-wrap: wrap; align-items: center }
+.filtros select, .filtros input { width: auto }
+svg.dias { width: 100%; height: 140px } svg.dias text { font: 500 10px var(--f-m); fill: var(--ink-2) }
+.vacio { color: var(--ink-2); font-size: 14px; padding: 8px 0 }
+.login { max-width: 560px; margin: 8vh auto; } .login .panel { gap: 16px }
+.aviso { padding: 12px 14px; border-radius: var(--r); background: color-mix(in srgb, var(--a) 40%, var(--paper)); font-size: 14px }
+@media (max-width: 1000px) { .kpis { grid-template-columns: repeat(3, minmax(0, 1fr)) } .dos { grid-template-columns: minmax(0, 1fr) } }
+@media (max-width: 560px) { .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)) } .barra { grid-template-columns: minmax(0, 1fr) 54px } .barra .t { grid-column: 1 / -1; grid-row: 2 } }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="../index.html"><span class="k"><span class="a">A</span><span class="c">C</span><span class="e">E</span></span>Al Día</a><span class="label">Panel privado</span>
+  <div class="acc" id="acc" hidden>
+    <select id="dias" aria-label="Período"><option value="0">Todo</option><option value="1">Últimas 24 h</option><option value="7" selected>Últimos 7 días</option><option value="30">Últimos 30 días</option></select>
+    <button class="btn out sm" type="button" id="recargar">Actualizar</button><button class="btn out sm" type="button" id="salir">Salir</button>
+  </div>
+</div></header>
+
+<div class="wrap login" id="login">
+  <form class="panel" id="f-login">
+    <h2>Entrar al panel</h2>
+    <p class="sub">Pegá la URL de tu planilla (la de Apps Script que termina en /exec) y la clave del panel. Quedan guardadas solo en este navegador.</p>
+    <label class="campo" for="l-url"><span>URL de Apps Script</span><input id="l-url" placeholder="https://script.google.com/macros/s/…/exec" autocomplete="off"></label>
+    <label class="campo" for="l-clave"><span>Clave del panel</span><input id="l-clave" type="password" autocomplete="current-password"></label>
+    <p class="err" id="l-err" hidden></p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn">Entrar</button><button class="btn out" type="button" id="demo">Ver con datos de ejemplo</button></div>
+  </form>
+</div>
+
+<main class="wrap" id="tablero" hidden>
+  <p class="aviso" id="aviso-demo" hidden>Estás viendo <b>datos de ejemplo inventados</b>, para que veas cómo se va a ver el panel con visitas reales.</p>
+  <section class="kpis" id="kpis"></section>
+  <div class="dos">
+    <section class="panel"><h2>¿Qué herramienta pide más la gente?</h2><p class="sub">Puntaje = clics en "Probar" + 2 × pedidos de aviso + usos dentro de la app + 5 × elecciones al anotarse.</p>
+      <div class="ley"><span style="--k:var(--ink)">Probar</span><span style="--k:var(--ink-3)">Avisame</span><span style="--k:var(--hl-uso, #9a9a9a)">Usos</span><span style="--k:var(--a)">Anotados</span></div>
+      <div class="barras" id="demanda"></div></section>
+    <section class="panel"><h2>Embudo</h2><p class="sub">Personas únicas en cada paso.</p><div class="embudo" id="embudo"></div>
+      <h2 style="margin-top:8px">Visitas y anotados por día</h2><svg class="dias" id="por-dia" role="img" aria-label="Visitas y anotados por día"></svg></section>
+  </div>
+  <section class="panel">
+    <div class="filtros" style="justify-content:space-between"><div><h2>Anotados: tus potenciales clientes</h2><p class="sub" style="margin-top:4px">Ordenados del más nuevo al más viejo. Tocá el WhatsApp para escribirle.</p></div>
+      <div class="filtros"><select id="f-prof" aria-label="Filtrar por profesión"><option value="">Todas las profesiones</option></select><input id="f-buscar" type="search" placeholder="Buscar…" aria-label="Buscar anotado"><button class="btn sm" type="button" id="csv">Descargar CSV</button></div></div>
+    <div class="tabla"><table><thead><tr><th>Fecha</th><th>Persona</th><th>Contacto</th><th>Le interesa</th><th>Vino de</th></tr></thead><tbody id="anotados"></tbody></table></div>
+  </section>
+  <div class="dos">
+    <section class="panel"><h2>De dónde vienen</h2><div class="tabla"><table><thead><tr><th>Fuente</th><th class="num">Personas</th><th class="num">Anotados</th><th class="num">Conversión</th></tr></thead><tbody id="fuentes"></tbody></table></div>
+      <h2>Por anuncio</h2><p class="sub">Campaña · anuncio, según los parámetros UTM de cada link.</p><div class="tabla"><table><thead><tr><th>Anuncio</th><th class="num">Personas</th><th class="num">Anotados</th></tr></thead><tbody id="anuncios"></tbody></table></div></section>
+    <section class="panel"><h2>Dónde hacen clic</h2><p class="sub">Los botones más tocados. El mapa de calor visual está en Microsoft Clarity.</p><div class="tabla"><table><thead><tr><th>Botón</th><th class="num">Clics</th></tr></thead><tbody id="clics"></tbody></table></div>
+      <h2>Profesión y provincia de los anotados</h2><div class="tabla"><table><tbody id="perfil"></tbody></table></div></section>
+  </div>
+</main>
+
+<script>
+const $ = id => document.getElementById(id), esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const LS = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { return null; } };
+const COLOR = { Abogados: "a", Contadores: "c", Escribanos: "e" }, fmt = n => Number(n || 0).toLocaleString("es-AR");
+const NOMBRE_BOTON = { anotarme: "Anotarme (botón general)", "probar:todas": "Probar las herramientas (general)", "f-enviar": "Enviar el formulario", "f-cerrar": "Cerrar el formulario sin anotarse", "l-cerrar": "Cerrar después de anotarse",
+  "solo necesarias": "Cookies: solo necesarias", "aceptar": "Cookies: aceptar", "v-ej": "App · ejemplos de vencimientos", "l-ej": "App · ejemplo del liquidador", "c-ej": "App · factura de ejemplo", "r-ej": "App · ejemplos de recolección",
+  "t-ej": "App · ejemplo de títulos", "e-ej": "App · ejemplo de escritura", "c-drop": "App · subir facturas", "v-ics": "App · agendar vencimientos", "c-csv": "App · descargar planilla" };
+const HERR_CORTO = { venc: "Vencimientos", liq: "Liquidador", comp: "Comprobantes", rec: "Recolección", tit: "Títulos", esc: "Escritura", vencimientos: "Vencimientos", liquidador: "Liquidador", comprobantes: "Comprobantes", recoleccion: "Recolección", titulos: "Títulos", escritura: "Escritura", ganancias: "Ganancias y BP", todas: "todas" };
+const nombreBoton = k => { if (NOMBRE_BOTON[k]) return NOMBRE_BOTON[k]; const [t, h] = String(k).split(":"); const n = HERR_CORTO[h] || h;
+  return t === "probar" ? "Probar · " + n : t === "avisame" ? "Avisame · " + n : t === "abrir" ? "App · abrió " + n : t === "ir" ? "Menú · " + n : k; };
+let datos = null, modoDemo = false;
+
+async function cargar() {
+  $("l-err").hidden = true;
+  if (modoDemo) { datos = await (await fetch("demo.json")).json(); }
+  else {
+    const url = LS("ace-panel-url"), clave = LS("ace-panel-clave"); if (!url || !clave) return mostrarLogin();
+    try { const r = await fetch(`${url}?accion=resumen&clave=${encodeURIComponent(clave)}&dias=${$("dias").value}`); datos = await r.json(); }
+    catch (e) { datos = { ok: false, error: "No se pudo conectar con la planilla. Revisá la URL y que la aplicación web esté implementada para 'cualquier usuario'." }; }
+    if (!datos.ok) { mostrarLogin(); $("l-err").textContent = datos.error; $("l-err").hidden = false; return; }
+  }
+  $("login").hidden = true; $("tablero").hidden = false; $("acc").hidden = false; $("aviso-demo").hidden = !modoDemo; pintar();
+}
+function mostrarLogin() { $("login").hidden = false; $("tablero").hidden = true; $("acc").hidden = true; $("l-url").value = LS("ace-panel-url") || ""; }
+
+function pintar() {
+  const t = datos.totales;
+  $("kpis").innerHTML = [["Páginas vistas", t.visitas], ["Personas", t.visitantes], ["Clics", t.clics], ["Anotados", t.anotados, 1], ["Conversión", t.conversion + " %"], ["Desde el celular", t.celular + " %"]]
+    .map(([n, v, d]) => `<div class="kpi${d ? " dest" : ""}"><b>${typeof v === "number" ? fmt(v) : v}</b><span>${n}</span></div>`).join("");
+  const max = Math.max(1, ...datos.demanda.map(d => d.puntaje));
+  $("demanda").innerHTML = datos.demanda.map(d => { const w = k => (100 * k / max).toFixed(1) + "%";
+    return `<div class="barra ${COLOR[d.profesion] || ""}"><span class="n">${esc(d.herramienta)}<small>${esc(d.profesion)} · ${d.visitantes} persona${d.visitantes === 1 ? "" : "s"}</small></span>
+      <span class="t" title="Probar ${d.probar} · Avisame ${d.avisame} · Usos ${d.usos} · Anotados ${d.anotados}"><i style="width:${w(d.probar)};background:var(--ink)"></i><i style="width:${w(2 * d.avisame)};background:var(--ink-3)"></i><i style="width:${w(d.usos)};background:#9a9a9a"></i><i style="width:${w(5 * d.anotados)};background:var(--hl)"></i></span>
+      <span class="v">${fmt(d.puntaje)}</span></div>`; }).join("");
+  const e0 = Math.max(1, datos.embudo[0][1]);
+  $("embudo").innerHTML = datos.embudo.map(([n, v]) => `<div style="--p:${(100 * v / e0).toFixed(1)}%"><span>${esc(n)}</span><b>${fmt(v)} · ${Math.round(100 * v / e0)} %</b></div>`).join("");
+  // gráfico por día
+  const pd = datos.porDia.slice(-30), W = 600, H = 140, mx = Math.max(1, ...pd.map(d => d.visitas)), bw = pd.length ? (W - 30) / pd.length : 0;
+  $("por-dia").setAttribute("viewBox", `0 0 ${W} ${H}`);
+  $("por-dia").innerHTML = pd.length ? `<line x1="28" x2="${W}" y1="${H - 18}" y2="${H - 18}" stroke="var(--line)"/><text x="0" y="12">${mx}</text>` + pd.map((d, i) => { const x = 30 + i * bw, h = (H - 34) * d.visitas / mx, ha = (H - 34) * d.anotados / mx;
+      return `<rect x="${x + 1}" y="${H - 18 - h}" width="${Math.max(2, bw - 3)}" height="${h}" fill="var(--ink)" opacity=".85"><title>${d.dia}: ${d.visitas} visitas, ${d.anotados} anotados</title></rect>${d.anotados ? `<rect x="${x + 1}" y="${H - 18 - ha}" width="${Math.max(2, bw - 3)}" height="${ha}" fill="var(--a)"/>` : ""}`; }).join("")
+      + `<text x="30" y="${H - 4}">${pd[0].dia.slice(5)}</text><text x="${W}" y="${H - 4}" text-anchor="end">${pd[pd.length - 1].dia.slice(5)}</text>` : `<text x="0" y="20">Todavía no hay visitas en este período.</text>`;
+  // tablas
+  const filas = (arr, f, vacio, cols) => arr.length ? arr.map(f).join("") : `<tr><td colspan="${cols}" class="vacio">${vacio}</td></tr>`;
+  $("fuentes").innerHTML = filas(datos.fuentes, f => `<tr><td>${esc(f.fuente)}</td><td class="num">${fmt(f.visitas)}</td><td class="num">${fmt(f.anotados)}</td><td class="num">${f.conversion === null ? "—" : f.conversion + " %"}</td></tr>`, "Sin visitas todavía.", 4);
+  $("anuncios").innerHTML = filas(datos.anuncios, a => `<tr><td>${esc(a.anuncio)}</td><td class="num">${fmt(a.visitas)}</td><td class="num">${fmt(a.anotados)}</td></tr>`, "Todavía no llegó nadie desde un link con UTM.", 3);
+  $("clics").innerHTML = filas(datos.clicsPorElemento, ([k, v]) => `<tr><td>${esc(nombreBoton(k))}</td><td class="num">${fmt(v)}</td></tr>`, "Sin clics todavía.", 2);
+  $("perfil").innerHTML = [...datos.profesiones.map(([k, v]) => `<tr><td>${esc(k)}</td><td class="num">${v}</td></tr>`), `<tr><th colspan="2">Provincia</th></tr>`, ...datos.provincias.map(([k, v]) => `<tr><td>${esc(k)}</td><td class="num">${v}</td></tr>`)].join("");
+  const profs = [...new Set(datos.anotados.map(a => a.profesion).filter(Boolean))]; $("f-prof").innerHTML = `<option value="">Todas las profesiones</option>` + profs.map(p => `<option>${esc(p)}</option>`).join("");
+  pintarAnotados();
+}
+function filtrados() { const p = $("f-prof").value, q = $("f-buscar").value.trim().toLowerCase();
+  return datos.anotados.filter(a => (!p || a.profesion === p) && (!q || Object.values(a).join(" ").toLowerCase().includes(q))); }
+function wa(n) { let s = String(n || "").replace(/\D/g, ""); if (!s) return ""; if (s.startsWith("0")) s = s.slice(1); if (!s.startsWith("54")) s = "549" + s.replace(/^15/, ""); return s; }
+function pintarAnotados() {
+  const lista = filtrados();
+  $("anotados").innerHTML = lista.length ? lista.map(a => { const w = wa(a.whatsapp), f = new Date(a.fecha);
+    return `<tr><td class="mono" style="white-space:nowrap">${isNaN(f) ? esc(a.fecha) : f.toLocaleDateString("es-AR") + "<br>" + f.toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" })}</td>
+      <td><b>${esc(a.nombre)}</b><br><span class="muted">${esc(a.profesion)} · ${esc(a.provincia || "sin provincia")} · ${esc(a.tamano || "")}</span></td>
+      <td>${w ? `<a href="https://wa.me/${w}" target="_blank" rel="noopener">${esc(a.whatsapp)}</a><br>` : ""}${a.email ? `<span class="mono">${esc(a.email)}</span>` : ""}</td>
+      <td>${String(a.herramientas || "").split(",").filter(Boolean).map(h => `<span class="chip ${COLOR[{ "Vencimientos": "Abogados", "Liquidador de juicios": "Abogados", "Estudio de títulos": "Escribanos", "Borrador de escritura": "Escribanos" }[h.trim()] || "Contadores"]}">${esc(h.trim())}</span>`).join("")}</td>
+      <td>${esc(a.fuente || "directo")}${a.campana ? `<br><span class="muted">${esc(a.campana)}${a.contenido ? " · " + esc(a.contenido) : ""}</span>` : ""}</td></tr>`; }).join("")
+    : `<tr><td colspan="5" class="vacio">${datos.anotados.length ? "Ningún anotado coincide con el filtro." : "Todavía no se anotó nadie. Cuando arranquen los anuncios, van a aparecer acá."}</td></tr>`;
+}
+function csv() { const cols = ["fecha", "nombre", "profesion", "whatsapp", "email", "provincia", "tamano", "herramientas", "fuente", "campana", "contenido"];
+  const q = v => { v = String(v ?? ""); return /[;"\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+  return "﻿" + [cols.join(";"), ...filtrados().map(a => cols.map(c => q(a[c])).join(";"))].join("\r\n"); }
+$("csv").onclick = async () => { const texto = csv(), nombre = "anotados-ace.csv";
+  const dl = window.claude && window.claude.use ? await window.claude.use("downloads").catch(() => null) : null;
+  if (dl) { try { await dl.save({ filename: nombre, data: new Blob([texto], { type: "text/csv" }) }); } catch (e) {} return; }
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([texto], { type: "text/csv" })); a.download = nombre; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 500); };
+$("f-prof").onchange = pintarAnotados; $("f-buscar").oninput = pintarAnotados;
+$("f-login").addEventListener("submit", e => { e.preventDefault(); const u = $("l-url").value.trim(), c = $("l-clave").value;
+  if (!/^(https:\/\/script\.google(usercontent)?\.com\/|http:\/\/(127\.0\.0\.1|localhost)[:/])/.test(u)) { $("l-err").textContent = "La URL tiene que ser la de tu aplicación web de Apps Script (https://script.google.com/…/exec)."; $("l-err").hidden = false; return; }
+  if (!c) { $("l-err").textContent = "Escribí la clave del panel."; $("l-err").hidden = false; return; }
+  LS("ace-panel-url", u); LS("ace-panel-clave", c); modoDemo = false; cargar(); });
+$("demo").onclick = () => { modoDemo = true; cargar(); };
+$("salir").onclick = () => { LS("ace-panel-clave", null); modoDemo = false; mostrarLogin(); };
+$("recargar").onclick = cargar; $("dias").onchange = cargar;
+if (location.hash === "#demo") { modoDemo = true; cargar(); } else cargar();
+</script>
+</body>
+</html>

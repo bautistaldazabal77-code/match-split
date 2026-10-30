@@ -79,3 +79,8 @@ input[type=checkbox] { accent-color: var(--ink); width: 16px; height: 16px; marg
 .ej { font: 500 10.5px/1 var(--f-m); letter-spacing: .12em; text-transform: uppercase; border: 1px dashed var(--ink-3); color: var(--ink-3); padding: 4px 6px; border-radius: 3px; white-space: nowrap }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .001ms !important; animation-delay: 0s !important; transition: none !important; scroll-behavior: auto !important } .hl.anim { background-size: 100% 100% } }
+
+/* aviso de cookies de medición */
+.consent { position: fixed; z-index: 60; left: max(12px, env(safe-area-inset-left, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); margin: 0 auto; max-width: 720px;
+  display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 14px 16px; background: var(--paper); border: 1px solid var(--ink); border-radius: var(--r-2); box-shadow: var(--sombra); font-size: 14px }
+.consent p { flex: 1 1 280px } .consent div { display: flex; gap: 8px }

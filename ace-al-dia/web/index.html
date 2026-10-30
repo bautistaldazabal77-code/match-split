@@ -7,11 +7,16 @@
 <meta name="description" content="Vencimientos en días hábiles, liquidaciones, carga de facturas por QR, recolección de documentación, estudio de títulos y borradores de escritura. La IA hace el trabajo de escritorio; vos revisás y firmás.">
 <meta property="og:title" content="ACE Al Día · Que en el estudio nada se te pase">
 <meta property="og:description" content="Herramientas para Abogados, Contadores y Escribanos de la Argentina.">
+<meta property="og:type" content="website">
+<!-- Cuando tengas el dominio, cambiá la dirección por la definitiva (las redes necesitan la URL completa de la imagen). -->
+<meta property="og:image" content="https://acealdia.com.ar/assets/compartir.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0b0b0b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0b0b'/%3E%3Crect x='6' y='9' width='6' height='14' rx='1.5' fill='%23f6e45c'/%3E%3Crect x='13' y='7' width='6' height='14' rx='1.5' fill='%238fe0a8'/%3E%3Crect x='20' y='10' width='6' height='14' rx='1.5' fill='%23f5a9c8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/estilos.css">
+<script src="assets/medicion.js" defer></script>
 <style>
 /* ---------- portada ---------- */
 .hero { padding-block: clamp(48px, 9vw, 112px) clamp(40px, 6vw, 80px); border-bottom: 1px solid var(--rule) }
@@ -290,7 +295,7 @@ legend { font: 500 13px/1 var(--f-b); color: var(--ink-2); padding: 0 6px }
 </div></div></section>
 </main>
 
-<footer class="pie"><div class="wrap"><a class="logo" href="#"><span class="k"><span class="a">A</span><span class="c">C</span><span class="e">E</span></span>Al Día</a><span>Herramientas para Abogados, Contadores y Escribanos · República Argentina</span><a href="herramientas/index.html">Probar herramientas</a></div></footer>
+<footer class="pie"><div class="wrap"><a class="logo" href="#"><span class="k"><span class="a">A</span><span class="c">C</span><span class="e">E</span></span>Al Día</a><span>Herramientas para Abogados, Contadores y Escribanos · República Argentina</span><span style="display:flex;gap:18px"><a href="herramientas/index.html">Probar herramientas</a><a href="privacidad.html">Privacidad</a></span></div></footer>
 
 <dialog id="alta" aria-labelledby="alta-t">
   <form class="alta" id="form-alta" novalidate>
@@ -304,7 +309,7 @@ legend { font: 500 13px/1 var(--f-b); color: var(--ink-2); padding: 0 6px }
       <label class="campo" for="f-tam"><span>Tamaño del estudio</span><select id="f-tam" name="tamano"><option value="">Elegí…</option><option>Trabajo solo/a</option><option>2 a 5 personas</option><option>6 a 20 personas</option><option>Más de 20</option></select></label></div>
     <fieldset><legend>¿Qué herramientas te interesan?</legend><div class="checks" id="checks"></div></fieldset>
     <p class="err" id="f-err" role="alert" hidden></p>
-    <div class="pie-form"><small>Usamos tus datos solo para avisarte sobre ACE Al Día. Podés pedir que los borremos cuando quieras.</small>
+    <div class="pie-form"><small>Usamos tus datos solo para contactarte por ACE Al Día. Podés pedir que los borremos cuando quieras. <a href="privacidad.html">Política de privacidad</a>.</small>
       <div style="display:flex;gap:8px"><button class="btn out" type="button" id="f-cerrar">Cancelar</button><button class="btn" type="submit" id="f-enviar">Anotarme</button></div></div>
   </form>
   <div class="listo" id="listo" hidden><span class="pill hlp a" style="justify-self:start">Anotado ✓</span><h3>¡Listo! Ya estás en la lista.</h3><p class="muted" id="listo-txt">Te vamos a escribir con cada novedad.</p>
@@ -312,9 +317,7 @@ legend { font: 500 13px/1 var(--f-b); color: var(--ink-2); padding: 0 6px }
 </dialog>
 
 <script>
-/* CONFIG.ENVIO: URL que recibe el formulario por POST con un JSON (formulario de Formspree o script de Google Apps Script que escriba en una planilla).
-   Si queda vacía, el formulario se valida pero no manda nada (modo de prueba). */
-const CONFIG = { ENVIO: "" };
+/* Los anotados y la medición se configuran en assets/medicion.js (ACE_MEDICION.ENDPOINT). */
 const HERR = [["vencimientos", "Vigilante de vencimientos", "Abogado/a", "a"], ["liquidador", "Liquidador de juicios", "Abogado/a", "a"], ["comprobantes", "Carga de comprobantes", "Contador/a", "c"],
   ["recoleccion", "Recolección de documentación", "Contador/a", "c"], ["ganancias", "Ganancias y Bienes Personales", "Contador/a", "c"], ["titulos", "Estudio de títulos", "Escribano/a", "e"], ["escritura", "Borrador de escritura", "Escribano/a", "e"]];
 const PROV = ["Buenos Aires", "CABA", "Catamarca", "Chaco", "Chubut", "Córdoba", "Corrientes", "Entre Ríos", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones", "Neuquén", "Río Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego", "Tucumán"];
@@ -323,7 +326,7 @@ PROV.forEach(p => $("f-prov").insertAdjacentHTML("beforeend", `<option>${p}</opt
 HERR.forEach(([k, n, , c]) => $("checks").insertAdjacentHTML("beforeend", `<label class="${c}" for="h-${k}"><input type="checkbox" id="h-${k}" name="herramientas" value="${k}"><i></i>${n}</label>`));
 function abrir(k) { form.hidden = false; $("listo").hidden = true; $("f-err").hidden = true;
   if (k) { const c = $("h-" + k); if (c) c.checked = true; const h = HERR.find(x => x[0] === k); if (h && !$("f-prof").value) $("f-prof").value = h[2]; }
-  dlg.showModal ? dlg.showModal() : dlg.setAttribute("open", ""); setTimeout(() => $("f-nombre").focus(), 40); }
+  dlg.showModal ? dlg.showModal() : dlg.setAttribute("open", ""); window.ACE && ACE.evento("formulario_abierto", { herramienta: k || "" }); setTimeout(() => $("f-nombre").focus(), 40); }
 const cerrar = () => dlg.open && dlg.close();
 document.querySelectorAll("[data-alta]").forEach(b => b.addEventListener("click", () => abrir(b.dataset.alta)));
 $("f-cerrar").onclick = cerrar; $("l-cerrar").onclick = cerrar; dlg.addEventListener("click", e => { if (e.target === dlg) cerrar(); });
@@ -333,10 +336,11 @@ form.addEventListener("submit", async e => {
   if (!d.nombre.trim()) return err("Escribí tu nombre y apellido."); if (!d.profesion) return err("Elegí tu profesión.");
   if (!d.whatsapp.trim() && !d.email.trim()) return err("Dejanos un WhatsApp o un email para poder avisarte.");
   if (d.email && !/^\S+@\S+\.\S+$/.test(d.email)) return err("Revisá el email: parece incompleto."); if (!d.herramientas.length) return err("Marcá al menos una herramienta.");
-  d.fecha = new Date().toISOString(); const b = $("f-enviar"); b.disabled = true; b.textContent = "Enviando…";
+  const b = $("f-enviar"); b.disabled = true; b.textContent = "Enviando…";
   try {
-    if (CONFIG.ENVIO) { const r = await fetch(CONFIG.ENVIO, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(d) }); if (!r.ok) throw new Error(r.status); $("listo-txt").textContent = "Te vamos a escribir con cada novedad."; }
-    else $("listo-txt").textContent = "Modo de prueba: el formulario funciona, pero todavía no está conectado a la planilla de anotados.";
+    if (!window.ACE) throw new Error("sin medición");
+    await ACE.anotado(d);
+    $("listo-txt").textContent = ACE_MEDICION.ENDPOINT ? "Te vamos a escribir con cada novedad." : "Modo de prueba: el formulario funciona, pero todavía no está conectado a la planilla de anotados.";
     form.hidden = true; $("listo").hidden = false; form.reset();
   } catch (x) { err("No pudimos guardar tu inscripción. Probá de nuevo en un rato."); } finally { b.disabled = false; b.textContent = "Anotarme"; }
 });
