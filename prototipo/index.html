@@ -1,0 +1,1194 @@
+<title>Catálogo Barro Cocido</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Prototipo de catálogo: fotos de estudio, vista 360°, modelo 3D y pedido por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  /* Layout: vitrina de una columna (máx. 1120px): cabecera del negocio, filtros, grilla 2→3 columnas. La ficha abre como hoja inferior en el celu y como diálogo de dos columnas en escritorio. */
+  --bg: #edf0eb;
+  --surface: #f9faf7;
+  --ink: #18211c;
+  --muted: #5b6861;
+  --line: #d3d9d1;
+  --stage: #e1e6df;
+  --accent: #2442b5;
+  --accent-ink: #ffffff;
+  --chrome: #18211c;
+  --chrome-ink: #e9eee8;
+  --chrome-muted: #9ba79f;
+  --bubble: #dcefe0;
+  --scrim: rgba(18, 26, 22, 0.45);
+  --danger: #b3261e;
+  --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Figtree", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --r-tile: 22px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101412; --surface: #181d1a; --ink: #e6ebe6; --muted: #98a49d; --line: #2c342f;
+    --stage: #1d2420; --accent: #93a7ff; --accent-ink: #0e1533; --chrome: #222a25;
+    --chrome-ink: #e6ebe6; --chrome-muted: #8f9b94; --bubble: #1d3527; --scrim: rgba(0, 0, 0, 0.6);
+    --danger: #ff8a80; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101412; --surface: #181d1a; --ink: #e6ebe6; --muted: #98a49d; --line: #2c342f;
+  --stage: #1d2420; --accent: #93a7ff; --accent-ink: #0e1533; --chrome: #222a25;
+  --chrome-ink: #e6ebe6; --chrome-muted: #8f9b94; --bubble: #1d3527; --scrim: rgba(0, 0, 0, 0.6);
+  --danger: #ff8a80; color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+html.lock, html.lock body { overflow: hidden; }
+h1, h2, h3, p, ul, dl, dd, figure { margin: 0; }
+ul { padding: 0; list-style: none; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Barra del prototipo (chrome de la plataforma, no del negocio) */
+.demobar { background: var(--chrome); color: var(--chrome-ink); }
+.demobar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 10px; }
+.demobar-tag { font-size: 13px; color: var(--chrome-muted); }
+.demobar-tag strong { color: var(--chrome-ink); font-weight: 600; }
+.seg { display: inline-flex; padding: 3px; border-radius: 999px; background: color-mix(in oklab, var(--chrome-ink) 12%, transparent); }
+.seg a { color: var(--chrome-muted); text-decoration: none; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
+.seg a[aria-current="page"] { background: var(--chrome-ink); color: var(--chrome); }
+
+/* Tienda */
+main { padding-bottom: 110px; }
+.shop { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px; align-items: start; padding-block: 28px 20px; }
+.logo { width: 60px; height: 60px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-family: var(--f-display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; }
+.shop h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1; letter-spacing: -0.025em; text-wrap: balance; }
+.shop-lede { color: var(--muted); margin-top: 8px; max-width: 58ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 12px; font-size: 13px; font-weight: 500; }
+.facts li { display: inline-flex; align-items: center; gap: 6px; }
+.facts li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+.cats { display: flex; gap: 8px; overflow-x: auto; padding-block: 4px 18px; scrollbar-width: none; }
+.cats::-webkit-scrollbar { display: none; }
+.chip { flex: none; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 7px 14px; font-size: 14px; font-weight: 600; display: inline-flex; gap: 6px; align-items: baseline; }
+.chip span { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.chip[aria-pressed="true"] span { color: color-mix(in oklab, var(--bg) 70%, transparent); }
+
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; }
+@media (min-width: 720px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 22px; } }
+.card { display: grid; gap: 10px; text-align: left; background: none; border: 0; padding: 0; border-radius: var(--r-tile); }
+.tile { position: relative; display: grid; place-items: center; aspect-ratio: 4 / 5; max-width: 100%; border-radius: var(--r-tile); overflow: hidden; background: var(--stage); background: color-mix(in oklab, var(--stage) 70%, var(--tint, var(--stage))); }
+.tile img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.4s ease; }
+.card:hover .tile img { transform: translateY(-4px) scale(1.025); }
+.ph { font-family: var(--f-display); font-weight: 700; font-size: 3.4rem; color: color-mix(in oklab, var(--ink) 16%, transparent); }
+.badges { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; }
+.badges span { font-size: 11px; font-weight: 700; letter-spacing: 0.03em; padding: 4px 8px; border-radius: 999px; background: var(--surface); color: var(--ink); }
+.card-meta { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 10px; flex-wrap: wrap; padding-inline: 2px; }
+.card-name { font-family: var(--f-display); font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em; }
+.card-price { font-weight: 600; font-variant-numeric: tabular-nums; }
+.shop-foot { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+/* Hojas (ficha y pedido) */
+.overlay { position: fixed; inset: 0; z-index: 40; background: var(--scrim); display: flex; align-items: flex-end; justify-content: center; }
+.sheet-card {
+  position: relative; width: 100%; max-height: 94%; overflow-y: auto; overscroll-behavior: contain;
+  background: var(--surface); border-radius: 24px 24px 0 0; display: grid; gap: 18px;
+  padding: 16px max(16px, env(safe-area-inset-right, 0px)) calc(20px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  animation: rise 0.28s ease-out;
+}
+@keyframes rise { from { transform: translateY(24px); opacity: 0.6; } to { transform: none; opacity: 1; } }
+@media (min-width: 820px) {
+  .overlay { align-items: center; padding: 24px; }
+  .sheet-card { width: min(1020px, 100%); border-radius: 24px; padding: 24px; gap: 32px; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); max-height: 100%; }
+  .cart-card { width: min(580px, 100%); grid-template-columns: minmax(0, 1fr); gap: 18px; }
+}
+.close { position: absolute; top: 12px; right: max(12px, env(safe-area-inset-right, 0px)); z-index: 3; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); font-size: 20px; line-height: 1; display: grid; place-items: center; }
+
+.media { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.stage { position: relative; aspect-ratio: 1; max-width: 100%; border-radius: 20px; overflow: hidden; background: var(--stage); background: color-mix(in oklab, var(--stage) 70%, var(--tint, var(--stage))); }
+.pane { position: absolute; inset: 0; display: grid; place-items: center; }
+.pane > img { width: 100%; height: 100%; object-fit: contain; }
+.pane-msg { color: var(--muted); font-size: 14px; padding: 24px; text-align: center; }
+#spin { display: block; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
+#spin:active { cursor: grabbing; }
+#viewer { position: absolute; inset: 0; }
+#viewer canvas { display: block; width: 100% !important; height: 100% !important; cursor: grab; }
+.hint { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: color-mix(in oklab, var(--surface) 88%, transparent); white-space: nowrap; pointer-events: none; }
+.thumbs { position: absolute; left: 12px; bottom: 12px; display: flex; gap: 8px; }
+.thumb { width: 54px; height: 54px; padding: 0; border-radius: 12px; border: 2px solid transparent; background: color-mix(in oklab, var(--surface) 70%, transparent); overflow: hidden; }
+.thumb img { width: 100%; height: 100%; object-fit: contain; }
+.thumb[aria-pressed="true"] { border-color: var(--ink); }
+.viewtabs { display: flex; gap: 4px; padding: 4px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); }
+.viewtab { flex: 1; border: 0; background: none; border-radius: 999px; padding: 8px 10px; font-weight: 600; font-size: 14px; color: var(--muted); }
+.viewtab[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12); }
+.view-note { font-size: 13px; color: var(--muted); }
+
+.info { display: grid; gap: 14px; align-content: start; min-width: 0; padding-top: 4px; }
+.info h2 { font-family: var(--f-display); font-weight: 700; font-size: clamp(1.8rem, 3.4vw, 2.4rem); line-height: 1.02; letter-spacing: -0.02em; text-wrap: balance; padding-right: 44px; }
+.price { font-size: 1.45rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.desc { max-width: 60ch; }
+.specs { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 16px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 14px; }
+.specs dt { color: var(--muted); }
+.buy { display: flex; gap: 10px; flex-wrap: wrap; align-items: stretch; }
+.stepper { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; }
+.stepper button { width: 42px; height: 44px; border: 0; background: none; font-size: 20px; border-radius: 999px; }
+.stepper output { min-width: 26px; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stepper.sm button { width: 34px; height: 34px; font-size: 17px; }
+.btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 10px 20px; border: 0; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-weight: 700; text-decoration: none; flex: 1; }
+.btn-primary[disabled] { opacity: 0.45; cursor: not-allowed; }
+.btn-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; background: none; font-weight: 600; }
+.unique { font-size: 13px; color: var(--muted); padding: 10px 12px; border-radius: 12px; background: var(--bg); }
+
+/* Pedido */
+.cart-card h2 { font-family: var(--f-display); font-weight: 700; font-size: 1.8rem; letter-spacing: -0.02em; padding-right: 44px; }
+.lines { display: grid; }
+.line { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding-block: 10px; border-top: 1px solid var(--line); }
+.line:last-child { border-bottom: 1px solid var(--line); }
+.line-tile { width: 52px; height: 52px; border-radius: 12px; overflow: hidden; background: color-mix(in oklab, var(--stage) 70%, var(--tint, var(--stage))); display: grid; place-items: center; }
+.line-tile img { width: 100%; height: 100%; object-fit: contain; }
+.line-name { font-weight: 600; }
+.line-sub { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.line-right { display: grid; justify-items: end; gap: 4px; }
+.link-btn { border: 0; background: none; padding: 2px 0; color: var(--muted); font-size: 13px; text-decoration: underline; }
+.total-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 1.15rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.form { display: grid; gap: 12px; }
+.field { display: grid; gap: 6px; }
+.field label, .legend { font-size: 13px; font-weight: 600; }
+.legend { padding: 0; margin-bottom: 8px; }
+.input { width: 100%; min-height: 44px; padding: 8px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); }
+fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; }
+.radios { display: flex; flex-wrap: wrap; gap: 8px; }
+.radio { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; font-weight: 500; cursor: pointer; }
+.radio:has(input:checked) { border-color: var(--ink); }
+.radio input { accent-color: var(--accent); margin: 0; }
+.bubble { margin: 0; white-space: pre-wrap; word-break: break-word; font-family: var(--f-body); font-size: 14px; line-height: 1.45; background: var(--bubble); padding: 12px 14px; border-radius: 16px 16px 16px 4px; }
+.row-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.fine { font-size: 12px; color: var(--muted); }
+.empty { color: var(--muted); padding-block: 12px; }
+
+.cartbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 12px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); background: linear-gradient(to top, var(--bg) 55%, transparent); }
+.cartbar button { display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; max-width: 560px; margin: 0 auto; padding: 14px 20px; border: 0; border-radius: 999px; background: var(--chrome); color: var(--chrome-ink); font-weight: 700; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18); }
+.cartbar span:last-child { font-variant-numeric: tabular-nums; }
+
+.toast { position: fixed; left: 50%; bottom: calc(86px + env(safe-area-inset-bottom, 0px)); z-index: 60; transform: translate(-50%, 8px); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 14px; background: var(--chrome); color: var(--chrome-ink); font-size: 14px; font-weight: 500; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* Panel del vendedor */
+.panel-head { padding-block: 28px 18px; display: grid; gap: 6px; }
+.panel-head h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(1.8rem, 5vw, 2.6rem); letter-spacing: -0.02em; line-height: 1.05; }
+.panel-head p:last-child { color: var(--muted); }
+.panel { display: grid; gap: 20px; }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 20px; display: grid; gap: 16px; min-width: 0; }
+.box h2 { font-family: var(--f-display); font-weight: 650; font-size: 1.35rem; letter-spacing: -0.01em; }
+.box-lede { color: var(--muted); max-width: 64ch; margin-top: 4px; }
+.controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 640px) { .controls { grid-template-columns: minmax(0, 1fr); } }
+.suffix { position: relative; }
+.suffix span { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-weight: 600; pointer-events: none; }
+.suffix .input { padding-right: 32px; font-variant-numeric: tabular-nums; }
+.err { color: var(--danger); font-size: 13px; font-weight: 600; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 0 8px 8px; white-space: nowrap; }
+td { padding: 10px 8px; border-top: 1px solid var(--line); vertical-align: middle; }
+.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.prod { display: flex; align-items: center; gap: 10px; min-width: 150px; }
+.prod .line-tile { width: 40px; height: 40px; border-radius: 10px; flex: none; }
+.prod small { display: block; color: var(--muted); font-size: 12px; }
+tr.off td { color: var(--muted); }
+.new { color: var(--accent); font-weight: 700; }
+.center { text-align: center; }
+.switch { appearance: none; -webkit-appearance: none; position: relative; width: 44px; height: 26px; border-radius: 999px; background: var(--line); margin: 0; cursor: pointer; transition: background 0.2s; vertical-align: middle; }
+.switch::before { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); transition: transform 0.2s; }
+.switch:checked { background: var(--accent); }
+.switch:checked::before { transform: translateX(18px); }
+.howto { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 720px) { .howto { grid-template-columns: minmax(0, 1fr); } }
+.howto div { padding: 14px; border-radius: 14px; background: var(--bg); display: grid; gap: 4px; align-content: start; }
+.howto dt { font-weight: 700; }
+.howto dd { color: var(--muted); font-size: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+
+<div class="demobar">
+  <div class="wrap">
+    <p class="demobar-tag"><strong>Prototipo</strong> · negocio y precios de ejemplo</p>
+    <nav class="seg" aria-label="Elegir vista">
+      <a href="#tienda" id="nav-tienda">Vista cliente</a>
+      <a href="#panel" id="nav-panel">Panel del vendedor</a>
+    </nav>
+  </div>
+</div>
+
+<main id="view-tienda" class="wrap">
+  <header class="shop">
+    <div class="logo" aria-hidden="true">bc</div>
+    <div>
+      <h1>Barro Cocido</h1>
+      <p class="shop-lede">Cerámica de gres hecha a mano en Villa Crespo. Cada pieza se hornea a 1240 °C y sale lista para usar todos los días.</p>
+      <ul class="facts">
+        <li>Retiro en el taller</li>
+        <li>Envíos a CABA y GBA</li>
+        <li>Respondemos de 10 a 19 h</li>
+      </ul>
+    </div>
+  </header>
+  <div class="cats" id="cats" aria-label="Categorías"></div>
+  <section class="grid" id="grid" aria-label="Productos"></section>
+  <footer class="shop-foot">
+    <span>Cada pieza es única: el esmalte y el borde de barro pueden variar un poco respecto de la foto.</span>
+    <span>Medidas en centímetros</span>
+  </footer>
+</main>
+
+<main id="view-panel" class="wrap" hidden>
+  <header class="panel-head">
+    <p class="eyebrow">Panel de Barro Cocido</p>
+    <h1>Productos y precios</h1>
+    <p id="panel-sub">6 productos publicados</p>
+  </header>
+  <div class="panel">
+    <section class="box" aria-labelledby="bulk-title">
+      <div>
+        <h2 id="bulk-title">Actualizar precios en bloque</h2>
+        <p class="box-lede">Cambiá todos los precios de una vez, o solo los de una categoría. Para bajar precios usá un número negativo.</p>
+      </div>
+      <div class="controls">
+        <div class="field">
+          <label for="b-pct">Cambio de precio</label>
+          <div class="suffix"><input class="input" id="b-pct" type="number" inputmode="decimal" step="0.5" value="12"><span>%</span></div>
+        </div>
+        <div class="field">
+          <label for="b-scope">Aplicar a</label>
+          <select class="input" id="b-scope"></select>
+        </div>
+        <div class="field">
+          <label for="b-round">Redondear</label>
+          <select class="input" id="b-round">
+            <option value="100">A los $ 100</option>
+            <option value="500">A los $ 500</option>
+            <option value="1">Sin redondear</option>
+          </select>
+        </div>
+      </div>
+      <p class="err" id="b-err" hidden></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Producto</th><th scope="col" class="num">Ahora</th><th scope="col" class="num">Nuevo</th><th scope="col" class="num">Diferencia</th></tr></thead>
+          <tbody id="bulk-body"></tbody>
+        </table>
+      </div>
+      <div class="row-actions">
+        <button class="btn-primary" id="b-apply" type="button">Aplicar a 6 productos</button>
+        <button class="btn-ghost" id="b-undo" type="button" hidden>Deshacer el último cambio</button>
+      </div>
+    </section>
+
+    <section class="box" aria-labelledby="views-title">
+      <div>
+        <h2 id="views-title">Vistas de cada producto</h2>
+        <p class="box-lede">La foto se muestra siempre. La vista 360° y el 3D se prenden por producto; los cambios se ven al momento en la tienda.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Producto</th><th scope="col" class="center">360°</th><th scope="col" class="center">3D</th></tr></thead>
+          <tbody id="views-body"></tbody>
+        </table>
+      </div>
+      <dl class="howto">
+        <div><dt>Foto</dt><dd>Una foto con el celu. El fondo se limpia solo y queda como foto de estudio.</dd></div>
+        <div><dt>360°</dt><dd>Un video de 10 segundos girando la pieza. Todo lo que se ve es la pieza real.</dd></div>
+        <div><dt>3D</dt><dd>Se genera a partir del video. Sirve para piezas rígidas y el vendedor lo revisa antes de publicarlo.</dd></div>
+      </dl>
+    </section>
+  </div>
+</main>
+
+<div class="cartbar" id="cartbar" hidden>
+  <button type="button" id="cartbar-btn"><span id="cb-count">Ver pedido</span><span id="cb-total"></span></button>
+</div>
+
+<div class="overlay" id="sheet" hidden>
+  <div class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="s-name">
+    <button class="close" type="button" data-close="#sheet" aria-label="Cerrar ficha">×</button>
+    <div class="media">
+      <div class="stage" id="stage">
+        <div class="pane" data-pane="foto">
+          <img id="photo-main" alt="" hidden>
+          <p class="pane-msg" id="photo-msg">Preparando fotos…</p>
+          <div class="thumbs" id="photo-thumbs"></div>
+        </div>
+        <div class="pane" data-pane="360" hidden>
+          <canvas id="spin" tabindex="0" aria-label="Vista 360°. Arrastrá o usá las flechas para girar la pieza."></canvas>
+          <p class="pane-msg" id="spin-msg" hidden></p>
+          <span class="hint" id="spin-hint" hidden>Arrastrá para girar</span>
+        </div>
+        <div class="pane" data-pane="3d" hidden>
+          <div id="viewer" aria-label="Modelo 3D. Arrastrá para girar y pellizcá o usá la rueda para acercar."></div>
+          <p class="pane-msg" id="viewer-msg" hidden></p>
+          <span class="hint" id="viewer-hint">Girá, acercá y mirá adentro</span>
+        </div>
+      </div>
+      <div class="viewtabs" role="tablist" aria-label="Tipo de vista">
+        <button class="viewtab" type="button" role="tab" data-view="foto" id="vt-foto">Foto</button>
+        <button class="viewtab" type="button" role="tab" data-view="360" id="vt-360">360°</button>
+        <button class="viewtab" type="button" role="tab" data-view="3d" id="vt-3d">3D</button>
+      </div>
+      <p class="view-note" id="view-note"></p>
+    </div>
+    <div class="info">
+      <p class="eyebrow" id="s-cat"></p>
+      <h2 id="s-name"></h2>
+      <p class="price" id="s-price"></p>
+      <p class="desc" id="s-desc"></p>
+      <dl class="specs">
+        <dt>Medidas</dt><dd id="s-size"></dd>
+        <dt>Cuidado</dt><dd id="s-care"></dd>
+        <dt>Material</dt><dd>Gres esmaltado, horneado a 1240 °C</dd>
+      </dl>
+      <div class="buy">
+        <div class="stepper" role="group" aria-label="Cantidad">
+          <button type="button" id="q-minus" aria-label="Restar uno">−</button>
+          <output id="s-qty" aria-live="polite">1</output>
+          <button type="button" id="q-plus" aria-label="Sumar uno">+</button>
+        </div>
+        <button class="btn-primary" type="button" id="s-add">Agregar al pedido</button>
+      </div>
+      <p class="unique">Pieza hecha a mano: puede variar un poco en color y forma.</p>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="cart" hidden>
+  <div class="sheet-card cart-card" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+    <button class="close" type="button" data-close="#cart" aria-label="Cerrar pedido">×</button>
+    <h2 id="cart-title">Tu pedido</h2>
+    <div class="lines" id="cart-lines"></div>
+    <div class="total-row"><span>Total</span><span id="cart-total"></span></div>
+    <form class="form" id="order-form">
+      <div class="field">
+        <label for="o-name">Tu nombre</label>
+        <input class="input" id="o-name" autocomplete="name" placeholder="Ej.: Sofía">
+      </div>
+      <fieldset>
+        <legend class="legend">Entrega</legend>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="o-mode" id="o-retiro" value="retiro" checked> Retiro en el taller</label>
+          <label class="radio"><input type="radio" name="o-mode" id="o-envio" value="envio"> Envío a domicilio</label>
+        </div>
+      </fieldset>
+      <div class="field" id="addr-field" hidden>
+        <label for="o-addr">Dirección de entrega</label>
+        <input class="input" id="o-addr" autocomplete="street-address" placeholder="Calle, número, barrio">
+      </div>
+    </form>
+    <div class="field">
+      <p class="eyebrow">Así le llega el mensaje al negocio</p>
+      <pre class="bubble" id="wa-preview"></pre>
+    </div>
+    <div class="row-actions">
+      <a class="btn-primary" id="wa-link" href="https://wa.me/" target="_blank" rel="noopener">Enviar pedido por WhatsApp</a>
+      <button class="btn-ghost" type="button" id="copy-msg">Copiar mensaje</button>
+    </div>
+    <p class="fine">En el prototipo, WhatsApp te deja elegir a quién mandarlo. En la versión real va directo al número del negocio.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var PRODUCTS = [
+    { id: "taza-nube", name: "Taza Nube", cat: "Tazas", price: 19800, tint: "#a9b9e6", show360: true, show3d: true,
+      desc: "Taza de gres con esmalte azul cobalto. El pie queda sin esmaltar para que se vea el barro y no raye la mesada.",
+      size: "9 cm de alto · 8,5 cm de diámetro · 350 ml", care: "Apta lavavajillas y microondas",
+      model: { outer: [[3.6, 0], [3.95, 0.25], [4.12, 1], [4.2, 3], [4.22, 6], [4.26, 8.4], [4.3, 9]], t: 0.38, b: 0.7,
+        glaze: "#2a4bb5", clay: "#cdb89a", drip: 1.6, amp: 0.35, rough: 0.26, coat: 0.7, handle: { r: 2.1, tube: 0.42, y: 5.0, x: 4.25 } } },
+    { id: "pocillo-cafe", name: "Pocillo Café", cat: "Tazas", price: 12500, tint: "#a8c6b4", show360: true, show3d: true,
+      desc: "Pocillo de 90 ml con esmalte verde botella brillante. Se vende de a uno, así armás el juego a tu gusto.",
+      size: "5,5 cm de alto · 6,5 cm de diámetro · 90 ml", care: "Apto lavavajillas",
+      model: { outer: [[2.1, 0], [2.35, 0.2], [2.6, 1], [2.95, 2.6], [3.2, 4.2], [3.3, 5.4]], t: 0.3, b: 0.5,
+        glaze: "#2d5b45", clay: "#c7b293", drip: 0.9, amp: 0.2, rough: 0.24, coat: 0.7, handle: { r: 1.25, tube: 0.3, y: 3.0, x: 3.0 } } },
+    { id: "maceta-duna", name: "Maceta Duna", cat: "Macetas", price: 27900, tint: "#c9d3bd", show360: true, show3d: true,
+      desc: "Maceta de borde ancho con esmalte mate verde salvia. Tiene agujero de drenaje.",
+      size: "10 cm de alto · 14 cm de diámetro en la boca", care: "Para interior o balcón cubierto",
+      model: { outer: [[4.6, 0], [4.95, 0.3], [5.4, 3], [5.9, 6.5], [6.25, 8.4], [6.85, 8.75], [7.0, 9.4], [6.95, 10]], t: 0.45, b: 0.8,
+        glaze: "#8ea58a", clay: "#b8a285", drip: 0.45, amp: 0.08, rough: 0.82, coat: 0 } },
+    { id: "jarron-ola", name: "Jarrón Ola", cat: "Floreros", price: 38500, tint: "#b7d3c9", show360: true, show3d: true,
+      desc: "Jarrón de cuello angosto con esmalte celadón. El esmalte corre en el horno y deja la base en barro: no hay dos iguales.",
+      size: "17 cm de alto · 10 cm de diámetro", care: "Esmaltado por dentro, apto para agua",
+      model: { outer: [[3.0, 0], [3.4, 0.35], [4.4, 2.4], [5.15, 5.6], [4.9, 8.6], [3.6, 11.6], [2.5, 14], [2.45, 15.6], [2.8, 16.7], [3.05, 17.2]], t: 0.35, b: 0.7,
+        glaze: "#7aa898", clay: "#c9b394", drip: 3.4, amp: 0.9, rough: 0.2, coat: 0.8 } },
+    { id: "botella-luna", name: "Botella Luna", cat: "Floreros", price: 32000, tint: "#cfcfd8", show360: true, show3d: true,
+      desc: "Botella florero en negro mate, para una o dos ramas secas o una sola flor.",
+      size: "14,5 cm de alto · 9 cm de diámetro", care: "Esmaltada por dentro, apta para agua",
+      model: { outer: [[3.4, 0], [3.85, 0.35], [4.45, 2.4], [4.6, 4.8], [4.25, 7.2], [3.0, 9.0], [1.55, 10.4], [1.12, 11.8], [1.15, 13.6], [1.45, 14.5]], t: 0.28, b: 0.6,
+        glaze: "#26292e", clay: "#bfa98a", drip: 1.1, amp: 0.25, rough: 0.62, coat: 0.1 } },
+    { id: "bowl-bruma", name: "Bowl Bruma", cat: "Bowls", price: 16900, tint: "#e2d8c8", show360: true, show3d: false,
+      desc: "Bowl de gres moteado con esmalte blanco satinado. Para ensaladas, ramen o fruta.",
+      size: "6 cm de alto · 15 cm de diámetro · 700 ml", care: "Apto lavavajillas y microondas",
+      model: { outer: [[2.8, 0], [3.05, 0.35], [3.3, 0.6], [4.6, 1.4], [6.1, 2.9], [7.15, 4.6], [7.55, 6.0]], t: 0.4, b: 1.0,
+        glaze: "#ece8df", clay: "#c4ad8e", drip: 0.75, amp: 0.15, rough: 0.42, coat: 0.3, speckle: true } }
+  ];
+  window.BC_PRODUCTS = PRODUCTS;
+
+  var NOTES = {
+    foto: "Foto de estudio: el vendedor saca la foto con el celu y el fondo se limpia solo.",
+    "360": "Vista 360°: en la app sale de un video corto girando la pieza. En este prototipo los cuadros se generan del modelo.",
+    "3d": "Modelo 3D: opcional, para piezas rígidas. En el celu también se podría ver en tu casa con realidad aumentada."
+  };
+
+  var fmt = new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", maximumFractionDigits: 0 });
+  function money(n) { return fmt.format(n); }
+  function $(s) { return document.querySelector(s); }
+  function byId(id) { for (var i = 0; i < PRODUCTS.length; i++) if (PRODUCTS[i].id === id) return PRODUCTS[i]; return null; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  var reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var state = { cat: "Todo", cart: new Map(), current: null, qty: 1, view: "foto", undo: null, api: null, no3d: false, thumbs: {}, route: "tienda" };
+
+  /* ---------- Tienda ---------- */
+  function categories() {
+    var list = ["Todo"];
+    PRODUCTS.forEach(function (p) { if (list.indexOf(p.cat) < 0) list.push(p.cat); });
+    return list;
+  }
+  function renderCats() {
+    var box = $("#cats"); box.innerHTML = "";
+    categories().forEach(function (c) {
+      var n = c === "Todo" ? PRODUCTS.length : PRODUCTS.filter(function (p) { return p.cat === c; }).length;
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "chip";
+      b.setAttribute("aria-pressed", String(c === state.cat));
+      b.innerHTML = esc(c) + " <span>" + n + "</span>";
+      b.addEventListener("click", function () { state.cat = c; renderCats(); renderGrid(); });
+      box.appendChild(b);
+    });
+  }
+  function tileInner(p) {
+    var src = state.thumbs[p.id];
+    return src ? '<img src="' + src + '" alt="">' : '<span class="ph" aria-hidden="true">' + esc(p.name[0]) + "</span>";
+  }
+  function renderGrid() {
+    var grid = $("#grid"); grid.innerHTML = "";
+    PRODUCTS.filter(function (p) { return state.cat === "Todo" || p.cat === state.cat; }).forEach(function (p) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "card"; b.dataset.id = p.id;
+      var badges = (p.show360 ? "<span>360°</span>" : "") + (p.show3d ? "<span>3D</span>" : "");
+      b.innerHTML = '<span class="tile" style="--tint:' + p.tint + '">' + tileInner(p) +
+        '<span class="badges">' + badges + "</span></span>" +
+        '<span class="card-meta"><span class="card-name">' + esc(p.name) + '</span><span class="card-price">' + money(p.price) + "</span></span>";
+      b.addEventListener("click", function () { openSheet(p.id); });
+      grid.appendChild(b);
+    });
+  }
+
+  /* ---------- Ficha ---------- */
+  function openSheet(id) {
+    var p = byId(id); state.current = p; state.qty = 1;
+    $("#s-cat").textContent = p.cat;
+    $("#s-name").textContent = p.name;
+    $("#s-price").textContent = money(p.price);
+    $("#s-desc").textContent = p.desc;
+    $("#s-size").textContent = p.size;
+    $("#s-care").textContent = p.care;
+    $("#s-qty").textContent = "1";
+    $("#stage").style.setProperty("--tint", p.tint);
+    $("#vt-360").hidden = !p.show360;
+    $("#vt-3d").hidden = !p.show3d;
+    openOverlay("#sheet");
+    setView("foto");
+    updateAddLabel();
+  }
+  function updateAddLabel() {
+    var p = state.current; if (!p) return;
+    $("#s-add").textContent = "Agregar · " + money(p.price * state.qty);
+  }
+  function setView(v) {
+    state.view = v;
+    document.querySelectorAll(".viewtab").forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.view === v)); });
+    document.querySelectorAll(".pane").forEach(function (pn) { pn.hidden = pn.dataset.pane !== v; });
+    $("#view-note").textContent = NOTES[v];
+    stopSpin();
+    if (state.api) state.api.unmountViewer();
+    if (v === "foto") showPhotos();
+    if (v === "360") startSpin();
+    if (v === "3d") start3D();
+  }
+  function unavailableText(what) {
+    return state.no3d ? "No se pudo preparar " + what + " en este navegador." : "Preparando " + what + "…";
+  }
+  function showPhotos() {
+    var p = state.current, img = $("#photo-main"), msg = $("#photo-msg"), thumbs = $("#photo-thumbs");
+    thumbs.innerHTML = "";
+    if (!state.api) { img.hidden = true; msg.hidden = false; msg.textContent = unavailableText("las fotos"); return; }
+    var list = state.api.photos(p.id);
+    var labels = ["de frente", "desde arriba"];
+    img.src = list[0]; img.alt = p.name + ", foto " + labels[0]; img.hidden = false; msg.hidden = true;
+    list.forEach(function (src, i) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "thumb";
+      b.setAttribute("aria-label", "Ver foto " + labels[i]);
+      b.setAttribute("aria-pressed", String(i === 0));
+      b.innerHTML = '<img src="' + src + '" alt="">';
+      b.addEventListener("click", function () {
+        img.src = src; img.alt = p.name + ", foto " + labels[i];
+        thumbs.querySelectorAll(".thumb").forEach(function (t) { t.setAttribute("aria-pressed", String(t === b)); });
+      });
+      thumbs.appendChild(b);
+    });
+  }
+
+  /* 360° */
+  var spin = { raf: 0, frame: 0, data: null, auto: false, token: 0, drag: null };
+  function startSpin() {
+    var p = state.current, msg = $("#spin-msg"), cv = $("#spin");
+    $("#spin-hint").hidden = true;
+    cv.style.visibility = "hidden";
+    if (!state.api) { msg.hidden = false; msg.textContent = unavailableText("la vista 360°"); return; }
+    var token = ++spin.token;
+    msg.hidden = false; msg.textContent = "Preparando vista 360°…";
+    state.api.spin(p.id, function (f) {
+      if (token === spin.token) msg.textContent = "Preparando vista 360°… " + Math.round(f * 100) + " %";
+    }).then(function (data) {
+      if (token !== spin.token || state.view !== "360") return;
+      msg.hidden = true; cv.style.visibility = "visible";
+      spin.data = data; spin.frame = 0; spin.auto = !reduceMotion;
+      sizeSpin(); drawSpin();
+      $("#spin-hint").hidden = false;
+      if (spin.auto) loopSpin();
+    });
+  }
+  function stopSpin() { spin.token++; cancelAnimationFrame(spin.raf); spin.raf = 0; spin.auto = false; }
+  function sizeSpin() {
+    var cv = $("#spin"), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.round(cv.clientWidth * dpr); cv.height = Math.round(cv.clientHeight * dpr);
+  }
+  function drawSpin() {
+    var d = spin.data; if (!d) return;
+    var cv = $("#spin"), g = cv.getContext("2d");
+    var k = ((spin.frame % d.frames) + d.frames) % d.frames;
+    g.clearRect(0, 0, cv.width, cv.height);
+    g.drawImage(d.sprite, (k % d.cols) * d.size, Math.floor(k / d.cols) * d.size, d.size, d.size, 0, 0, cv.width, cv.height);
+  }
+  function loopSpin() {
+    var last = 0;
+    function step(t) {
+      if (!spin.auto) return;
+      if (t - last > 120) { spin.frame++; drawSpin(); last = t; }
+      spin.raf = requestAnimationFrame(step);
+    }
+    spin.raf = requestAnimationFrame(step);
+  }
+  function haltAuto() { spin.auto = false; cancelAnimationFrame(spin.raf); $("#spin-hint").hidden = true; }
+  (function bindSpin() {
+    var cv = $("#spin");
+    cv.addEventListener("pointerdown", function (e) {
+      if (!spin.data) return;
+      haltAuto();
+      spin.drag = { x: e.clientX, f: spin.frame };
+      cv.setPointerCapture(e.pointerId);
+    });
+    cv.addEventListener("pointermove", function (e) {
+      if (!spin.drag) return;
+      var f = spin.drag.f + Math.round((e.clientX - spin.drag.x) / 12);
+      if (f !== spin.frame) { spin.frame = f; drawSpin(); }
+    });
+    function end() { spin.drag = null; }
+    cv.addEventListener("pointerup", end);
+    cv.addEventListener("pointercancel", end);
+    cv.addEventListener("keydown", function (e) {
+      if (!spin.data) return;
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        e.preventDefault(); haltAuto();
+        spin.frame += e.key === "ArrowRight" ? 1 : -1; drawSpin();
+      }
+    });
+    window.addEventListener("resize", function () { if (state.view === "360" && spin.data) { sizeSpin(); drawSpin(); } });
+  })();
+
+  /* 3D */
+  function start3D() {
+    var msg = $("#viewer-msg");
+    $("#viewer-hint").hidden = false;
+    if (!state.api) { msg.hidden = false; msg.textContent = unavailableText("el modelo 3D"); $("#viewer-hint").hidden = true; return; }
+    msg.hidden = true;
+    state.api.mountViewer(state.current.id, $("#viewer"), {
+      autoRotate: !reduceMotion,
+      onInteract: function () { $("#viewer-hint").hidden = true; }
+    });
+  }
+
+  /* ---------- Overlays ---------- */
+  var lastFocus = null;
+  function openOverlay(sel) {
+    var o = $(sel);
+    if (o.hidden) lastFocus = document.activeElement;
+    o.hidden = false;
+    document.documentElement.classList.add("lock");
+    var c = o.querySelector(".close"); if (c) c.focus({ preventScroll: true });
+  }
+  function closeOverlay(sel) {
+    var o = $(sel); if (o.hidden) return;
+    o.hidden = true;
+    if (sel === "#sheet") { stopSpin(); if (state.api) state.api.unmountViewer(); }
+    if (!document.querySelector(".overlay:not([hidden])")) document.documentElement.classList.remove("lock");
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
+  }
+  document.querySelectorAll("[data-close]").forEach(function (b) {
+    b.addEventListener("click", function () { closeOverlay(b.dataset.close); });
+  });
+  document.querySelectorAll(".overlay").forEach(function (o) {
+    o.addEventListener("click", function (e) { if (e.target === o) closeOverlay("#" + o.id); });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (!$("#cart").hidden) closeOverlay("#cart"); else if (!$("#sheet").hidden) closeOverlay("#sheet");
+  });
+  document.querySelectorAll(".viewtab").forEach(function (t) {
+    t.addEventListener("click", function () { if (state.view !== t.dataset.view) setView(t.dataset.view); });
+  });
+  $("#q-minus").addEventListener("click", function () { state.qty = Math.max(1, state.qty - 1); $("#s-qty").textContent = state.qty; updateAddLabel(); });
+  $("#q-plus").addEventListener("click", function () { state.qty = Math.min(20, state.qty + 1); $("#s-qty").textContent = state.qty; updateAddLabel(); });
+  $("#s-add").addEventListener("click", function () {
+    var p = state.current;
+    state.cart.set(p.id, (state.cart.get(p.id) || 0) + state.qty);
+    toast("Agregaste " + state.qty + " × " + p.name + " al pedido");
+    closeOverlay("#sheet");
+    renderCartBar();
+  });
+
+  /* ---------- Pedido ---------- */
+  function cartCount() { var n = 0; state.cart.forEach(function (q) { n += q; }); return n; }
+  function cartTotal() { var t = 0; state.cart.forEach(function (q, id) { t += byId(id).price * q; }); return t; }
+  function renderCartBar() {
+    var n = cartCount();
+    $("#cartbar").hidden = n === 0 || state.route !== "tienda";
+    $("#cb-count").textContent = "Ver pedido · " + (n === 1 ? "1 producto" : n + " productos");
+    $("#cb-total").textContent = money(cartTotal());
+  }
+  function renderCart() {
+    var box = $("#cart-lines"); box.innerHTML = "";
+    if (state.cart.size === 0) {
+      box.innerHTML = '<p class="empty">Tu pedido está vacío. Elegí productos en la tienda.</p>';
+    }
+    state.cart.forEach(function (q, id) {
+      var p = byId(id);
+      var row = document.createElement("div"); row.className = "line";
+      row.innerHTML =
+        '<span class="line-tile" style="--tint:' + p.tint + '">' + tileInner(p) + "</span>" +
+        '<div><div class="line-name">' + esc(p.name) + '</div><div class="line-sub">' + money(p.price) + " c/u</div></div>" +
+        '<div class="line-right"><div class="stepper sm" role="group" aria-label="Cantidad de ' + esc(p.name) + '">' +
+        '<button type="button" data-act="minus" aria-label="Restar uno">−</button><output>' + q + "</output>" +
+        '<button type="button" data-act="plus" aria-label="Sumar uno">+</button></div>' +
+        '<button type="button" class="link-btn" data-act="remove">Quitar</button></div>';
+      row.querySelector('[data-act="minus"]').addEventListener("click", function () { changeQty(id, -1); });
+      row.querySelector('[data-act="plus"]').addEventListener("click", function () { changeQty(id, 1); });
+      row.querySelector('[data-act="remove"]').addEventListener("click", function () { state.cart.delete(id); afterCartChange(); });
+      box.appendChild(row);
+    });
+    $("#cart-total").textContent = money(cartTotal());
+    updateMessage();
+  }
+  function changeQty(id, d) {
+    var q = (state.cart.get(id) || 0) + d;
+    if (q <= 0) state.cart.delete(id); else state.cart.set(id, Math.min(20, q));
+    afterCartChange();
+  }
+  function afterCartChange() { renderCart(); renderCartBar(); }
+  function buildMessage() {
+    var name = $("#o-name").value.trim();
+    var envio = $("#o-envio").checked;
+    var addr = $("#o-addr").value.trim();
+    var lines = ["¡Hola, Barro Cocido! Quiero hacer este pedido:", ""];
+    state.cart.forEach(function (q, id) { var p = byId(id); lines.push("• " + q + " × " + p.name + " (" + money(p.price * q) + ")"); });
+    lines.push("", "Total: " + money(cartTotal()));
+    lines.push(envio ? "Entrega: envío a " + (addr || "(completar dirección)") : "Entrega: retiro en el taller");
+    if (name) lines.push("Soy " + name + ".");
+    return lines.join("\n");
+  }
+  function updateMessage() {
+    var msg = buildMessage();
+    $("#wa-preview").textContent = msg;
+    var link = $("#wa-link");
+    link.href = "https://wa.me/?text=" + encodeURIComponent(msg);
+    var empty = state.cart.size === 0;
+    link.setAttribute("aria-disabled", String(empty));
+    link.style.pointerEvents = empty ? "none" : "";
+    link.style.opacity = empty ? "0.45" : "";
+  }
+  $("#cartbar-btn").addEventListener("click", function () { renderCart(); openOverlay("#cart"); });
+  ["#o-name", "#o-addr"].forEach(function (s) { $(s).addEventListener("input", updateMessage); });
+  document.querySelectorAll('input[name="o-mode"]').forEach(function (r) {
+    r.addEventListener("change", function () { $("#addr-field").hidden = !$("#o-envio").checked; updateMessage(); });
+  });
+  $("#order-form").addEventListener("submit", function (e) { e.preventDefault(); });
+  $("#copy-msg").addEventListener("click", function () {
+    var text = buildMessage();
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents($("#wa-preview"));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      toast("Seleccioné el mensaje: copialo con Ctrl+C o mantené apretado");
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () { toast("Mensaje copiado"); }, fallback);
+    } catch (err) { fallback(); }
+  });
+
+  /* ---------- Panel del vendedor ---------- */
+  function fillScope() {
+    var sel = $("#b-scope");
+    sel.innerHTML = '<option value="all">Todos los productos</option>';
+    categories().slice(1).forEach(function (c) {
+      var o = document.createElement("option"); o.value = c; o.textContent = "Solo " + c; sel.appendChild(o);
+    });
+  }
+  function newPrice(price, pct, step) { return Math.max(step, Math.round((price * (1 + pct / 100)) / step) * step); }
+  function readBulk() {
+    var raw = $("#b-pct").value.replace(",", ".");
+    var pct = parseFloat(raw);
+    var ok = raw.trim() !== "" && isFinite(pct) && pct > -90 && pct <= 300;
+    return { pct: pct, ok: ok, scope: $("#b-scope").value, step: Number($("#b-round").value) };
+  }
+  function bulkRows() {
+    var b = readBulk();
+    return PRODUCTS.map(function (p) {
+      var inScope = b.scope === "all" || p.cat === b.scope;
+      var np = inScope && b.ok ? newPrice(p.price, b.pct, b.step) : p.price;
+      return { p: p, inScope: inScope, np: np };
+    });
+  }
+  function renderBulk() {
+    var b = readBulk();
+    $("#b-err").hidden = b.ok;
+    $("#b-err").textContent = "Escribí un porcentaje entre −89 y 300.";
+    var rows = bulkRows(), body = $("#bulk-body"); body.innerHTML = "";
+    var changed = 0;
+    rows.forEach(function (r) {
+      var d = r.np - r.p.price; if (r.inScope && d !== 0) changed++;
+      var tr = document.createElement("tr"); if (!r.inScope) tr.className = "off";
+      tr.innerHTML =
+        '<td><span class="prod"><span class="line-tile" style="--tint:' + r.p.tint + '">' + tileInner(r.p) + "</span><span>" + esc(r.p.name) + "<small>" + esc(r.p.cat) + "</small></span></span></td>" +
+        '<td class="num">' + money(r.p.price) + "</td>" +
+        '<td class="num">' + (r.inScope && b.ok ? '<span class="new">' + money(r.np) + "</span>" : "Sin cambios") + "</td>" +
+        '<td class="num">' + (r.inScope && b.ok && d !== 0 ? (d > 0 ? "+" : "−") + money(Math.abs(d)) : "—") + "</td>";
+      body.appendChild(tr);
+    });
+    var btn = $("#b-apply");
+    btn.disabled = !b.ok || changed === 0;
+    btn.textContent = changed === 1 ? "Aplicar a 1 producto" : "Aplicar a " + changed + " productos";
+    btn.dataset.count = changed;
+  }
+  function renderViews() {
+    var body = $("#views-body"); body.innerHTML = "";
+    PRODUCTS.forEach(function (p) {
+      var tr = document.createElement("tr");
+      tr.innerHTML =
+        '<td><span class="prod"><span class="line-tile" style="--tint:' + p.tint + '">' + tileInner(p) + "</span><span>" + esc(p.name) + "<small>" + esc(p.cat) + "</small></span></span></td>" +
+        '<td class="center"><input type="checkbox" class="switch" role="switch" id="sw-360-' + p.id + '" aria-label="Vista 360° de ' + esc(p.name) + '"' + (p.show360 ? " checked" : "") + "></td>" +
+        '<td class="center"><input type="checkbox" class="switch" role="switch" id="sw-3d-' + p.id + '" aria-label="Modelo 3D de ' + esc(p.name) + '"' + (p.show3d ? " checked" : "") + "></td>";
+      tr.querySelector("#sw-360-" + p.id).addEventListener("change", function (e) {
+        p.show360 = e.target.checked; renderGrid();
+        toast((p.show360 ? "Vista 360° activada en " : "Vista 360° desactivada en ") + p.name);
+      });
+      tr.querySelector("#sw-3d-" + p.id).addEventListener("change", function (e) {
+        p.show3d = e.target.checked; renderGrid();
+        toast((p.show3d ? "Modelo 3D activado en " : "Modelo 3D desactivado en ") + p.name);
+      });
+      body.appendChild(tr);
+    });
+  }
+  function renderPanel() {
+    $("#panel-sub").textContent = PRODUCTS.length + " productos publicados · los precios se ven al instante en la tienda";
+    renderBulk(); renderViews();
+  }
+  ["#b-pct", "#b-scope", "#b-round"].forEach(function (s) {
+    $(s).addEventListener("input", renderBulk);
+    $(s).addEventListener("change", renderBulk);
+  });
+  $("#b-apply").addEventListener("click", function () {
+    var rows = bulkRows(), n = Number($("#b-apply").dataset.count || 0);
+    if (!n) return;
+    state.undo = PRODUCTS.map(function (p) { return [p.id, p.price]; });
+    rows.forEach(function (r) { if (r.inScope) r.p.price = r.np; });
+    $("#b-undo").hidden = false;
+    renderPanel(); renderGrid(); renderCartBar();
+    toast("Listo: " + (n === 1 ? "1 precio actualizado" : n + " precios actualizados") + ". La tienda ya muestra los nuevos.");
+  });
+  $("#b-undo").addEventListener("click", function () {
+    if (!state.undo) return;
+    state.undo.forEach(function (pair) { byId(pair[0]).price = pair[1]; });
+    state.undo = null; $("#b-undo").hidden = true;
+    renderPanel(); renderGrid(); renderCartBar();
+    toast("Volvimos a los precios anteriores");
+  });
+
+  /* ---------- Rutas y avisos ---------- */
+  var toastTimer = 0;
+  function toast(msg) {
+    var t = $("#toast"); t.textContent = msg; t.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(function () { t.classList.remove("show"); }, 3200);
+  }
+  function applyRoute() {
+    state.route = location.hash === "#panel" ? "panel" : "tienda";
+    $("#view-tienda").hidden = state.route !== "tienda";
+    $("#view-panel").hidden = state.route !== "panel";
+    $("#nav-tienda").setAttribute("aria-current", state.route === "tienda" ? "page" : "false");
+    $("#nav-panel").setAttribute("aria-current", state.route === "panel" ? "page" : "false");
+    closeOverlay("#cart"); closeOverlay("#sheet");
+    if (state.route === "panel") renderPanel();
+    renderCartBar();
+  }
+  window.addEventListener("hashchange", applyRoute);
+
+  /* ---------- Conexión con el motor 3D ---------- */
+  function tick() { return new Promise(function (r) { setTimeout(r, 0); }); }
+  function loadThumbs() {
+    var i = 0;
+    (function next() {
+      if (i >= PRODUCTS.length) { if (state.route === "panel") renderPanel(); return; }
+      var p = PRODUCTS[i++];
+      try { state.thumbs[p.id] = state.api.thumb(p.id); } catch (e) { console.error(e); }
+      var tile = document.querySelector('.card[data-id="' + p.id + '"] .tile');
+      if (tile && state.thumbs[p.id]) {
+        var ph = tile.querySelector(".ph");
+        var img = document.createElement("img"); img.src = state.thumbs[p.id]; img.alt = "";
+        if (ph) ph.replaceWith(img);
+      }
+      tick().then(next);
+    })();
+  }
+  function on3DReady() {
+    if (state.api || !window.BC3D) return;
+    state.api = window.BC3D;
+    loadThumbs();
+    if (!$("#sheet").hidden) setView(state.view);
+  }
+  function on3DFailed() {
+    if (state.api) return;
+    state.no3d = true;
+    if (!$("#sheet").hidden) setView(state.view);
+  }
+  window.addEventListener("bc3d-ready", on3DReady);
+  window.addEventListener("bc3d-failed", on3DFailed);
+  setTimeout(function () { if (!state.api) on3DFailed(); }, 15000);
+
+  fillScope();
+  renderCats();
+  renderGrid();
+  applyRoute();
+  if (window.BC3D) on3DReady();
+})();
+</script>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+
+const PRODUCTS = window.BC_PRODUCTS;
+const byId = (id) => PRODUCTS.find((p) => p.id === id);
+
+function hash(s) {
+  let h = 2166136261;
+  for (const ch of s) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); }
+  return (h >>> 0) / 4294967295;
+}
+const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+
+let speckleTex = null;
+function getSpeckle() {
+  if (speckleTex) return speckleTex;
+  const c = document.createElement("canvas"); c.width = c.height = 512;
+  const g = c.getContext("2d");
+  g.fillStyle = "#ffffff"; g.fillRect(0, 0, 512, 512);
+  let seed = 11;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  for (let i = 0; i < 1800; i++) {
+    const r = rnd() < 0.9 ? 0.6 + rnd() * 1.0 : 1.4 + rnd() * 1.4;
+    g.fillStyle = `rgba(${70 + (rnd() * 30) | 0},${52 + (rnd() * 20) | 0},40,${0.5 + rnd() * 0.45})`;
+    g.beginPath(); g.ellipse(rnd() * 512, rnd() * 512, r * 0.6, r, 0, 0, Math.PI * 2); g.fill();
+  }
+  speckleTex = new THREE.CanvasTexture(c);
+  speckleTex.colorSpace = THREE.SRGBColorSpace;
+  speckleTex.wrapS = speckleTex.wrapT = THREE.RepeatWrapping;
+  speckleTex.repeat.set(7, 2);
+  return speckleTex;
+}
+
+let blobTex = null;
+function getBlob() {
+  if (blobTex) return blobTex;
+  const c = document.createElement("canvas"); c.width = c.height = 128;
+  const g = c.getContext("2d");
+  const gr = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+  gr.addColorStop(0, "rgba(0,0,0,0.42)"); gr.addColorStop(0.5, "rgba(0,0,0,0.16)"); gr.addColorStop(1, "rgba(0,0,0,0)");
+  g.fillStyle = gr; g.fillRect(0, 0, 128, 128);
+  blobTex = new THREE.CanvasTexture(c); blobTex.colorSpace = THREE.SRGBColorSpace;
+  return blobTex;
+}
+
+function xAt(pts, y) {
+  for (let i = 1; i < pts.length; i++) {
+    const a = pts[i - 1], b = pts[i];
+    if ((a.y <= y && b.y >= y) && b.y !== a.y) return a.x + (b.x - a.x) * (y - a.y) / (b.y - a.y);
+  }
+  return pts[pts.length - 1].x;
+}
+
+// Pieza torneada: perfil exterior suavizado + labio redondeado + perfil interior con espesor de pared.
+function buildModel(p) {
+  const m = p.model;
+  const curve = new THREE.SplineCurve(m.outer.map(([x, y]) => new THREE.Vector2(x, y)));
+  const outer = [new THREE.Vector2(0, 0), ...curve.getSpacedPoints(80).map((v) => new THREE.Vector2(Math.max(0.05, v.x), Math.max(0, v.y)))];
+  const nOuter = outer.length;
+  const pts = outer.slice();
+  const rim = outer[outer.length - 1], r = m.t / 2, cx = rim.x - r;
+  for (let k = 1; k < 10; k++) { const a = (k / 10) * Math.PI; pts.push(new THREE.Vector2(cx + r * Math.cos(a), rim.y + r * Math.sin(a))); }
+  for (let i = outer.length - 1; i >= 1; i--) { const q = outer[i]; if (q.y > m.b + 0.02 && q.x - m.t > 0.06) pts.push(new THREE.Vector2(q.x - m.t, q.y)); }
+  pts.push(new THREE.Vector2(Math.max(0.06, xAt(outer, m.b) - m.t), m.b));
+  pts.push(new THREE.Vector2(0, m.b));
+
+  const geo = new THREE.LatheGeometry(pts, 96);
+  const pos = geo.attributes.position, N = pts.length;
+  const colors = new Float32Array(pos.count * 3);
+  const glaze = new THREE.Color(m.glaze), clay = new THREE.Color(m.clay);
+  const pool = glaze.clone().multiplyScalar(0.6);
+  const tmp = new THREE.Color(), gz = new THREE.Color();
+  const p1 = hash(p.id) * 6.283, p2 = hash(p.id + "x") * 6.283;
+  for (let v = 0; v < pos.count; v++) {
+    const j = v % N, x = pos.getX(v), y = pos.getY(v), z = pos.getZ(v);
+    if (j < nOuter) {
+      const a = Math.atan2(z, x);
+      const line = m.drip + m.amp * (0.55 * Math.sin(3 * a + p1) + 0.3 * Math.sin(5 * a + p2) + 0.15 * Math.sin(11 * a + p1 * 2));
+      const g = smooth(line - 0.08, line + 0.08, y);
+      const poolT = 1 - smooth(line, line + 1.0, y);
+      gz.copy(glaze).lerp(pool, poolT * 0.75);
+      tmp.copy(clay).lerp(gz, g);
+    } else {
+      tmp.copy(glaze);
+    }
+    colors[v * 3] = tmp.r; colors[v * 3 + 1] = tmp.g; colors[v * 3 + 2] = tmp.b;
+  }
+  geo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+
+  const mat = new THREE.MeshPhysicalMaterial({
+    vertexColors: true, roughness: m.rough, metalness: 0, clearcoat: m.coat, clearcoatRoughness: 0.12,
+    envMapIntensity: 0.95, map: m.speckle ? getSpeckle() : null
+  });
+  const group = new THREE.Group();
+  const body = new THREE.Mesh(geo, mat); body.castShadow = true;
+  group.add(body);
+
+  let maxR = 0; for (const q of pts) maxR = Math.max(maxR, q.x);
+  if (m.handle) {
+    const h = m.handle;
+    const hg = new THREE.TorusGeometry(h.r, h.tube, 20, 56, Math.PI);
+    hg.rotateZ(-Math.PI / 2);
+    const hc = new Float32Array(hg.attributes.position.count * 3);
+    for (let i = 0; i < hg.attributes.position.count; i++) { hc[i * 3] = glaze.r; hc[i * 3 + 1] = glaze.g; hc[i * 3 + 2] = glaze.b; }
+    hg.setAttribute("color", new THREE.BufferAttribute(hc, 3));
+    const handle = new THREE.Mesh(hg, mat);
+    handle.position.set(h.x - 0.15, h.y, 0);
+    handle.scale.set(1, 1.08, 0.72);
+    handle.castShadow = true;
+    group.add(handle);
+    maxR = Math.max(maxR, h.x - 0.15 + h.r + h.tube);
+  }
+  const height = rim.y + r;
+  const s = 1 / Math.max(height, 2 * maxR);
+  group.scale.setScalar(s);
+  const baseRot = m.handle ? -0.55 : 0.4;
+  group.rotation.y = baseRot;
+  return { group, h: height * s, maxR: maxR * s, foot: outer[1].x * s, baseRot };
+}
+
+function buildScene(p, env) {
+  const scene = new THREE.Scene();
+  scene.environment = env;
+  const model = buildModel(p);
+  scene.add(model.group);
+
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(6, 6), new THREE.ShadowMaterial({ opacity: 0.2 }));
+  ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true;
+  scene.add(ground);
+
+  const blob = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: getBlob(), transparent: true, depthWrite: false }));
+  blob.rotation.x = -Math.PI / 2; blob.position.y = 0.002;
+  const bs = Math.max(0.2, model.foot * 2.8); blob.scale.set(bs, bs, 1);
+  scene.add(blob);
+
+  const sun = new THREE.DirectionalLight(0xffffff, 2.2);
+  sun.position.set(-1.4, 3.0, 2.0);
+  sun.castShadow = true;
+  sun.shadow.mapSize.set(1024, 1024);
+  Object.assign(sun.shadow.camera, { left: -1.2, right: 1.2, top: 1.2, bottom: -1.2, near: 0.5, far: 8 });
+  sun.shadow.bias = -0.0006;
+  scene.add(sun);
+  return { scene, model };
+}
+
+function makeRenderer(preserve) {
+  const r = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: preserve });
+  r.setClearColor(0x000000, 0);
+  r.outputColorSpace = THREE.SRGBColorSpace;
+  r.toneMapping = THREE.ACESFilmicToneMapping;
+  r.toneMappingExposure = 1.05;
+  r.shadowMap.enabled = true;
+  r.shadowMap.type = THREE.PCFSoftShadowMap;
+  return r;
+}
+function envFor(r) {
+  const pm = new THREE.PMREMGenerator(r);
+  const tex = pm.fromScene(new RoomEnvironment(r), 0.04).texture;
+  pm.dispose();
+  return tex;
+}
+
+// Encuadre independiente de la rotación: esfera centrada en el eje de giro.
+function frame(cam, model, elevDeg, pad) {
+  const c = new THREE.Vector3(0, model.h / 2, 0);
+  const R = Math.hypot(model.maxR, model.h / 2);
+  let fov = THREE.MathUtils.degToRad(cam.fov);
+  if (cam.aspect < 1) fov = 2 * Math.atan(Math.tan(fov / 2) * cam.aspect);
+  const d = (R / Math.sin(fov / 2)) * pad;
+  const el = THREE.MathUtils.degToRad(elevDeg);
+  cam.position.set(0, c.y + d * Math.sin(el), d * Math.cos(el));
+  cam.lookAt(c);
+  return { c, d, R };
+}
+
+let R1 = null, ENV1 = null;
+const CAM1 = new THREE.PerspectiveCamera(28, 1, 0.05, 50);
+const stillScenes = new Map();
+const photoCache = new Map();
+const spinCache = new Map();
+
+function stillScene(id) {
+  if (!stillScenes.has(id)) stillScenes.set(id, buildScene(byId(id), ENV1));
+  return stillScenes.get(id);
+}
+function still(id, size, elev, extraRot, pad) {
+  const S = stillScene(id);
+  S.model.group.rotation.y = S.model.baseRot + extraRot;
+  R1.setSize(size, size, false);
+  CAM1.aspect = 1; CAM1.updateProjectionMatrix();
+  frame(CAM1, S.model, elev, pad);
+  R1.render(S.scene, CAM1);
+  const url = R1.domElement.toDataURL("image/png");
+  S.model.group.rotation.y = S.model.baseRot;
+  return url;
+}
+
+let V = null;
+function ensureViewer() {
+  if (V) return V;
+  const renderer = makeRenderer(false);
+  const env = envFor(renderer);
+  const cam = new THREE.PerspectiveCamera(30, 1, 0.02, 50);
+  const controls = new OrbitControls(cam, renderer.domElement);
+  controls.enableDamping = true; controls.dampingFactor = 0.08;
+  controls.enablePan = false; controls.rotateSpeed = 0.8;
+  controls.minPolarAngle = 0.05; controls.maxPolarAngle = Math.PI * 0.52;
+  V = { renderer, env, cam, controls, scenes: new Map(), cur: null, raf: 0, ro: null, onInteract: null };
+  controls.addEventListener("start", () => { controls.autoRotate = false; if (V.onInteract) V.onInteract(); });
+  return V;
+}
+function unmountViewer() {
+  if (!V) return;
+  cancelAnimationFrame(V.raf); V.raf = 0;
+  if (V.ro) { V.ro.disconnect(); V.ro = null; }
+  V.renderer.domElement.remove();
+}
+function mountViewer(id, el, opts = {}) {
+  const v = ensureViewer();
+  unmountViewer();
+  el.appendChild(v.renderer.domElement);
+  let S = v.scenes.get(id);
+  if (!S) { S = buildScene(byId(id), v.env); v.scenes.set(id, S); }
+  v.cur = S; v.onInteract = opts.onInteract || null;
+  const fit = () => {
+    const w = el.clientWidth || 1, h = el.clientHeight || 1;
+    v.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    v.renderer.setSize(w, h, false);
+    v.cam.aspect = w / h; v.cam.updateProjectionMatrix();
+  };
+  fit();
+  v.ro = new ResizeObserver(fit); v.ro.observe(el);
+  const f = frame(v.cam, S.model, 16, 1.05);
+  v.controls.target.copy(f.c);
+  v.controls.minDistance = f.R * 1.2;
+  v.controls.maxDistance = f.d * 1.7;
+  v.controls.autoRotate = !!opts.autoRotate;
+  v.controls.autoRotateSpeed = 1.6;
+  v.controls.update();
+  const loop = () => { v.controls.update(); v.renderer.render(v.cur.scene, v.cam); v.raf = requestAnimationFrame(loop); };
+  loop();
+}
+
+const api = {
+  thumb: (id) => still(id, 560, 13, 0, 1.14),
+  photos(id) {
+    if (!photoCache.has(id)) photoCache.set(id, [still(id, 900, 12, 0, 1.12), still(id, 900, 52, 0.9, 1.08)]);
+    return photoCache.get(id);
+  },
+  spin(id, onProgress) {
+    if (spinCache.has(id)) { const c = spinCache.get(id); if (onProgress) onProgress(1); return c; }
+    const job = (async () => {
+      const frames = 24, size = 480, cols = 6;
+      const sprite = document.createElement("canvas");
+      sprite.width = size * cols; sprite.height = size * Math.ceil(frames / cols);
+      const g = sprite.getContext("2d");
+      const S = stillScene(id);
+      R1.setSize(size, size, false);
+      CAM1.aspect = 1; CAM1.updateProjectionMatrix();
+      for (let k = 0; k < frames; k++) {
+        S.model.group.rotation.y = S.model.baseRot + (k * Math.PI * 2) / frames;
+        frame(CAM1, S.model, 14, 1.12);
+        R1.setSize(size, size, false);
+        R1.render(S.scene, CAM1);
+        g.drawImage(R1.domElement, (k % cols) * size, Math.floor(k / cols) * size);
+        if (onProgress) onProgress((k + 1) / frames);
+        if (k % 4 === 3) await new Promise((r) => setTimeout(r, 0));
+      }
+      S.model.group.rotation.y = S.model.baseRot;
+      return { sprite, frames, size, cols };
+    })();
+    spinCache.set(id, job);
+    return job;
+  },
+  mountViewer,
+  unmountViewer
+};
+
+try {
+  R1 = makeRenderer(true);
+  R1.setPixelRatio(1);
+  ENV1 = envFor(R1);
+  window.BC3D = api;
+  window.dispatchEvent(new Event("bc3d-ready"));
+} catch (err) {
+  console.error(err);
+  window.dispatchEvent(new Event("bc3d-failed"));
+}
+</script>
