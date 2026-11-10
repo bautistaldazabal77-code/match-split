@@ -19,6 +19,16 @@ python3 -m venv .venv && .venv/bin/pip install piper-tts faster-whisper scipy so
 # voz provisoria: es_MX-ald-medium de rhasspy/piper-voices (Hugging Face)
 
 # 2. Voz + línea de tiempo con marcas por palabra
+# 2a. Voz clonada (la de nuestros videos anteriores), con Chatterbox Multilingual (MIT).
+#     Necesita Python 3.11 y torch CPU:
+#       uv venv -p python3.11 .venv-clon
+#       uv pip install --extra-index-url https://download.pytorch.org/whl/cpu "torch==2.6.0+cpu" "torchaudio==2.6.0+cpu" \
+#         chatterbox-tts==0.1.7 "setuptools<81" faster-whisper noisereduce scipy soundfile
+#     Muestra de referencia (no se versiona; sale de "¿Y si? Mar de Scotia - Parte 2", 57-69 s):
+.venv-clon/bin/python tools/limpiar_ref.py video_referencia.mp4 ref_narrador.wav 57 69
+ENGINE=chatterbox REF_AUDIO=ref_narrador.wav .venv-clon/bin/python tools/voz.py motel/guion.json motel/out
+#     Para regenerar sólo algunas líneas: SOLO=3,14 (mismo comando)
+# 2b. Voz sintética de respaldo (Piper)
 PIPER_BIN=.venv/bin/piper PIPER_VOICE=/ruta/es_MX-ald-medium.onnx .venv/bin/python tools/voz.py motel/guion.json motel/out
 
 # 3. Música, ambiente y efectos (sintetizados) + mezcla con la voz
@@ -31,9 +41,9 @@ node tools/render.mjs motel --stills 2.5,30,60
 node tools/render.mjs motel --out video.mp4
 ```
 
-Para cambiar la voz por una grabación propia o de otra herramienta: reemplazar
-`out/lineas/NN.wav` y `out/voz.wav` respetando la línea de tiempo, o adaptar
-`tools/voz.py` para que lea los audios en lugar de generarlos.
+Para usar una grabación propia o de otra herramienta: guardar cada línea como
+`out/lineas/NN.wav` y correr `tools/voz.py` con `SOLO=-1` (no regenera nada y
+rearma la línea de tiempo con esos audios).
 
 ## Estilo (referencias en `../contenido/referencias-y-ideas.md`)
 
