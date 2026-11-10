@@ -1,0 +1,169 @@
+{
+  "titulo": "Habitación 13",
+  "post": "Tu primera noche en un motel de carretera… ¿qué harías tú? 1 o 2 👇 #historia #decide #terror",
+  "notas": "Campos: say = texto para la voz (números en letras); cap = subtítulo, 'token|n' = el token ocupa n palabras de say; voz = narrador | telefono; escena = id de escena; pausa = silencio después (s).",
+  "lineas": [
+    {
+      "escena": "exterior",
+      "say": "Tu primera noche como recepcionista en un motel de carretera.",
+      "pausa": 0.35
+    },
+    {
+      "escena": "recepcion_dueno",
+      "say": "Antes de irse, el dueño te deja las llaves y una sola advertencia:",
+      "pausa": 0.3
+    },
+    {
+      "escena": "nota",
+      "say": "Si llaman de la trece, no contestes.",
+      "cap": "Si llaman de la 13, no contestes.",
+      "pausa": 0.5
+    },
+    {
+      "escena": "recepcion_sonrie",
+      "say": "Te parece una broma.",
+      "pausa": 0.2
+    },
+    {
+      "escena": "llaves",
+      "say": "Este motel no tiene habitación trece.",
+      "cap": "Este motel no tiene habitación 13.",
+      "pausa": 0.3
+    },
+    {
+      "escena": "pasillo_puertas",
+      "say": "En el segundo piso, las puertas pasan de la doce a la catorce.",
+      "cap": "En el segundo piso, las puertas pasan de la 12 a la 14.",
+      "pausa": 0.45
+    },
+    {
+      "escena": "exterior_lluvia",
+      "say": "Son las tres de la mañana. Llueve. El estacionamiento está vacío.",
+      "cap": "Son las 3 de la mañana. Llueve. El estacionamiento está vacío.",
+      "pausa": 0.35
+    },
+    {
+      "escena": "telefono",
+      "say": "Y el teléfono de recepción empieza a sonar.",
+      "pausa": 0.4,
+      "sfx": "ring"
+    },
+    {
+      "escena": "telefono_pantalla",
+      "say": "En la pantalla dice: habitación trece.",
+      "cap": "En la pantalla dice: habitación 13.",
+      "pausa": 0.35
+    },
+    {
+      "escena": "cara_miedo",
+      "say": "No contestas.",
+      "pausa": 0.25
+    },
+    {
+      "escena": "telefono_cuenta",
+      "say": "Suena una vez. Dos. Diez.",
+      "pausa": 0.3
+    },
+    {
+      "escena": "telefono_mudo",
+      "say": "Hasta que se corta.",
+      "pausa": 1.0
+    },
+    {
+      "escena": "libro",
+      "say": "Para calmarte, abres el libro de registro.",
+      "pausa": 0.25
+    },
+    {
+      "escena": "libro",
+      "say": "La última línea es de esta noche.",
+      "pausa": 0.25
+    },
+    {
+      "escena": "libro_linea",
+      "say": "Habitación trece. Hora de llegada: tres y siete.",
+      "cap": "Habitación 13. Hora de llegada: 3:07.|3",
+      "pausa": 0.45
+    },
+    {
+      "escena": "reloj_306",
+      "say": "Miras el reloj. Son las tres y seis.",
+      "cap": "Miras el reloj. Son las 3:06.|3",
+      "pausa": 0.45
+    },
+    {
+      "escena": "camara",
+      "say": "En la cámara del segundo piso, entre la doce y la catorce, hay una puerta que antes no estaba.",
+      "cap": "En la cámara del segundo piso, entre la 12 y la 14, hay una puerta que antes no estaba.",
+      "pausa": 0.3
+    },
+    {
+      "escena": "camara_zoom",
+      "say": "Con la luz encendida.",
+      "pausa": 0.6
+    },
+    {
+      "escena": "reloj_307",
+      "say": "Tres y siete.",
+      "cap": "3:07.|3",
+      "pausa": 0.3
+    },
+    {
+      "escena": "telefono",
+      "say": "El teléfono vuelve a sonar.",
+      "pausa": 0.4,
+      "sfx": "ring"
+    },
+    {
+      "escena": "contesta",
+      "say": "Y esta vez, contestas.",
+      "pausa": 0.5
+    },
+    {
+      "escena": "llamada",
+      "say": "Del otro lado, alguien respira despacio.",
+      "pausa": 0.5,
+      "sfx": "breath"
+    },
+    {
+      "escena": "llamada",
+      "say": "Y después habla. Con tu misma voz.",
+      "pausa": 0.6,
+      "sfx": "stinger"
+    },
+    {
+      "escena": "llamada_voz",
+      "say": "No llames a la policía. Sube.",
+      "voz": "telefono",
+      "pausa": 0.8
+    },
+    {
+      "escena": "camara_puerta",
+      "say": "En la cámara, la puerta de la trece se abre sola.",
+      "cap": "En la cámara, la puerta de la 13 se abre sola.",
+      "pausa": 0.5,
+      "sfx": "creak"
+    },
+    {
+      "escena": "decision",
+      "say": "Tienes dos opciones.",
+      "pausa": 0.2
+    },
+    {
+      "escena": "decision_1",
+      "say": "Subes a la trece.",
+      "cap": "Subes a la 13.",
+      "pausa": 0.2
+    },
+    {
+      "escena": "decision_2",
+      "say": "O llamas a la policía.",
+      "pausa": 0.35
+    },
+    {
+      "escena": "decision_final",
+      "say": "¿Qué harías tú?",
+      "pausa": 2.2
+    }
+  ]
+}

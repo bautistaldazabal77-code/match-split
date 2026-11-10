@@ -1,0 +1,9 @@
+{
+  "name": "videos",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@fontsource/caveat": "^5.1.0",
+    "three": "^0.170.0"
+  }
+}
