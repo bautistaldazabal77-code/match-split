@@ -64,3 +64,37 @@ Pendiente: verificar todo dato real antes de guionar.
 7. **El apagón del Día del Padre** (16/06/2019, datos reales): "Es domingo a la
    mañana y se corta la luz… en todo el país". Formato tipo "¿Por qué piden
    esto?": datos + teoría + "¿tenés una radio a pilas en casa?".
+
+## Ideas para toda América (español neutro)
+
+Reglas de adaptación: "tú" en vez de "vos", sin modismos locales ("celular" sí,
+"bondi/che/móvil" no), lugares que existen en todo el continente o ficticios,
+voz latinoamericana neutra. Opcional: misma pieza en inglés para EE. UU.
+
+### Terror en 2.ª persona con decisión final
+
+1. **El viaje en app**: el mapa marca una ruta que no existe y la app dice que el
+   viaje terminó hace 10 minutos. ¿Te bajas en plena carretera o sigues?
+2. **Gasolinera 24 h, turno de noche**: regla "si alguien paga con billetes
+   viejos, no le des el cambio". Llega alguien con billetes de 1987. ¿Le das el cambio?
+3. **Motel de carretera**: la habitación 13 no está en el registro, pero alguien
+   llama desde ahí a recepción. ¿Subes a revisar o llamas a la policía?
+4. **Oficina, horas extra**: el elevador marca el piso -4; el edificio tiene 2
+   sótanos. ¿Bajas o usas la escalera?
+5. **Autobús nocturno en la sierra**: con niebla, el chofer cuenta pasajeros y
+   hay uno de más. ¿Te quedas o bajas en la próxima parada?
+6. **Operador del 911, primera noche**: llama una niña desde una dirección que
+   fue demolida hace años. ¿Mandas la patrulla? (Ideal para interfaz en pantalla.)
+7. **Encerrado en el centro comercial**: a las 3 a. m. el altavoz dice "estimados
+   clientes, diríjanse a la salida"… y las persianas están cerradas.
+
+### Datos reales + "¿Y si…?" (verificar cifras antes de guionar)
+
+8. **¿Y si el Canal de Panamá se queda sin agua?** (sequía 2023–2024 que redujo
+   los cruces diarios).
+9. **¿Y si mañana llega una tormenta solar como la de 1859?** (evento Carrington:
+   telégrafos que echaban chispas).
+10. **¿Y si se apaga medio continente?** (apagón del 14/08/2003: unos 50 millones
+    de personas sin luz en EE. UU. y Canadá).
+11. **¿Y si el Popocatépetl entra en erupción de verdad?** (millones de personas
+    viven a menos de 100 km).
