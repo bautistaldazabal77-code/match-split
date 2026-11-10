@@ -10,7 +10,10 @@ Motores (variable ENGINE):
   piper       voz sintética de Piper (PIPER_BIN, PIPER_VOICE). PITCH y SPEED
               ajustan tono y velocidad.
 
-Otras variables: TEMPO (factor de velocidad final, default 1.0),
+Voces por línea ("voz"): narrador (clonada), telefono (clonada + filtro),
+altavoz (voz por defecto del modelo, o REF_ALTAVOZ, + eco de lugar grande).
+
+Otras variables: TEMPO (factor de velocidad del narrador, default 1.0),
 INTENTOS (default 3), SOLO (lista de índices de línea a regenerar, ej. "3,14").
 
 Salida: <dir_salida>/voz.wav (48 kHz mono), <dir_salida>/timeline.json y
@@ -35,9 +38,10 @@ INTENTOS = int(os.environ.get("INTENTOS", "3"))
 FX = {
     "narrador": "highpass=f=70,bass=g=2:f=120,acompressor=threshold=-18dB:ratio=3:attack=5:release=80,aecho=0.8:0.6:30:0.06",
     "telefono": "highpass=f=380,lowpass=f=3000,acrusher=bits=9:mix=0.25,acompressor=threshold=-20dB:ratio=4,volume=1.3",
+    "altavoz": "highpass=f=260,lowpass=f=5200,acompressor=threshold=-20dB:ratio=3,aecho=0.85:0.75:70|140|260:0.35|0.25|0.15,volume=1.2",
 }
 NUM = {"1": "uno", "2": "dos", "3": "tres", "6": "seis", "7": "siete", "10": "diez", "12": "doce",
-       "13": "trece", "14": "catorce", "11": "once", "15": "quince"}
+       "13": "trece", "14": "catorce", "11": "once", "15": "quince", "4": "cuatro"}
 
 
 class Piper:
@@ -64,20 +68,27 @@ class Chatterbox:
         torch.set_num_threads(os.cpu_count() or 4)
         self.torch = torch
         self.model = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
-        self.ref = os.environ["REF_AUDIO"]
+        self.conds = {"default": self.model.conds}
+        self.refs = {"narrador": os.environ["REF_AUDIO"], "telefono": os.environ["REF_AUDIO"],
+                     "altavoz": os.environ.get("REF_ALTAVOZ")}
 
     def raw(self, text, out, voz, seed):
         import torchaudio
+        ref = self.refs[voz]
+        key = ref or "default"
+        if key not in self.conds:
+            self.model.prepare_conditionals(ref, exaggeration=0.5)
+            self.conds[key] = self.model.conds
+        self.model.conds = self.conds[key]
         self.torch.manual_seed(1234 + seed)
-        wav = self.model.generate(text, language_id="es", audio_prompt_path=self.ref,
-                                  exaggeration=0.6 if voz == "telefono" else 0.5,
+        wav = self.model.generate(text, language_id="es", exaggeration=0.6 if voz == "telefono" else 0.5,
                                   cfg_weight=0.5, temperature=0.8)
         torchaudio.save(out, wav, self.model.sr)
         return f"aresample={SR}" + (",atempo=0.9" if voz == "telefono" else "")
 
 
 def post(raw, path, pre, voz):
-    tempo = f",atempo={TEMPO}" if TEMPO != 1.0 else ""
+    tempo = f",atempo={TEMPO}" if TEMPO != 1.0 and voz == "narrador" else ""
     af = f"{pre}{tempo},{FX[voz]}"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", raw, "-af", af, "-ac", "1", "-ar", str(SR),
                     "-sample_fmt", "s16", path], check=True)
